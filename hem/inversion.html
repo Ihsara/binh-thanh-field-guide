@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The boulevard sells; the hẻm lives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,900;1,400&family=Be+Vietnam+Pro:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hem.css?v=20260620g">
+</head>
+<body>
+<div id="hem-nav"></div>
+
+<main class="hem-wrap">
+  <p class="kicker">What lives at each depth</p>
+  <h1>The boulevard sells; the hẻm lives</h1>
+  <p class="lede">Sort every mapped amenity by the depth of the road it sits on, then ask what
+  kind it is. On the boulevard frontage the mix tilts commercial — shops, banks, the things
+  you sell to a passer-by. Turn into the hẻm and the share of <strong>public, communal
+  life</strong> — schools, clinics, places of worship — climbs.</p>
+
+  <svg id="inv-svg" role="img" aria-label="Share of amenity kinds by alley depth"></svg>
+
+  <div class="bucket-legend">
+    <span><i style="background:#e8a679"></i> FOOD — cafés, restaurants</span>
+    <span><i style="background:#cdbfa6"></i> PRIVATE — shops, services</span>
+    <span><i style="background:#c0552f"></i> PUBLIC — schools, clinics, worship</span>
+  </div>
+
+  <p id="inv-caveat" class="caveat"></p>
+
+  <section class="streets" aria-labelledby="streets-h">
+    <p class="kicker">And which streets drew the food?</p>
+    <h2 id="streets-h">The streets that filled with stalls</h2>
+    <p class="lede">The depth chart asks <em>how far in</em> the food lives. This one asks
+    <em>which streets</em>. Counting only the café-and-restaurant POIs OpenStreetMap has
+    pinned to each named road, here are the ten that carry the most today — with a tick
+    marking where each stood in 2015. The longer the run past its tick, the faster it filled.</p>
+
+    <svg id="streets-svg" role="img" aria-label="Top streets by mapped food POIs, 2025, with a 2015 marker"></svg>
+
+    <p class="streets-key"><span class="sk-bar"></span> food places mapped by 2025
+       &nbsp;·&nbsp; <span class="sk-tick"></span> where it stood in 2015</p>
+
+    <div id="streets-caveat" class="caveat caveat--blindspot"></div>
+  </section>
+</main>
+
+<script src="nav-hem.js?v=20261007fg"></script>
+<script src="inversion.js"></script>
+<script src="streets.js"></script>
+<script>renderHemNav("inversion.html");</script>
+</body>
+</html>

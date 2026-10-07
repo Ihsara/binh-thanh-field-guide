@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The rhythm of a hub day · Bình Thạnh Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Be+Vietnam+Pro:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="spine.css?v=20260622v0">
+  <link rel="stylesheet" href="hubs.css?v=20260620g">
+  <link rel="stylesheet" href="rhythm.css?v=20260620g">
+</head>
+<body data-page="rhythm">
+  <div id="site-nav"></div>
+  <main id="rhythm-main">
+    <header>
+      <span class="kicker">Field Guide · The Hubs</span>
+      <h2>The rhythm of a hub day</h2>
+      <p class="dek">When does each corner wake, eat, and go quiet? Each clock reads
+        morning / noon / evening — the wedge radius shows intensity (full = busiest),
+        colour shows the hub's character. The top dish is named below each clock.</p>
+      <p class="honesty-note">These clocks show an editor's read of when each corner feels busy — authored editorial intensity on a 0–2 scale, not a measured footfall or traffic count.</p>
+    </header>
+    <section id="rhythm-grid" class="rhythm-grid" aria-label="Day-clock for each hub"></section>
+    <p class="note">Timing is an authored editorial intensity on a 0–2 scale, based on the <code>time_of_day</code> field of each hub — not measured traffic or footfall.
+      Busiest dish = the most common named food type, excluding unclassified eateries.
+      <a class="how" href="https://ihsara.github.io/binh-thanh-story/method.html">Method →</a></p>
+  </main>
+  <footer><p class="note">Places: Overture Maps (CDLA-Permissive-2.0). Streets: OpenStreetMap.</p></footer>
+  <script src="vendor/d3.v7.min.js"></script>
+  <script src="nav.js?v=20261007fg"></script>
+  <script src="rhythm.js?v=20260620g"></script>
+</body>
+</html>

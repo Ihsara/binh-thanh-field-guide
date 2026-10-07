@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method — the hẻm-streets story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,900;1,400&family=Be+Vietnam+Pro:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hem.css?v=20260620g">
+</head>
+<body>
+<div id="hem-nav"></div>
+
+<main class="hem-wrap">
+  <p class="kicker">How this was made — and what it cannot say</p>
+  <h1>Method &amp; honesty</h1>
+
+  <p class="lede">This story reads <strong>address depth</strong> straight out of OpenStreetMap
+  street names for Quận Bình Thạnh. A road's depth is the number of slashes in its
+  <em>hẻm</em> path: a named boulevard is depth&nbsp;−1, <code>Hẻm 22 X</code> is depth&nbsp;0,
+  <code>Hẻm 22/5 X</code> is depth&nbsp;1, and so on. The parser reaches the deepest observed
+  fork at depth&nbsp;3.</p>
+
+  <p class="worked-example">Parser coverage: <b>100%</b> of the 2,268 hẻm names in the
+  district parse cleanly into a depth, a path, and a parent arterial.</p>
+
+  <h2 style="margin-top:2rem">Three things this data cannot tell you</h2>
+
+  <div class="caveat">
+    <strong>Deep hẻm is under-mapped.</strong> The further an alley sits from a boulevard,
+    the less likely OpenStreetMap has it — and the less likely its shops and clinics are
+    tagged. Every share and count here is a share <em>of what is mapped</em>, so the deepest
+    levels (d2, d3) rest on very few points. Read them as direction, not magnitude.
+  </div>
+
+  <div class="caveat">
+    <strong>OSM time is mapping time, not building time.</strong> When a year shows a jump in
+    alleys, that is when volunteers <em>drew</em> them, not when the city <em>built</em> them.
+    The 2019 surge is a mapping campaign filling in alleys that already existed — the hẻm did
+    not appear in 2019, the map did.
+  </div>
+
+  <div class="caveat">
+    <strong>The yearly snapshots see only node POIs.</strong> The play-button frames come from
+    per-year history snapshots that carry point (node) amenities only; a shop mapped as a
+    building footprint without a centre node will not appear. The present-day map is richer
+    than any single past frame.
+  </div>
+
+  <h2 style="margin-top:2rem">Sources</h2>
+  <p class="lede" style="max-width:62ch">
+    Marie Gibert-Flutre, <em>Les hẻm de Hồ Chí Minh-Ville</em> (2018) on the social life of the
+    alley; the dual-pattern reading of <em>From Saigon to Hồ Chí Minh City</em>; and
+    Dovey &amp; Truong-Young (2020) on tube-housing and the depth gradient from boulevard to
+    interior. Geometry and names: © OpenStreetMap contributors.
+  </p>
+</main>
+
+<script src="nav-hem.js?v=20261007fg"></script>
+<script>renderHemNav("method.html");</script>
+</body>
+</html>

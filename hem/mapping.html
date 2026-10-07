@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How OpenStreetMap learned Bình Thạnh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,900;1,400&family=Be+Vietnam+Pro:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hem.css?v=20260620g">
+</head>
+<body>
+<div id="hem-nav"></div>
+
+<main class="hem-wrap">
+  <p class="kicker">A map of the map</p>
+  <h1>How OpenStreetMap learned Bình Thạnh</h1>
+  <p class="lede">For years the district's alleys were nearly invisible to OpenStreetMap — a few
+  dozen named hẻm. Then, in 2019, a mapping campaign poured in: the count of named alleys
+  jumped from tens to nearly two thousand in a single year. This is not the city growing.
+  It is the map catching up to a city that was already there.</p>
+
+  <svg id="growth-svg" role="img" aria-label="Count of mapped hẻm per year, by depth tier"></svg>
+
+  <div class="bucket-legend">
+    <span><i style="background:#c0552f"></i> all hẻm</span>
+    <span><i style="background:#7c2d16"></i> ≥ d1 (forked)</span>
+    <span><i style="background:#3a160b"></i> ≥ d2 (deep)</span>
+  </div>
+
+  <p id="growth-caveat" class="caveat"></p>
+</main>
+
+<script src="nav-hem.js?v=20261007fg"></script>
+<script src="mapping.js"></script>
+<script>renderHemNav("mapping.html");</script>
+</body>
+</html>

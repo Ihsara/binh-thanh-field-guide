@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+  <!-- paper background -->
+  <rect width="120" height="120" fill="#f7f3ea"/>
+  <!-- bowl body -->
+  <path d="M16,70 Q60,106 104,70" fill="none" stroke="#1d1a16" stroke-width="2" stroke-linecap="round"/>
+  <line x1="16" y1="70" x2="16" y2="84" stroke="#1d1a16" stroke-width="2" stroke-linecap="round"/>
+  <line x1="104" y1="70" x2="104" y2="84" stroke="#1d1a16" stroke-width="2" stroke-linecap="round"/>
+  <path d="M16,84 Q60,112 104,84" fill="#e4ddcf" stroke="#1d1a16" stroke-width="1.5"/>
+  <!-- rim -->
+  <path d="M12,70 Q60,79 108,70" fill="none" stroke="#8a8175" stroke-width="1.2"/>
+  <!-- noodles (phở rice noodles — thin, wavy) -->
+  <path d="M26,74 Q36,70 46,75 Q54,79 62,74 Q70,70 78,75 Q86,79 94,74" fill="none" stroke="#c99a2e" stroke-width="1.8" stroke-linecap="round" opacity="0.9"/>
+  <path d="M28,80 Q40,76 52,81 Q62,85 72,79 Q80,75 92,80" fill="none" stroke="#c99a2e" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+  <!-- beef slice (thịt bò) -->
+  <path d="M52,74 Q60,68 68,74 Q64,78 56,78 Z" fill="#c0532a" opacity="0.65"/>
+  <!-- herb garnish (basil / bean sprouts suggestion) -->
+  <path d="M36,72 Q32,62 36,56" fill="none" stroke="#3e7a5e" stroke-width="1.5" stroke-linecap="round"/>
+  <ellipse cx="34" cy="54" rx="4" ry="3" fill="#3e7a5e" opacity="0.6" transform="rotate(-20,34,54)"/>
+  <path d="M86,71 Q90,61 86,55" fill="none" stroke="#3e7a5e" stroke-width="1.5" stroke-linecap="round"/>
+  <ellipse cx="88" cy="53" rx="4" ry="3" fill="#3e7a5e" opacity="0.6" transform="rotate(20,88,53)"/>
+  <!-- steam wisps -->
+  <path d="M46,66 C44,54 49,48 47,36" fill="none" stroke="#c0532a" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M60,62 C58,50 63,44 61,32" fill="none" stroke="#c0532a" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M74,66 C72,54 77,48 75,36" fill="none" stroke="#c0532a" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- chopsticks -->
+  <line x1="22" y1="58" x2="78" y2="54" stroke="#1d1a16" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22" y1="63" x2="78" y2="59" stroke="#1d1a16" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

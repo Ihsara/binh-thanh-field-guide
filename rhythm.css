@@ -1,0 +1,110 @@
+/* rhythm.css — radial day-clock small-multiple grid */
+/* Font tokens come from spine.css: var(--label), var(--body), var(--display) */
+
+.rhythm-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 560px) {
+  .rhythm-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.clock-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: .4rem;
+  border-radius: 10px;
+  transition: background .15s;
+  position: relative;
+}
+
+.clock-card:hover,
+.clock-card:focus-visible {
+  background: #f6f1e7;
+}
+
+/* Hub title inside SVG text element */
+.clock-title {
+  font: 600 12px/1 var(--label, "Be Vietnam Pro", system-ui, sans-serif);
+  fill: #e8ddd0;
+}
+
+/* Food caption below the SVG */
+.clock-meta {
+  font: 400 11px/1.4 var(--body, "Lora", Georgia, serif);
+  color: #6b5d49;
+  text-align: center;
+  margin-top: .3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover tooltip */
+.clock-tip {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 150px;
+  background: #2a1f14;
+  color: #e8ddd0;
+  border-radius: 8px;
+  padding: .6rem .75rem;
+  font: .78rem/1.45 var(--label, "Be Vietnam Pro", system-ui, sans-serif);
+  box-shadow: 0 4px 16px rgba(0,0,0,.45);
+  pointer-events: none;
+}
+
+.clock-tip b {
+  display: block;
+  font-size: .82rem;
+  font-family: var(--display, "Alegreya", Georgia, serif);
+  font-weight: 600;
+  margin-bottom: .35rem;
+  color: #f0e6d2;
+}
+
+.clock-tip span {
+  display: block;
+  color: #c8b89a;
+}
+
+.clock-tip-link {
+  display: block;
+  margin-top: .45rem;
+  color: #d4a86a;
+  text-decoration: none;
+  font-size: .75rem;
+}
+
+.clock-card:hover .clock-tip,
+.clock-card:focus-visible .clock-tip {
+  display: block;
+}
+
+/* Honesty note */
+.honesty-note {
+  font: italic .85rem/1.55 var(--body, "Lora", Georgia, serif);
+  color: #7a6a55;
+  border-left: 3px solid #d4a86a;
+  padding-left: .75rem;
+  margin: .75rem 0 1.25rem;
+  max-width: 56ch;
+}
+
+/* Responsive: on very narrow screens collapse tip to bottom */
+@media (max-width: 400px) {
+  .clock-tip {
+    left: 0;
+    transform: none;
+  }
+}

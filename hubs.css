@@ -1,0 +1,64 @@
+/* hubs.css — the atlas index, on the magazine's warm paper ground. */
+.atlas-map svg{width:100%;height:auto;background:#faf6ef;
+  border:1px solid var(--rule,#e4ddcf);border-radius:8px}
+.atlas-controls{display:flex;gap:.4rem;align-items:center;margin:1rem 0 .5rem}
+.atlas-controls button{border:1px solid var(--rule,#e4ddcf);background:#fff;
+  border-radius:.7rem;padding:.2rem .7rem;cursor:pointer;font:inherit}
+.atlas-controls button.active{background:#7a3f1d;color:#fff;border-color:#7a3f1d}
+.atlas-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:.8rem}
+.hub-card{display:block;text-decoration:none;color:inherit;
+  border:1px solid var(--rule,#e4ddcf);border-radius:10px;padding:.8rem;
+  background:#fff;transition:box-shadow .15s}
+.hub-card:hover{box-shadow:0 2px 12px rgba(122,63,29,.18)}
+.card-thumb{width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:.5rem;}
+.hub-card h3{margin:0 0 .3rem;font-size:1rem}
+.hub-stat{font-size:.8rem;opacity:.7;margin-bottom:.5rem}
+.hub-split{font-size:.75rem;opacity:.7;margin-top:.35rem}
+.mini-bar{display:flex;height:9px;border-radius:5px;overflow:hidden;margin:.25rem 0}
+.mini-bar span{display:block;height:100%}
+.atlas-foot{margin:1.5rem 0;font-size:.85rem;opacity:.7;font-style:italic}
+@media(max-width:520px){.atlas-cards{grid-template-columns:1fr 1fr}}
+.kpop{position:absolute;min-width:200px;max-width:240px;background:#fffdf8;
+  border:1px solid #d8cdb8;border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 28px rgba(40,30,10,.18);display:none;z-index:5}
+.kpop h3{margin:0 0 2px;font-family:var(--display);font-size:17px}
+.kpop .kmeta{margin:0 0 8px;color:#8a7d68;font-size:12px}
+.kpop .kbar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:6px 0 8px}
+.kpop .kbar span{display:block;height:100%}
+.kpop .krow{margin:2px 0;font-size:12px;color:#5a5040}
+.kpop .kgo{display:inline-block;margin-top:8px;background:#7a3f1d;color:#fff;
+  font-weight:600;font-size:12px;padding:7px 12px;border-radius:7px;text-decoration:none}
+.kpop .kx{position:absolute;top:6px;right:9px;color:#a89b86;cursor:pointer;font-size:16px}
+
+/* Territories <-> Relations view toggle */
+.atlas-views{display:flex;gap:.4rem;margin:.6rem 0}
+.vbtn{background:#fffdf8;border:1px solid #d8cdb8;border-radius:14px;
+  padding:5px 14px;font-size:13px;color:#5a5040;cursor:pointer}
+.vbtn.on{background:#7a3f1d;color:#fff;border-color:#7a3f1d}
+.relmap{width:100%;height:auto;background:#faf6ef;border:1px solid #e4ddcf;
+  border-radius:8px}
+
+/* Intent filter */
+#intent-filter{display:flex;gap:.5rem;margin:.75rem 0;flex-wrap:wrap}
+#intent-filter button{padding:.25rem .75rem;border:1.5px solid var(--accent,#b5532a);
+  border-radius:999px;background:#fff8f2;cursor:pointer;font-size:.8rem;
+  transition:background .15s}
+#intent-filter button.on{background:var(--accent,#b5532a);color:#fff}
+
+/* Type legend */
+#type-legend{display:flex;gap:.75rem;flex-wrap:wrap;margin:.5rem 0;
+  font-size:.8rem;align-items:center}
+.leg{display:inline-flex;align-items:center;gap:.3rem}
+.leg svg{vertical-align:middle}
+
+/* Hub glyph pins */
+.hub-pin{cursor:pointer;transition:opacity .25s}
+.hub-pin.dim{opacity:.2}
+
+/* Phase B: filter drives the hero territory layer */
+.kingdom{transition:opacity .25s}
+.kingdom.muted{opacity:.12}
+.kingdom.match .vis{stroke-width:2.4px;stroke-opacity:1}
+.filter-count{font-size:.8rem;color:var(--muted,#8a8175);align-self:center;
+  margin-left:.4rem;font-style:italic}

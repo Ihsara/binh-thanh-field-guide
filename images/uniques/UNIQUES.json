@@ -1,0 +1,55 @@
+{
+  "schema": "uniques-credits-v1",
+  "images": [
+    {
+      "status": "illustration",
+      "hub_id": "hub:0",
+      "unique_name": "Bánh Canh Chả Cá Song Như",
+      "file": "images/uniques/banh-canh-cha-ca.svg",
+      "subject": "Bánh canh chả cá — thick rice-flour noodle soup with fish-cake slices",
+      "license": "CC0-1.0",
+      "author": "binh-thanh-story (original)",
+      "retrieved": "2026-06-21"
+    },
+    {
+      "status": "illustration",
+      "hub_id": "hub:0",
+      "unique_name": "Phá Lấu Vịt Nước Dừa",
+      "file": "images/uniques/pha-lau-vit.svg",
+      "subject": "Phá lấu vịt nước dừa — duck offal stew in coconut-water broth, served in a deep bowl with chopsticks",
+      "license": "CC0-1.0",
+      "author": "binh-thanh-story (original)",
+      "retrieved": "2026-06-21"
+    },
+    {
+      "status": "illustration",
+      "hub_id": "hub:12",
+      "unique_name": "Phở Thái Hưng - Nguyễn Huy Lượng",
+      "file": "images/uniques/pho.svg",
+      "subject": "Phở — classic beef noodle soup bowl with herbs, beef slices, chopsticks and steam",
+      "license": "CC0-1.0",
+      "author": "binh-thanh-story (original)",
+      "retrieved": "2026-06-21"
+    },
+    {
+      "status": "illustration",
+      "hub_id": "hub:15",
+      "unique_name": "Bạch Tuộc Nướng 193",
+      "file": "images/uniques/bach-tuoc-nuong.svg",
+      "subject": "Bạch tuộc nướng — charcoal-grilled octopus on a skewer over a grill grate",
+      "license": "CC0-1.0",
+      "author": "binh-thanh-story (original)",
+      "retrieved": "2026-06-21"
+    },
+    {
+      "status": "illustration",
+      "hub_id": "hub:17",
+      "unique_name": "Quán ăn Chú Giàu - Bò Kho Gánh, Bún Riêu Cua Ốc",
+      "file": "images/uniques/bo-kho-bun-rieu.svg",
+      "subject": "Bò kho gánh + bún riêu cua ốc — steaming bowl with vermicelli, beef tendon and crab cake, gánh shoulder-pole motif above",
+      "license": "CC0-1.0",
+      "author": "binh-thanh-story (original)",
+      "retrieved": "2026-06-21"
+    }
+  ]
+}

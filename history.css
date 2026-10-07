@@ -1,0 +1,198 @@
+/* history.css — District history ribbon styles.
+   Tokens: var(--label) = Be Vietnam Pro · var(--body) = Lora · var(--display) = Alegreya
+   Palette: TYPE_COLOR locked in history.js (heritage/food/riverside/bridge/knot).
+   Never Fraunces, never Barlow. */
+
+/* ── Excluded-hub honesty note ───────────────────────────────────────── */
+.excluded-note {
+  margin: 1.5rem 0 .5rem;
+  padding: .75rem 1rem;
+  border-left: 3px solid #cdbfa6;
+  background: #fbf9f3;
+  border-radius: 0 6px 6px 0;
+  font-family: var(--body);
+  font-size: .92rem;
+  color: #5a5245;
+  line-height: 1.55;
+}
+
+/* ── Excluded-hub chip row (quiet links, not a wall paragraph) ───────── */
+.gap-note {
+  font: 400 .82rem/1.5 var(--body);
+  color: var(--muted);
+  margin: 1rem 0 .4rem;
+  max-width: 52ch;
+}
+.gap-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: 0 0 1rem;
+}
+.excluded-chip {
+  font: 500 .78rem/1 var(--label);
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: .3rem .6rem;
+  text-decoration: none;
+  background: var(--paper-2);
+  transition: border-color .12s, color .12s;
+}
+.excluded-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Ribbon scroll wrapper ───────────────────────────────────────────── */
+.ribbon-slot {
+  width: 100%;
+  margin-top: .5rem;
+}
+
+.ribbon-scroll {
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e4ddcf;
+  border-radius: 8px;
+  background: #fbf9f3;
+  padding: .5rem .25rem .25rem;
+}
+
+.ribbon-scroll svg {
+  display: block;
+}
+
+/* ── Lane labels (type names, right-aligned before axis) ─────────────── */
+.lane-label {
+  font-family: var(--label);
+  font-size: 10px;
+  font-weight: 600;
+  fill: #9c8a72;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ── Axis ticks ──────────────────────────────────────────────────────── */
+.axis-tick {
+  font-family: var(--label);
+  font-size: 10px;
+  fill: #8a8175;
+}
+
+/* ── Beat dots ───────────────────────────────────────────────────────── */
+.beat-circle {
+  cursor: pointer;
+  transition: r .12s;
+}
+a.beat:hover .beat-circle,
+a.beat:focus .beat-circle {
+  r: 9;
+  filter: brightness(1.12);
+}
+a.beat {
+  text-decoration: none;
+  outline: none;
+}
+
+/* ── Beat year labels ────────────────────────────────────────────────── */
+.beat-year {
+  font-family: var(--label);
+  font-size: 8px;
+  fill: #9c8a72;
+  pointer-events: none;
+}
+
+/* ── Undated rail ────────────────────────────────────────────────────── */
+.undated-rail-label {
+  font-family: var(--label);
+  font-size: 10px;
+  font-weight: 600;
+  fill: #8a8175;
+  letter-spacing: .04em;
+  font-style: italic;
+}
+
+.beat-circle-undated {
+  cursor: pointer;
+  transition: r .12s;
+}
+a.beat-und:hover .beat-circle-undated,
+a.beat-und:focus .beat-circle-undated {
+  r: 9;
+}
+a.beat-und {
+  text-decoration: none;
+  outline: none;
+}
+
+.beat-era-und {
+  font-family: var(--label);
+  font-size: 8px;
+  fill: #9c8a72;
+  pointer-events: none;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────────── */
+.ribbon-tip {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  max-width: 22rem;
+  background: #fff;
+  border: 1px solid #e2d8c4;
+  border-radius: 8px;
+  padding: .65rem .85rem;
+  font-family: var(--body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: #2b2b2b;
+  box-shadow: 0 6px 18px rgba(0,0,0,.09);
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity .1s;
+}
+.ribbon-tip b {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+}
+.ribbon-tip .tip-era {
+  color: #8a8175;
+  font-size: 12px;
+}
+.ribbon-tip .tip-fact {
+  display: block;
+  margin: .4rem 0 .35rem;
+  font-size: 12.5px;
+  color: #4a4439;
+  max-width: 36ch;
+}
+.ribbon-tip .tip-links {
+  display: flex;
+  gap: .75rem;
+  font-size: 12px;
+}
+.ribbon-tip a {
+  color: #c0532a;
+  text-decoration: none;
+}
+.ribbon-tip a:hover {
+  text-decoration: underline;
+}
+
+/* ── Stepper overrides: give the stage enough height for the ribbon ─── */
+#history-stepper .stage {
+  min-height: 380px;
+}
+
+/* ── Responsive: on narrow screens the SVG scrolls horizontally ──────── */
+@media (max-width: 600px) {
+  .ribbon-scroll {
+    border-radius: 4px;
+  }
+  #history-stepper .stage {
+    min-height: 320px;
+  }
+}

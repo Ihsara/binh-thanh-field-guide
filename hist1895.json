@@ -1,0 +1,86 @@
+{
+  "hub:17": {
+    "img": "hist1895/binh-loi.png",
+    "bbox": [
+      106.69843,
+      10.82668,
+      106.70543,
+      10.83368
+    ],
+    "rmse_m": 376,
+    "title": "Bình Lợi",
+    "note": "1895 ferry landing ('Appontement de Binh Loï') at the same crossing the bridge now spans (±400 m)."
+  },
+  "hub:15": {
+    "img": "hist1895/thanh-da.png",
+    "bbox": [
+      106.71472,
+      10.80363,
+      106.72172,
+      10.81063
+    ],
+    "rmse_m": 376,
+    "title": "Thanh Đa",
+    "note": "The Thanh Đa river loop is the softest 1895 anchor (±600 m); read it as the shape of the peninsula, not a precise line."
+  },
+  "hub:1": {
+    "img": "hist1895/hang-xanh.png",
+    "bbox": [
+      106.71264,
+      10.79808,
+      106.71964,
+      10.80508
+    ],
+    "rmse_m": 376,
+    "title": "Hàng Xanh",
+    "note": "The diagonal Gia Định spoke on the 1895 map runs toward here — approximate road direction only (±400 m)."
+  },
+  "hub:20": {
+    "img": "hist1895/cho-ba-chieu.png",
+    "bbox": [
+      106.69282,
+      10.79606,
+      106.69982,
+      10.80306
+    ],
+    "rmse_m": 376,
+    "title": "Chợ Bà Chiểu",
+    "note": "'Cho-Ba-Chieu' sits in the 1895 interior at district-center scale (±400 m), not block scale."
+  },
+  "hub:18": {
+    "img": "hist1895/lang-ong.png",
+    "bbox": [
+      106.69593,
+      10.79664,
+      106.70293,
+      10.80364
+    ],
+    "rmse_m": 376,
+    "title": "Lăng Ông",
+    "note": "The Lăng Ông / Bà Chiểu zone predates 1895; its general area matches, not a precise pin (±400 m)."
+  },
+  "hub:3": {
+    "img": "hist1895/thi-nghe.png",
+    "bbox": [
+      106.70749,
+      10.79757,
+      106.71449,
+      10.80457
+    ],
+    "rmse_m": 376,
+    "title": "Thị Nghè",
+    "note": "The Thị Nghè waterway axis is traceable on the 1895 map; the exact alignment has shifted with land-filling (±400 m)."
+  },
+  "hub:8": {
+    "img": "hist1895/cau-bong.png",
+    "bbox": [
+      106.70541,
+      10.78865,
+      106.71241,
+      10.79565
+    ],
+    "rmse_m": 376,
+    "title": "Cầu Bông",
+    "note": "CAVEAT: in 1895 this canal was a different channel ('Rạch Cầu Sơn'); the modern Nhiêu Lộc–Thị Nghè canal post-dates 20th-c. land-filling. The name survived, the waterway did not (±400 m)."
+  }
+}

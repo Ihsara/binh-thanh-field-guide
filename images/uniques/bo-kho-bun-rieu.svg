@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+  <!-- paper background -->
+  <rect width="120" height="120" fill="#f7f3ea"/>
+  <!-- gánh shoulder pole (diagonally across the top) -->
+  <line x1="10" y1="45" x2="110" y2="38" stroke="#1d1a16" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- left hanging cord + pot -->
+  <line x1="24" y1="45" x2="24" y2="55" stroke="#8a8175" stroke-width="1.2"/>
+  <ellipse cx="24" cy="62" rx="10" ry="7" fill="#e4ddcf" stroke="#1d1a16" stroke-width="1.5"/>
+  <path d="M14,59 Q24,66 34,59" fill="#c0532a" opacity="0.3"/>
+  <!-- right hanging cord + pot -->
+  <line x1="96" y1="39" x2="96" y2="50" stroke="#8a8175" stroke-width="1.2"/>
+  <ellipse cx="96" cy="57" rx="10" ry="7" fill="#e4ddcf" stroke="#1d1a16" stroke-width="1.5"/>
+  <path d="M86,54 Q96,61 106,54" fill="#3e7a5e" opacity="0.3"/>
+  <!-- main bowl (larger, center-lower) -->
+  <path d="M28,82 Q60,110 92,82" fill="none" stroke="#1d1a16" stroke-width="2" stroke-linecap="round"/>
+  <line x1="28" y1="82" x2="28" y2="95" stroke="#1d1a16" stroke-width="2" stroke-linecap="round"/>
+  <line x1="92" y1="82" x2="92" y2="95" stroke="#1d1a16" stroke-width="2" stroke-linecap="round"/>
+  <path d="M28,95 Q60,114 92,95" fill="#e4ddcf" stroke="#1d1a16" stroke-width="1.5"/>
+  <!-- rim -->
+  <path d="M24,82 Q60,90 96,82" fill="none" stroke="#8a8175" stroke-width="1.2"/>
+  <!-- broth surface (bò kho orange-red, bún riêu tomato) -->
+  <ellipse cx="60" cy="85" rx="26" ry="6" fill="#c0532a" opacity="0.15"/>
+  <!-- vermicelli noodles (bún — thin, wavy) -->
+  <path d="M36,86 Q44,82 52,87 Q58,91 66,86 Q72,82 80,86" fill="none" stroke="#c99a2e" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  <!-- crab cake (cua — rounded lump) -->
+  <ellipse cx="52" cy="85" rx="7" ry="5" fill="#c0532a" opacity="0.55"/>
+  <!-- beef tendon (bò kho — darker chunk) -->
+  <ellipse cx="70" cy="86" rx="6" ry="4" fill="#8a8175" opacity="0.55"/>
+  <!-- steam wisps -->
+  <path d="M46,78 C44,68 50,62 48,52" fill="none" stroke="#c0532a" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M60,74 C58,64 64,58 62,48" fill="none" stroke="#c0532a" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M74,78 C72,68 78,62 76,52" fill="none" stroke="#c0532a" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

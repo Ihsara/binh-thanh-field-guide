@@ -1,0 +1,150 @@
+{
+  "schema": "credits-v1",
+  "generated_note": "Phase E imagery ledger — filled in Task 3. Each entry is either credited (photo with license) or downgraded (illustration/data-art fallback).",
+  "images": [
+    {
+      "status": "credited",
+      "hub_id": "hub:17",
+      "file": "images/hubs/hub-15-binh-loi.jpg",
+      "subject": "The preserved 1902 Bình Lợi Railway Bridge iron spans over the Saigon River",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Binh_Loi_railway_bridge.png",
+      "author": "Cuong Tran",
+      "license": "PD",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:18",
+      "file": "images/hubs/hub-16-lang-ong.jpg",
+      "subject": "Mosaic dragon gate and incense smoke at the Lăng Ông Bà Chiểu shrine courtyard",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:C%E1%BB%95ng_ch%C3%ADnh_L%C4%83ng_%C3%94ng_B%C3%A0_Chi%E1%BB%83u.jpg",
+      "author": "Bùi Thụy Đào Nguyên",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:20",
+      "file": "images/hubs/hub-18-cho-ba-chieu.jpg",
+      "subject": "The market building and street-front activity at Chợ Bà Chiểu",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ch%E1%BB%A3_B%C3%A0_Chi%E1%BB%83u.jpg",
+      "author": "Bùi Thụy Đào Nguyên",
+      "license": "CC-BY-SA-3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:2",
+      "file": "images/hubs/hub-2-landmark81.jpg",
+      "subject": "Landmark 81 viewed from the Saigon River",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Landmark_81_view_from_Saigon_River.jpg",
+      "author": "Josemite",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-06-20",
+      "width": 761
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:0",
+      "file": "images/hubs/hub-0-van-thanh.jpg",
+      "subject": "The lake at Văn Thánh Tourist Village (Khu du lịch Văn Thánh), Bình Thạnh, with the city skyline across the water",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ho_Nuoc_khu_du_Lich_Van_Thanh,_Binh_Thanh,_Hcmvn_-_panoramio.jpg",
+      "author": "trungydang",
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:6",
+      "file": "images/hubs/hub-6-cau-sai-gon.jpg",
+      "subject": "Saigon Bridge (Cầu Sài Gòn) by day with Landmark 81 across the river",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:C%E1%BA%A7u_S%C3%A0i_Gon_v%C3%A0_Vincom_Landmark_81_(46643404414).jpg",
+      "author": "Sketyl none",
+      "license": "CC-BY-2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:8",
+      "file": "images/hubs/hub-8-cau-bong.jpg",
+      "subject": "Cầu Bông over the Nhiêu Lộc–Thị Nghè canal with tree-lined banks, Landmark 81 in the distance",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cau_Bong_TPHCM_2025.jpg",
+      "author": "DangTungDuong",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:11",
+      "file": "images/hubs/hub-19-cau-kieu.jpg",
+      "subject": "The Nhiêu Lộc–Thị Nghè canal and its green bank seen from Cầu Kiệu in late-afternoon light",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:C%E1%BA%A7u_Ki%E1%BB%87u-T%C3%A2n_%C4%90%E1%BB%8Bnh,_Qu%E1%BA%ADn_1,_TPHCM,_Vi%E1%BB%87t_Nam_-_panoramio.jpg",
+      "author": "trungydang",
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "retrieved": "2026-06-20",
+      "width": 1600
+    },
+    {
+      "status": "credited",
+      "hub_id": "hub:22",
+      "file": "images/hubs/hub-21-tan-cang-nam.jpg",
+      "subject": "Landmark 81 lit at night rising above the Vinhomes Central Park lawn",
+      "source": "wikimedia",
+      "source_url": "https://commons.wikimedia.org/wiki/File:C%C3%B4ng_vi%C3%AAn_Vinhomes_Central_Park,_B%C3%ACnh_Th%E1%BA%A1nh,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh_25-05-2024_14.jpg",
+      "author": "Xuanphuocle",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-06-20",
+      "width": 1200
+    },
+    {
+      "status": "downgraded",
+      "hub_id": "hub:3",
+      "subject": "Dawn fish market at Chợ Thị Nghè with canal reflections in the background",
+      "downgraded_to": "illustration",
+      "reason": "No clean-license image of the Chợ Thị Nghè wet/fish market found. Wikimedia Commons has no Chợ Thị Nghè market category (only the Thi Nghe Bridge category, which holds bridge/canal panoramios, not the market interior). Archive: the manhhai Flickr 'Cầu Thị Nghè và chợ Thị Nghè xưa' album is 1960s historical bridge/market photos, not a contemporary dawn fish market, and its per-photo license could not be verified (Flickr page returned 403). Flickr CC: no contemporary interior wet-market scene located. Interior/dawn atmospheric scene unrepresented under an allowed license.",
+      "checked": ["wikimedia", "archive", "flickr"],
+      "retrieved": "2026-06-20"
+    },
+    {
+      "status": "downgraded",
+      "hub_id": "hub:15",
+      "subject": "Evening seafood stalls on the Thanh Đa peninsula with the Saigon River",
+      "downgraded_to": "illustration",
+      "reason": "No clean-license image of evening seafood stalls on Thanh Đa found. Wikimedia Commons (Bình Quới Tourist Village + Saigon River categories) has riverside/village scenery but no seafood-stall scene. Archive (manhhai): no match for the stalls. Flickr CC: only generic Saigon River / Bình Quới shots, none showing the evening seafood-stall scene — not stretched to stand in for the specific atmospheric subject. Night-market atmospheric scene unrepresented under an allowed license.",
+      "checked": ["wikimedia", "archive", "flickr"],
+      "retrieved": "2026-06-20"
+    },
+    {
+      "status": "downgraded",
+      "hub_id": "hub:19",
+      "subject": "French colonial villa with ceiling-fan café terrace on a heritage lane in Đa Kao",
+      "downgraded_to": "illustration",
+      "reason": "No clean-license image of the specific colonial-villa café terrace in Đa Kao found. Wikimedia Commons has no Đa Kao colonial-villa-café file. Archive: no match. Flickr CC: only commercial/Instagram/All-Rights-Reserved café imagery (e.g. The Vintage Emporium), none under an allowed license. Specific interior/terrace atmospheric scene unrepresented under an allowed license.",
+      "checked": ["wikimedia", "archive", "flickr"],
+      "retrieved": "2026-06-20"
+    }
+  ]
+}

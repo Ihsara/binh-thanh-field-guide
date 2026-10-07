@@ -1,0 +1,32 @@
+{
+  "schema": "hub-subhubs-v1",
+  "hubs": {
+    "dinh-tien-hoang": [
+      {
+        "kind": "mall",
+        "name": "Asiana Plaza",
+        "lon": 106.69145,
+        "lat": 10.80322,
+        "note": "shopping & F&B center"
+      }
+    ],
+    "tan-cang": [
+      {
+        "kind": "mall",
+        "name": "Pearl Plaza",
+        "lon": 106.72175,
+        "lat": 10.79526,
+        "note": "riverside mall — cinema, dining (Saigon Pearl)"
+      }
+    ],
+    "no-trang-long": [
+      {
+        "kind": "mall",
+        "name": "Nơ Trang Long ngã năm",
+        "lon": 106.69505,
+        "lat": 10.8067,
+        "note": "five-way trade junction (Nơ Trang Long × Lê Quang Định × Phan Văn Trí)"
+      }
+    ]
+  }
+}

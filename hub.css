@@ -1,0 +1,366 @@
+/* hub.css — one hub's profile page. */
+
+/* hero slot (Phase E) */
+.hub-hero{margin:0 0 1rem;border-radius:10px;overflow:hidden;background:#f1eadc;}
+.hub-hero img{display:block;width:100%;height:auto;}
+.hub-credit{font-size:.72rem;color:#6a6052;padding:.35rem .6rem;background:#faf6ef;}
+.hub-credit a{color:#7a3f1d;}
+.hub-vignette,.hub-hero svg{display:block;width:100%;height:auto;background:#faf6ef;}
+@media(max-width:520px){.hub-credit{font-size:.68rem;}}
+
+.hub-map svg{width:100%;height:auto;background:#faf6ef;
+  border:1px solid var(--rule,#e4ddcf);border-radius:8px}
+.hub-bars h3,.hub-cats h3{font-size:1rem;margin:1.2rem 0 .4rem}
+.big-bar{display:flex;height:22px;border-radius:6px;overflow:hidden}
+.big-bar span{display:block;height:100%}
+.bar-key{display:flex;flex-wrap:wrap;gap:.8rem;font-size:.8rem;margin:.4rem 0 0}
+.bar-key i{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;
+  margin-right:.3rem;vertical-align:middle}
+.hub-cats ul{columns:2;list-style:none;padding:0}
+.hub-cats li{margin:.15rem 0}
+.tag{font-size:.65rem;border-radius:.6rem;padding:.05rem .45rem;margin-left:.4rem;color:#fff}
+.tag.chain{background:#7a3f1d}.tag.indep{background:#44608c}
+.hub-pager{display:flex;justify-content:space-between;margin:2rem 0 1rem}
+.hub-pager a{color:#7a3f1d;text-decoration:none}
+@media(max-width:520px){.hub-cats ul{columns:1}}
+.hub-map svg, .hub-map canvas{display:block;width:100%}
+.field-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.field-chips .fchip{display:inline-flex;align-items:center;gap:5px;
+  background:#fffdf8;border:1px solid #d8cdb8;border-radius:14px;
+  padding:4px 10px;font-size:12px;color:#5a5040;cursor:pointer}
+.field-chips .fchip i{width:9px;height:9px;border-radius:50%}
+.field-chips .fchip.off{opacity:.35}
+.field-chips .fchip.rare{font-size:.74rem;opacity:.7;padding:2px 7px}
+.field-chips .fchip.rare i{width:7px;height:7px}
+.why-line{font-size:1.02rem;line-height:1.5;color:#4a4030;margin:.6rem 0 .2rem;
+  border-left:3px solid var(--accent,#c0532a);padding-left:.7rem}
+.builtup{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+  font-size:.82rem;color:#5a5040;margin:.4rem 0 0}
+.bu-track{display:inline-block;width:120px;height:8px;border-radius:5px;
+  background:#e7dfce;overflow:hidden}
+.bu-fill{display:block;height:100%;background:#9c7a4a}
+.bu-label{font-weight:600;color:#4a4030}
+.bu-word{font-weight:600}.bu-note{color:#8a7f6a;font-size:.74rem}
+#generators{display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:baseline}
+.gen{font-size:.86rem;color:#4a4030}.gen.muted{color:#9a8f7a}
+.gen-cap{flex-basis:100%;margin:.2rem 0 0;font-size:.72rem;color:#8a7f6a}
+/* C1: fullscreen lightbox */
+.map-fs-toggle{position:absolute;top:8px;left:8px;z-index:2;background:#fffdf8;
+  border:1px solid #d8cdb8;border-radius:14px;padding:4px 10px;font-size:14px;
+  line-height:1;color:#5a5040;cursor:pointer}
+.map-fs-toggle:hover{border-color:var(--accent,#c0532a);color:var(--accent,#c0532a)}
+body.lightbox-open{overflow:hidden}
+.map-lightbox{position:fixed;inset:0;z-index:100;background:#101420;
+  display:flex;flex-direction:column;padding:2.5vmin;box-sizing:border-box}
+.map-lightbox[hidden]{display:none}
+.map-lightbox .lb-close{position:absolute;top:6px;right:8px;z-index:2;
+  min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;color:#ece7df;font-size:26px;cursor:pointer;line-height:1}
+.map-lightbox .lb-stage{flex:1;min-height:0;display:flex;gap:2vmin}
+.map-lightbox .lb-map{flex:1;min-width:0;position:relative;background:#faf6ef;border-radius:8px;
+  overflow:auto}
+.map-lightbox .lb-map svg{width:100%;height:auto;display:block}
+.map-lightbox .lb-ledger{width:min(320px,28vw);overflow:auto;color:#ece7df}
+@media(max-width:700px){.map-lightbox .lb-stage{flex-direction:column}
+  .map-lightbox .lb-map{flex:1 1 auto;min-height:55vh}
+  .map-lightbox .lb-ledger{width:auto;max-height:32vh;overflow:auto}}
+.hub-rel ul{list-style:none;padding:0}.hub-rel li{margin:.3rem 0;font-size:.9rem}
+.rel{display:inline-block;width:1.3em}.rel.compete{color:#c0453a}
+.rel.complement{color:#3e7a5e}.rel-note{color:#8a7f6a;font-size:.8rem}
+.hub-rel a{color:#7a3f1d;text-decoration:none}
+.muted{color:#9a8f7a}
+
+/* cuisine-lens additions */
+.specialty-key{font-size:.78rem;color:#7a6f5c;margin:4px 0 0}
+.specialty-key b{color:#b8860b}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip-row .chip-lbl{font-size:.78rem;color:#9c8a72;align-self:center}
+.lchip{font:inherit;font-size:.78rem;border:1px solid #cdbfa6;background:transparent;
+  color:#7a6f5c;border-radius:11px;padding:2px 9px;cursor:pointer}
+.lchip.on{background:#7a6f5c;color:#fff;border-color:#7a6f5c}
+.fchip.off{opacity:.32}
+#dot-tip{position:fixed;z-index:200;display:none;max-width:320px;
+  background:#23201c;color:#ece7df;border-radius:8px;padding:9px 11px;
+  font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+  box-shadow:0 6px 24px rgba(0,0,0,.28);pointer-events:none}
+#dot-tip .tip-name{font-family:var(--display);font-size:14px;color:#9cd1a0}
+#dot-tip .tip-sub{color:#9c948a;margin-bottom:5px}
+#dot-tip .tip-final{margin:4px 0}
+#dot-tip .tip-rule{color:#9c948a}
+#dot-tip .tip-lbl{color:#9c948a;display:inline-block;width:66px}
+#dot-tip .tip-tags{margin-top:2px}
+#dot-tip .tag-chip{display:inline-block;color:#fff;border-radius:9px;
+  padding:0 7px;margin:1px 2px}
+.hub-food .food-stat{display:inline-flex;align-items:center;gap:5px;
+  margin:3px 12px 3px 0;font-size:.9rem}
+.hub-food .food-stat i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.food-line{color:#7a6f5c;font-style:italic;margin-top:6px}
+
+/* field-guide sections */
+.fg-header{display:flex;gap:1rem;align-items:flex-start;margin:.5rem 0 1rem}
+.fg-glyph svg{width:clamp(44px,6vw,72px);height:auto;color:var(--accent)}
+.fg-badge{display:inline-block;margin-top:.3rem;padding:.15rem .6rem;border:1px solid currentColor;
+  border-radius:999px;font:600 .72rem/1 var(--body);text-transform:uppercase;letter-spacing:.05em}
+.fg-badge[data-type="heritage"]{color:#8a5a2b}.fg-badge[data-type="food"]{color:#b5532a}
+.fg-badge[data-type="riverside"]{color:#2f7d8a}.fg-badge[data-type="bridge"]{color:#6a6f3a}
+.fg-badge[data-type="knot"]{color:#7a6a6a}
+.fg-portrait{font:400 1.15rem/1.6 var(--display);max-width:46ch;margin:.5rem 0}
+.fg-expect{font:500 .95rem/1.5 var(--body);background:rgba(192,83,42,.08);
+  border-left:3px solid var(--accent);padding:.6rem .9rem;max-width:46ch;border-radius:0 6px 6px 0}
+.fg-timeofday{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0;align-items:flex-end}
+.fg-timeofday .tod-cap{flex-basis:100%;font:.78rem/1.4 var(--body);color:var(--muted);
+  margin-bottom:.2rem;display:flex;align-items:center;gap:.25rem;flex-wrap:wrap}
+.fg-timeofday .tod-swatch{display:inline-block;width:.65rem;height:.65rem;
+  border-radius:2px;vertical-align:middle}
+.fg-timeofday .tod{flex:1;text-align:center;font:600 .7rem/1 var(--body);padding:.5rem 0;border-radius:6px;
+  text-transform:uppercase;letter-spacing:.04em;color:#fff;
+  min-height:2rem;display:flex;align-items:center;justify-content:center}
+.fg-picks{display:flex;flex-wrap:wrap;gap:.7rem}
+.fg-pick{border:1px solid rgba(0,0,0,.12);border-radius:8px;padding:.6rem .8rem;min-width:9rem;background:var(--paper)}
+.fg-pick .intent{font:600 .68rem/1 var(--body);text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+.fg-pick .name{font:600 1rem/1.3 var(--display);display:block;margin:.2rem 0}
+.fg-pick .why{font:400 .82rem/1.4 var(--body);color:var(--muted)}
+.fg-footnote{font:italic 400 .82rem/1.4 var(--body);color:var(--muted);margin-top:.6rem}
+.fg-footnote:empty{display:none}
+.hub-data{margin-top:2rem;border-top:1px solid var(--rule);padding-top:1rem}
+.hub-data>summary{cursor:pointer;font:600 .9rem/1 var(--body);color:var(--muted);list-style:none}
+.hub-data>summary::before{content:"▸ ";}
+.hub-data[open]>summary::before{content:"▾ ";}
+
+/* Phase B: richness blocks above the analyst dashboard */
+.fg-unique,.fg-around,.fg-walk,.fg-cross{margin:1.4rem 0}
+.fg-unique h3,.fg-around h3,.fg-walk h3,.fg-cross h3{font-size:1.05rem;margin:0 0 .4rem}
+.fg-unique-line{font:400 1.05rem/1.55 var(--display);max-width:48ch;color:var(--ink)}
+.fg-unique-stat{font:600 .82rem/1.4 var(--body);color:var(--accent);margin:.3rem 0 0}
+.fg-anchors{list-style:none;padding:0;margin:.4rem 0}
+.fg-anchors .anchor{margin:.5rem 0;border-left:2px solid var(--accent);padding-left:.7rem}
+.fg-anchors .anchor b{display:block;font:600 1rem/1.3 var(--display)}
+.fg-anchors .anchor .what{display:block;font:500 .85rem/1.4 var(--body);color:#4a4030}
+.fg-anchors .anchor .why{display:block;font:400 .82rem/1.45 var(--body);color:var(--muted)}
+.fg-around-cats{columns:2;list-style:none;padding:0;margin:.4rem 0;font-size:.86rem}
+.fg-around-cats li{margin:.12rem 0}
+.fg-around-food{font-style:italic;color:var(--muted);margin:.3rem 0 0}
+@media(max-width:520px){.fg-around-cats{columns:1}}
+
+/* Phase B: walking-flow itinerary */
+.walk-shape{font:500 .8rem/1 var(--body);color:var(--muted);text-transform:none}
+.walk-premise{font:400 .95rem/1.5 var(--body);color:#4a4030;max-width:48ch;margin:.2rem 0 .6rem}
+.walk-list{list-style:none;padding:0;margin:.4rem 0;
+  border-left:2px dashed var(--rule);margin-left:.7rem}
+.walk-step{display:flex;gap:.7rem;align-items:flex-start;margin:.55rem 0;position:relative}
+.walk-n{flex:0 0 1.5rem;width:1.5rem;height:1.5rem;margin-left:-.75rem;
+  border-radius:50%;background:var(--accent);color:#fff;
+  font:700 .8rem/1.5rem var(--body);text-align:center}
+.walk-body{display:flex;flex-direction:column}
+.walk-stop{font:600 .96rem/1.3 var(--display);color:var(--ink)}
+.walk-intent{font:400 .84rem/1.45 var(--body);color:var(--muted);max-width:44ch}
+.walk-min{font:600 .72rem/1 var(--body);color:var(--accent);margin-top:.15rem}
+/* Phase B: why-come-here cross-hub draw */
+.fg-cross-line{font:400 1rem/1.55 var(--body);color:#4a4030;max-width:48ch;
+  background:rgba(192,83,42,.06);border-left:3px solid var(--accent);
+  padding:.7rem .9rem;border-radius:0 6px 6px 0}
+
+/* R3 Task 5: crown-jewel map — unique vignettes + cluster glyphs */
+.unique-vignettes .unique-vignette { pointer-events: all; }
+.anchor-legend text { font-size: 10px; }
+
+/* V1: illustrated map — Bình Lợi pilot */
+.map-caption{font:italic 400 .76rem/1.4 var(--body);color:var(--muted);margin:.4rem 0 0}
+.walk-route{pointer-events:none}
+.pick-pins g.pin-lit circle,.walk-stops g.pin-lit circle{stroke:#1d1a16;stroke-width:3}
+.fg-pick.spotlight{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft,rgba(192,83,42,.18))}
+.walk-step.spotlight .walk-stop{color:var(--accent)}
+.walk-step.spotlight .walk-n{box-shadow:0 0 0 2px var(--accent-soft,rgba(192,83,42,.3))}
+
+/* Phase Z: cross-link block back to the tourist viz */
+#fg-viz-links .fg-viz-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+#fg-viz-links a { color: var(--accent); font-weight: 600; text-decoration: none;
+  border-bottom: 1px dotted var(--accent); }
+
+/* R3 Task 2: 9-cell magazine grid (masthead / b1 b2 b3 / c1 c2 c3) */
+.hub-grid {
+  display: grid;
+  grid-template-areas:
+    "masthead masthead masthead"
+    "b1 b2 b3"
+    "c1 c2 c3";
+  grid-template-columns: 0.85fr 2fr 0.85fr;   /* map column dominates (~2/3) */
+  gap: 1.5rem 1.25rem;
+  margin: 0 0 2rem;
+}
+/* map cell becomes the page hero: base .hub-map svg (L11) already sets
+   width:100%;height:auto — that alone lets the SVG fill the b2 column while
+   keeping its true 720:460 viewBox aspect (D1: a min-height here forced the
+   SVG taller than 720:460, letterboxing its content centered while the
+   top-anchored <canvas> did not letterbox, so dots pointed at the wrong
+   streets — removed, not replaced). */
+.hub-grid-masthead { grid-area: masthead; }
+.hub-grid-b1       { grid-area: b1; }
+.hub-grid-b2       { grid-area: b2; }
+.hub-grid-b3       { grid-area: b3; }
+.hub-grid-c1       { grid-area: c1; }
+.hub-grid-c2       { grid-area: c2; }
+.hub-grid-c3       { grid-area: c3; }
+@media (max-width: 760px) {
+  .hub-grid {
+    display: block;
+  }
+  .hub-grid > * { margin-bottom: 1.25rem; }
+}
+
+/* R3 Task 6: B3 exploration cards — district-unique places + spotlight */
+.hub-cards-title {
+  font: 600 .82rem/1 var(--body);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--muted);
+  margin: 0 0 .75rem;
+}
+.hub-card {
+  border: 1px solid var(--rule, #e4ddcf);
+  border-radius: 8px;
+  padding: .65rem .8rem;
+  background: var(--paper, #fffdf8);
+  margin-bottom: .6rem;
+}
+.hub-card.spotlight {
+  border-color: var(--accent, #c0532a);
+  box-shadow: 0 0 0 2px rgba(192,83,42,.18);
+}
+.hub-card-name {
+  display: block;
+  font: 600 1rem/1.3 var(--display);
+  color: var(--ink, #1a1512);
+  margin-bottom: .15rem;
+}
+.hub-card-what {
+  display: block;
+  font: 500 .82rem/1.4 var(--body);
+  color: var(--accent, #c0532a);
+  margin-bottom: .25rem;
+}
+.hub-card-note {
+  font: 400 .85rem/1.5 var(--body);
+  color: #4a4030;
+  margin: .25rem 0;
+}
+.hub-card-caveat {
+  display: block;
+  font: italic 400 .75rem/1.4 var(--body);
+  color: var(--muted, #9a8f7a);
+  margin-top: .25rem;
+}
+.hub-card-vig {
+  float: right;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin: 0 0 .4rem .6rem;
+  border-radius: 4px;
+  background: #f1eadc;
+}
+.hub-cards-empty {
+  font: italic 400 .9rem/1.55 var(--body);
+  color: var(--muted, #9a8f7a);
+  border-left: 3px solid var(--rule, #e4ddcf);
+  padding: .5rem .8rem;
+  margin: .5rem 0;
+}
+.hub-cards-clear {
+  display: block;
+  width: 100%;
+  margin-top: .5rem;
+  padding: .35rem .6rem;
+  background: transparent;
+  border: 1px solid var(--rule, #e4ddcf);
+  border-radius: 6px;
+  font: 500 .8rem/1 var(--body);
+  color: var(--accent, #c0532a);
+  cursor: pointer;
+  text-align: center;
+}
+.hub-cards-clear:hover { background: var(--accent-soft, rgba(192,83,42,.06)); }
+/* cluster card */
+.cluster-card .hub-card-name { font-size: .92rem; }
+.hub-card-cluster-list {
+  list-style: none;
+  padding: 0;
+  margin: .35rem 0 0;
+}
+.hub-card-cluster-item {
+  font: 400 .85rem/1.5 var(--body);
+  color: #4a4030;
+  padding: .1rem 0;
+  border-bottom: 1px solid var(--rule, #e4ddcf);
+}
+.hub-card-cluster-item:last-child { border-bottom: none; }
+.hub-card-cluster-anon {
+  font: italic 400 .82rem/1.4 var(--body);
+  color: var(--muted, #9a8f7a);
+  padding: .15rem 0;
+}
+
+/* V1.5: hub-map ledger panel + icon interaction */
+#map-ledger{list-style:none;margin:0;padding:0;font:13px/1.5 var(--body,sans-serif)}
+#map-ledger li{padding:2px 4px;border-radius:4px;cursor:pointer}
+#map-ledger li:hover,#map-ledger li.lit{background:#f3e9d4}
+/* D7: lightbox ledger ground is dark (.lb-ledger color:#ece7df on an opaque
+   dark backdrop) — the cream li.lit above is unreadable there, so scope a
+   legible accent-tinted highlight to the lightbox context only. */
+.map-lightbox #map-ledger li:hover,.map-lightbox #map-ledger li.lit{
+  background:rgba(192,83,42,.28);color:#fff}
+.route-band{pointer-events:none}
+/* Legible hover/lit highlight that reads on cream (inline) AND dark (lightbox):
+   a dark ring + scale-up + soft cream halo on the icon, never a glyph recolor.
+   NB scale the INNER glyph (<use>) + halo, NOT the <g> — the group carries an
+   inline transform="translate(cx,cy)" attribute, and a CSS `transform` on the
+   group would OVERRIDE it (CSS wins over the presentation attr), teleporting the
+   icon to the top-left. Per-child fill-box scaling leaves the translate intact. */
+#lmap g[data-n].lit circle:first-of-type,
+.map-lightbox g[data-n].lit circle:first-of-type{
+  opacity:.55;stroke:#2A1F14;stroke-width:1.5;
+  filter:drop-shadow(0 0 3px rgba(250,246,239,.95))}
+
+#lmap g[data-icon].filtered-out{opacity:.18}
+
+/* D3: honest off-extent edge-mark — a ledger place real but off the drawn
+   frame gets a small chevron pinned to the border, pointing toward its true
+   off-frame direction, instead of being silently dropped. It reuses the
+   g[data-n].lit circle:first-of-type rule above (its first child is a
+   circle) so hover/lit highlight works for free; this block only styles the
+   chevron glyph + cursor. */
+.edge-mark{cursor:pointer}
+.edge-mark-chevron{opacity:.9}
+
+/* company-demotion tier (hub-demote.json): muted "trade & services" icons */
+#lmap g[data-n].demoted{opacity:.34;transform-box:fill-box;transform-origin:center;transform:scale(.72)}
+.trade-note{font-size:.78rem;color:var(--ink-soft,#6b5f4e);font-style:italic;margin:.4rem 0 0}
+
+/* C3: 1895 ghost overlay
+   D2: anchor to the SVG map box only (same width:100%/aspect as .hub-map svg,
+   L11), not the whole .hub-map section — the section also holds chips/
+   slider/note below the map, and the old inset:0/height:100% fill-stretch
+   rule stretched the image 1.6-2.24x over all of it and sepia-multiplied
+   the controls. With height:auto + aspect-ratio:720/460 + object-fit:contain
+   instead, the img's box is
+   exactly the SVG's box (both are width:100%, height derived from the same
+   720:460 ratio) so top/left/width/height coincide with the SVG's rendered
+   rect and the overlay never reaches the chips/ctl/note that follow it in
+   DOM flow. */
+.hist1895-img{position:absolute;left:0;top:0;width:100%;height:auto;
+  aspect-ratio:720/460;object-fit:contain;
+  opacity:0;pointer-events:none;z-index:2;border-radius:8px;
+  mix-blend-mode:multiply;transition:opacity .12s}
+.hub-map svg{position:relative;z-index:1}
+.hist1895-ctl{display:flex;align-items:center;gap:.5rem;margin:.5rem 0 0;
+  font:.78rem/1.4 var(--body);color:var(--muted)}
+.hist1895-ctl input[type=range]{flex:0 0 140px}
+.hist1895-ctl .pm{color:var(--accent);font-weight:600}
+.hist1895-note{font:.82rem/1.5 var(--body);color:#4a4030;margin:.4rem 0 0}
+.hist1895-note summary{cursor:pointer;color:var(--accent);font-weight:600}
+
+/* Task 4: sub-hubs toggle + curated mall markers */
+#subhub-toggle{font-size:.8rem;padding:3px 10px;border:1px solid var(--ink-soft,#b9ad97);border-radius:14px;background:#fff;cursor:pointer}
+#subhub-toggle.on{background:var(--accent,#c0532a);color:#fff;border-color:transparent}
+.subhub-mall rect{fill:#fff;stroke:var(--ink,#2a1f14);stroke-width:1.6}
+.subhub-mall text{font-size:11px;font-weight:600}

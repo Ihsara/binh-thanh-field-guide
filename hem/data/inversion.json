@@ -1,0 +1,50 @@
+{
+  "buckets": [
+    "FOOD",
+    "PRIVATE",
+    "PUBLIC"
+  ],
+  "rows": [
+    {
+      "depth": -1,
+      "label": "arterial frontage",
+      "n": 278,
+      "FOOD": 0.3129496402877698,
+      "PRIVATE": 0.5971223021582733,
+      "PUBLIC": 0.08992805755395683
+    },
+    {
+      "depth": 0,
+      "label": "hẻm d0",
+      "n": 108,
+      "FOOD": 0.26851851851851855,
+      "PRIVATE": 0.6018518518518519,
+      "PUBLIC": 0.12962962962962962
+    },
+    {
+      "depth": 1,
+      "label": "hẻm d1",
+      "n": 15,
+      "FOOD": 0.26666666666666666,
+      "PRIVATE": 0.5333333333333333,
+      "PUBLIC": 0.2
+    },
+    {
+      "depth": 2,
+      "label": "hẻm d2",
+      "n": 3,
+      "FOOD": 0.3333333333333333,
+      "PRIVATE": 0.6666666666666666,
+      "PUBLIC": 0.0
+    },
+    {
+      "depth": 3,
+      "label": "hẻm d3",
+      "n": 0,
+      "FOOD": 0.0,
+      "PRIVATE": 0.0,
+      "PUBLIC": 0.0
+    }
+  ],
+  "caveat": "Shares of mapped POIs only; deep hẻm is under-mapped."
+}
