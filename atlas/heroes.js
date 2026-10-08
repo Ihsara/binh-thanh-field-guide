@@ -90,12 +90,13 @@
       .selectAll("circle").data(other.points).join("circle")
       .attr("cx", (p) => xy(p)[0].toFixed(1)).attr("cy", (p) => xy(p)[1].toFixed(1)).attr("r", 1 * grow);
 
-    // multiply sits on each circle (not the <g>), so overlapping cafés darken each other
+    // plain alpha, not multiply: overlapping cafés deepen toward the full chapter
+    // hue and stop there. Multiply kept darkening every stack, and on a phone the
+    // busiest streets went near-black (critique 2026-10-08).
     const r = 1.4 * grow;
     map.append("g").attr("class", "dots-coffee")
-      .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.8)  // stacks darken, but stay coloured, not black
+      .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.6)
       .selectAll("circle").data(coffee.points).join("circle")
-      .style("mix-blend-mode", "multiply")
       .attr("cx", (p) => xy(p)[0].toFixed(1)).attr("cy", (p) => xy(p)[1].toFixed(1)).attr("r", r);
 
     map.select("g.base-labels").raise();
@@ -124,6 +125,28 @@
   }
 
   /* ---- compare: two small maps on ONE projection, one label each ---- */
+
+  /** Per 2-px column, the lowest (bottom) and highest (top) y of the district
+      outline drawn by proj: the shape's silhouette, used to stagger two panels. */
+  function silhouette(base, proj, w) {
+    const cols = Math.ceil(w / 2) + 1;
+    const lo = new Array(cols).fill(-Infinity), hi = new Array(cols).fill(Infinity);
+    const polys = base.outline.type === "Polygon" ? [base.outline.coordinates] : base.outline.coordinates;
+    polys.forEach((poly) => poly.forEach((ring) => {
+      for (let i = 1; i < ring.length; i++) {
+        const a = proj(ring[i - 1]), b = proj(ring[i]);
+        const steps = Math.max(1, Math.ceil(Math.abs(b[0] - a[0]) / 2));
+        for (let k = 0; k <= steps; k++) {
+          const x = a[0] + (b[0] - a[0]) * k / steps, y = a[1] + (b[1] - a[1]) * k / steps;
+          const c = Math.max(0, Math.min(cols - 1, Math.round(x / 2)));
+          if (y > lo[c]) lo[c] = y;
+          if (y < hi[c]) hi[c] = y;
+        }
+      }
+    }));
+    return { lo, hi };
+  }
+
   A.heroes.compare = function (fig, data, base) {
     const { svg, w, h, compact } = A.frame(fig);
     const sets = [data.left, data.right];
@@ -136,12 +159,45 @@
     const band = (compact ? 44 : 64) + 30;         // locator + scale under the maps
     const keyH = compact ? 34 : 46;
     const inset = stacked ? 0 : 16;                 // keeps the Bình Quới lobe off the right edge
-    const pw = stacked ? w : Math.floor((w - gap - inset) / 2);
+    let pw = stacked ? w : Math.floor((w - gap - inset) / 2);
     const room = stacked ? (h - keyH - band - gap) / 2 - titleH : h - keyH - band - titleH;
-    const ph = Math.max(80, Math.floor(Math.min((pw - 16) * ratio + 16, room)));
-    const blockH = stacked ? 2 * (titleH + ph) + gap + band : titleH + ph + band;
+    let ph = Math.max(80, Math.floor(Math.min((pw - 16) * ratio + 16, room)));
+    let blockH = stacked ? 2 * (titleH + ph) + gap + band : titleH + ph + band;
     // top-aligned on a spread (the furniture follows the maps); centred in a phone's tall frame
     const y0 = stacked ? Math.max(0, Math.floor((h - keyH - blockH) / 2)) : 4;
+    let at = (i) => (stacked ? [0, i * (titleH + ph + gap)] : [i * (pw + gap), 0]);
+
+    // On a spread, side-by-side panels are bound by the width and leave the
+    // hero's lower half empty. The district's lobe leaves each panel's lower
+    // right empty too, so stagger them on the diagonal and grow both until the
+    // outlines come within `clear` px (2026-10-08 critique: the panels ranked
+    // third for a cold reader).
+    let staggered = false;
+    const loc = 64;
+    if (!stacked) {
+      const avail = h - y0 - keyH - 6, clear = 14, titleW = 230;
+      for (let P = Math.floor((w - inset) * 0.8); P > pw; P -= 8) {
+        const H = Math.floor((P - 16) * ratio + 16);
+        const sil = silhouette(base, A.projection(base.bounds, P, H), P);
+        const dx = w - inset - P;
+        let dy = 0;
+        for (let c = 0; c < sil.hi.length; c++) {   // right panel column c sits at left column c + dx/2
+          const top = c * 2 < titleW ? -titleH : sil.hi[c];   // its title is part of its silhouette
+          if (!isFinite(top)) continue;
+          const lc = Math.round(c + dx / 2), m = Math.ceil(clear / 2);
+          for (let j = lc - m; j <= lc + m; j++) {
+            if (j >= 0 && j < sil.lo.length && isFinite(sil.lo[j])) dy = Math.max(dy, sil.lo[j] - top + clear);
+          }
+        }
+        const fitsRight = dy + titleH + H <= avail;
+        const fitsFurniture = titleH + H + loc + 24 <= avail;   // locator + scale under the first panel
+        if (fitsRight && fitsFurniture) {
+          pw = P; ph = H; blockH = avail; staggered = true;
+          at = (i) => (i === 0 ? [0, 0] : [dx, Math.ceil(dy)]);
+          break;
+        }
+      }
+    }
 
     // ONE projection, reused by both panels, so a block is the same size on each
     const proj = A.projection(base.bounds, pw, ph);
@@ -152,8 +208,7 @@
     const blk = svg.append("g").attr("class", "compare").attr("transform", `translate(0,${y0 + keyH})`);
 
     sets.forEach((set, i) => {
-      const x = stacked ? 0 : i * (pw + gap);
-      const y = stacked ? i * (titleH + ph + gap) : 0;
+      const [x, y] = at(i);
       const panel = blk.append("g").attr("class", "panel").attr("transform", `translate(${x},${y})`);
       const t = panel.append("text").attr("class", "panel-title").attr("x", 10).attr("y", 17);
       t.append("tspan").text(`Labelled “${name(set)}”`);
@@ -161,13 +216,18 @@
       const m = panel.append("g").attr("transform", `translate(0,${titleH})`);
       A.drawBase(m, base, proj);
       m.append("g").attr("class", "dots-subject")
-        .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.8)
+        .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.6)   // alpha, as on map 1
         .selectAll("circle").data(set.points).join("circle")
-        .style("mix-blend-mode", "multiply")
         .attr("cx", (p) => proj(p)[0].toFixed(1)).attr("cy", (p) => proj(p)[1].toFixed(1)).attr("r", r);
       m.select("g.base-labels").raise();
     });
-    A.furniture(blk, base, proj, w - inset, blockH, { northY: 12 });
+    if (staggered) {                               // the free corner is bottom left, under the first panel
+      A.locator(blk, base, 16, blockH - loc - 18, loc);   // its caption sits 11 px under the box
+      A.scaleBar(blk, proj, 16 + loc + 22, blockH - 22);
+      A.north(blk, w - inset - 22, 12);
+    } else {
+      A.furniture(blk, base, proj, w - inset, blockH, { northY: 12 });
+    }
   };
 
   /* ---- glyphs: one dish glyph per ward, area ∝ places serving it ---- */
@@ -264,7 +324,16 @@
   /* ---- zoom: one hub's box, fitted to the frame, with the box marked on the locator ---- */
   A.heroes.zoom = function (fig, data, base) {
     const { svg, map, w, mh, top, compact } = A.frame(fig);
-    const proj = A.projection(data.bbox, w, mh);
+    // Keep the furniture off the dashed box (2026-10-08 critique: the locator sat
+    // on it on a phone, the scale bar on its edge on a spread). On a spread the
+    // key gets a band above the box; then the box moves to the left edge and
+    // the locator and scale bar take the column beside it.
+    const keyPad = compact ? 0 : 74, loc = compact ? 44 : 64;
+    const proj = A.projection(data.bbox, w, mh - keyPad);
+    const c0 = proj([data.bbox[0], data.bbox[3]]), c1 = proj([data.bbox[2], data.bbox[1]]);
+    const side = w - (c1[0] - c0[0]) - 12 >= loc + 34;   // room for a furniture column
+    const t0 = proj.translate();
+    proj.translate([t0[0] + (side ? 12 - c0[0] : 0), t0[1] + keyPad]);
     const grow = Math.max(1, Math.min(1.6, w / 600));
     const layer = (key) => (data.layers.find((l) => l.key === key) || { points: [] });
     const jp = layer("japanese"), coffee = layer("coffee");
@@ -325,7 +394,16 @@
     zn.forEach((line, i) => svg.append("text").attr("class", "key-label key-note")
       .attr("x", compact ? Math.round(w * 0.4) : 14).attr("y", (compact ? 12 : 22 + 2 * 18 + 4) + i * 18)
       .attr("dy", "0.35em").text(line));
-    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26, mark: data.bbox, metres: 100 });
+    if (side) {
+      const colX = Math.round(proj([data.bbox[2], data.bbox[1]])[0]) + 18;
+      A.locator(map, base, colX, mh - loc - 24, loc, data.bbox);
+      const sb = A.scaleBar(map, proj, colX, mh - loc - 40, 100);
+      const sw = sb.node().getBBox().width;        // a phone's column is narrow: keep "100 m" inside the frame
+      if (colX + sw > w - 6) sb.attr("transform", `translate(${(w - 6 - sw).toFixed(1)},${mh - loc - 40})`);
+      A.north(svg, w - 22, compact ? 18 : 26);
+    } else {
+      A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26, mark: data.bbox, metres: 100 });
+    }
   };
 
   /* ---- territories: every street coloured by how far the nearest chain is ---- */
@@ -372,8 +450,8 @@
   };
 
   /* ---- units: no map — one square per café, two blocks that wrap to the width.
-     The free map has no café points worth drawing, so this page counts instead;
-     the locator still says where. ---- */
+     The free map has no café points worth drawing, so this page counts instead.
+     No locator: it says where a map is, and this page has no map (user, 2026-10-08). ---- */
   A.heroes.units = function (fig, data, base) {
     const { svg, w, h, compact } = A.frame(fig);
     const sets = data.units;
@@ -381,12 +459,10 @@
     const fills = ["var(--chapter-hue)", "var(--ink-soft)"];
     const opac = [1, 0.55];
 
-    const size = compact ? 44 : 64;
-    A.locator(svg, base, w - size - 22, 12, size);
     A.key(svg, [{ label: "One square is one listing", fill: "var(--chapter-hue)", square: 8 }], 14, compact ? 18 : 26);
 
     const pad = 14, titleH = compact ? 24 : 30, gapB = compact ? 14 : 22;
-    const y0 = 12 + size + 26;
+    const y0 = compact ? 40 : 52;
     const room = h - y0 - 14 - sets.length * titleH - (sets.length - 1) * gapB;
     const usable = w - 2 * pad;
     let cell = 2;

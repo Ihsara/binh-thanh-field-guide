@@ -7,7 +7,7 @@
    U+2190–2193 from Alegreya ahead of it in every stack — no system fallback. */
 @font-face { font-family: "Atlas Arrows"; font-weight: 400 700; font-style: normal; font-display: swap;
   unicode-range: U+2190-2193;
-  size-adjust: 135%;  /* Alegreya's arrows are small beside Be Vietnam Pro caps */
+  size-adjust: 110%;  /* 135% drew the arrow 2.0x the caps' height wide; 110% = 1.64x (measured 2026-10-08) */
   src: url("fonts/alegreya-400.woff2") format("woff2"); }
 @font-face { font-family: "Be Vietnam Pro"; font-weight: 600; font-style: normal; font-display: swap;
   src: url("fonts/bevietnampro-600.woff2") format("woff2"); }
@@ -91,6 +91,8 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   border: 1px solid var(--rule); border-radius: 50%;
 }
 .turn .prev:hover, .turn .next:hover { border-color: var(--chapter-hue); }
+/* the "see" pointer is an inline link: padding grows its tap area, not the line */
+.body .see { padding-block: 0.6em; }
 
 /* ---------------- the spread ---------------- */
 .spread {
@@ -205,13 +207,21 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 
 /* ---------------- phone: one column, in reading order ---------------- */
 @media (max-width: 899.98px) {
-  :root { --head-h: 4.1rem; }
-  .running-head { gap: 0.1rem 0.6rem; padding-top: 0.35rem; padding-bottom: 0.35rem;
+  :root { --head-h: 4.6rem; }
+  .running-head { gap: 0 0.6rem; padding-top: 0.1rem; padding-bottom: 0.1rem;
                   font-size: 0.62rem; letter-spacing: 0.08em; }
   .atlas-mark { flex: 1 1 100%; }
   .chapter::before { content: none; }
-  .turn { gap: 0.5rem; }
-  .turn .prev, .turn .next { min-width: 1.75rem; min-height: 1.75rem; font-size: 1rem; }
+  .turn { gap: 0.25rem; }
+  /* phone tap targets are 44 px (WCAG 2.5.5); the drawn circle stays 28 px */
+  .turn .prev, .turn .next { min-width: 2.75rem; min-height: 2.75rem; font-size: 1rem;
+                             border: 0; position: relative; }
+  .turn .prev::before, .turn .next::before {
+    content: ""; position: absolute; inset: 0.5rem; border: 1px solid var(--rule); border-radius: 50%;
+  }
+  .turn .prev:hover::before, .turn .next:hover::before { border-color: var(--chapter-hue); }
+  .turn .contents-link { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 0.35rem; }
+  .atlas-mark { padding-block: 0.3rem; }
 
   .spread { grid-template-columns: minmax(0, 1fr); min-height: 0; }
   .words { display: contents; }          /* lets the hero slot between deck and number */
