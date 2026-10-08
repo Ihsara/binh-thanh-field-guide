@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How we know — Bình Thạnh, an atlas for curious visitors</title>
-<link rel="stylesheet" href="../atlas/atlas.css?v=20261008atlas3">
+<link rel="stylesheet" href="../atlas/atlas.css?v=20261008atlas8">
 </head>
 <body class="front appendix">
 <header class="running-head">
@@ -17,8 +17,11 @@
 <main class="front-page">
   <h1 class="title">How we know</h1>
   <div class="prose">
-<p>This atlas reads frozen extracts, never a live map. Each page uses one release of its data and never mixes two, except What the Map Can't See, whose subject is the gap between two sources: it sets the volunteer map's latest year against one commercial download. Every number you see is computed from a file in this repository, and the table for each map below names that file, the release it comes from and how the number was counted.</p>
-<p>Two sources feed the maps. Overture Maps is a commercial-grade open dataset that merges several providers into one list of places, with a category for each. OpenStreetMap is a map drawn by volunteers: streets, wards, rivers and the buildings between them. Neither is a census, and both miss the stall that has no sign. The last map in the atlas says what that costs. Place data: Overture Maps Foundation, CDLA-Permissive-2.0. Streets and boundaries: © OpenStreetMap contributors, ODbL.</p>
+<p>This atlas reads frozen extracts, never a live map. Each page uses one release of its data and never mixes two, with three exceptions. What the Map Can't See sets the volunteer map's latest year against one commercial download, because the gap between them is its subject. Before the Towers and The Open Peninsula set the old military sheet beside dates from our history ledger. Every number you see is computed from a file in this repository, and the table for each map below names that file, the release it comes from and how the number was counted.</p>
+<p>Two sources feed the maps of the first chapter. Overture Maps is a commercial-grade open dataset that merges several providers into one list of places, with a category for each. OpenStreetMap is a map drawn by volunteers: streets, wards, rivers and the buildings between them. Neither is a census, and both miss the stall that has no sign. The last map of that chapter says what that costs. Place data: Overture Maps Foundation, CDLA-Permissive-2.0. Streets and boundaries: © OpenStreetMap contributors, ODbL.</p>
+<p><strong class="run-in">What It Used to Be.</strong> The second chapter sets old maps under today's streets. Its main map is the <span class="fact" data-fact="sheet1984_year">1984</span> topographic sheet of the US Defense Mapping Agency, a US federal work in the public domain; the scan is from the University of Texas Libraries. In this part of the city the sheet's drawing does not sit where its own printed grid says it should, missing it by up to <span class="fact" data-fact="georef1984_grid_max_m">116.8 m</span>. So we registered the sheet to what it draws instead: <span class="fact" data-fact="georef1984_n_content">25</span> road junctions and bridge mid-spans, each matched to the same place in OpenStreetMap. Every one of those points was scored by a fit that never saw it, and the median miss is <span class="fact" data-fact="georef1984_median_m">22.6 m</span>.</p>
+<p>The sheet ends before the district does. It holds <span class="fact" data-fact="sheet1984_district_coverage_pct">94.3%</span> of the district and <span class="fact" data-fact="sheet1984_bq_coverage_pct">81.4%</span> of Phường Bình Quới; the eastern tip of the Thanh Đa peninsula is off its edge, and every share in the chapter is of the part on the sheet. The built-up fill, printed red on the sheet and traced in teal on the maps, is found by its colour, checked against squares we labelled by hand. Every colour setting that reads those squares equally well gives a district share between <span class="fact" data-fact="built1984_district_plateau_lo_pct">15.1%</span> and <span class="fact" data-fact="built1984_district_plateau_hi_pct">19.1%</span>, so the headline is a rough share within that band. No page gives a built-up share for today: only the old sheet is measured.</p>
+<p>The French survey of <span class="fact" data-fact="sheet1895_year">1895</span> (Joly, Plan des environs de Saïgon) carries the public-domain mark, via Wikimedia Commons. The fit it was given before misses its check points by a median of <span class="fact" data-fact="sheet1895_median_m">1,218 m</span>, too far to draw under today's streets, so it is shown as a picture. The inset on the road page is Trần Văn Học's map of Gia Định of <span class="fact" data-fact="plate1815_year">1815</span>, photographed from a later printed reproduction (Địa chí Văn hóa Thành phố Hồ Chí Minh), via Wikimedia Commons, where the file is tagged public domain in the US. Credit: Trần Văn Học, Bản đồ Gia Định; photograph uploaded by Bùi Thụy Đào Nguyên (<a href="https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_%C4%91%E1%BB%93_Gia_%C4%90%E1%BB%8Bnh_1815.jpg">file page</a>). It is illustrative only and is never laid on the map. The line of the Mandarin Road, and the dates on the tower and peninsula pages, come from the sister site's research: the route follows the streets historians name, and each date has two independent sources.</p>
   </div>
   <section id="the-coffee-district">
     <h2>01 · The Coffee District</h2>
@@ -88,6 +91,77 @@
       <tr><td class="value">62</td><td><code>binh-thanh-story/web/data.json</code></td><td>OSM 2025</td><td>cafe_fuel.series[cafe].n[2025]</td></tr>
       <tr><td class="value">2,126</td><td><code>binh-thanh-story/web/data.json</code></td><td>2026-06-10 (Overture download)</td><td>streetlife.overture.cafe_like</td></tr>
       <tr><td class="value">77</td><td><code>binh-thanh-story/web/data.json</code></td><td>OSM 2025</td><td>cafe_fuel.series[restaurant].n[2025]</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="where-the-city-stopped">
+    <h2>07 · Where the City Stopped</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">17.6%</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>red built-up fill pixels / pixels of the pre-2025 district outline that lie on the sheet</td></tr>
+      <tr><td class="value">1984</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>edition year printed on the sheet</td></tr>
+      <tr><td class="value">94.3%</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>share of the pre-2025 district outline that lies on the sheet</td></tr>
+      <tr><td class="value">15.1%</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>lowest share over every colour setting tied best on the hand-labelled cells</td></tr>
+      <tr><td class="value">19.1%</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>highest share over every colour setting tied best on the hand-labelled cells</td></tr>
+      <tr><td class="value">22.6 m</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>median held-out distance, drawn roads and bridges vs OpenStreetMap (each point scored by a fit that never saw it)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="a-district-of-creeks">
+    <h2>08 · A District of Creeks</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">1,218 m</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>Plan des environs de Saïgon (Joly), 1895</td><td>median distance over 7 check points: where the sheet&#x27;s old georeference (an affine fit on river points) puts them vs OpenStreetMap</td></tr>
+      <tr><td class="value">1895</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>Plan des environs de Saïgon (Joly), 1895</td><td>year of the survey, as named in the sheet&#x27;s release</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="the-road-before-the-roads">
+    <h2>09 · The Road Before the Roads</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">6.8 km</td><td><code>binh-thanh-story/web/road-beneath-figures.json</code></td><td>OpenStreetMap, as frozen in road-beneath-figures.json</td><td>length of the route&#x27;s 275 OSM vertices along Xô Viết Nghệ Tĩnh and đường Bình Quới, with back-and-forth hops between carriageways removed (212 vertices left)</td></tr>
+      <tr><td class="value">1748</td><td><code>binh-thanh-story/web/road-beneath-figures.json</code></td><td>OpenStreetMap, as frozen in road-beneath-figures.json</td><td>date of the northern Thiên Lý branch (binh-thanh-story/docs/THIEN-LY-AND-MAPS-FINDINGS.md)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="before-the-towers">
+    <h2>10 · Before the Towers</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">1965</td><td><code>binh-thanh-field-guide/web/history.json</code></td><td>history-v1 (two independent sources per beat)</td><td>beat[Tân Cảng, 1965–1967].year</td></tr>
+      <tr><td class="value">1984</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>edition year printed on the sheet</td></tr>
+      <tr><td class="value">22.6 m</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>median held-out distance, drawn roads and bridges vs OpenStreetMap (each point scored by a fit that never saw it)</td></tr>
+      <tr><td class="value">461.2 m</td><td><code>binh-thanh-field-guide/web/history.json</code></td><td>history-v1 (two independent sources per beat)</td><td>height quoted in beat[Tân Cảng (nam), 2018].fact</td></tr>
+      <tr><td class="value">2018</td><td><code>binh-thanh-field-guide/web/history.json</code></td><td>history-v1 (two independent sources per beat)</td><td>beat[Tân Cảng (nam), 2018].year</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="the-peninsula-of-fields">
+    <h2>11 · The Open Peninsula</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">0.2%</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>same, inside Phường Bình Quới (old wards 27+28: the Thanh Đa peninsula), on-sheet part; no red fill there, the pixels are speckle along drawn road edges</td></tr>
+      <tr><td class="value">1984</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>edition year printed on the sheet</td></tr>
+      <tr><td class="value">1960s</td><td><code>binh-thanh-field-guide/web/history.json</code></td><td>history-v1 (two independent sources per beat)</td><td>beat[Thanh Đa, c.1960].year</td></tr>
+      <tr><td class="value">81.4%</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>share of Phường Bình Quới that lies on the sheet</td></tr>
+      <tr><td class="value">22.6 m</td><td><code>binh-thanh-field-guide/web/atlas/data/then1984.json</code></td><td>DMA L7014 sheet 6330-IV, edition 5-DMA (1984)</td><td>median held-out distance, drawn roads and bridges vs OpenStreetMap (each point scored by a fit that never saw it)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="twenty-wards-then-five">
+    <h2>12 · Twenty Wards, Then Five</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">20</td><td><code>binh-thanh-story/web/redraw.json</code></td><td>2025 ward redraw (redraw.json resolution_citation)</td><td>old_ward_count</td></tr>
+      <tr><td class="value">2025</td><td><code>binh-thanh-story/web/redraw.json</code></td><td>2025 ward redraw (redraw.json resolution_citation)</td><td>year of Nghị quyết 1685/NQ-UBTVQH15 (resolution_citation)</td></tr>
+      <tr><td class="value">5</td><td><code>binh-thanh-story/web/redraw.json</code></td><td>2025 ward redraw (redraw.json resolution_citation)</td><td>new_ward_count</td></tr>
       </tbody>
     </table></div>
   </section>

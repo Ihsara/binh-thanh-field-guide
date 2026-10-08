@@ -347,7 +347,7 @@
       const img = document.createElement("img");
       img.className = "hist1895-img";
       img.src = entry.img;
-      img.alt = "1895 Gia Định survey (Plan des environs de Saïgon), georeferenced to ±400 m";
+      img.alt = "1895 Gia Định survey (Plan des environs de Saïgon), only approximately georeferenced (not street-aligned)";
       // D2: insert as the section's first child, same as #lmap was before this
       // insert — section has no padding, so img top:0/left:0 (hub.css
       // .hist1895-img, position:absolute against this position:relative
@@ -358,7 +358,7 @@
       const ctl = document.createElement("div");
       ctl.className = "hist1895-ctl";
       ctl.innerHTML =
-        '<label>1895 Gia Định ghost <span class="pm">±400 m</span></label>' +
+        '<label>1895 Gia Định ghost <span class="pm">approximate · not street-aligned</span></label>' +
         '<input type="range" min="0" max="50" value="0" aria-label="1895 overlay opacity">';
       // Append ctl inside the .hub-map section so it travels into the
       // fullscreen lightbox alongside the canvas (approach a).

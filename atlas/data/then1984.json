@@ -1,0 +1,59 @@
+{
+ "schema": "then1984-v1",
+ "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+ "georef": {
+  "method": "content-registered (spec Amendment A)",
+  "order": 2,
+  "loo_median_m": 22.6,
+  "loo_max_m": 82.4,
+  "grid_max_m": 116.8,
+  "graticule_max_m": 25.4,
+  "n_content": 25,
+  "n_gcps": 32
+ },
+ "classifier": {
+  "thresh": {
+   "r_min": 110,
+   "rg_min": 20,
+   "rb_min": 25
+  },
+  "precision": 1.0,
+  "recall": 1.0,
+  "n_cells": 57
+ },
+ "built_share_district_pct": {
+  "value": 17.6,
+  "range": [
+   16.9,
+   18.2
+  ],
+  "label_plateau": [
+   15.1,
+   19.1
+  ],
+  "coverage_pct": 94.3,
+  "accuracy_m": 22.6,
+  "source_map": "DMA L7014 6330-IV (1984)"
+ },
+ "built_share_binh_quoi_pct": {
+  "value": 0.2,
+  "range": [
+   0.1,
+   0.3
+  ],
+  "label_plateau": [
+   0.1,
+   0.5
+  ],
+  "coverage_pct": 81.4,
+  "accuracy_m": 22.6,
+  "source_map": "DMA L7014 6330-IV (1984)"
+ },
+ "sheet_1895": {
+  "median_error_m": 1218,
+  "max_error_m": 2315,
+  "n_checkpoints": 7,
+  "registered": false,
+  "release": "Plan des environs de Saïgon (Joly), 1895"
+ }
+}

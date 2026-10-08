@@ -6,6 +6,48 @@
   "release": "2026-06-17.0",
   "how": "new_wards[Bình Lợi Trung].dish.label"
  },
+ "built1984_bq_pct": {
+  "value": 0.2,
+  "display": "0.2%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "same, inside Phường Bình Quới (old wards 27+28: the Thanh Đa peninsula), on-sheet part; no red fill there, the pixels are speckle along drawn road edges"
+ },
+ "built1984_district_hi_pct": {
+  "value": 18.2,
+  "display": "18.2%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "highest share under ±10% colour thresholds"
+ },
+ "built1984_district_lo_pct": {
+  "value": 16.9,
+  "display": "16.9%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "lowest share under ±10% colour thresholds"
+ },
+ "built1984_district_pct": {
+  "value": 17.6,
+  "display": "17.6%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "red built-up fill pixels / pixels of the pre-2025 district outline that lie on the sheet"
+ },
+ "built1984_district_plateau_hi_pct": {
+  "value": 19.1,
+  "display": "19.1%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "highest share over every colour setting tied best on the hand-labelled cells"
+ },
+ "built1984_district_plateau_lo_pct": {
+  "value": 15.1,
+  "display": "15.1%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "lowest share over every colour setting tied best on the hand-labelled cells"
+ },
  "bun_points": {
   "value": 219,
   "display": "219",
@@ -104,6 +146,27 @@
   "release": "2026-06-17.0",
   "how": "len(points)"
  },
+ "georef1984_grid_max_m": {
+  "value": 116.8,
+  "display": "116.8 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "largest gap over the district between the fit to drawn content and the fit to the sheet's printed grid (Indian 1960 shifted to WGS84)"
+ },
+ "georef1984_median_m": {
+  "value": 22.6,
+  "display": "22.6 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "median held-out distance, drawn roads and bridges vs OpenStreetMap (each point scored by a fit that never saw it)"
+ },
+ "georef1984_n_content": {
+  "value": 25,
+  "display": "25",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "drawn road junctions and bridge mid-spans matched to OpenStreetMap"
+ },
  "japanese_points": {
   "value": 127,
   "display": "127",
@@ -111,12 +174,40 @@
   "release": "2026-06-17.0",
   "how": "points with group == 'japanese'"
  },
+ "landmark81_m": {
+  "value": 461.2,
+  "display": "461.2 m",
+  "source_file": "binh-thanh-field-guide/web/history.json",
+  "release": "history-v1 (two independent sources per beat)",
+  "how": "height quoted in beat[Tân Cảng (nam), 2018].fact"
+ },
+ "landmark81_year": {
+  "value": 2018,
+  "display": "2018",
+  "source_file": "binh-thanh-field-guide/web/history.json",
+  "release": "history-v1 (two independent sources per beat)",
+  "how": "beat[Tân Cảng (nam), 2018].year"
+ },
+ "new_ward_count": {
+  "value": 5,
+  "display": "5",
+  "source_file": "binh-thanh-story/web/redraw.json",
+  "release": "2025 ward redraw (redraw.json resolution_citation)",
+  "how": "new_ward_count"
+ },
  "new_wards": {
   "value": 5,
   "display": "5",
   "source_file": "binh-thanh-story/web/story.json",
   "release": "2026-06-17.0",
   "how": "len(new_wards)"
+ },
+ "old_ward_count": {
+  "value": 20,
+  "display": "20",
+  "source_file": "binh-thanh-story/web/redraw.json",
+  "release": "2025 ward redraw (redraw.json resolution_citation)",
+  "how": "old_ward_count"
  },
  "osm_cafe_coverage_pct": {
   "value": 2.9,
@@ -146,12 +237,61 @@
   "release": "2026-06-10 (Overture download)",
   "how": "streetlife.overture.cafe_like"
  },
+ "plate1815_year": {
+  "value": 1815,
+  "display": "1815",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then/crops.json",
+  "release": "Wikimedia Commons photo of a 1987 reproduction",
+  "how": "year Trần Văn Học drew the map (plate1815.licence)"
+ },
+ "redraw_year": {
+  "value": 2025,
+  "display": "2025",
+  "source_file": "binh-thanh-story/web/redraw.json",
+  "release": "2025 ward redraw (redraw.json resolution_citation)",
+  "how": "year of Nghị quyết 1685/NQ-UBTVQH15 (resolution_citation)"
+ },
  "restaurant_cat": {
   "value": 1218,
   "display": "1,218",
   "source_file": "binh-thanh-story/web/census.json",
   "release": "2026-06-17.0",
   "how": "anatomy.top[cat=='restaurant'].n"
+ },
+ "sheet1895_median_m": {
+  "value": 1218,
+  "display": "1,218 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "Plan des environs de Saïgon (Joly), 1895",
+  "how": "median distance over 7 check points: where the sheet's old georeference (an affine fit on river points) puts them vs OpenStreetMap"
+ },
+ "sheet1895_year": {
+  "value": 1895,
+  "display": "1895",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "Plan des environs de Saïgon (Joly), 1895",
+  "how": "year of the survey, as named in the sheet's release"
+ },
+ "sheet1984_bq_coverage_pct": {
+  "value": 81.4,
+  "display": "81.4%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "share of Phường Bình Quới that lies on the sheet"
+ },
+ "sheet1984_district_coverage_pct": {
+  "value": 94.3,
+  "display": "94.3%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "share of the pre-2025 district outline that lies on the sheet"
+ },
+ "sheet1984_year": {
+  "value": 1984,
+  "display": "1984",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/then1984.json",
+  "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
+  "how": "edition year printed on the sheet"
  },
  "street_km_beyond": {
   "value": 28.3,
@@ -173,6 +313,34 @@
   "source_file": "binh-thanh-story/web/chains-territory.json",
   "release": "2026-06-17.0",
   "how": "(total - beyond) / total"
+ },
+ "tancang_base_year": {
+  "value": 1965,
+  "display": "1965",
+  "source_file": "binh-thanh-field-guide/web/history.json",
+  "release": "history-v1 (two independent sources per beat)",
+  "how": "beat[Tân Cảng, 1965–1967].year"
+ },
+ "thanhda_estate_decade": {
+  "value": 1960,
+  "display": "1960s",
+  "source_file": "binh-thanh-field-guide/web/history.json",
+  "release": "history-v1 (two independent sources per beat)",
+  "how": "beat[Thanh Đa, c.1960].year"
+ },
+ "thien_ly_km": {
+  "value": 6.8,
+  "display": "6.8 km",
+  "source_file": "binh-thanh-story/web/road-beneath-figures.json",
+  "release": "OpenStreetMap, as frozen in road-beneath-figures.json",
+  "how": "length of the route's 275 OSM vertices along Xô Viết Nghệ Tĩnh and đường Bình Quới, with back-and-forth hops between carriageways removed (212 vertices left)"
+ },
+ "thien_ly_year": {
+  "value": 1748,
+  "display": "1748",
+  "source_file": "binh-thanh-story/web/road-beneath-figures.json",
+  "release": "OpenStreetMap, as frozen in road-beneath-figures.json",
+  "how": "date of the northern Thiên Lý branch (binh-thanh-story/docs/THIEN-LY-AND-MAPS-FINDINGS.md)"
  },
  "top_chain_outlets": {
   "value": 24,

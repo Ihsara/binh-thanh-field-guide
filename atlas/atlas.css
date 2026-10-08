@@ -358,3 +358,75 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   .appendix td { border: 0; padding: 0.1rem 0; }
   .appendix td:nth-child(3)::before { content: "Release "; color: var(--ink-soft); }
 }
+
+/* ---------------- Chapter 2: What It Used to Be (docs/atlas-style.md "Chapter 2") ---------------- */
+/* One new hue family: river-teal ink. --ch2-ink must equal crops.HUE (35, 92, 110),
+   the colour the 1984 built-up mask is baked in. The chapter's pages swap it in for
+   --chapter-hue, so the running head, big number and locator follow it. */
+:root {
+  --ch2-ink: rgb(35 92 110);
+  --ch2-tint: #c9dde1;
+}
+body[data-chapter="what-it-used-to-be"] {
+  --chapter-hue: var(--ch2-ink);
+  --chapter-hue-soft: var(--ch2-tint);
+}
+/* the scan is knocked back toward the paper, so its own reds and blues never compete */
+.hero .sheet-scan { opacity: 0.55; filter: saturate(0.35) sepia(0.15); }
+/* plain alpha, not multiply (chapter-1 lesson: multiply goes near-black where it stacks) */
+.hero .sheet-mask { mix-blend-mode: normal; opacity: 0.85; }
+.hero .ghost-streets { fill: none; stroke: var(--ink); stroke-opacity: 0.22; stroke-width: 0.5; stroke-linejoin: round; }
+.hero .district-outline-halo { fill: none; stroke: var(--ground); stroke-opacity: 0.8; stroke-width: 4; stroke-linejoin: round; }
+.hero .district-outline { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.hero .sheet-edge { fill: none; stroke: var(--ink-soft); stroke-width: 0.8; }
+.hero .plate-mat { fill: var(--ground); stroke: var(--rule); stroke-width: 1; }
+.hero .plate-frame, .hero .plate { fill: none; }
+.hero .plate-frame { stroke: var(--ink); stroke-width: 1; }
+.hero .route-halo { fill: none; stroke: var(--ground); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.hero .route-line { fill: none; stroke: var(--chapter-hue); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.hero .old-wards path { fill: none; stroke: var(--ink-soft); stroke-width: 0.7; stroke-dasharray: 3 2; }
+.hero .new-wards path { fill: none; stroke: var(--chapter-hue); stroke-width: 2; stroke-linejoin: round; }
+.hero .wards .district-outline { stroke: var(--chapter-hue); stroke-width: 2; }
+.hero .area-outline-halo { fill: none; stroke: var(--ground); stroke-opacity: 0.85; stroke-width: 5.5; stroke-linejoin: round; }
+.hero .area-outline { fill: none; stroke: var(--chapter-hue); stroke-width: 2.4; stroke-linejoin: round; }
+.hero .marker { fill: var(--chapter-hue); stroke: var(--ground); stroke-width: 2; }
+.hero .paper-card { fill: var(--ground); fill-opacity: 0.92; stroke: var(--rule); stroke-width: 0.8; }
+.hero .marker-label, .hero .route-label, .hero .beyond-label, .hero .area-label,
+.hero .new-ward-label, .hero .old-ward-label, .hero .plate-label {
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+.hero .marker-label, .hero .route-label {
+  font-family: var(--font-display); font-weight: 600; font-size: 12px; fill: var(--ink);
+}
+.hero .beyond-label {
+  font-family: var(--font-display); font-weight: 600; font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase; fill: var(--ink-soft);
+}
+.hero .area-label, .hero .new-ward-label {
+  font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; fill: var(--chapter-hue);
+}
+.hero .old-ward-label {
+  font-family: var(--font-display); font-weight: 600; font-size: 10px; fill: var(--ink-soft);
+  font-variant-numeric: lining-nums;
+}
+.hero .plate-label {
+  font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.04em; fill: var(--ink);
+}
+.hero .plate-licence { font-size: 12px; }
+.hero .route-end { fill: var(--ground); stroke: var(--chapter-hue); stroke-width: 2.5; }
+@media (min-width: 900px) {
+  .hero .marker-label, .hero .route-label { font-size: 14px; }
+  .hero .beyond-label { font-size: 10px; }
+  .hero .area-label, .hero .new-ward-label { font-size: 12.5px; }
+  .hero .old-ward-label { font-size: 11px; }
+  .hero .plate-label { font-size: 13px; }
+  .hero .plate-licence { font-size: 13px; }
+}
+/* route: on a phone the 1815 inset gets its own band under the map */
+@media (max-width: 899.98px) {
+  body[data-hero="route"] .hero { aspect-ratio: 1 / 1.3; }
+}
+/* the "How we know" link: a >= 24 px tap target (WCAG 2.5.8) without moving the line (padding on an
+   inline box grows its hit area, not the line box) */
+.source-line .how-we-know { padding-block: 0.6em; }

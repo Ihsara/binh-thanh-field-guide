@@ -491,6 +491,335 @@
     });
   };
 
+  /* ================= chapter 2: What It Used to Be =================
+     The old sheets are rasters in Web Mercator, placed by their 4326 corners
+     through the SAME d3.geoMercator the other heroes use, stretched with
+     preserveAspectRatio none (Mercator is linear in x and in y between the
+     corners). Colour: --chapter-hue is the chapter-2 ink on these pages
+     (body[data-chapter] in atlas.css), only on the measured/registered layer. */
+  const DATA = "../../atlas/data/";
+
+  /** Where the scan's paper stops: the fraction of the image width that is opaque on
+      its middle rows. The 1984 crop runs past the sheet's east edge as alpha 0. */
+  const edgeCache = new Map();
+  function sheetEdge(url) {
+    if (!edgeCache.has(url)) {
+      edgeCache.set(url, new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const c = document.createElement("canvas");
+            c.width = img.naturalWidth; c.height = img.naturalHeight;
+            const ctx = c.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            let edge = 0;
+            [0.35, 0.5, 0.65].forEach((f) => {
+              const row = ctx.getImageData(0, Math.floor(c.height * f), c.width, 1).data;
+              for (let x = c.width - 1; x >= 0; x--) { if (row[x * 4 + 3] > 0) { edge = Math.max(edge, x + 1); break; } }
+            });
+            resolve(edge / c.width);
+          } catch (e) { console.warn("atlas: could not read the sheet's edge", e); resolve(1); }
+        };
+        img.onerror = () => { console.warn("atlas: could not load the sheet to find its edge", url); resolve(1); };
+        img.src = url;
+      }));
+    }
+    return edgeCache.get(url);
+  }
+
+  /** The district outline over a scan: a paper underlay, then the ink line. */
+  function districtOutline(g, path, base) {
+    const d = path(base.outline);
+    g.append("path").attr("class", "district-outline-halo").attr("d", d);
+    g.append("path").attr("class", "district-outline").attr("d", d);
+  }
+
+  /** A paper card behind a drawn group, so type stays legible over a scan. */
+  function card(g, pad) {
+    const b = g.node().getBBox();
+    if (!b.width) return;
+    g.insert("rect", ":first-child").attr("class", "paper-card")
+      .attr("x", (b.x - pad).toFixed(1)).attr("y", (b.y - pad).toFixed(1))
+      .attr("width", (b.width + 2 * pad).toFixed(1)).attr("height", (b.height + 2 * pad).toFixed(1));
+  }
+
+  /** Lines of at most n characters, broken at spaces. */
+  function wrap(text, n) {
+    const out = [];
+    let cur = "";
+    String(text).split(" ").forEach((word) => {
+      if (cur && (cur + " " + word).length > n) { out.push(cur); cur = word; } else cur = cur ? cur + " " + word : word;
+    });
+    if (cur) out.push(cur);
+    return out;
+  }
+
+  /** The key, drawn in two columns on a phone's band, one column on a spread; carded. */
+  function sheetKey(svg, items, w, compact) {
+    if (compact) {
+      if (items.length > 4) items = items.filter((d) => !d.ghost);   // the faint streets go first
+      const half = Math.ceil(items.length / 2);
+      A.key(svg, items.slice(0, half), 14, 12);
+      if (items.length > half) A.key(svg, items.slice(half), Math.round(w * 0.5), 12);
+      return;
+    }
+    card(A.key(svg, items, 14, 22), 8);
+  }
+  function edgeSwatches(svg) {
+    svg.selectAll("g.key rect").filter(function () { return this.getAttribute("fill") === "url(#beyond-hatch-key)"; })
+      .attr("stroke", "var(--ink-soft)").attr("stroke-width", 0.6);
+  }
+
+  /** The sheet's accuracy label, bottom left above the scale bar, on paper. */
+  function accuracyNote(map, text, mh, compact) {
+    const g = map.append("g").attr("class", "accuracy-note");
+    if (!text) return;
+    const lines = compact ? wrap(text, 30) : [text];
+    lines.forEach((t, i) => g.append("text").attr("class", "key-label key-note")
+      .attr("x", 16).attr("y", mh - 44 - (lines.length - 1 - i) * 15).text(t));
+    card(g, 5);
+  }
+
+  /* ---- sheet: the registered 1984 sheet, knocked back, under today's lines ---- */
+  A.heroes.sheet = function (fig, data, base) {
+    const { svg, map, w, mh, top, compact } = A.frame(fig);
+    const focus = data.focus;
+    // a focus box is fitted like the zoom hero's: on a spread the key gets a band above it
+    const keyPad = focus && !compact ? 74 : 0;
+    const proj = A.projection(focus || base.bounds, w, mh - keyPad);
+    if (keyPad) { const t0 = proj.translate(); proj.translate([t0[0], t0[1] + keyPad]); }
+    const path = d3.geoPath(proj);
+    const [W, S, E, N] = data.sheet.bounds4326;
+    const [x0, y0] = proj([W, N]), [x1, y1] = proj([E, S]);
+    svg.attr("aria-label", data.aria || "The 1984 map sheet");
+
+    const defs = svg.append("defs");
+    const hatch = defs.append("pattern").attr("id", "beyond-hatch").attr("patternUnits", "userSpaceOnUse")
+      .attr("width", 7).attr("height", 7).attr("patternTransform", "rotate(45)");
+    hatch.append("rect").attr("width", 7).attr("height", 7).attr("fill", "var(--ground)");
+    hatch.append("path").attr("d", "M0,0V7").attr("stroke", "var(--rule)").attr("stroke-width", 1.4);
+    // the key's 10 px swatch needs a tighter, darker hatch to read as the same thing
+    const kh = defs.append("pattern").attr("id", "beyond-hatch-key").attr("patternUnits", "userSpaceOnUse")
+      .attr("width", 3.5).attr("height", 3.5).attr("patternTransform", "rotate(45)");
+    kh.append("rect").attr("width", 3.5).attr("height", 3.5).attr("fill", "var(--ground)");
+    kh.append("path").attr("d", "M0,0V3.5").attr("stroke", "var(--ink-soft)").attr("stroke-width", 0.9);
+    defs.append("clipPath").attr("id", "sheet-clip").append("rect")
+      .attr("y", keyPad).attr("width", w).attr("height", mh - keyPad);
+
+    const g = map.append("g").attr("class", "sheet").attr("clip-path", "url(#sheet-clip)");
+    // off-sheet ground shows as hatched paper, never as blank map
+    g.append("rect").attr("class", "beyond").attr("width", w).attr("height", mh).attr("fill", "url(#beyond-hatch)");
+    // plain paper under the sheet, so the hatch never shows through the knocked-back scan; it is
+    // trimmed to the paper's east edge once that is known (the crop runs past it as alpha 0)
+    const under = g.append("rect").attr("class", "sheet-under").attr("fill", "var(--ground)")
+      .attr("x", x0).attr("y", y0).attr("width", x1 - x0).attr("height", y1 - y0);
+    const place = (sel) => sel.attr("x", x0).attr("y", y0).attr("width", x1 - x0).attr("height", y1 - y0)
+      .attr("preserveAspectRatio", "none");
+    place(g.append("image").attr("href", DATA + data.sheet.img).attr("class", "sheet-scan"));
+    if (data.mask) place(g.append("image").attr("href", DATA + data.mask.img).attr("class", "sheet-mask"));
+    if (data.ghost === "streets") {
+      g.append("path").attr("class", "ghost-streets")
+        .attr("d", path({ type: "MultiLineString", coordinates: base.streets }));
+    }
+    districtOutline(g, path, base);
+    if (data.area) {
+      const d = path(data.area);
+      g.append("path").attr("class", "area-outline-halo").attr("d", d);
+      g.append("path").attr("class", "area-outline").attr("d", d);
+    }
+    const labels = map.append("g").attr("class", "sheet-labels").attr("clip-path", "url(#sheet-clip)");
+    if (data.marker) {
+      const [mx, my] = proj(data.marker.lonlat);
+      g.append("circle").attr("class", "marker").attr("cx", mx).attr("cy", my).attr("r", 6.5);
+      labels.append("text").attr("class", "marker-label").attr("x", mx + 12).attr("y", my).attr("dy", "0.35em")
+        .text(data.marker.label);
+    }
+    // the east edge of the paper: everything past it is "beyond this sheet"
+    let beyondShown = false;
+    const edge = sheetEdge(DATA + data.sheet.img).then((f) => {
+      if (f >= 0.995 || !g.node().isConnected) return;
+      const ex = x0 + (x1 - x0) * f;
+      under.attr("width", Math.max(0, ex - x0));
+      if (ex >= w - 4) return;
+      beyondShown = true;
+      g.append("path").attr("class", "sheet-edge").attr("d", `M${ex.toFixed(1)},${keyPad}V${mh}`);
+      const cx = (ex + Math.min(w, x1)) / 2;
+      labels.append("text").attr("class", "beyond-label").attr("text-anchor", "middle").attr("dy", "0.35em")
+        .attr("transform", `translate(${cx.toFixed(1)},${(keyPad + (mh - keyPad) * 0.42).toFixed(1)}) rotate(90)`)
+        .text("Beyond this sheet");
+    });
+
+    if (data.area) {                                 // name the measured ward on the part the sheet holds
+      const c = path.centroid(data.area);
+      labels.append("text").attr("class", "area-label").attr("text-anchor", "middle").attr("dy", "0.35em")
+        .attr("x", Math.min(c[0], w - 70).toFixed(1)).attr("y", c[1].toFixed(1))
+        .text(A.wardName("Phường Bình Quới"));
+    }
+    const items = [];
+    if (data.mask) items.push({ label: compact ? "Built-up (printed red)" : "1984 built-up fill (printed red), traced", fill: "var(--chapter-hue)", square: 10, opacity: 0.85 });
+    if (data.marker) items.push({ label: compact ? "Landmark 81" : "Landmark 81, today", fill: "var(--chapter-hue)", keyR: 5 });
+    if (data.area) items.push({ label: compact ? "Bình Quới ward" : "Phường Bình Quới, today", fill: "var(--chapter-hue)", line: 2.4 });
+    items.push({ label: compact ? "District today" : "The district today", fill: "var(--ink)", line: 1.6 });
+    if (data.ghost === "streets") items.push({ label: compact ? "Streets today" : "Streets today (faint)", fill: "var(--ink-soft)", line: 0.8, ghost: true });
+    const metres = focus ? 200 : 500;
+    const furnish = () => {
+      svg.selectAll("g.key").remove();
+      const all = beyondShown ? items.concat([{ label: compact ? "Off the sheet" : "Beyond this sheet", fill: "url(#beyond-hatch-key)", square: 10 }]) : items;
+      sheetKey(svg, all, w, compact);
+      edgeSwatches(svg);
+    };
+    furnish();
+    accuracyNote(map, data.sheet.label, mh, compact);
+    const sb = A.scaleBar(map, proj, 16, mh - 18, metres);
+    card(sb, 4);
+    const loc = compact ? 44 : 64;
+    A.locator(map, base, w - loc - 22, mh - loc - 22, loc, focus || null);
+    A.north(svg, w - 22, compact ? 18 : (keyPad ? 26 : 26 + top));
+    edge.then(() => { if (beyondShown && svg.node().isConnected) furnish(); });
+  };
+
+  /* ---- plate: an unregistered sheet, filling the hero as a picture, with a small sketch of the
+     district. The crop is the raw sheet around the district (then/crops.py), not a registration:
+     nothing is drawn on it. Caption and sketch sit on paper cards over the picture. ---- */
+  A.heroes.plate = function (fig, data, base) {
+    const { svg, w, h, compact } = A.frame(fig);
+    const s = data.sheet;
+    svg.attr("aria-label", `${s.label || "Old map"}: the old map as a picture, not laid on today's map`);
+    const g = svg.append("g").attr("class", "plate");
+    g.append("image").attr("href", DATA + s.img).attr("class", "plate-scan")
+      .attr("width", w).attr("height", h).attr("preserveAspectRatio", "xMidYMid slice");
+    g.append("rect").attr("class", "plate-frame").attr("x", 0.5).attr("y", 0.5).attr("width", w - 1).attr("height", h - 1);
+    // caption, bottom left: the accuracy label, then the licence
+    const cap = svg.append("g").attr("class", "plate-caption");
+    const licence = s.licence ? wrap(s.licence, compact ? 44 : 64) : [];
+    const lh = compact ? 15 : 17;
+    const y0 = h - 14 - licence.length * lh;
+    cap.append("text").attr("class", "plate-label").attr("x", 16).attr("y", y0 - 4).text(s.label || "");
+    licence.forEach((t, i) => cap.append("text").attr("class", "key-label key-note plate-licence")
+      .attr("x", 16).attr("y", y0 + 14 + i * lh).text(t));
+    card(cap, 7);
+    // the district sketch, top right: outline only, for its shape, not placed on the sheet
+    const size = compact ? 52 : 84;
+    const sk = svg.append("g").attr("class", "plate-sketch");
+    const lg = A.locator(sk, base, w - size - 18, 16, size);
+    lg.select("text").text(compact ? "Today" : "The district today");
+    const note = compact ? [] : ["Its shape only:", "the sheet is not", "laid on it"];
+    note.forEach((t, i) => sk.append("text").attr("class", "key-label key-note")
+      .attr("x", w - size - 18).attr("y", 16 + size + 30 + i * 16).text(t));
+    card(sk, 7);
+    const sb = sk.node().getBBox();                 // the caption is wider than the box: keep the card inside
+    if (sb.x + sb.width > w - 10) sk.attr("transform", `translate(${(w - 10 - sb.x - sb.width).toFixed(1)},0)`);
+  };
+
+  /* ---- route: today's streets, the old road's line on them, the 1815 sheet as an inset ---- */
+  A.heroes.route = function (fig, data, base) {
+    const { svg, map, w, mh: fullH, top, compact } = A.frame(fig);
+    // the inset: a crop of the 1815 sheet around Cầu Sơn, where it marks the road leaving north.
+    // On a spread it sits in the free corner under the Bình Quới lobe; on a phone the district
+    // fills the frame, so the inset gets its own band under the map (the hero is taller there).
+    const crop = [1000, 320, 400, 280];             // x, y, w, h in the plate's pixels (1400 × 1050)
+    const iw = compact ? 150 : 260, ih = iw * crop[3] / crop[2];
+    const band = compact ? Math.round(ih + 22) : 0;
+    const mh = fullH - band;
+    const proj = A.projection(base.bounds, w, mh);
+    const path = d3.geoPath(proj);
+    svg.attr("aria-label", "Map of Bình Thạnh: today's streets on the line historians trace for the 1748 Mandarin Road");
+    A.drawBase(map, base, proj);
+    const r = data.route;
+    const line = path({ type: "LineString", coordinates: r });
+    map.append("path").attr("class", "route-halo").attr("d", line);
+    map.append("path").attr("class", "route-line").attr("d", line);
+    map.select("g.base-labels").raise();
+    // the two ends the text names
+    const ends = [
+      { p: proj(r[0]), label: "Thị Nghè bridge", dx: 10, dy: 6, anchor: "start" },
+      { p: proj(r[r.length - 1]), label: "Bình Quới ferry", dx: -10, dy: -10, anchor: "end" },
+    ];
+    const eg = map.append("g").attr("class", "route-ends");
+    eg.selectAll("circle").data(ends).join("circle").attr("class", "route-end")
+      .attr("cx", (d) => d.p[0].toFixed(1)).attr("cy", (d) => d.p[1].toFixed(1)).attr("r", compact ? 3.5 : 4.5);
+    eg.selectAll("text").data(ends).join("text").attr("class", "route-label")
+      .attr("text-anchor", (d) => d.anchor)
+      .attr("x", (d) => (d.p[0] + d.dx).toFixed(1)).attr("y", (d) => (d.p[1] + d.dy).toFixed(1))
+      .attr("dy", "0.35em").text((d) => d.label);
+    A.key(svg, [{ label: compact ? "Line of the 1748 road" : "Line of the 1748 road, on today’s streets",
+      fill: "var(--chapter-hue)", line: 5 }], 14, compact ? 12 : 22);
+    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
+
+    const ins = data.inset;
+    const loc = compact ? 44 : 64;
+    const lic = !ins.licence ? [] : compact ? ["Public domain in the US", "Trần Văn Học (1815),", "photo: Bùi Thụy Đào Nguyên,", "via Wikimedia Commons"] : wrap(ins.licence, 48);
+    const capH = 18 + lic.length * 15;
+    const ix = compact ? 16 : w - iw - 22, iy = compact ? mh + 14 : mh - loc - 34 - capH - ih - 8;
+    const ig = map.append("g").attr("class", "plate inset").attr("transform", `translate(${ix.toFixed(1)},${iy.toFixed(1)})`);
+    ig.append("rect").attr("class", "plate-mat").attr("x", -5).attr("y", -5)
+      .attr("width", iw + 10).attr("height", compact ? ih + 10 : ih + capH + 12);
+    ig.append("svg").attr("width", iw).attr("height", ih).attr("viewBox", crop.join(" "))
+      .attr("preserveAspectRatio", "xMidYMid slice")
+      .append("image").attr("href", DATA + ins.img).attr("width", 1400).attr("height", 1050)
+      .attr("class", "plate-scan");
+    ig.append("rect").attr("class", "plate-frame").attr("width", iw).attr("height", ih);
+    // caption under the inset on a spread, beside it on a phone
+    const [cx, cy] = compact ? [iw + 14, 12] : [0, ih + 15];
+    ig.append("text").attr("class", "plate-label").attr("x", cx).attr("y", cy).text(ins.label || "");
+    lic.forEach((t, i) => ig.append("text").attr("class", "key-label key-note plate-licence")
+      .attr("x", cx).attr("y", cy + 17 + i * 15).text(t));
+  };
+
+  /* ---- wards: the numbered wards (dashed) under the five named ones (solid, chapter ink) ---- */
+  A.heroes.wards = function (fig, data, base) {
+    const { svg, map, w, mh, top, compact } = A.frame(fig);
+    const proj = A.projection(base.bounds, w, mh);
+    const path = d3.geoPath(proj);
+    svg.attr("aria-label", `Map of Bình Thạnh: ${data.old.length} numbered wards before the redraw and ${data.new.length} named wards after it`);
+    const g = map.append("g").attr("class", "wards");
+    g.append("path").attr("class", "base-outline").attr("d", path(base.outline))
+      .attr("fill", "var(--base-fill)").attr("stroke", "none");
+    g.append("path").attr("class", "base-streets")
+      .attr("d", path({ type: "MultiLineString", coordinates: base.streets }))
+      .attr("fill", "none").attr("stroke", "var(--base-line)").attr("stroke-width", 0.5);
+    g.append("g").attr("class", "old-wards").selectAll("path").data(data.old).join("path")
+      .attr("d", (d) => path(d.geometry));
+    g.append("g").attr("class", "new-wards").selectAll("path").data(data.new).join("path")
+      .attr("d", (d) => path(d.geometry));
+    g.append("path").attr("class", "district-outline").attr("d", path(base.outline));
+
+    // new names first (they lead), then the old numbers wherever they do not collide
+    const lab = map.append("g").attr("class", "ward-labels");
+    const placed = [];
+    const box = (c, tw, th) => [c[0] - tw / 2, c[1] - th / 2, c[0] + tw / 2, c[1] + th / 2];
+    const hit = (b) => placed.some((q) => b[0] < q[2] && q[0] < b[2] && b[1] < q[3] && q[1] < b[3]);
+    const fs = compact ? 10 : 12.5;
+    data.new.forEach((d) => {
+      const name = A.wardName(d.name);
+      const c = path.centroid(d.geometry);
+      const t = lab.append("text").attr("class", "new-ward-label").attr("text-anchor", "middle").attr("dy", "0.35em")
+        .attr("x", c[0].toFixed(1)).attr("y", c[1].toFixed(1)).text(name);
+      const bw = t.node().getComputedTextLength();
+      placed.push(box(c, bw + 6, fs + 6));
+    });
+    data.old.forEach((d) => {
+      const num = A.wardName(d.name);
+      const c = path.centroid(d.geometry);
+      const b = box(c, num.length * 7 + 6, 14);
+      if (hit(b)) {                                  // try just below, then just above
+        const dn = [c[0], c[1] + 15], up = [c[0], c[1] - 15];
+        const alt = [dn, up].find((p) => !hit(box(p, num.length * 7 + 6, 14)) && d3.geoContains(d.geometry, proj.invert(p)));
+        if (!alt) return;
+        c[0] = alt[0]; c[1] = alt[1];
+      }
+      placed.push(box(c, num.length * 7 + 6, 14));
+      lab.append("text").attr("class", "old-ward-label").attr("text-anchor", "middle").attr("dy", "0.35em")
+        .attr("x", c[0].toFixed(1)).attr("y", c[1].toFixed(1)).text(num);
+    });
+    const k = A.key(svg, [
+      { label: compact ? "Numbered ward, to 2025" : "Numbered ward, until 2025", fill: "var(--ink-soft)", line: 1 },
+      { label: compact ? "Named ward, since 2025" : "Named ward, since 2025", fill: "var(--chapter-hue)", line: 2.5 },
+    ], 14, compact ? 12 : 22);
+    k.select("g path").attr("stroke-dasharray", "3 2");
+    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
+  };
+
   /* ---- dispatch: load the page's data + the shared base, draw, redraw on resize ---- */
   A.render = function (fig) {
     const kind = document.body.dataset.hero;

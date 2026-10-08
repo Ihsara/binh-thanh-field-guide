@@ -9,7 +9,7 @@
     ],
     "rmse_m": 376,
     "title": "Bình Lợi",
-    "note": "1895 ferry landing ('Appontement de Binh Loï') at the same crossing the bridge now spans (±400 m)."
+    "note": "1895 ferry landing ('Appontement de Binh Loï') at the same crossing the bridge now spans (approximate; the sheet is not street-aligned)."
   },
   "hub:15": {
     "img": "hist1895/thanh-da.png",
@@ -21,7 +21,7 @@
     ],
     "rmse_m": 376,
     "title": "Thanh Đa",
-    "note": "The Thanh Đa river loop is the softest 1895 anchor (±600 m); read it as the shape of the peninsula, not a precise line."
+    "note": "The Thanh Đa river loop is the softest 1895 anchor (approximate; softest of the anchors); read it as the shape of the peninsula, not a precise line."
   },
   "hub:1": {
     "img": "hist1895/hang-xanh.png",
@@ -33,7 +33,7 @@
     ],
     "rmse_m": 376,
     "title": "Hàng Xanh",
-    "note": "The diagonal Gia Định spoke on the 1895 map runs toward here — approximate road direction only (±400 m)."
+    "note": "The diagonal Gia Định spoke on the 1895 map runs toward here — approximate road direction only (approximate; the sheet is not street-aligned)."
   },
   "hub:20": {
     "img": "hist1895/cho-ba-chieu.png",
@@ -45,7 +45,7 @@
     ],
     "rmse_m": 376,
     "title": "Chợ Bà Chiểu",
-    "note": "'Cho-Ba-Chieu' sits in the 1895 interior at district-center scale (±400 m), not block scale."
+    "note": "'Cho-Ba-Chieu' sits in the 1895 interior at district-center scale (approximate; the sheet is not street-aligned), not block scale."
   },
   "hub:18": {
     "img": "hist1895/lang-ong.png",
@@ -57,7 +57,7 @@
     ],
     "rmse_m": 376,
     "title": "Lăng Ông",
-    "note": "The Lăng Ông / Bà Chiểu zone predates 1895; its general area matches, not a precise pin (±400 m)."
+    "note": "The Lăng Ông / Bà Chiểu zone predates 1895; its general area matches, not a precise pin (approximate; the sheet is not street-aligned)."
   },
   "hub:3": {
     "img": "hist1895/thi-nghe.png",
@@ -69,7 +69,7 @@
     ],
     "rmse_m": 376,
     "title": "Thị Nghè",
-    "note": "The Thị Nghè waterway axis is traceable on the 1895 map; the exact alignment has shifted with land-filling (±400 m)."
+    "note": "The Thị Nghè waterway axis is traceable on the 1895 map; the exact alignment has shifted with land-filling (approximate; the sheet is not street-aligned)."
   },
   "hub:8": {
     "img": "hist1895/cau-bong.png",
@@ -81,6 +81,6 @@
     ],
     "rmse_m": 376,
     "title": "Cầu Bông",
-    "note": "CAVEAT: in 1895 this canal was a different channel ('Rạch Cầu Sơn'); the modern Nhiêu Lộc–Thị Nghè canal post-dates 20th-c. land-filling. The name survived, the waterway did not (±400 m)."
+    "note": "CAVEAT: in 1895 this canal was a different channel ('Rạch Cầu Sơn'); the modern Nhiêu Lộc–Thị Nghè canal post-dates 20th-c. land-filling. The name survived, the waterway did not (approximate; the sheet is not street-aligned)."
   }
 }

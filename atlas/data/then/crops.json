@@ -1,0 +1,34 @@
+{
+ "sheet1984": {
+  "img": "then/sheet1984.png",
+  "bounds4326": [
+   106.67846911,
+   10.77995227,
+   106.75677889,
+   10.84442668
+  ],
+  "licence": "DMA L7014 6330-IV (1984), US federal public domain; scan: University of Texas Libraries",
+  "label": "1984 · re-georeferenced · median error 22.6 m"
+ },
+ "built1984": {
+  "img": "then/built1984.png",
+  "bounds4326": [
+   106.67846911,
+   10.77995227,
+   106.75677889,
+   10.84442668
+  ]
+ },
+ "sheet1895": {
+  "img": "then/sheet1895.png",
+  "registered": false,
+  "bounds4326": null,
+  "licence": "Plan des environs de Saïgon (Joly, 1895), public-domain mark, via Wikimedia Commons",
+  "label": "1895 · approximate · not street-aligned"
+ },
+ "plate1815": {
+  "img": "then/plate1815.png",
+  "licence": "Public domain in the US (published before 1931) — Trần Văn Học, Bản đồ Gia Định (1815), photo of a 1987 reproduction, uploaded by Bùi Thụy Đào Nguyên, via Wikimedia Commons (File:Bản đồ Gia Định 1815.jpg)",
+  "label": "1815 · illustrative only"
+ }
+}
