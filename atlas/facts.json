@@ -1,0 +1,184 @@
+{
+ "blt_top_dish": {
+  "value": "Cơm",
+  "display": "Cơm",
+  "source_file": "binh-thanh-story/web/story.json",
+  "release": "2026-06-17.0",
+  "how": "new_wards[Bình Lợi Trung].dish.label"
+ },
+ "bun_points": {
+  "value": 219,
+  "display": "219",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "points with group == 'bun'"
+ },
+ "bun_top_wards": {
+  "value": 4,
+  "display": "4",
+  "source_file": "binh-thanh-story/web/story.json",
+  "release": "2026-06-17.0",
+  "how": "new wards whose dish.key == 'bun'"
+ },
+ "cafe_cat": {
+  "value": 560,
+  "display": "560",
+  "source_file": "binh-thanh-story/web/census.json",
+  "release": "2026-06-17.0",
+  "how": "anatomy.top[cat=='cafe'].n"
+ },
+ "chain_brands": {
+  "value": 42,
+  "display": "42",
+  "source_file": "binh-thanh-story/web/chains.json",
+  "release": "2026-06-17.0",
+  "how": "len(roster)"
+ },
+ "chain_outlets": {
+  "value": 177,
+  "display": "177",
+  "source_file": "binh-thanh-story/web/chains.json",
+  "release": "2026-06-17.0",
+  "how": "totals.outlets"
+ },
+ "coffee_points": {
+  "value": 2210,
+  "display": "2,210",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "points with group == 'ca_phe' (Cà phê / trà sữa)"
+ },
+ "coffee_share_pct": {
+  "value": 39.6,
+  "display": "39.6%",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "coffee_points / food_points"
+ },
+ "coffee_shop_cat": {
+  "value": 1230,
+  "display": "1,230",
+  "source_file": "binh-thanh-story/web/census.json",
+  "release": "2026-06-17.0",
+  "how": "anatomy.top[cat=='coffee_shop'].n"
+ },
+ "dakao_box_coffee": {
+  "value": 111,
+  "display": "111",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "cuisine.json points inside hub:19 (Đa Kao) bbox [106.7052, 10.78679, 106.7122, 10.79379] with group == 'ca_phe'"
+ },
+ "dakao_box_japanese": {
+  "value": 57,
+  "display": "57",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "cuisine.json points inside hub:19 (Đa Kao) bbox [106.7052, 10.78679, 106.7122, 10.79379] with group == 'japanese'"
+ },
+ "dakao_box_japanese_share_pct": {
+  "value": 44.9,
+  "display": "44.9%",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "dakao_box_japanese / japanese_points"
+ },
+ "dakao_coffee": {
+  "value": 38,
+  "display": "38",
+  "source_file": "binh-thanh-field-guide/web/hubs.json",
+  "release": "2026-06-17.0",
+  "how": "hub:19 food_breakdown.ca_phe"
+ },
+ "dakao_japanese": {
+  "value": 37,
+  "display": "37",
+  "source_file": "binh-thanh-field-guide/web/hubs.json",
+  "release": "2026-06-17.0",
+  "how": "hub:19 food_breakdown.japanese"
+ },
+ "food_points": {
+  "value": 5583,
+  "display": "5,583",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "len(points)"
+ },
+ "japanese_points": {
+  "value": 127,
+  "display": "127",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "points with group == 'japanese'"
+ },
+ "new_wards": {
+  "value": 5,
+  "display": "5",
+  "source_file": "binh-thanh-story/web/story.json",
+  "release": "2026-06-17.0",
+  "how": "len(new_wards)"
+ },
+ "osm_cafe_coverage_pct": {
+  "value": 2.9,
+  "display": "2.9%",
+  "source_file": "binh-thanh-story/web/data.json",
+  "release": "OSM 2025 vs Overture 2026-06-10",
+  "how": "osm_cafes_2025 / overture_cafe_like"
+ },
+ "osm_cafes_2025": {
+  "value": 62,
+  "display": "62",
+  "source_file": "binh-thanh-story/web/data.json",
+  "release": "OSM 2025",
+  "how": "cafe_fuel.series[cafe].n[2025]"
+ },
+ "osm_restaurants_2025": {
+  "value": 77,
+  "display": "77",
+  "source_file": "binh-thanh-story/web/data.json",
+  "release": "OSM 2025",
+  "how": "cafe_fuel.series[restaurant].n[2025]"
+ },
+ "overture_cafe_like": {
+  "value": 2126,
+  "display": "2,126",
+  "source_file": "binh-thanh-story/web/data.json",
+  "release": "2026-06-10 (Overture download)",
+  "how": "streetlife.overture.cafe_like"
+ },
+ "restaurant_cat": {
+  "value": 1218,
+  "display": "1,218",
+  "source_file": "binh-thanh-story/web/census.json",
+  "release": "2026-06-17.0",
+  "how": "anatomy.top[cat=='restaurant'].n"
+ },
+ "street_km_beyond": {
+  "value": 28.3,
+  "display": "28.3 km",
+  "source_file": "binh-thanh-story/web/chains-territory.json",
+  "release": "2026-06-17.0",
+  "how": "edges with cls == 'unclaimed' (beyond every chain's 1 km walk)"
+ },
+ "street_km_total": {
+  "value": 469.3,
+  "display": "469.3 km",
+  "source_file": "binh-thanh-story/web/chains-territory.json",
+  "release": "2026-06-17.0",
+  "how": "sum of walked-street edge lengths"
+ },
+ "street_share_within_pct": {
+  "value": 94.0,
+  "display": "94%",
+  "source_file": "binh-thanh-story/web/chains-territory.json",
+  "release": "2026-06-17.0",
+  "how": "(total - beyond) / total"
+ },
+ "top_chain_outlets": {
+  "value": 24,
+  "display": "24",
+  "source_file": "binh-thanh-story/web/chains.json",
+  "release": "2026-06-17.0",
+  "how": "roster[0].n (largest brand)"
+ }
+}

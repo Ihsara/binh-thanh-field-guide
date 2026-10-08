@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How we know — Bình Thạnh, an atlas for curious visitors</title>
+<link rel="stylesheet" href="../atlas/atlas.css?v=20261008atlas2">
+</head>
+<body class="front appendix">
+<header class="running-head">
+  <a class="atlas-mark" href="../index.html">Bình Thạnh · An Atlas for Curious Visitors</a>
+  <span class="chapter">How we know</span>
+  <nav class="turn">
+    <a class="contents-link" href="../contents/">Contents</a>
+  </nav>
+</header>
+<main class="front-page">
+  <h1 class="title">How we know</h1>
+  <div class="prose">
+<p>This atlas reads frozen extracts, never a live map. Each page uses one release of its data and never mixes two, except What the Map Can't See, whose subject is the gap between two sources: it sets the volunteer map's latest year against one commercial download. Every number you see is computed from a file in this repository, and the table for each map below names that file, the release it comes from and how the number was counted.</p>
+<p>Two sources feed the maps. Overture Maps is a commercial-grade open dataset that merges several providers into one list of places, with a category for each. OpenStreetMap is a map drawn by volunteers: streets, wards, rivers and the buildings between them. Neither is a census, and both miss the stall that has no sign. The last map in the atlas says what that costs. Place data: Overture Maps Foundation, CDLA-Permissive-2.0. Streets and boundaries: © OpenStreetMap contributors, ODbL.</p>
+  </div>
+  <section id="the-coffee-district">
+    <h2>01 · The Coffee District</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">39.6%</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>coffee_points / food_points</td></tr>
+      <tr><td class="value">5,583</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>len(points)</td></tr>
+      <tr><td class="value">2,210</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>points with group == &#x27;ca_phe&#x27; (Cà phê / trà sữa)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="a-dead-heat">
+    <h2>02 · A Dead Heat</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">1,230</td><td><code>binh-thanh-story/web/census.json</code></td><td>2026-06-17.0</td><td>anatomy.top[cat==&#x27;coffee_shop&#x27;].n</td></tr>
+      <tr><td class="value">1,218</td><td><code>binh-thanh-story/web/census.json</code></td><td>2026-06-17.0</td><td>anatomy.top[cat==&#x27;restaurant&#x27;].n</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="the-bun-belt">
+    <h2>03 · The Bún Belt</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">4</td><td><code>binh-thanh-story/web/story.json</code></td><td>2026-06-17.0</td><td>new wards whose dish.key == &#x27;bun&#x27;</td></tr>
+      <tr><td class="value">5</td><td><code>binh-thanh-story/web/story.json</code></td><td>2026-06-17.0</td><td>len(new_wards)</td></tr>
+      <tr><td class="value">Cơm</td><td><code>binh-thanh-story/web/story.json</code></td><td>2026-06-17.0</td><td>new_wards[Bình Lợi Trung].dish.label</td></tr>
+      <tr><td class="value">219</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>points with group == &#x27;bun&#x27;</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="little-tokyo-on-the-canal">
+    <h2>04 · Little Tokyo on the Canal</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">44.9%</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>dakao_box_japanese / japanese_points</td></tr>
+      <tr><td class="value">127</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>points with group == &#x27;japanese&#x27;</td></tr>
+      <tr><td class="value">57</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>cuisine.json points inside hub:19 (Đa Kao) bbox [106.7052, 10.78679, 106.7122, 10.79379] with group == &#x27;japanese&#x27;</td></tr>
+      <tr><td class="value">111</td><td><code>binh-thanh-field-guide/web/cuisine.json</code></td><td>2026-06-17.0</td><td>cuisine.json points inside hub:19 (Đa Kao) bbox [106.7052, 10.78679, 106.7122, 10.79379] with group == &#x27;ca_phe&#x27;</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="never-far-from-a-chain">
+    <h2>05 · Never Far from a Chain</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">94%</td><td><code>binh-thanh-story/web/chains-territory.json</code></td><td>2026-06-17.0</td><td>(total - beyond) / total</td></tr>
+      <tr><td class="value">177</td><td><code>binh-thanh-story/web/chains.json</code></td><td>2026-06-17.0</td><td>totals.outlets</td></tr>
+      <tr><td class="value">42</td><td><code>binh-thanh-story/web/chains.json</code></td><td>2026-06-17.0</td><td>len(roster)</td></tr>
+      <tr><td class="value">24</td><td><code>binh-thanh-story/web/chains.json</code></td><td>2026-06-17.0</td><td>roster[0].n (largest brand)</td></tr>
+      <tr><td class="value">469.3 km</td><td><code>binh-thanh-story/web/chains-territory.json</code></td><td>2026-06-17.0</td><td>sum of walked-street edge lengths</td></tr>
+      <tr><td class="value">28.3 km</td><td><code>binh-thanh-story/web/chains-territory.json</code></td><td>2026-06-17.0</td><td>edges with cls == &#x27;unclaimed&#x27; (beyond every chain&#x27;s 1 km walk)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="what-the-map-cant-see">
+    <h2>06 · What the Map Can&#x27;t See</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Number</th><th>Source file</th><th>Release</th><th>How it is counted</th></tr></thead>
+      <tbody>
+      <tr><td class="value">2.9%</td><td><code>binh-thanh-story/web/data.json</code></td><td>OSM 2025 vs Overture 2026-06-10</td><td>osm_cafes_2025 / overture_cafe_like</td></tr>
+      <tr><td class="value">62</td><td><code>binh-thanh-story/web/data.json</code></td><td>OSM 2025</td><td>cafe_fuel.series[cafe].n[2025]</td></tr>
+      <tr><td class="value">77</td><td><code>binh-thanh-story/web/data.json</code></td><td>OSM 2025</td><td>cafe_fuel.series[restaurant].n[2025]</td></tr>
+      <tr><td class="value">2,126</td><td><code>binh-thanh-story/web/data.json</code></td><td>2026-06-10 (Overture download)</td><td>streetlife.overture.cafe_like</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <p class="more-links"><a href="../hubs.html">The Gazetteer: the hubs, one by one →</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,350 @@
+/* Bình Thạnh — An Atlas for Curious Visitors. The style sheet every map page
+   shares (identity gate, Task 4; rationale in docs/atlas-style.md).
+   Type: Be Vietnam Pro (display, furniture) + Alegreya (text). Both files carry
+   Latin AND Vietnamese in ONE file per weight — never a Vietnamese-only shard. */
+
+/* Arrows: Be Vietnam Pro has no ← → ↑ ↓, so a unicode-range face serves
+   U+2190–2193 from Alegreya ahead of it in every stack — no system fallback. */
+@font-face { font-family: "Atlas Arrows"; font-weight: 400 700; font-style: normal; font-display: swap;
+  unicode-range: U+2190-2193;
+  size-adjust: 135%;  /* Alegreya's arrows are small beside Be Vietnam Pro caps */
+  src: url("fonts/alegreya-400.woff2") format("woff2"); }
+@font-face { font-family: "Be Vietnam Pro"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("fonts/bevietnampro-600.woff2") format("woff2"); }
+@font-face { font-family: "Be Vietnam Pro"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/bevietnampro-700.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/alegreya-400.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("fonts/alegreya-400italic.woff2") format("woff2"); }
+@font-face { font-family: "Alegreya"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/alegreya-700.woff2") format("woff2"); }
+
+:root {
+  /* paper and ink */
+  --ground: #f5f0e6;          /* warm paper, not white */
+  --ink: #23201b;             /* near-black, warm */
+  --ink-soft: #6e665a;        /* secondary text, other dots, hairlines */
+  --rule: #d9d0bf;
+  /* the basemap, knocked back: one step off the paper, never competing */
+  --base-fill: #ebe4d6;
+  --base-line: #d3c9b6;       /* streets */
+  --base-ward: #b9ad97;       /* ward borders: a second tone, same weight */
+  /* chapter hue — "Where Bình Thạnh Eats": roasted terracotta. One hue family
+     per chapter; value carries quantity. */
+  --chapter-hue: #b5401a;
+  --chapter-hue-soft: #eec6ad;
+  /* faces */
+  --font-display: "Atlas Arrows", "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+  --font-text: "Alegreya", Georgia, "Times New Roman", serif;
+  /* one halo for every in-map label: cuts hairlines, never draws a box */
+  --halo-width: 3.5px;
+  /* furniture metrics */
+  --head-h: 3rem;
+  --gutter: clamp(1rem, 3vw, 2.75rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1.125rem;
+  line-height: 1.55;           /* room for stacked Vietnamese marks */
+  overflow-x: clip;
+  font-kerning: normal;
+}
+
+a { color: inherit; text-decoration-color: var(--chapter-hue); text-underline-offset: 0.18em; }
+a:hover { color: var(--chapter-hue); }
+a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
+
+/* ---------------- running head ---------------- */
+.running-head {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 0.5rem 1.25rem; flex-wrap: wrap;
+  min-height: var(--head-h);
+  padding: 0.5rem var(--gutter);
+  background: color-mix(in srgb, var(--ground) 94%, transparent);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  line-height: 1.5;
+}
+.atlas-mark { text-decoration: none; color: var(--ink); }
+.chapter { color: var(--chapter-hue); }
+.chapter::before { content: "·"; color: var(--ink-soft); margin-right: 1.25rem; }
+.turn { margin-left: auto; display: flex; align-items: center; gap: 0.9rem; flex: none; }
+.turn .contents-link { text-decoration: none; color: var(--ink-soft); }
+.turn .page-no { font-variant-numeric: tabular-nums lining-nums; color: var(--ink); }
+.turn .prev, .turn .next {
+  /* the arrows are set in the text face: Be Vietnam Pro has no ← → */
+  font-family: var(--font-text); font-size: 1.15rem; letter-spacing: 0; line-height: 1;
+  text-decoration: none;
+  display: inline-grid; place-items: center;
+  min-width: 2rem; min-height: 2rem;
+  border: 1px solid var(--rule); border-radius: 50%;
+}
+.turn .prev:hover, .turn .next:hover { border-color: var(--chapter-hue); }
+
+/* ---------------- the spread ---------------- */
+.spread {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) 2fr;
+  align-items: start;
+  min-height: calc(100svh - var(--head-h));
+}
+
+.words {
+  padding: clamp(1.5rem, 4vh, 3rem) var(--gutter) 3rem;
+  max-width: 34rem;
+  justify-self: end;
+  width: 100%;
+}
+
+.title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.1rem, 3.3vw, 3.25rem);
+  line-height: 1.12; letter-spacing: -0.015em;
+  margin: 0 0 0.4rem;
+}
+.deck {
+  font-family: var(--font-text); font-style: italic; font-weight: 400;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem); line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 1.6rem;
+}
+
+.big-number {
+  display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;
+  padding: 0.9rem 0 1rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 0 1.4rem;
+}
+.big-number .value {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(3.4rem, 5.6vw, 5.25rem); line-height: 1; letter-spacing: -0.03em;
+  color: var(--chapter-hue);
+  font-variant-numeric: lining-nums;
+}
+.big-number .gloss {
+  flex: 1 1 10rem;
+  font-family: var(--font-text); font-style: italic;
+  font-size: 1.02rem; line-height: 1.35; color: var(--ink-soft);
+}
+
+.body p { margin: 0 0 0.9em; }
+.body .run-in { font-weight: 700; }
+.body .fact { font-variant-numeric: lining-nums; white-space: nowrap; }
+.body .see {
+  font-family: var(--font-display); font-weight: 600; font-size: 0.8rem;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+  text-decoration: none; color: var(--chapter-hue);
+}
+
+.source-line {
+  margin: 1.6rem 0 0; padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  line-height: 1.6; color: var(--ink-soft);
+}
+.source-line .how-we-know { color: var(--ink); text-decoration-color: var(--chapter-hue); }
+
+/* ---------------- the hero ---------------- */
+.hero {
+  margin: 0;
+  position: sticky; top: var(--head-h);
+  height: calc(100svh - var(--head-h));
+  min-width: 0; max-width: 100%;
+  overflow: hidden;
+  /* bleeds to the right viewport edge: no right padding on the spread */
+}
+.hero svg.hero-map { display: block; max-width: 100%; }
+
+.noscript-fallback {
+  margin: 2rem var(--gutter);
+  font-style: italic; color: var(--ink-soft);
+}
+
+/* map type: ward names in tracked small caps, furniture in the display face */
+.hero .ward-label, .hero .furniture-label, .hero .key-label {
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+.hero .ward-label {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  fill: var(--ink);
+  fill-opacity: 0.78;
+}
+.hero .furniture-label {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  fill: var(--ink-soft);
+}
+.hero .key-label {
+  font-family: var(--font-text); font-size: 13px; fill: var(--ink);
+}
+
+/* a wide hero gets map type one step up, so furniture stays legible at 1:1 */
+@media (min-width: 900px) {
+  /* the head never wraps on a spread, so the sticky hero's offset (--head-h) holds */
+  .running-head { flex-wrap: nowrap; height: var(--head-h); padding-top: 0; padding-bottom: 0; }
+  .atlas-mark { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chapter { flex: none; white-space: nowrap; }
+  .hero .ward-label { font-size: 11px; }
+  .hero .furniture-label { font-size: 10px; }
+  .hero .key-label { font-size: 15px; }
+}
+
+/* ---------------- phone: one column, in reading order ---------------- */
+@media (max-width: 899.98px) {
+  :root { --head-h: 4.1rem; }
+  .running-head { gap: 0.1rem 0.6rem; padding-top: 0.35rem; padding-bottom: 0.35rem;
+                  font-size: 0.62rem; letter-spacing: 0.08em; }
+  .atlas-mark { flex: 1 1 100%; }
+  .chapter::before { content: none; }
+  .turn { gap: 0.5rem; }
+  .turn .prev, .turn .next { min-width: 1.75rem; min-height: 1.75rem; font-size: 1rem; }
+
+  .spread { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .words { display: contents; }          /* lets the hero slot between deck and number */
+  .words > *, .hero { margin-left: var(--gutter); margin-right: var(--gutter); }
+
+  .title  { order: 1; margin-top: 1.4rem; }
+  .deck   { order: 2; margin-bottom: 1rem; }
+  .hero   { order: 3; position: static; height: auto; aspect-ratio: 1 / 0.92;
+            margin-left: 0; margin-right: 0; width: 100%; }
+  .big-number { order: 4; margin-top: 0.75rem; }
+  .body   { order: 5; }
+  .source-line { order: 6; margin-bottom: 2.5rem; }
+}
+
+/* ---------------- Task 5 renderers: only what they need ---------------- */
+/* compare: on a phone the two maps stack, so the hero is taller */
+@media (max-width: 899.98px) {
+  body[data-hero="compare"] .hero { aspect-ratio: 1 / 1.7; }
+}
+.hero .panel-title, .hero .glyph-label, .hero .water-label {
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+.hero .panel-title {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.04em; fill: var(--ink);
+}
+.hero .panel-count { font-weight: 700; fill: var(--chapter-hue); font-variant-numeric: lining-nums; }
+.hero .panel-count-soft { font-weight: 700; fill: var(--ink-soft); font-variant-numeric: lining-nums; }
+.hero .glyph-label {
+  font-family: var(--font-display); font-weight: 700; font-size: 12px;
+  font-variant-numeric: lining-nums;
+}
+.hero .water-label {
+  font-family: var(--font-text); font-style: italic; font-size: 13px;
+  letter-spacing: 0.06em; fill: var(--ink-soft);
+}
+.hero .key-note { font-style: italic; fill: var(--ink-soft); }
+@media (min-width: 900px) {
+  .hero .panel-title { font-size: 14px; }
+  .hero .glyph-label { font-size: 13px; }
+  .hero .water-label { font-size: 15px; }
+}
+
+/* ---------------- Task 6: cover, contents, How we know ---------------- */
+/* Front-matter pages share the running head and the type of the map pages;
+   they are one reading column, not a spread. */
+.front-page { max-width: 46rem; margin: 0 auto; padding: clamp(2rem, 7vh, 4.5rem) var(--gutter) 4rem; }
+.front-page .title { font-size: clamp(2.4rem, 5vw, 4rem); }
+.front-page h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; line-height: 1.3;
+  margin: 2.2rem 0 0.6rem;
+}
+.front-page .deck { margin-bottom: 1.2rem; }
+
+.cover .title { font-size: clamp(3.2rem, 9vw, 6.5rem); line-height: 1.02; margin-bottom: 0.5rem; }
+.cover .subtitle {
+  margin: 0 0 1.8rem; color: var(--chapter-hue);
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(0.8rem, 1.5vw, 1rem); letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.5;
+}
+.cover .thesis {
+  font-style: italic; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.38;
+  max-width: 34rem; margin: 0 0 2rem; padding-top: 1.2rem; border-top: 2px solid var(--ink);
+}
+.cover-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0 0 2.4rem; }
+.cta {
+  font-family: var(--font-display); font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  padding: 0.8rem 1.15rem; border: 1px solid var(--ink); border-radius: 2px;
+  min-height: 2.75rem; display: inline-flex; align-items: center;
+}
+.cta:first-child { background: var(--chapter-hue); border-color: var(--chapter-hue); color: var(--ground); }
+.cta:first-child:hover { background: var(--ink); border-color: var(--ink); color: var(--ground); }
+.cta:hover { border-color: var(--chapter-hue); }
+
+.chapter-list {
+  list-style: none; counter-reset: ch; margin: 0 0 2rem; padding: 0.4rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+.chapter-list li {
+  counter-increment: ch; display: flex; gap: 1rem; align-items: baseline;
+  padding: 0.55rem 0; border-bottom: 1px solid var(--rule);
+  font-family: var(--font-display); font-weight: 600; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.chapter-list li::before {
+  content: counter(ch, decimal-leading-zero); color: var(--chapter-hue);
+  font-variant-numeric: tabular-nums lining-nums; min-width: 1.6rem;
+}
+.chapter-list li.soon { color: var(--ink-soft); }
+.chapter-list li.soon::before { color: var(--ink-soft); }
+
+.more-links { display: flex; flex-direction: column; gap: 0.5rem; margin: 2rem 0 0; font-style: italic; font-size: 1.05rem; }
+.more-links a { text-decoration-color: var(--chapter-hue); }
+
+.page-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.page-list li { padding: 0.9rem 0 1rem; border-bottom: 1px solid var(--rule); }
+.page-list a { text-decoration: none; display: flex; gap: 0.9rem; align-items: baseline; }
+.page-list a:hover .title { color: var(--chapter-hue); }
+.page-list .page-no {
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--chapter-hue);
+  font-variant-numeric: tabular-nums lining-nums; flex: none; min-width: 1.6rem;
+}
+.page-list .title { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; margin: 0; letter-spacing: 0; }
+.page-list .deck { font-size: 1.05rem; margin: 0.25rem 0 0 2.5rem; color: var(--ink-soft); }
+.coming {
+  margin: 0; padding: 0.6rem 0 0.9rem; border-top: 1px solid var(--rule);
+  font-family: var(--font-display); font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft);
+}
+.contents .chapter-block h2 { margin-top: 2rem; }
+
+.appendix .prose p { margin: 0 0 0.9em; max-width: 38rem; }
+.appendix section { scroll-margin-top: calc(var(--head-h) + 1rem); }
+.appendix section h2 { border-top: 2px solid var(--ink); padding-top: 0.8rem; margin-top: 2.6rem; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.appendix table { border-collapse: collapse; width: 100%; font-size: 0.95rem; line-height: 1.4; }
+.appendix th {
+  text-align: left; font-family: var(--font-display); font-weight: 600; font-size: 0.64rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft);
+  padding: 0.4rem 0.8rem 0.4rem 0; border-bottom: 1px solid var(--ink);
+}
+.appendix td { padding: 0.6rem 0.8rem 0.6rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.appendix td.value {
+  font-family: var(--font-display); font-weight: 700; color: var(--chapter-hue);
+  white-space: nowrap; font-variant-numeric: lining-nums;
+}
+.appendix td code { font-family: ui-monospace, Consolas, monospace; font-size: 0.78rem; word-break: break-all; }
+@media (max-width: 899.98px) {
+  /* a four-column table does not fit 375 px: each row becomes a stacked card */
+  .appendix table, .appendix tbody, .appendix tr, .appendix td { display: block; width: 100%; }
+  .appendix thead { display: none; }
+  .appendix tr { padding: 0.7rem 0; border-bottom: 1px solid var(--rule); }
+  .appendix td { border: 0; padding: 0.1rem 0; }
+  .appendix td:nth-child(3)::before { content: "Release "; color: var(--ink-soft); }
+}
