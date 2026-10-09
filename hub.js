@@ -372,8 +372,17 @@
       note.innerHTML = `<summary>What survived from 1895</summary><p>${entry.note}</p>` +
         `<p class="muted">Source: Plan des environs de Saïgon (Joly, 1895) — ` +
         `Wikimedia Commons, public domain mark (PD-Mark). ` +
-        `Georeferenced to RMSE ${entry.rmse_m} m — atmospheric, not survey-accurate.</p>`;
+        `Approximate, not street-aligned<span class="hist1895-miss"></span> — atmospheric, not survey-accurate.</p>`;
       section.appendChild(note);
+      // The measured miss is read from the atlas data (chapter 2 check
+      // points), never typed here; on failure the chip keeps the plain caveat.
+      fetch("atlas/data/then1984.json").then(r => r.ok ? r.json() : {}).then(d => {
+        const s = d && d.sheet_1895;
+        if (!s || !Number.isFinite(s.median_error_m)) return;
+        note.querySelector(".hist1895-miss").textContent =
+          `: it misses ${s.n_checkpoints} check points by a median of ` +
+          `${Math.round(s.median_error_m).toLocaleString("en-US")} m`;
+      }).catch(() => {});
     });
     wireFieldSpotlight(hubMap);
     renderHubCards(h, hubUniques);
