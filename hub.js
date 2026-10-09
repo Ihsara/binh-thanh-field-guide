@@ -371,7 +371,7 @@
       note.className = "hist1895-note";
       note.innerHTML = `<summary>What survived from 1895</summary><p>${entry.note}</p>` +
         `<p class="muted">Source: Plan des environs de Saïgon (Joly, 1895) — ` +
-        `Wikimedia Commons, public domain mark (PD-Mark). ` +
+        `Wikimedia Commons, public domain (copyright expired). ` +
         `Approximate, not street-aligned<span class="hist1895-miss"></span> — atmospheric, not survey-accurate.</p>`;
       section.appendChild(note);
       // The measured miss is read from the atlas data (chapter 2 check
