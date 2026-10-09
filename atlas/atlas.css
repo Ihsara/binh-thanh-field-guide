@@ -389,44 +389,50 @@ body[data-chapter="what-it-used-to-be"] {
 .hero .wards .district-outline { stroke: var(--chapter-hue); stroke-width: 2; }
 .hero .area-outline-halo { fill: none; stroke: var(--ground); stroke-opacity: 0.85; stroke-width: 5.5; stroke-linejoin: round; }
 .hero .area-outline { fill: none; stroke: var(--chapter-hue); stroke-width: 2.4; stroke-linejoin: round; }
-.hero .marker { fill: var(--chapter-hue); stroke: var(--ground); stroke-width: 2; }
+.hero .footprint {
+  fill: var(--chapter-hue); fill-opacity: 0.85;
+  stroke: var(--ground); stroke-width: 1.5; stroke-linejoin: round;
+}
 .hero .paper-card { fill: var(--ground); fill-opacity: 0.92; stroke: var(--rule); stroke-width: 0.8; }
 .hero .marker-label, .hero .route-label, .hero .beyond-label, .hero .area-label,
 .hero .new-ward-label, .hero .old-ward-label, .hero .plate-label {
   paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
 }
 .hero .marker-label, .hero .route-label {
-  font-family: var(--font-display); font-weight: 600; font-size: 12px; fill: var(--ink);
+  font-family: var(--font-display); font-weight: 600; font-size: 13px; fill: var(--ink);
 }
 .hero .beyond-label {
   font-family: var(--font-display); font-weight: 600; font-size: 9px; letter-spacing: 0.14em;
   text-transform: uppercase; fill: var(--ink-soft);
 }
 .hero .area-label, .hero .new-ward-label {
-  font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: 0.12em;
+  font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em;
   text-transform: uppercase; fill: var(--chapter-hue);
 }
 .hero .old-ward-label {
-  font-family: var(--font-display); font-weight: 600; font-size: 10px; fill: var(--ink-soft);
+  font-family: var(--font-display); font-weight: 600; font-size: 9px; fill: var(--ink-soft);
   font-variant-numeric: lining-nums;
 }
 .hero .plate-label {
-  font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.04em; fill: var(--ink);
+  font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; fill: var(--ink);
 }
-.hero .plate-licence { font-size: 12px; }
+.hero .plate-licence { font-size: 13px; }
 .hero .route-end { fill: var(--ground); stroke: var(--chapter-hue); stroke-width: 2.5; }
+body[data-hero="route"] .hero .ward-label { font-size: 9px; }
 @media (min-width: 900px) {
-  .hero .marker-label, .hero .route-label { font-size: 14px; }
+  .hero .marker-label, .hero .route-label { font-size: 15px; }
   .hero .beyond-label { font-size: 10px; }
-  .hero .area-label, .hero .new-ward-label { font-size: 12.5px; }
-  .hero .old-ward-label { font-size: 11px; }
-  .hero .plate-label { font-size: 13px; }
-  .hero .plate-licence { font-size: 13px; }
+  .hero .area-label, .hero .new-ward-label { font-size: 15px; }
+  .hero .old-ward-label { font-size: 10px; }
+  .hero .plate-label { font-size: 15px; }
+  .hero .plate-licence { font-size: 15px; }
+  body[data-hero="route"] .hero .ward-label { font-size: 10px; }
 }
 /* route: on a phone the 1815 inset gets its own band under the map */
 @media (max-width: 899.98px) {
   body[data-hero="route"] .hero { aspect-ratio: 1 / 1.3; }
 }
-/* the "How we know" link: a >= 24 px tap target (WCAG 2.5.8) without moving the line (padding on an
-   inline box grows its hit area, not the line box) */
-.source-line .how-we-know { padding-block: 0.6em; }
+/* every source-line link (the How we know link and inline credits such as "via Wikimedia Commons"):
+   a >= 24 px tap target (WCAG 2.5.8) without moving the line (padding on an inline box grows its hit
+   area, not the line box) */
+.source-line a { padding-block: 0.6em; }

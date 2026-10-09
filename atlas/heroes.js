@@ -628,11 +628,12 @@
       g.append("path").attr("class", "area-outline").attr("d", d);
     }
     const labels = map.append("g").attr("class", "sheet-labels").attr("clip-path", "url(#sheet-clip)");
-    if (data.marker) {
-      const [mx, my] = proj(data.marker.lonlat);
-      g.append("circle").attr("class", "marker").attr("cx", mx).attr("cy", my).attr("r", 6.5);
-      labels.append("text").attr("class", "marker-label").attr("x", mx + 12).attr("y", my).attr("dy", "0.35em")
-        .text(data.marker.label);
+    if (data.footprint) {
+      g.append("path").attr("class", "footprint").attr("d", path(data.footprint));
+      const b = path.bounds(data.footprint), c = path.centroid(data.footprint);
+      labels.append("text").attr("class", "marker-label")
+        .attr("x", b[1][0] + 8).attr("y", c[1]).attr("dy", "0.35em")
+        .text(data.label);
     }
     // the east edge of the paper: everything past it is "beyond this sheet"
     let beyondShown = false;
@@ -657,7 +658,7 @@
     }
     const items = [];
     if (data.mask) items.push({ label: compact ? "Built-up (printed red)" : "1984 built-up fill (printed red), traced", fill: "var(--chapter-hue)", square: 10, opacity: 0.85 });
-    if (data.marker) items.push({ label: compact ? "Landmark 81" : "Landmark 81, today", fill: "var(--chapter-hue)", keyR: 5 });
+    if (data.footprint) items.push({ label: compact ? "Landmark 81, footprint" : "Landmark 81’s footprint, today", fill: "var(--chapter-hue)", square: 10, opacity: 0.85 });
     if (data.area) items.push({ label: compact ? "Bình Quới ward" : "Phường Bình Quới, today", fill: "var(--chapter-hue)", line: 2.4 });
     items.push({ label: compact ? "District today" : "The district today", fill: "var(--ink)", line: 1.6 });
     if (data.ghost === "streets") items.push({ label: compact ? "Streets today" : "Streets today (faint)", fill: "var(--ink-soft)", line: 0.8, ghost: true });
@@ -692,7 +693,7 @@
     // caption, bottom left: the accuracy label, then the licence
     const cap = svg.append("g").attr("class", "plate-caption");
     const licence = s.licence ? wrap(s.licence, compact ? 44 : 64) : [];
-    const lh = compact ? 15 : 17;
+    const lh = compact ? 16 : 19;
     const y0 = h - 14 - licence.length * lh;
     cap.append("text").attr("class", "plate-label").attr("x", 16).attr("y", y0 - 4).text(s.label || "");
     licence.forEach((t, i) => cap.append("text").attr("class", "key-label key-note plate-licence")
@@ -748,8 +749,9 @@
 
     const ins = data.inset;
     const loc = compact ? 44 : 64;
-    const lic = !ins.licence ? [] : compact ? ["Public domain in the US", "Trần Văn Học (1815),", "photo: Bùi Thụy Đào Nguyên,", "via Wikimedia Commons"] : wrap(ins.licence, 48);
-    const capH = 18 + lic.length * 15;
+    const lic = !ins.licence ? [] : compact ? ["Public domain in the US", "Trần Văn Học (1815),", "photo: Bùi Thụy Đào Nguyên,", "via Wikimedia Commons"] : wrap(ins.licence, 42);
+    const pitch = compact ? 15 : 18;
+    const capH = 18 + lic.length * pitch;
     const ix = compact ? 16 : w - iw - 22, iy = compact ? mh + 14 : mh - loc - 34 - capH - ih - 8;
     const ig = map.append("g").attr("class", "plate inset").attr("transform", `translate(${ix.toFixed(1)},${iy.toFixed(1)})`);
     ig.append("rect").attr("class", "plate-mat").attr("x", -5).attr("y", -5)
@@ -763,7 +765,7 @@
     const [cx, cy] = compact ? [iw + 14, 12] : [0, ih + 15];
     ig.append("text").attr("class", "plate-label").attr("x", cx).attr("y", cy).text(ins.label || "");
     lic.forEach((t, i) => ig.append("text").attr("class", "key-label key-note plate-licence")
-      .attr("x", cx).attr("y", cy + 17 + i * 15).text(t));
+      .attr("x", cx).attr("y", cy + pitch + 2 + i * pitch).text(t));
   };
 
   /* ---- wards: the numbered wards (dashed) under the five named ones (solid, chapter ink) ---- */
