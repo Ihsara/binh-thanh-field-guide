@@ -732,10 +732,10 @@
     // On a wide frame it sits in the free corner under the Bình Quới lobe. Below 720 px that
     // corner is too small (the inset lands on the route), so it gets its own band under the map
     // instead, as wide as the column allows; the hero is taller there (atlas.css).
-    const crop = [1000, 320, 400, 280];             // x, y, w, h in the plate's pixels (1400 × 1050)
+    // The crop is baked from the full-resolution scan (then/crops.py INSET1815_PLATE).
+    const ins = data.inset, crop = ins.inset.size;  // w, h in the crop's own pixels
     const banded = compact || w < 720;
-    const iw = banded ? Math.min(w - 32, 480) : 260, ih = iw * crop[3] / crop[2];
-    const ins = data.inset;
+    const iw = banded ? Math.min(w - 32, 480) : 260, ih = iw * crop[1] / crop[0];
     const pitch = compact ? 15 : 18;
     // in a band the credit is packed into as few lines as the band holds (measured, not counted);
     // a phone gets the short credit
@@ -776,9 +776,9 @@
     const ig = map.append("g").attr("class", "plate inset").attr("transform", `translate(${ix.toFixed(1)},${iy.toFixed(1)})`);
     ig.append("rect").attr("class", "plate-mat").attr("x", -5).attr("y", -5)
       .attr("width", iw + 10).attr("height", banded ? ih + 10 : ih + capH + 12);
-    ig.append("svg").attr("width", iw).attr("height", ih).attr("viewBox", crop.join(" "))
+    ig.append("svg").attr("width", iw).attr("height", ih).attr("viewBox", `0 0 ${crop[0]} ${crop[1]}`)
       .attr("preserveAspectRatio", "xMidYMid slice")
-      .append("image").attr("href", DATA + ins.img).attr("width", 1400).attr("height", 1050)
+      .append("image").attr("href", DATA + ins.inset.img).attr("width", crop[0]).attr("height", crop[1])
       .attr("class", "plate-scan");
     ig.append("rect").attr("class", "plate-frame").attr("width", iw).attr("height", ih);
     // caption under the scan: inside the mat in the corner, under the mat in a band

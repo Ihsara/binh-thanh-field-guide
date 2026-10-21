@@ -29,6 +29,13 @@
  "plate1815": {
   "img": "then/plate1815.png",
   "licence": "Public domain in the US (published before 1931) — Trần Văn Học, Bản đồ Gia Định (1815), photo of a 1987 reproduction, uploaded by Bùi Thụy Đào Nguyên, via Wikimedia Commons (File:Bản đồ Gia Định 1815.jpg)",
-  "label": "1815 · illustrative only"
+  "label": "1815 · illustrative only",
+  "inset": {
+   "img": "then/inset1815.jpg",
+   "size": [
+    942,
+    660
+   ]
+  }
  }
 }
