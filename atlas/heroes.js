@@ -554,6 +554,19 @@
     return out;
   }
 
+  /** Greedy line packing by rendered width: joins parts with a space while the line fits in maxW. */
+  function packLines(svg, parts, cls, maxW) {
+    const probe = svg.append("text").attr("class", cls).attr("visibility", "hidden");
+    const fits = (t) => probe.text(t).node().getComputedTextLength() <= maxW;
+    const out = [];
+    parts.forEach((p) => {
+      const last = out.length ? out[out.length - 1] + " " + p : null;
+      if (last && fits(last)) out[out.length - 1] = last; else out.push(p);
+    });
+    probe.remove();
+    return out;
+  }
+
   /** The key, drawn in two columns on a phone's band, one column on a spread; carded. */
   function sheetKey(svg, items, w, compact) {
     if (compact) {
@@ -716,11 +729,21 @@
   A.heroes.route = function (fig, data, base) {
     const { svg, map, w, mh: fullH, top, compact } = A.frame(fig);
     // the inset: a crop of the 1815 sheet around Cầu Sơn, where it marks the road leaving north.
-    // On a spread it sits in the free corner under the Bình Quới lobe; on a phone the district
-    // fills the frame, so the inset gets its own band under the map (the hero is taller there).
+    // On a wide frame it sits in the free corner under the Bình Quới lobe. Below 720 px that
+    // corner is too small (the inset lands on the route), so it gets its own band under the map
+    // instead, as wide as the column allows; the hero is taller there (atlas.css).
     const crop = [1000, 320, 400, 280];             // x, y, w, h in the plate's pixels (1400 × 1050)
-    const iw = compact ? 150 : 260, ih = iw * crop[3] / crop[2];
-    const band = compact ? Math.round(ih + 22) : 0;
+    const banded = compact || w < 720;
+    const iw = banded ? Math.min(w - 32, 480) : 260, ih = iw * crop[3] / crop[2];
+    const ins = data.inset;
+    const pitch = compact ? 15 : 18;
+    // in a band the credit is packed into as few lines as the band holds (measured, not counted);
+    // a phone gets the short credit
+    const licCls = "key-label key-note plate-licence";
+    const lic = !ins.licence ? [] : !banded ? wrap(ins.licence, 42)
+      : compact ? packLines(svg, ["Public domain in the US ·", "Trần Văn Học (1815),", "photo: Bùi Thụy Đào Nguyên,", "via Wikimedia Commons"], licCls, iw)
+      : packLines(svg, ins.licence.split(" "), licCls, iw);
+    const band = banded ? Math.round(14 + ih + 20 + lic.length * pitch + 8) : 0;
     const mh = fullH - band;
     const proj = A.projection(base.bounds, w, mh);
     const path = d3.geoPath(proj);
@@ -747,22 +770,19 @@
       fill: "var(--chapter-hue)", line: 5 }], 14, compact ? 12 : 22);
     A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
 
-    const ins = data.inset;
     const loc = compact ? 44 : 64;
-    const lic = !ins.licence ? [] : compact ? ["Public domain in the US", "Trần Văn Học (1815),", "photo: Bùi Thụy Đào Nguyên,", "via Wikimedia Commons"] : wrap(ins.licence, 42);
-    const pitch = compact ? 15 : 18;
     const capH = 18 + lic.length * pitch;
-    const ix = compact ? 16 : w - iw - 22, iy = compact ? mh + 14 : mh - loc - 34 - capH - ih - 8;
+    const ix = banded ? 16 : w - iw - 22, iy = banded ? mh + 14 : mh - loc - 34 - capH - ih - 8;
     const ig = map.append("g").attr("class", "plate inset").attr("transform", `translate(${ix.toFixed(1)},${iy.toFixed(1)})`);
     ig.append("rect").attr("class", "plate-mat").attr("x", -5).attr("y", -5)
-      .attr("width", iw + 10).attr("height", compact ? ih + 10 : ih + capH + 12);
+      .attr("width", iw + 10).attr("height", banded ? ih + 10 : ih + capH + 12);
     ig.append("svg").attr("width", iw).attr("height", ih).attr("viewBox", crop.join(" "))
       .attr("preserveAspectRatio", "xMidYMid slice")
       .append("image").attr("href", DATA + ins.img).attr("width", 1400).attr("height", 1050)
       .attr("class", "plate-scan");
     ig.append("rect").attr("class", "plate-frame").attr("width", iw).attr("height", ih);
-    // caption under the inset on a spread, beside it on a phone
-    const [cx, cy] = compact ? [iw + 14, 12] : [0, ih + 15];
+    // caption under the scan: inside the mat in the corner, under the mat in a band
+    const [cx, cy] = banded ? [0, ih + 20] : [0, ih + 15];
     ig.append("text").attr("class", "plate-label").attr("x", cx).attr("y", cy).text(ins.label || "");
     lic.forEach((t, i) => ig.append("text").attr("class", "key-label key-note plate-licence")
       .attr("x", cx).attr("y", cy + pitch + 2 + i * pitch).text(t));

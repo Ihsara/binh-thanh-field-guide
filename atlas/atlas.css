@@ -432,6 +432,15 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
 @media (max-width: 899.98px) {
   body[data-hero="route"] .hero { aspect-ratio: 1 / 1.3; }
 }
+/* under 720 px the renderer moves the inset off the map into that band (its free corner is too
+   small there), and under 560 px (the compact width) the band spans the column: the hero grows so
+   the map keeps its height and the sheet's lettering can be read */
+@media (max-width: 719.98px) {
+  body[data-hero="route"] .hero { aspect-ratio: 1 / 1.6; }
+}
+@media (max-width: 559.98px) {
+  body[data-hero="route"] .hero { aspect-ratio: 1 / 1.8; }
+}
 /* every source-line link (the How we know link and inline credits such as "via Wikimedia Commons"):
    a >= 24 px tap target (WCAG 2.5.8) without moving the line (padding on an inline box grows its hit
    area, not the line box) */
