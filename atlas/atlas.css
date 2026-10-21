@@ -142,6 +142,11 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 }
 
 .body p { margin: 0 0 0.9em; }
+/* on the spread the number follows the first paragraph, so a reader starting in the words column
+   meets the map before the number (v2.1.7); under 900 px `order` puts it back under the hero */
+@media (min-width: 900px) {
+  .body-lead + .big-number { margin-top: 1.4rem; }
+}
 .body .run-in { font-weight: 700; }
 .body .fact { font-variant-numeric: lining-nums; white-space: nowrap; }
 .body .see {
