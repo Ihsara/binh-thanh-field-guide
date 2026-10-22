@@ -1,42 +1,53 @@
 /* Bình Thạnh — An Atlas for Curious Visitors. The style sheet every map page
    shares (identity gate, Task 4; rationale in docs/atlas-style.md).
-   Type: Be Vietnam Pro (display, furniture) + Alegreya (text). Both files carry
+   Type: Be Vietnam Pro (display, furniture) + CDA Independence (text, deck). Both files carry
    Latin AND Vietnamese in ONE file per weight — never a Vietnamese-only shard. */
 
 /* Arrows: Be Vietnam Pro has no ← → ↑ ↓, so a unicode-range face serves
-   U+2190–2193 from Alegreya ahead of it in every stack — no system fallback. */
+   U+2190–2193 from CDA Independence Text ahead of it in every stack — no system fallback. */
 @font-face { font-family: "Atlas Arrows"; font-weight: 400 700; font-style: normal; font-display: swap;
   unicode-range: U+2190-2193;
-  size-adjust: 110%;  /* 135% drew the arrow 2.0x the caps' height wide; 110% = 1.64x (measured 2026-10-08) */
-  src: url("fonts/alegreya-400.woff2") format("woff2"); }
+  size-adjust: 165%;  /* re-measured 2026-10-23 on CDA Independence Text (canvas ink boxes at 100 px): the arrow is 0.97x the
+                         Be Vietnam Pro 600 caps height wide at 100%, so 165% = 1.61x, the 1.6x target set on the old face */
+  src: url("fonts/cdaindependence-text-400.woff2") format("woff2"); }
 @font-face { font-family: "Be Vietnam Pro"; font-weight: 600; font-style: normal; font-display: swap;
   src: url("fonts/bevietnampro-600.woff2") format("woff2"); }
 @font-face { font-family: "Be Vietnam Pro"; font-weight: 700; font-style: normal; font-display: swap;
   src: url("fonts/bevietnampro-700.woff2") format("woff2"); }
-@font-face { font-family: "Alegreya"; font-weight: 400; font-style: normal; font-display: swap;
-  src: url("fonts/alegreya-400.woff2") format("woff2"); }
-@font-face { font-family: "Alegreya"; font-weight: 400; font-style: italic; font-display: swap;
-  src: url("fonts/alegreya-400italic.woff2") format("woff2"); }
-@font-face { font-family: "Alegreya"; font-weight: 700; font-style: normal; font-display: swap;
-  src: url("fonts/alegreya-700.woff2") format("woff2"); }
+@font-face { font-family: "CDA Independence Text"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/cdaindependence-text-400.woff2") format("woff2"); }
+@font-face { font-family: "CDA Independence Text"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("fonts/cdaindependence-text-700.woff2") format("woff2"); }
+@font-face { font-family: "CDA Independence Deck"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("fonts/cdaindependence-deck-400.woff2") format("woff2"); }
 
 :root {
   /* paper and ink */
-  --ground: #f5f0e6;          /* warm paper, not white */
+  --ground: #fbfaf6;          /* paper white the six colours were validated on */
   --ink: #23201b;             /* near-black, warm */
   --ink-soft: #6e665a;        /* secondary text, other dots, hairlines */
   --rule: #d9d0bf;
   /* the basemap, knocked back: one step off the paper, never competing */
-  --base-fill: #ebe4d6;
+  /* #f4f1e9: the lightest step that still separates from the paper (1.08:1) while all six street
+     colours hold >= 3:1 on it (metrics.py, v2.2-S6: c1 4.14, c2 3.30, c3 3.02, c4 3.39, c5 5.93,
+     c6 3.30). The old fill left nghe at 2.69, la chuoi 2.94, reu 2.95. */
+  --base-fill: #f4f1e9;
   --base-line: #d3c9b6;       /* streets */
-  --base-ward: #b9ad97;       /* ward borders: a second tone, same weight */
-  /* chapter hue — "Where Bình Thạnh Eats": roasted terracotta. One hue family
-     per chapter; value carries quantity. */
-  --chapter-hue: #b5401a;
-  --chapter-hue-soft: #eec6ad;
+  --base-ward: #b8ad9b;       /* ward borders: a second tone, same weight */
+  /* context: warm greys for everything that is not one of the six (chroma < 0.03) */
+  --context-soft: #e6dfd2;    /* a quiet fill or stroke beside a colour */
+  --context-mid: #c2b9aa;     /* a mid warm grey mass, e.g. the block's footprints (chroma 0.023) */
+  /* the six street colours, in validated slot order (src/atlas/colours.py is the source) */
+  --c1: #ce4522; --c1-name: "phượng";
+  --c2: #009399; --c2-name: "rêu";
+  --c3: #b5820c; --c3-name: "nghệ";
+  --c4: #d75485; --c4-name: "sen";
+  --c5: #3357b1; --c5-name: "chàm";
+  --c6: #499537; --c6-name: "lá chuối";
   /* faces */
   --font-display: "Atlas Arrows", "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
-  --font-text: "Alegreya", Georgia, "Times New Roman", serif;
+  --font-text: "CDA Independence Text", Georgia, "Times New Roman", serif;
+  --font-deck: "CDA Independence Deck", "CDA Independence Text", Georgia, "Times New Roman", serif;
   /* one halo for every in-map label: cuts hairlines, never draws a box */
   --halo-width: 3.5px;
   /* furniture metrics */
@@ -59,9 +70,13 @@ body {
   font-kerning: normal;
 }
 
-a { color: inherit; text-decoration-color: var(--chapter-hue); text-underline-offset: 0.18em; }
-a:hover { color: var(--chapter-hue); }
-a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
+/* CDA Independence ships no italic file: an italic would be a synthesized slant. Emphasis and cited
+   titles stay upright (a link already marks them); differences are made by size, weight or colour. */
+em, i, cite, dfn, var, address { font-style: normal; }
+
+a { color: inherit; text-decoration-color: var(--c1); text-underline-offset: 0.18em; }
+a:hover { color: var(--c1); }
+a:focus-visible { outline: 2px solid var(--c1); outline-offset: 2px; }
 
 /* ---------------- running head ---------------- */
 .running-head {
@@ -77,7 +92,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   line-height: 1.5;
 }
 .atlas-mark { text-decoration: none; color: var(--ink); }
-.chapter { color: var(--chapter-hue); }
+.chapter { color: var(--c1); }
 .chapter::before { content: "·"; color: var(--ink-soft); margin-right: 1.25rem; }
 .turn { margin-left: auto; display: flex; align-items: center; gap: 0.9rem; flex: none; }
 .turn .contents-link { text-decoration: none; color: var(--ink-soft); }
@@ -90,14 +105,15 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   min-width: 2rem; min-height: 2rem;
   border: 1px solid var(--rule); border-radius: 50%;
 }
-.turn .prev:hover, .turn .next:hover { border-color: var(--chapter-hue); }
+.turn .prev:hover, .turn .next:hover { border-color: var(--c1); }
 /* the "see" pointer is an inline link: padding grows its tap area, not the line */
 .body .see { padding-block: 0.6em; }
 
 /* ---------------- the spread ---------------- */
 .spread {
   display: grid;
-  grid-template-columns: minmax(18rem, 1fr) 2fr;
+  /* 3:7 puts the hero at 1008 x 852 of 1440 x 900 (area 0.66, the editorial-atlas floor); 1:2 gave 0.63 */
+  grid-template-columns: minmax(22rem, 3fr) 7fr;
   align-items: start;
   min-height: calc(100svh - var(--head-h));
 }
@@ -116,7 +132,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   margin: 0 0 0.4rem;
 }
 .deck {
-  font-family: var(--font-text); font-style: italic; font-weight: 400;
+  font-family: var(--font-deck); font-style: normal; font-weight: 400;
   font-size: clamp(1.2rem, 1.5vw, 1.4rem); line-height: 1.4;
   color: var(--ink);
   margin: 0 0 1.6rem;
@@ -132,12 +148,12 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 .big-number .value {
   font-family: var(--font-display); font-weight: 700;
   font-size: clamp(3.4rem, 5.6vw, 5.25rem); line-height: 1; letter-spacing: -0.03em;
-  color: var(--chapter-hue);
+  color: var(--c1);
   font-variant-numeric: lining-nums;
 }
 .big-number .gloss {
   flex: 1 1 10rem;
-  font-family: var(--font-text); font-style: italic;
+  font-family: var(--font-text); font-style: normal;
   font-size: 1.02rem; line-height: 1.35; color: var(--ink-soft);
 }
 
@@ -145,6 +161,8 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 /* on the spread the number follows the first paragraph, so a reader starting in the words column
    meets the map before the number (v2.1.7); under 900 px `order` puts it back under the hero */
 @media (min-width: 900px) {
+  /* a narrower column keeps its measure by a tighter inner edge: ~30+ characters a line at 1440 */
+  .words { padding-left: 1.5rem; padding-right: 1rem; }
   .body-lead + .big-number { margin-top: 1.4rem; }
   /* ...and is set below the headline's size: at 71.7 px it was still read before a 0.63-share map
      in 4 of 5 readings (v2.1.8). The hue stays: number and marks are one claim. */
@@ -155,7 +173,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 .body .see {
   font-family: var(--font-display); font-weight: 600; font-size: 0.8rem;
   letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
-  text-decoration: none; color: var(--chapter-hue);
+  text-decoration: none; color: var(--c1);
 }
 
 .source-line {
@@ -165,7 +183,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
   line-height: 1.6; color: var(--ink-soft);
 }
-.source-line .how-we-know { color: var(--ink); text-decoration-color: var(--chapter-hue); }
+.source-line .how-we-know { color: var(--ink); text-decoration-color: var(--c1); }
 
 /* ---------------- the hero ---------------- */
 .hero {
@@ -183,7 +201,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 
 .noscript-fallback {
   margin: 2rem var(--gutter);
-  font-style: italic; color: var(--ink-soft);
+  font-style: normal; color: var(--ink-soft);
 }
 
 /* map type: ward names in tracked small caps, furniture in the display face */
@@ -230,7 +248,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   .turn .prev::before, .turn .next::before {
     content: ""; position: absolute; inset: 0.5rem; border: 1px solid var(--rule); border-radius: 50%;
   }
-  .turn .prev:hover::before, .turn .next:hover::before { border-color: var(--chapter-hue); }
+  .turn .prev:hover::before, .turn .next:hover::before { border-color: var(--c1); }
   .turn .contents-link { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 0.35rem; }
   .atlas-mark { padding-block: 0.3rem; }
 
@@ -243,37 +261,21 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   .hero   { order: 3; position: static; height: auto; aspect-ratio: 1 / 0.92;
             margin-left: 0; margin-right: 0; width: 100%; }
   .big-number { order: 4; margin-top: 0.75rem; }
+  /* a page-turn pointer can be wider than the phone column: let it wrap instead of scrolling the page */
+  .body .see { white-space: normal; overflow-wrap: anywhere; }
   .body   { order: 5; }
   .source-line { order: 6; margin-bottom: 2.5rem; }
 }
 
-/* ---------------- Task 5 renderers: only what they need ---------------- */
-/* compare: on a phone the two maps stack, so the hero is taller */
-@media (max-width: 899.98px) {
-  body[data-hero="compare"] .hero { aspect-ratio: 1 / 1.7; }
-}
-.hero .panel-title, .hero .glyph-label, .hero .water-label {
-  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
-}
+/* ---------------- Task 5 renderers (retired in v2.2): what survives is panel titles (pair) and key notes (ch.2) ---------------- */
 .hero .panel-title {
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
   font-family: var(--font-display); font-weight: 600;
   font-size: 12px; letter-spacing: 0.04em; fill: var(--ink);
 }
-.hero .panel-count { font-weight: 700; fill: var(--chapter-hue); font-variant-numeric: lining-nums; }
-.hero .panel-count-soft { font-weight: 700; fill: var(--ink-soft); font-variant-numeric: lining-nums; }
-.hero .glyph-label {
-  font-family: var(--font-display); font-weight: 700; font-size: 12px;
-  font-variant-numeric: lining-nums;
-}
-.hero .water-label {
-  font-family: var(--font-text); font-style: italic; font-size: 13px;
-  letter-spacing: 0.06em; fill: var(--ink-soft);
-}
-.hero .key-note { font-style: italic; fill: var(--ink-soft); }
+.hero .key-note { font-style: normal; fill: var(--ink-soft); }
 @media (min-width: 900px) {
   .hero .panel-title { font-size: 14px; }
-  .hero .glyph-label { font-size: 13px; }
-  .hero .water-label { font-size: 15px; }
 }
 
 /* ---------------- Task 6: cover, contents, How we know ---------------- */
@@ -289,12 +291,12 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 
 .cover .title { font-size: clamp(3.2rem, 9vw, 6.5rem); line-height: 1.02; margin-bottom: 0.5rem; }
 .cover .subtitle {
-  margin: 0 0 1.8rem; color: var(--chapter-hue);
+  margin: 0 0 1.8rem; color: var(--c1);
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(0.8rem, 1.5vw, 1rem); letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.5;
 }
 .cover .thesis {
-  font-style: italic; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.38;
+  font-style: normal; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.38;
   max-width: 34rem; margin: 0 0 2rem; padding-top: 1.2rem; border-top: 2px solid var(--ink);
 }
 .cover-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0 0 2.4rem; }
@@ -304,9 +306,9 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   padding: 0.8rem 1.15rem; border: 1px solid var(--ink); border-radius: 2px;
   min-height: 2.75rem; display: inline-flex; align-items: center;
 }
-.cta:first-child { background: var(--chapter-hue); border-color: var(--chapter-hue); color: var(--ground); }
+.cta:first-child { background: var(--c1); border-color: var(--c1); color: var(--ground); }
 .cta:first-child:hover { background: var(--ink); border-color: var(--ink); color: var(--ground); }
-.cta:hover { border-color: var(--chapter-hue); }
+.cta:hover { border-color: var(--c1); }
 
 .chapter-list {
   list-style: none; counter-reset: ch; margin: 0 0 2rem; padding: 0.4rem 0 0;
@@ -319,21 +321,21 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   letter-spacing: 0.08em; text-transform: uppercase;
 }
 .chapter-list li::before {
-  content: counter(ch, decimal-leading-zero); color: var(--chapter-hue);
+  content: counter(ch, decimal-leading-zero); color: var(--c1);
   font-variant-numeric: tabular-nums lining-nums; min-width: 1.6rem;
 }
 .chapter-list li.soon { color: var(--ink-soft); }
 .chapter-list li.soon::before { color: var(--ink-soft); }
 
-.more-links { display: flex; flex-direction: column; gap: 0.5rem; margin: 2rem 0 0; font-style: italic; font-size: 1.05rem; }
-.more-links a { text-decoration-color: var(--chapter-hue); }
+.more-links { display: flex; flex-direction: column; gap: 0.5rem; margin: 2rem 0 0; font-style: normal; font-size: 1.05rem; }
+.more-links a { text-decoration-color: var(--c1); }
 
 .page-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .page-list li { padding: 0.9rem 0 1rem; border-bottom: 1px solid var(--rule); }
 .page-list a { text-decoration: none; display: flex; gap: 0.9rem; align-items: baseline; }
-.page-list a:hover .title { color: var(--chapter-hue); }
+.page-list a:hover .title { color: var(--c1); }
 .page-list .page-no {
-  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--chapter-hue);
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--c1);
   font-variant-numeric: tabular-nums lining-nums; flex: none; min-width: 1.6rem;
 }
 .page-list .title { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; margin: 0; letter-spacing: 0; }
@@ -357,7 +359,7 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 }
 .appendix td { padding: 0.6rem 0.8rem 0.6rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 .appendix td.value {
-  font-family: var(--font-display); font-weight: 700; color: var(--chapter-hue);
+  font-family: var(--font-display); font-weight: 700; color: var(--c1);
   white-space: nowrap; font-variant-numeric: lining-nums;
 }
 .appendix td code { font-family: ui-monospace, Consolas, monospace; font-size: 0.78rem; word-break: break-all; }
@@ -371,21 +373,12 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
 }
 
 /* ---------------- Chapter 2: What It Used to Be (docs/atlas-style.md "Chapter 2") ---------------- */
-/* One new hue family: river-teal ink. --ch2-ink must equal crops.HUE (35, 92, 110),
-   the colour the 1984 built-up mask is baked in. The chapter's pages swap it in for
-   --chapter-hue, so the running head, big number and locator follow it. */
-:root {
-  --ch2-ink: rgb(35 92 110);
-  --ch2-tint: #c9dde1;
-}
-body[data-chapter="what-it-used-to-be"] {
-  --chapter-hue: var(--ch2-ink);
-  --chapter-hue-soft: var(--ch2-tint);
-}
+/* Chapter 2 draws its one measured layer in --c1 (phuong), like every story. The 1984 built-up
+   raster (baked teal, crops.HUE) is used only as an alpha mask over a --c1 rect, so the colour is the token. */
 /* the scan is knocked back toward the paper, so its own reds and blues never compete */
 .hero .sheet-scan { opacity: 0.55; filter: saturate(0.35) sepia(0.15); }
 /* plain alpha, not multiply (chapter-1 lesson: multiply goes near-black where it stacks) */
-.hero .sheet-mask { mix-blend-mode: normal; opacity: 0.85; }
+.hero .sheet-built { fill: var(--c1); mix-blend-mode: normal; opacity: 0.6; }  /* = heroes.js BUILT_OPACITY */
 .hero .ghost-streets { fill: none; stroke: var(--ink); stroke-opacity: 0.22; stroke-width: 0.5; stroke-linejoin: round; }
 .hero .district-outline-halo { fill: none; stroke: var(--ground); stroke-opacity: 0.8; stroke-width: 4; stroke-linejoin: round; }
 .hero .district-outline { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
@@ -394,14 +387,14 @@ body[data-chapter="what-it-used-to-be"] {
 .hero .plate-frame, .hero .plate { fill: none; }
 .hero .plate-frame { stroke: var(--ink); stroke-width: 1; }
 .hero .route-halo { fill: none; stroke: var(--ground); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
-.hero .route-line { fill: none; stroke: var(--chapter-hue); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.hero .route-line { fill: none; stroke: var(--c1); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
 .hero .old-wards path { fill: none; stroke: var(--ink-soft); stroke-width: 0.7; stroke-dasharray: 3 2; }
-.hero .new-wards path { fill: none; stroke: var(--chapter-hue); stroke-width: 2; stroke-linejoin: round; }
-.hero .wards .district-outline { stroke: var(--chapter-hue); stroke-width: 2; }
+.hero .new-wards path { fill: none; stroke: var(--c1); stroke-width: 2; stroke-linejoin: round; }
+.hero .wards .district-outline { stroke: var(--c1); stroke-width: 2; }
 .hero .area-outline-halo { fill: none; stroke: var(--ground); stroke-opacity: 0.85; stroke-width: 5.5; stroke-linejoin: round; }
-.hero .area-outline { fill: none; stroke: var(--chapter-hue); stroke-width: 2.4; stroke-linejoin: round; }
+.hero .area-outline { fill: none; stroke: var(--c1); stroke-width: 2.4; stroke-linejoin: round; }
 .hero .footprint {
-  fill: var(--chapter-hue); fill-opacity: 0.85;
+  fill: var(--c1); fill-opacity: 0.85;
   stroke: var(--ground); stroke-width: 1.5; stroke-linejoin: round;
 }
 .hero .paper-card { fill: var(--ground); fill-opacity: 0.92; stroke: var(--rule); stroke-width: 0.8; }
@@ -418,7 +411,7 @@ body[data-chapter="what-it-used-to-be"] {
 }
 .hero .area-label, .hero .new-ward-label {
   font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em;
-  text-transform: uppercase; fill: var(--chapter-hue);
+  text-transform: uppercase; fill: var(--c1);
 }
 .hero .old-ward-label {
   font-family: var(--font-display); font-weight: 600; font-size: 9px; fill: var(--ink-soft);
@@ -428,7 +421,7 @@ body[data-chapter="what-it-used-to-be"] {
   font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; fill: var(--ink);
 }
 .hero .plate-licence { font-size: 13px; }
-.hero .route-end { fill: var(--ground); stroke: var(--chapter-hue); stroke-width: 2.5; }
+.hero .route-end { fill: var(--ground); stroke: var(--c1); stroke-width: 2.5; }
 body[data-hero="route"] .hero .ward-label { font-size: 9px; }
 @media (min-width: 900px) {
   .hero .marker-label, .hero .route-label { font-size: 15px; }
@@ -456,3 +449,51 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
    a >= 24 px tap target (WCAG 2.5.8) without moving the line (padding on an inline box grows its hit
    area, not the line box) */
 .source-line a { padding-block: 0.6em; }
+
+/* streets hero (v2.2): a pocket label is the one text that wears a series colour, and only its own */
+.hero .pocket-label {
+  font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: 0.02em;
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+@media (min-width: 900px) { .hero .pocket-label { font-size: 14px; } }
+/* zoom furniture (v2.2-S6): the street a headline names, and the campus outline's name. Both are
+   context, so they are warm grey / ink and never wear a series colour */
+.hero .street-label {
+  font-family: var(--font-text); font-size: 11px; letter-spacing: 0.01em; fill: var(--ink-soft);
+  paint-order: stroke; stroke: var(--base-fill); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+.hero .campus-label {
+  font-family: var(--font-display); font-weight: 600; font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; fill: var(--ink);
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+@media (min-width: 900px) {
+  .hero .street-label { font-size: 14px; }
+  .hero .campus-label { font-size: 11px; }
+}
+
+/* ---------------- Task 7: the density pair ---------------- */
+/* two panels side by side; below 900 px the figure spans three grid rows (a subgrid) with its panels in
+   the first and third, so .big-number slots between them while #hero keeps a box a link can land on */
+body[data-hero="pair"] .hero { display: flex; gap: var(--gutter); align-items: center;
+  padding-right: var(--gutter); }
+body[data-hero="pair"] .hero .panel { flex: 1 1 0; min-width: 0; }
+body[data-hero="pair"] .hero .panel-title { margin: 0 0 0.4rem; font-size: 0.95rem; letter-spacing: 0.04em;
+  font-family: var(--font-display); font-weight: 600; }
+body[data-hero="pair"] .hero canvas.density { display: block; width: 100%; height: auto; }
+body[data-hero="pair"] .hero .density-key { margin: 0.45rem 0 0; font-family: var(--font-text); font-size: 0.85rem;
+  line-height: 1.35; color: var(--ink-soft); }
+@media (max-width: 899.98px) {
+  body[data-hero="pair"] .title { grid-row: 1; }
+  body[data-hero="pair"] .deck { grid-row: 2; }
+  body[data-hero="pair"] .hero { display: grid; grid-column: 1; grid-row: 3 / span 3;
+    grid-template-rows: subgrid; grid-template-columns: minmax(0, 1fr);
+    aspect-ratio: auto; height: auto; padding-right: 0; gap: 0; }
+  body[data-hero="pair"] .hero .panel { margin: 0 var(--gutter) 1rem; }
+  body[data-hero="pair"] .hero .panel:nth-of-type(1) { grid-row: 1; }
+  body[data-hero="pair"] .hero .panel:nth-of-type(2) { grid-row: 3; }
+  body[data-hero="pair"] .big-number { grid-column: 1; grid-row: 4; position: relative; z-index: 1; }
+  body[data-hero="pair"] .body-lead { grid-row: 6; }
+  body[data-hero="pair"] .body-rest { grid-row: 7; }
+  body[data-hero="pair"] .source-line { grid-row: 8; }
+}

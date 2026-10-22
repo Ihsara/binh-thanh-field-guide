@@ -7,7 +7,7 @@
   const A = (window.Atlas = window.Atlas || {});
   const NS = "http://www.w3.org/2000/svg";
 
-  /** Read a CSS custom property from :root (e.g. A.css("--chapter-hue")). */
+  /** Read a CSS custom property from :root (e.g. A.css("--c1")). */
   A.css = function (name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   };
@@ -31,15 +31,16 @@
     return String(name).replace(/^Phường\s+/u, "");
   };
 
-  /** Outline fill, streets (one path), ward hairlines, ward names in small caps. */
-  A.drawBase = function (svg, base, proj) {
+  /** Outline fill, streets (one path), ward hairlines, ward names in small caps. `streets` (a list of
+      lon/lat polylines, e.g. a story's data.streets) replaces the shared grey base streets when given. */
+  A.drawBase = function (svg, base, proj, streets) {
     const path = d3.geoPath(proj);
     const g = svg.append("g").attr("class", "base");
     g.append("path").attr("class", "base-outline")
       .attr("d", path(base.outline))
       .attr("fill", "var(--base-fill)").attr("stroke", "none");
     g.append("path").attr("class", "base-streets")
-      .attr("d", path({ type: "MultiLineString", coordinates: base.streets }))
+      .attr("d", path({ type: "MultiLineString", coordinates: streets || base.streets }))
       .attr("fill", "none").attr("stroke", "var(--base-line)")
       .attr("stroke-width", 0.5).attr("stroke-linejoin", "round");
     // knocked back by TINT, not stacked opacities: wards are a second tone, same weight
@@ -72,13 +73,13 @@
       .attr("fill", "var(--ground)").attr("stroke", "var(--ink-soft)").attr("stroke-width", 0.6);
     const p = d3.geoMercator().fitExtent([[5, 5], [size - 5, size - 5]], base.outline);
     g.append("path").attr("d", d3.geoPath(p)(base.outline))
-      .attr("fill", "var(--chapter-hue-soft)").attr("stroke", "var(--ink)").attr("stroke-width", 0.6);
+      .attr("fill", "var(--context-soft)").attr("stroke", "var(--ink)").attr("stroke-width", 0.6);
     if (mark) {
       const a = p([mark[0], mark[3]]), b = p([mark[2], mark[1]]);
       g.append("rect").attr("class", "locator-mark")
         .attr("x", a[0].toFixed(1)).attr("y", a[1].toFixed(1))
         .attr("width", Math.max(3, b[0] - a[0]).toFixed(1)).attr("height", Math.max(3, b[1] - a[1]).toFixed(1))
-        .attr("fill", "none").attr("stroke", "var(--chapter-hue)").attr("stroke-width", 1.4);
+        .attr("fill", "none").attr("stroke", "var(--c1)").attr("stroke-width", 1.4);
     }
     g.append("text").attr("class", "furniture-label").attr("x", size / 2).attr("y", size + 11)
       .attr("text-anchor", "middle").text("The district");

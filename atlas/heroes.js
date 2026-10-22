@@ -2,8 +2,9 @@
    Every renderer has the signature (fig, data, base) => void: it creates its
    own <svg> inside fig (Atlas.frame), sizes it from fig.clientWidth, draws the
    shared base (Atlas.drawBase) and the furniture (Atlas.furniture), and is
-   redrawn on resize by the dispatch. Task 4 ships `dots`; Task 5 adds compare,
-   glyphs, zoom, territories and units. */
+   redrawn on resize by the dispatch. Chapter 1 (v2.2) draws `streets`, `pair` and
+   `block`; chapter 2 draws `sheet`, `plate`, `route` and `wards`. The v2.0 renderers
+   (dots, compare, glyphs, zoom, territories, units) left with their pages in v2.2. */
 (function () {
   "use strict";
   const A = (window.Atlas = window.Atlas || {});
@@ -71,52 +72,6 @@
     fig.appendChild(p);
   }
 
-  /* ---- dots: one dot per place; the chapter's subject in the chapter hue ---- */
-  A.heroes.dots = function (fig, data, base) {
-    const { svg, map, w, mh, top, compact } = A.frame(fig);
-    const proj = A.projection(base.bounds, w, mh);
-    // the plan's radii (1 / 1.4) are phone-sized; a wide map scales them up a little
-    const grow = Math.max(1, Math.min(1.6, w / 600));
-    const layer = (key) => (data.layers.find((l) => l.key === key) || { points: [], label: key });
-    const other = layer("other");
-    const coffee = layer("coffee");
-    svg.attr("aria-label", `Map of Bình Thạnh: ${coffee.label} against ${other.label.toLowerCase()}`);
-
-    A.drawBase(map, base, proj);
-    const xy = (p) => proj(p);
-
-    map.append("g").attr("class", "dots-other")
-      .attr("fill", "var(--ink-soft)").attr("fill-opacity", 0.5)
-      .selectAll("circle").data(other.points).join("circle")
-      .attr("cx", (p) => xy(p)[0].toFixed(1)).attr("cy", (p) => xy(p)[1].toFixed(1)).attr("r", 1 * grow);
-
-    // plain alpha, not multiply: overlapping cafés deepen toward the full chapter
-    // hue and stop there. Multiply kept darkening every stack, and on a phone the
-    // busiest streets went near-black (critique 2026-10-08).
-    const r = 1.4 * grow;
-    map.append("g").attr("class", "dots-coffee")
-      .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.6)
-      .selectAll("circle").data(coffee.points).join("circle")
-      .attr("cx", (p) => xy(p)[0].toFixed(1)).attr("cy", (p) => xy(p)[1].toFixed(1)).attr("r", r);
-
-    map.select("g.base-labels").raise();
-    A.key(svg, [
-      { label: coffee.label, fill: "var(--chapter-hue)", keyR: 4 },
-      { label: other.label, fill: "var(--ink-soft)", opacity: 0.6, keyR: 3 },
-    ], 14, compact ? 12 : 22);
-    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
-  };
-
-  /* ---- shared bits for Task 5's renderers ---- */
-  const fmt = (n) => d3.format(",")(n);
-
-  /** Height / width of a [w, s, e, n] box on the atlas projection. */
-  function boxRatio(b) {
-    const p = A.projection(b, 1000, 1000);
-    const a = p([b[0], b[3]]), c = p([b[2], b[1]]);
-    return (c[1] - a[1]) / (c[0] - a[0]);
-  }
-
   /** Clip a group to its own w × h box, so a zoomed map stays inside the frame. */
   function clipTo(svg, g, id, w, h) {
     svg.append("defs").append("clipPath").attr("id", id)
@@ -124,380 +79,16 @@
     g.attr("clip-path", `url(#${id})`);
   }
 
-  /* ---- compare: two small maps on ONE projection, one label each ---- */
-
-  /** Per 2-px column, the lowest (bottom) and highest (top) y of the district
-      outline drawn by proj: the shape's silhouette, used to stagger two panels. */
-  function silhouette(base, proj, w) {
-    const cols = Math.ceil(w / 2) + 1;
-    const lo = new Array(cols).fill(-Infinity), hi = new Array(cols).fill(Infinity);
-    const polys = base.outline.type === "Polygon" ? [base.outline.coordinates] : base.outline.coordinates;
-    polys.forEach((poly) => poly.forEach((ring) => {
-      for (let i = 1; i < ring.length; i++) {
-        const a = proj(ring[i - 1]), b = proj(ring[i]);
-        const steps = Math.max(1, Math.ceil(Math.abs(b[0] - a[0]) / 2));
-        for (let k = 0; k <= steps; k++) {
-          const x = a[0] + (b[0] - a[0]) * k / steps, y = a[1] + (b[1] - a[1]) * k / steps;
-          const c = Math.max(0, Math.min(cols - 1, Math.round(x / 2)));
-          if (y > lo[c]) lo[c] = y;
-          if (y < hi[c]) hi[c] = y;
-        }
-      }
-    }));
-    return { lo, hi };
-  }
-
-  A.heroes.compare = function (fig, data, base) {
-    const { svg, w, h, compact } = A.frame(fig);
-    const sets = [data.left, data.right];
-    const name = (s) => String(s.label).replace(/_/g, " ");
-    svg.attr("aria-label", `Two maps of Bình Thạnh: places labelled ${name(data.left)} and places labelled ${name(data.right)}`);
-
-    const ratio = boxRatio(base.bounds);
-    const stacked = compact;                       // a phone puts one map above the other
-    const gap = stacked ? 10 : 20, titleH = 26;
-    const band = (compact ? 44 : 64) + 30;         // locator + scale under the maps
-    const keyH = compact ? 34 : 46;
-    const inset = stacked ? 0 : 16;                 // keeps the Bình Quới lobe off the right edge
-    let pw = stacked ? w : Math.floor((w - gap - inset) / 2);
-    const room = stacked ? (h - keyH - band - gap) / 2 - titleH : h - keyH - band - titleH;
-    let ph = Math.max(80, Math.floor(Math.min((pw - 16) * ratio + 16, room)));
-    let blockH = stacked ? 2 * (titleH + ph) + gap + band : titleH + ph + band;
-    // top-aligned on a spread (the furniture follows the maps); centred in a phone's tall frame
-    const y0 = stacked ? Math.max(0, Math.floor((h - keyH - blockH) / 2)) : 4;
-    let at = (i) => (stacked ? [0, i * (titleH + ph + gap)] : [i * (pw + gap), 0]);
-
-    // On a spread, side-by-side panels are bound by the width and leave the
-    // hero's lower half empty. The district's lobe leaves each panel's lower
-    // right empty too, so stagger them on the diagonal and grow both until the
-    // outlines come within `clear` px (2026-10-08 critique: the panels ranked
-    // third for a cold reader).
-    let staggered = false;
-    const loc = 64;
-    if (!stacked) {
-      const avail = h - y0 - keyH - 6, clear = 14, titleW = 230;
-      for (let P = Math.floor((w - inset) * 0.8); P > pw; P -= 8) {
-        const H = Math.floor((P - 16) * ratio + 16);
-        const sil = silhouette(base, A.projection(base.bounds, P, H), P);
-        const dx = w - inset - P;
-        let dy = 0;
-        for (let c = 0; c < sil.hi.length; c++) {   // right panel column c sits at left column c + dx/2
-          const top = c * 2 < titleW ? -titleH : sil.hi[c];   // its title is part of its silhouette
-          if (!isFinite(top)) continue;
-          const lc = Math.round(c + dx / 2), m = Math.ceil(clear / 2);
-          for (let j = lc - m; j <= lc + m; j++) {
-            if (j >= 0 && j < sil.lo.length && isFinite(sil.lo[j])) dy = Math.max(dy, sil.lo[j] - top + clear);
-          }
-        }
-        const fitsRight = dy + titleH + H <= avail;
-        const fitsFurniture = titleH + H + loc + 24 <= avail;   // locator + scale under the first panel
-        if (fitsRight && fitsFurniture) {
-          pw = P; ph = H; blockH = avail; staggered = true;
-          at = (i) => (i === 0 ? [0, 0] : [dx, Math.ceil(dy)]);
-          break;
-        }
-      }
-    }
-
-    // ONE projection, reused by both panels, so a block is the same size on each
-    const proj = A.projection(base.bounds, pw, ph);
-    const r = 1.3 * Math.max(1, Math.min(1.4, pw / 450));
-
-    A.key(svg, [{ label: "One place, as Overture labels it", fill: "var(--chapter-hue)", keyR: 3.5, opacity: 0.85 }],
-      14, y0 + (compact ? 14 : 20));
-    const blk = svg.append("g").attr("class", "compare").attr("transform", `translate(0,${y0 + keyH})`);
-
-    sets.forEach((set, i) => {
-      const [x, y] = at(i);
-      const panel = blk.append("g").attr("class", "panel").attr("transform", `translate(${x},${y})`);
-      const t = panel.append("text").attr("class", "panel-title").attr("x", 10).attr("y", 17);
-      t.append("tspan").text(`Labelled “${name(set)}”`);
-      t.append("tspan").attr("class", "panel-count").attr("dx", 8).text(fmt(set.points.length));
-      const m = panel.append("g").attr("transform", `translate(0,${titleH})`);
-      A.drawBase(m, base, proj);
-      m.append("g").attr("class", "dots-subject")
-        .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.6)   // alpha, as on map 1
-        .selectAll("circle").data(set.points).join("circle")
-        .attr("cx", (p) => proj(p)[0].toFixed(1)).attr("cy", (p) => proj(p)[1].toFixed(1)).attr("r", r);
-      m.select("g.base-labels").raise();
-    });
-    if (staggered) {                               // the free corner is bottom left, under the first panel
-      A.locator(blk, base, 16, blockH - loc - 18, loc);   // its caption sits 11 px under the box
-      A.scaleBar(blk, proj, 16 + loc + 22, blockH - 22);
-      A.north(blk, w - inset - 22, 12);
-    } else {
-      A.furniture(blk, base, proj, w - inset, blockH, { northY: 12 });
-    }
-  };
-
-  /* ---- glyphs: one dish glyph per ward, area ∝ places serving it ---- */
-  // Drawn here (24-unit box, centred), not taken from web/icons: that sprite
-  // has no bún or cơm. Bún: a bowl with noodles lifted on chopsticks.
-  // Cơm: a mound of rice on a plate.
-  const DISH = {
-    bun: ["M-8,-1H8", "M-7,-1C-7,5 -3.5,7.5 0,7.5S7,5 7,-1",
-          "M-3.5,-1C-3.5,-4 -2,-5 -2.5,-8", "M0,-1C0,-4 1.5,-5 1,-8", "M3.5,-1C3.5,-4 5,-5 4.5,-8",
-          "M-5,-8.5L8,-6"],
-    com: ["M-9,4.5C-9,6.5 9,6.5 9,4.5S-9,2.5 -9,4.5", "M-6,4C-6,-4 6,-4 6,4",
-          "M-2,-1.5h0.1M1.5,0h0.1M-0.5,2h0.1M3,2.5h0.1M-3.5,2h0.1"],
-  };
-
-  A.heroes.glyphs = function (fig, data, base) {
-    const { svg, map, w, mh, top, compact } = A.frame(fig);
-    const proj = A.projection(base.bounds, w, mh);
-    svg.attr("aria-label", "Map of Bình Thạnh: the leading dish in each ward");
-    const { labels } = A.drawBase(map, base, proj);
-
-    const rMax = Math.max(22, Math.min(40, w / 22));
-    const nMax = d3.max(data.wards, (d) => d.n);
-    const rOf = (n) => Math.sqrt(n / nMax) * rMax;   // AREA ∝ n, not radius
-    const hue = (d) => (d.dish_key === "bun" ? "var(--chapter-hue)" : "var(--ink-soft)");
-    const at = (d) => proj(d.centroid);
-
-    const g = map.append("g").attr("class", "glyphs");
-    const one = g.selectAll("g").data(data.wards).join("g")
-      .attr("class", "glyph")
-      .attr("transform", (d) => { const c = at(d); return `translate(${c[0].toFixed(1)},${c[1].toFixed(1)})`; });
-    one.append("circle").attr("r", (d) => rOf(d.n)).attr("fill", hue)
-      .attr("stroke", "var(--ground)").attr("stroke-width", 1.5);
-    // a disc too small to hold its dish carries the glyph just above it, in the dish's hue
-    const small = (d) => rOf(d.n) < 12;
-    one.filter((d) => DISH[d.dish_key]).append("g")
-      .attr("transform", (d) => small(d)
-        ? `translate(0,${(-rOf(d.n) - 11).toFixed(1)}) scale(${(10 * 0.68 / 9).toFixed(3)})`
-        : `scale(${(rOf(d.n) * 0.68 / 9).toFixed(3)})`)
-      .attr("stroke", (d) => (small(d) ? hue(d) : "var(--ground)"))
-      .selectAll("path").data((d) => DISH[d.dish_key]).join("path")
-      .attr("d", (p) => p).attr("fill", "none")
-      .attr("stroke-width", 1.4).attr("stroke-linecap", "round").attr("stroke-linejoin", "round")
-      .attr("vector-effect", "non-scaling-stroke");
-    // each two-line label goes under its glyph, or above it, whichever lands on no
-    // other disc and no label already placed (biggest wards place first)
-    const lift = (d) => (small(d) ? 22 : 0);          // a small disc's dish glyph sits above it
-    const boxFor = (d, up) => {
-      const c = at(d), r = rOf(d.n);
-      return up ? [c[0] - 55, c[1] - r - lift(d) - 32, c[0] + 55, c[1] - r - lift(d) - 2]
-                : [c[0] - 55, c[1] + r + 2, c[0] + 55, c[1] + r + 32];
-    };
-    const hitsDisc = (box, d) => data.wards.some((o) => {
-      if (o === d) return false;
-      const oc = at(o), orr = rOf(o.n) + lift(o);
-      const nx = Math.max(box[0], Math.min(oc[0], box[2])), ny = Math.max(box[1], Math.min(oc[1], box[3]));
-      return Math.hypot(oc[0] - nx, oc[1] - ny) < orr + 2;
-    });
-    const overlaps = (a, b) => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3];
-    const placed = [], above = new Map();
-    [...data.wards].sort((a, b) => b.n - a.n).forEach((d) => {
-      const ok = (up) => { const b = boxFor(d, up); return !hitsDisc(b, d) && !placed.some((q) => overlaps(b, q)); };
-      const up = !ok(false) && ok(true);
-      above.set(d.name, up);
-      placed.push(boxFor(d, up));
-    });
-    const dishY = (d) => (above.get(d.name) ? -rOf(d.n) - lift(d) - 20 : rOf(d.n) + 14);
-    const wardY = (d) => (above.get(d.name) ? -rOf(d.n) - lift(d) - 7 : rOf(d.n) + 27);
-    one.append("text").attr("class", "glyph-label").attr("text-anchor", "middle")
-      .attr("y", dishY).attr("fill", hue)
-      .text((d) => `${d.dish_label} · ${d.n}`);
-
-    // ward names move under their glyph, so a label never sits on the dish
-    const byName = new Map(data.wards.map((d) => [d.name, d]));
-    labels.selectAll("text.ward-label")
-      .attr("transform", function (wd) {
-        const d = byName.get(wd.name);
-        if (!d) return this.getAttribute("transform");   // no glyph: keep drawBase's centroid
-        const c = at(d);
-        return `translate(${c[0].toFixed(1)},${(c[1] + wardY(d)).toFixed(1)})`;
-      });
-    labels.raise();
-
-    A.key(svg, [
-      { label: "Bún leads", fill: "var(--chapter-hue)", keyR: 5 },
-      { label: "Another dish leads", fill: "var(--ink-soft)", keyR: 5 },
-    ], 14, compact ? 12 : 22);
-    const note = compact ? ["Circle area: places", "serving that dish"] : ["Circle area: places serving that dish"];
-    const nx = compact ? Math.round(w * 0.4) : 14, ny = compact ? 12 : 22 + 2 * 18 + 4;
-    note.forEach((line, i) => svg.append("text").attr("class", "key-label key-note")
-      .attr("x", nx).attr("y", ny + i * 18).attr("dy", "0.35em").text(line));
-    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
-  };
-
-  /* ---- zoom: one hub's box, fitted to the frame, with the box marked on the locator ---- */
-  A.heroes.zoom = function (fig, data, base) {
-    const { svg, map, w, mh, top, compact } = A.frame(fig);
-    // Keep the furniture off the dashed box (2026-10-08 critique: the locator sat
-    // on it on a phone, the scale bar on its edge on a spread). On a spread the
-    // key gets a band above the box; then the box moves to the left edge and
-    // the locator and scale bar take the column beside it.
-    const keyPad = compact ? 0 : 74, loc = compact ? 44 : 64;
-    const proj = A.projection(data.bbox, w, mh - keyPad);
-    const c0 = proj([data.bbox[0], data.bbox[3]]), c1 = proj([data.bbox[2], data.bbox[1]]);
-    const side = w - (c1[0] - c0[0]) - 12 >= loc + 34;   // room for a furniture column
-    const t0 = proj.translate();
-    proj.translate([t0[0] + (side ? 12 - c0[0] : 0), t0[1] + keyPad]);
-    const grow = Math.max(1, Math.min(1.6, w / 600));
-    const layer = (key) => (data.layers.find((l) => l.key === key) || { points: [] });
-    const jp = layer("japanese"), coffee = layer("coffee");
-    svg.attr("aria-label", "Close-up map of Bình Thạnh's canal edge, facing Đa Kao: Japanese places and cafés listed in the box");
-
-    const inner = map.append("g").attr("class", "zoomed");
-    clipTo(svg, inner, "zoom-clip", w, mh);
-    A.drawBase(inner, base, proj);
-
-    // the district's southern edge here is the Thị Nghè canal: name it on the far bank
-    const ring = base.outline.type === "Polygon" ? base.outline.coordinates[0]
-      : base.outline.coordinates.flatMap((poly) => poly[0]);
-    const [cx, cy] = [(data.bbox[0] + data.bbox[2]) / 2, (data.bbox[1] + data.bbox[3]) / 2];
-    let best = -1, bestD = Infinity;
-    ring.forEach((p, i) => {
-      const d = (p[0] - cx) ** 2 + (p[1] - cy) ** 2;
-      if (d < bestD) { bestD = d; best = i; }
-    });
-    if (best > 2 && best < ring.length - 3) {
-      const a = proj(ring[best - 3]), b = proj(ring[best + 3]), m = proj(ring[best]);
-      let ang = Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI;
-      if (ang > 90) ang -= 180; if (ang < -90) ang += 180;
-      const len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
-      let nx = -(b[1] - a[1]) / len, ny = (b[0] - a[0]) / len;
-      const off = 14 * grow;
-      const probe = proj.invert([m[0] + nx * off, m[1] + ny * off]);
-      if (probe && d3.geoContains(base.outline, probe)) { nx = -nx; ny = -ny; }  // put it OFF the district
-      inner.append("text").attr("class", "water-label").attr("text-anchor", "middle").attr("dy", "0.35em")
-        .attr("transform", `translate(${(m[0] + nx * off).toFixed(1)},${(m[1] + ny * off).toFixed(1)}) rotate(${ang.toFixed(1)})`)
-        .text("Thị Nghè canal");
-    }
-
-    // the box the counts come from: points stop at its edge, so show the edge
-    const b0 = proj([data.bbox[0], data.bbox[3]]), b1 = proj([data.bbox[2], data.bbox[1]]);
-    inner.append("rect").attr("class", "zoom-box")
-      .attr("x", b0[0].toFixed(1)).attr("y", b0[1].toFixed(1))
-      .attr("width", (b1[0] - b0[0]).toFixed(1)).attr("height", (b1[1] - b0[1]).toFixed(1))
-      .attr("fill", "none").attr("stroke", "var(--ink-soft)").attr("stroke-width", 0.8)
-      .attr("stroke-dasharray", "4 3");
-
-    const xy = (p) => proj(p);
-    inner.append("g").attr("class", "dots-coffee")
-      .attr("fill", "var(--ink-soft)").attr("fill-opacity", 0.6)
-      .selectAll("circle").data(coffee.points).join("circle")
-      .attr("cx", (p) => xy(p)[0].toFixed(1)).attr("cy", (p) => xy(p)[1].toFixed(1)).attr("r", 2.6 * grow);
-    inner.append("g").attr("class", "dots-japanese")
-      .attr("fill", "var(--chapter-hue)").attr("fill-opacity", 0.85)
-      .selectAll("circle").data(jp.points).join("circle")
-      .style("mix-blend-mode", "multiply")
-      .attr("cx", (p) => xy(p)[0].toFixed(1)).attr("cy", (p) => xy(p)[1].toFixed(1)).attr("r", 3.2 * grow);
-    inner.select("g.base-labels").raise();
-
-    A.key(svg, [
-      { label: "Japanese place", fill: "var(--chapter-hue)", keyR: 4.5 },
-      { label: "Café", fill: "var(--ink-soft)", opacity: 0.7, keyR: 3.8 },
-    ], 14, compact ? 12 : 22);
-    const zn = compact ? ["Dashed box:", "the area counted"] : ["Dashed box: the area counted"];
-    zn.forEach((line, i) => svg.append("text").attr("class", "key-label key-note")
-      .attr("x", compact ? Math.round(w * 0.4) : 14).attr("y", (compact ? 12 : 22 + 2 * 18 + 4) + i * 18)
-      .attr("dy", "0.35em").text(line));
-    if (side) {
-      const colX = Math.round(proj([data.bbox[2], data.bbox[1]])[0]) + 18;
-      A.locator(map, base, colX, mh - loc - 24, loc, data.bbox);
-      const sb = A.scaleBar(map, proj, colX, mh - loc - 40, 100);
-      const sw = sb.node().getBBox().width;        // a phone's column is narrow: keep "100 m" inside the frame
-      if (colX + sw > w - 6) sb.attr("transform", `translate(${(w - 6 - sw).toFixed(1)},${mh - loc - 40})`);
-      A.north(svg, w - 22, compact ? 18 : 26);
-    } else {
-      A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26, mark: data.bbox, metres: 100 });
-    }
-  };
-
-  /* ---- territories: every street coloured by how far the nearest chain is ---- */
-  A.heroes.territories = function (fig, data, base) {
-    const { svg, map, w, mh, top, compact } = A.frame(fig);
-    const proj = A.projection(base.bounds, w, mh);
-    const path = d3.geoPath(proj);
-    const grow = Math.max(1, Math.min(1.6, w / 600));
-    svg.attr("aria-label", "Map of Bình Thạnh's streets, coloured by the walk to the nearest chain outlet");
-    A.drawBase(map, base, proj);
-
-    const STYLE = {
-      within: { stroke: "var(--chapter-hue-soft)", width: 1.1 },
-      contested: { stroke: "var(--chapter-hue)", width: 1.1 },
-      beyond: { stroke: "var(--ink)", width: 1.5 },
-    };
-    const g = map.append("g").attr("class", "territories").attr("fill", "none")
-      .attr("stroke-linejoin", "round").attr("stroke-linecap", "round");
-    ["within", "contested", "beyond"].forEach((k) => {
-      const lines = data.edges.filter((e) => e.k === k).map((e) => e.c);
-      g.append("path").attr("class", `edges-${k}`)
-        .attr("d", path({ type: "MultiLineString", coordinates: lines }))
-        .attr("stroke", STYLE[k].stroke).attr("stroke-width", STYLE[k].width * grow);
-    });
-    map.append("g").attr("class", "outlets")
-      .attr("fill", "var(--ink)").attr("stroke", "var(--ground)").attr("stroke-width", 0.9)
-      .selectAll("circle").data(data.outlets).join("circle")
-      .attr("cx", (p) => proj(p)[0].toFixed(1)).attr("cy", (p) => proj(p)[1].toFixed(1)).attr("r", 1.9 * grow);
-    map.select("g.base-labels").raise();
-
-    const items = [
-      { label: "Within a kilometre’s walk", fill: STYLE.within.stroke, line: 3 },
-      { label: "Frontier of two brands", fill: STYLE.contested.stroke, line: 3 },
-      { label: "Beyond a kilometre’s walk", fill: STYLE.beyond.stroke, line: 3 },
-      { label: "Chain outlet", fill: "var(--ink)", keyR: 3, ring: 0.9 },
-    ];
-    if (compact) {                                  // two columns fit the phone's key band
-      A.key(svg, items.slice(0, 2), 14, 12);
-      A.key(svg, items.slice(2), Math.round(Math.min(190, w * 0.46)), 12);
-    } else {
-      A.key(svg, items, 14, 22);
-    }
-    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
-  };
-
-  /* ---- units: no map — one square per café, two blocks that wrap to the width.
-     The free map has no café points worth drawing, so this page counts instead.
-     No locator: it says where a map is, and this page has no map (user, 2026-10-08). ---- */
-  A.heroes.units = function (fig, data, base) {
-    const { svg, w, h, compact } = A.frame(fig);
-    const sets = data.units;
-    svg.attr("aria-label", sets.map((s) => `${s.label}: ${fmt(s.n)} cafés`).join("; "));
-    const fills = ["var(--chapter-hue)", "var(--ink-soft)"];
-    const opac = [1, 0.55];
-
-    A.key(svg, [{ label: "One square is one listing", fill: "var(--chapter-hue)", square: 8 }], 14, compact ? 18 : 26);
-
-    const pad = 14, titleH = compact ? 24 : 30, gapB = compact ? 14 : 22;
-    const y0 = compact ? 40 : 52;
-    const room = h - y0 - 14 - sets.length * titleH - (sets.length - 1) * gapB;
-    const usable = w - 2 * pad;
-    let cell = 2;
-    for (let c = compact ? 12 : 16; c >= 2; c -= 0.5) {
-      const cols = Math.floor(usable / c);
-      const rows = d3.sum(sets, (s) => Math.ceil(s.n / cols));
-      if (rows * c <= room) { cell = c; break; }
-    }
-    const cols = Math.floor(usable / cell);
-    const sq = Math.max(1, cell - Math.max(1, cell * 0.2));
-
-    let y = y0;
-    sets.forEach((s, i) => {
-      const t = svg.append("text").attr("class", "panel-title").attr("x", pad).attr("y", y + titleH - 9);
-      t.append("tspan").text(s.label);
-      t.append("tspan").attr("class", i === 0 ? "panel-count" : "panel-count-soft").attr("dx", 8).text(fmt(s.n));
-      y += titleH;
-      const idx = d3.range(s.n);
-      svg.append("g").attr("class", `units units-${i}`)
-        .attr("fill", fills[i % 2]).attr("fill-opacity", opac[i % 2])
-        .selectAll("rect").data(idx).join("rect")
-        .attr("x", (k) => (pad + (k % cols) * cell).toFixed(1))
-        .attr("y", (k) => (y + Math.floor(k / cols) * cell).toFixed(1))
-        .attr("width", sq.toFixed(1)).attr("height", sq.toFixed(1));
-      y += Math.ceil(s.n / cols) * cell + gapB;
-    });
-  };
-
   /* ================= chapter 2: What It Used to Be =================
      The old sheets are rasters in Web Mercator, placed by their 4326 corners
      through the SAME d3.geoMercator the other heroes use, stretched with
      preserveAspectRatio none (Mercator is linear in x and in y between the
-     corners). Colour: --chapter-hue is the chapter-2 ink on these pages
-     (body[data-chapter] in atlas.css), only on the measured/registered layer. */
+     corners). Colour: --c1 is the subject colour of each story
+ (the colour table in colours.py), only on the measured/registered layer. */
   const DATA = "../../atlas/data/";
+  // the 1984 built-up trace: light enough that the sheet's own drawing reads through it (0.85 hid it);
+  // the key swatch uses the same value. atlas.css .sheet-built carries it too.
+  const BUILT_OPACITY = 0.6;
 
   /** Where the scan's paper stops: the fraction of the image width that is opaque on
       its middle rows. The 1984 crop runs past the sheet's east edge as alpha 0. */
@@ -629,7 +220,14 @@
     const place = (sel) => sel.attr("x", x0).attr("y", y0).attr("width", x1 - x0).attr("height", y1 - y0)
       .attr("preserveAspectRatio", "none");
     place(g.append("image").attr("href", DATA + data.sheet.img).attr("class", "sheet-scan"));
-    if (data.mask) place(g.append("image").attr("href", DATA + data.mask.img).attr("class", "sheet-mask"));
+    if (data.mask) {
+      // the built-up raster is only a shape: its alpha masks a rect filled with the token, so the
+      // colour is --c1 and not whatever hue the PNG was baked in (then/crops.py HUE)
+      const mk = defs.append("mask").attr("id", "built-mask").attr("maskUnits", "userSpaceOnUse")
+        .attr("x", x0).attr("y", y0).attr("width", x1 - x0).attr("height", y1 - y0).style("mask-type", "alpha");
+      place(mk.append("image").attr("href", DATA + data.mask.img));
+      place(g.append("rect")).attr("class", "sheet-built").attr("mask", "url(#built-mask)");
+    }
     if (data.ghost === "streets") {
       g.append("path").attr("class", "ghost-streets")
         .attr("d", path({ type: "MultiLineString", coordinates: base.streets }));
@@ -670,9 +268,9 @@
         .text(A.wardName("Phường Bình Quới"));
     }
     const items = [];
-    if (data.mask) items.push({ label: compact ? "Built-up (printed red)" : "1984 built-up fill (printed red), traced", fill: "var(--chapter-hue)", square: 10, opacity: 0.85 });
-    if (data.footprint) items.push({ label: compact ? "Landmark 81, footprint" : "Landmark 81’s footprint, today", fill: "var(--chapter-hue)", square: 10, opacity: 0.85 });
-    if (data.area) items.push({ label: compact ? "Bình Quới ward" : "Phường Bình Quới, today", fill: "var(--chapter-hue)", line: 2.4 });
+    if (data.mask) items.push({ label: compact ? "Built-up (printed red)" : "1984 built-up fill (printed red), traced", fill: "var(--c1)", square: 10, opacity: BUILT_OPACITY });
+    if (data.footprint) items.push({ label: compact ? "Landmark 81, footprint" : "Landmark 81’s footprint, today", fill: "var(--c1)", square: 10, opacity: 0.85 });
+    if (data.area) items.push({ label: compact ? "Bình Quới ward" : "Phường Bình Quới, today", fill: "var(--c1)", line: 2.4 });
     items.push({ label: compact ? "District today" : "The district today", fill: "var(--ink)", line: 1.6 });
     if (data.ghost === "streets") items.push({ label: compact ? "Streets today" : "Streets today (faint)", fill: "var(--ink-soft)", line: 0.8, ghost: true });
     const metres = focus ? 200 : 500;
@@ -767,7 +365,7 @@
       .attr("x", (d) => (d.p[0] + d.dx).toFixed(1)).attr("y", (d) => (d.p[1] + d.dy).toFixed(1))
       .attr("dy", "0.35em").text((d) => d.label);
     A.key(svg, [{ label: compact ? "Line of the 1748 road" : "Line of the 1748 road, on today’s streets",
-      fill: "var(--chapter-hue)", line: 5 }], 14, compact ? 12 : 22);
+      fill: "var(--c1)", line: 5 }], 14, compact ? 12 : 22);
     A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
 
     const loc = compact ? 44 : 64;
@@ -836,10 +434,317 @@
     });
     const k = A.key(svg, [
       { label: compact ? "Numbered ward, to 2025" : "Numbered ward, until 2025", fill: "var(--ink-soft)", line: 1 },
-      { label: compact ? "Named ward, since 2025" : "Named ward, since 2025", fill: "var(--chapter-hue)", line: 2.5 },
+      { label: compact ? "Named ward, since 2025" : "Named ward, since 2025", fill: "var(--c1)", line: 2.5 },
     ], 14, compact ? 12 : 22);
     k.select("g path").attr("stroke-dasharray", "3 2");
     A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26 });
+  };
+
+
+  /* ---- streets (v2.2): the colour is carried by street segments, never dots ----
+     data: {pockets:[{id,kind,label,slot,segments:[{c:[[lon,lat],[lon,lat]],n}]}], streets:[grey
+     polylines], zoom?, center?, radius_m?, focus?, key?, campuses?:[{label,geometry}],
+     street_labels?:[{name,primary,lines}], labelled?}. Segment width is clamp(1.5, k * sqrt(n), cap)
+     with k = cap / sqrt(nMax), nMax = the biggest n on the page, so the busiest stretch lands exactly
+     on the cap (7 px overview, 12 px when data.zoom). `focus` ([w,s,e,n]) frames a part of the
+     district instead of all of it. */
+  A.heroes.streets = function (fig, data, base) {
+    const { svg, map, w, h, mh, top, compact } = A.frame(fig);
+    const zoom = data.zoom === true;
+    let proj;
+    if (zoom) {
+      // frame a ~230 m radius around the pocket, filling the figure's aspect
+      const R = 230, [cx, cy] = data.center;
+      const dLat = R / 111320, dLon = R / (111320 * Math.cos((cy * Math.PI) / 180));
+      const hw = w > mh ? dLon * (w / mh) : dLon, hh = w > mh ? dLat : dLat * (mh / w);
+      proj = A.projection([cx - hw, cy - hh, cx + hw, cy + hh], w, mh);
+    } else {
+      proj = A.projection(data.focus || base.bounds, w, mh);
+    }
+    svg.attr("aria-label", zoom
+      ? "Street-scale map: streets coloured by the kind of place on them"
+      : "Map of Bình Thạnh: streets inside each pocket coloured by the kind of place on them");
+
+    const inner = map.append("g").attr("class", "streets-map");
+    clipTo(svg, inner, "streets-clip", w, mh);
+    A.drawBase(inner, base, proj, data.streets);
+    // the streets a label names, as OSM draws them: not painted (the grey base already shows them), kept
+    // so a label can be checked against its own street
+    (data.street_labels || []).forEach((st) => inner.append("path").attr("class", "named-street")
+      .attr("data-name", st.name).attr("fill", "none").attr("stroke", "none")
+      .attr("d", st.lines.map((l) => "M" + l.map((q) => proj(q).map((v) => v.toFixed(1)).join(",")).join("L")).join("")));
+    // everything below is placed in svg coordinates: the map group sits `top` px down
+    const S = (q) => { const p = proj(q); return [p[0], p[1] + top]; };
+
+    const outlines = [];   // campus outline edges, svg coords
+    (data.campuses || []).forEach((c) => {
+      const polys = c.geometry.type === "Polygon" ? [c.geometry.coordinates] : c.geometry.coordinates;
+      const d = polys.map((poly) => poly.map((ring) =>
+        "M" + ring.map((p) => proj(p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z").join("")).join("");
+      inner.append("path").attr("class", "campus").attr("d", d)
+        .attr("fill", "none").attr("stroke", "var(--ink)").attr("stroke-width", 1.4)
+        .attr("stroke-linejoin", "round");
+      const ring = polys[0][0].map(S);
+      c._ring = ring;
+      ring.slice(1).forEach((b, i) => outlines.push([ring[i], b]));
+    });
+
+    const cap = zoom ? 12 : 7;
+    let nMax = 1;
+    data.pockets.forEach((p) => p.segments.forEach((s) => { nMax = Math.max(nMax, s.n); }));
+    const kScale = cap / Math.sqrt(nMax);
+    const width = (n) => Math.max(1.5, Math.min(cap, kScale * Math.sqrt(n)));
+    const coloured = [];   // every drawn stretch: {a, b, hw, id}, svg coords
+    data.pockets.forEach((p) => {
+      const g = inner.append("g").attr("class", "pocket").attr("data-id", p.id).attr("data-kind", p.kind);
+      const col = `var(--${p.slot})`;
+      g.selectAll("path").data(p.segments.slice().sort((a, b) => a.n - b.n)).join("path")
+        .attr("class", "seg")
+        .attr("d", (s) => "M" + s.c.map((q) => proj(q).map((v) => v.toFixed(1)).join(",")).join("L"))
+        .attr("fill", "none").attr("stroke", col)
+        .attr("stroke-width", (s) => width(s.n).toFixed(2))
+        .attr("stroke-linecap", "round").attr("stroke-linejoin", "round");
+      p.segments.forEach((s) => coloured.push({ a: S(s.c[0]), b: S(s.c[1]), hw: width(s.n) / 2, n: s.n, id: p.id }));
+    });
+    inner.select("g.base-labels").raise();
+
+    if (zoom && data.key) {
+      A.key(svg, data.key.map((k) => ({ label: k.label, fill: `var(--${k.slot})`, line: 5 })),
+        14, compact ? 12 : 22);
+    }
+    const sbMetres = zoom ? 100 : data.focus ? 200 : 500;
+    A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26, metres: sbMetres, mark: data.focus });
+
+    // ---- labels: every one is placed by search, deterministic, in svg coordinates ----
+    const srect = svg.node().getBoundingClientRect();
+    const rel = (el) => {
+      const r = el.getBoundingClientRect();
+      return [r.left - srect.left, r.top - srect.top, r.right - srect.left, r.bottom - srect.top];
+    };
+    const hit = (a, b) => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3];
+    const pad = (b, e) => [b[0] - e, b[1] - e, b[2] + e, b[3] + e];
+    const furniture = [];
+    svg.selectAll("g.locator, g.scale-bar, g.north, g.key").each(function () { furniture.push(pad(rel(this), 3)); });
+    const wardBoxes = [];
+    svg.selectAll("text.ward-label").each(function () { wardBoxes.push(pad(rel(this), 2)); });
+    const placed = [];    // label boxes already set (axis-aligned)
+    const inView = (b) => b[0] >= 2 && b[1] >= top + 2 && b[2] <= w - 2 && b[3] <= h - 2;
+
+    const ptSeg = (p, a, b) => {
+      const dx = b[0] - a[0], dy = b[1] - a[1], L2 = dx * dx + dy * dy;
+      const t = L2 ? Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L2)) : 0;
+      return Math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy);
+    };
+    const ptRect = (p, r) => Math.hypot(Math.max(r[0] - p[0], 0, p[0] - r[2]), Math.max(r[1] - p[1], 0, p[1] - r[3]));
+    const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+    const segsCross = (p1, p2, q1, q2) => cross(p1, p2, q1) * cross(p1, p2, q2) < 0 && cross(q1, q2, p1) * cross(q1, q2, p2) < 0;
+    /** Distance from a segment a-b to an axis-aligned box r (0 when it crosses the box). */
+    const segRect = (a, b, r) => {
+      if (ptRect(a, r) === 0 || ptRect(b, r) === 0) return 0;
+      const c = [[r[0], r[1]], [r[2], r[1]], [r[2], r[3]], [r[0], r[3]]];
+      for (let i = 0; i < 4; i++) if (segsCross(a, b, c[i], c[(i + 1) % 4])) return 0;
+      return Math.min(ptRect(a, r), ptRect(b, r), ...c.map((q) => ptSeg(q, a, b)));
+    };
+    const onStretch = (b) => coloured.some((s) => segRect(s.a, s.b, b) < s.hw + 1.5);
+    const DIRS = [[1, 0], [-1, 0], [0, -1], [0, 1], [1, -1], [-1, -1], [1, 1], [-1, 1]];
+
+    /** A label of class cls, its centre searched over `anchors` (points it should sit next to); `cost`
+        adds the label's own rules. Returns the text node, set where the total cost is lowest. */
+    const placeBox = (cls, text, fill, anchors, cost, attrs) => {
+      const t = svg.append("text").attr("class", cls).attr("text-anchor", "middle").attr("dy", "0.35em")
+        .attr("x", 0).attr("y", 0).text(text);
+      if (fill) t.attr("fill", fill);
+      Object.entries(attrs || {}).forEach(([k, v]) => t.attr(k, v));
+      const bb = t.node().getBBox(), ox = bb.x + bb.width / 2, oy = bb.y + bb.height / 2;
+      let best = null, bestCost = Infinity;
+      anchors.forEach(({ p, r }) => [3, 8, 14, 22, 34].forEach((gap) => DIRS.forEach(([dx, dy]) => {
+        const cx = p[0] + dx * (r + gap + bb.width / 2), cy = p[1] + dy * (r + gap + bb.height / 2);
+        const b = [cx - bb.width / 2, cy - bb.height / 2, cx + bb.width / 2, cy + bb.height / 2];
+        let c = inView(b) ? 0 : 1000;
+        c += furniture.filter((o) => hit(o, b)).length * 500 + placed.filter((o) => hit(o, pad(b, 4))).length * 500;
+        c += wardBoxes.filter((o) => hit(o, b)).length * 40;
+        if (onStretch(b)) c += 500;
+        c += cost(b) + gap * 0.05;
+        if (c < bestCost) { bestCost = c; best = [cx, cy]; }
+      })));
+      t.attr("x", (best[0] - ox).toFixed(1)).attr("y", (best[1] - oy).toFixed(1));
+      placed.push(rel(t.node()));
+      return t;
+    };
+
+    // pocket labels: beside their own stretches, never on a stretch, never nearer another pocket's
+    if (data.labelled || !data.key) {
+      data.pockets.forEach((p) => {
+        const own = coloured.filter((s) => s.id === p.id), other = coloured.filter((s) => s.id !== p.id);
+        const anchors = [];
+        own.forEach((s) => [0, 0.5, 1].forEach((f) => anchors.push({
+          p: [s.a[0] + (s.b[0] - s.a[0]) * f, s.a[1] + (s.b[1] - s.a[1]) * f], r: s.hw })));
+        placeBox("pocket-label", p.label, `var(--${p.slot})`, anchors, (b) => {
+          const dOwn = Math.min(...own.map((s) => segRect(s.a, s.b, b) - s.hw));
+          const dOther = other.length ? Math.min(...other.map((s) => segRect(s.a, s.b, b) - s.hw)) : Infinity;
+          return (dOther <= dOwn + 3 ? 300 : 0) + dOwn;
+        }, { "data-id": p.id });
+      });
+    }
+
+    // campus names: beside their own outline, off the coloured stretches and the line itself
+    (data.campuses || []).forEach((c) => {
+      if (!c.label || !c._ring) return;
+      const anchors = c._ring.map((p) => ({ p, r: 1 }));
+      const edges = c._ring.slice(1).map((b, i) => [c._ring[i], b]);
+      placeBox("campus-label", c.label, null, anchors, (b) => {
+        const d = Math.min(...edges.map(([a, e]) => segRect(a, e, b)));
+        const crossOther = outlines.some(([a, e]) => segRect(a, e, b) < 1);
+        return (crossOther ? 200 : 0) + d;
+      }, { "data-osm": c.osm });
+    });
+
+    // street names: along a straight stretch of the named street, upright, off the coloured stretches
+    // and every label above; on a phone only the street the headline names
+    (data.street_labels || []).filter((s) => !compact || s.primary).forEach((st) => {
+      const t = svg.append("text").attr("class", "street-label").attr("data-name", st.name)
+        .attr("text-anchor", "middle").attr("dy", "0.35em").text(st.name);
+      const tw = t.node().getComputedTextLength(), th = t.node().getBBox().height;
+      let best = null, bestCost = Infinity;
+      // the label rides the polyline itself: its centre is a point ON the named street, its angle the chord
+      // of the street over the label's own length, and that stretch of street must be straight (every vertex
+      // within 3 px of the chord). Grey pieces that are not this street (both ends off it) are "other".
+      const own = st.lines.map((l) => l.map(S));
+      const ownPieces = own.flatMap((P) => P.slice(1).map((b, i) => [P[i], b]));
+      const dOwn = (q) => Math.min(...ownPieces.map(([a, b]) => ptSeg(q, a, b)));
+      const otherGrey = (data.streets || []).flatMap((l) => { const P = l.map(S); return P.slice(1).map((b, i) => [P[i], b]); })
+        .filter(([a, b]) => !(dOwn(a) < 4 && dOwn(b) < 4));
+      const dOther = (q) => Math.min(Infinity, ...otherGrey.map(([a, b]) => ptSeg(q, a, b)));
+      own.forEach((P) => {
+        const cum = [0];
+        for (let i = 1; i < P.length; i++) cum.push(cum[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
+        const L = cum[cum.length - 1];
+        const at = (s) => {
+          let i = 1;
+          while (i < P.length - 1 && cum[i] < s) i++;
+          const f = (s - cum[i - 1]) / ((cum[i] - cum[i - 1]) || 1);
+          return [P[i - 1][0] + (P[i][0] - P[i - 1][0]) * f, P[i - 1][1] + (P[i][1] - P[i - 1][1]) * f];
+        };
+        for (let s = tw / 2 + 4; s <= L - tw / 2 - 4; s += 6) {
+          const A = at(s - tw / 2), B = at(s + tw / 2), C = at(s);
+          const inSpan = P.filter((_, i) => cum[i] > s - tw / 2 && cum[i] < s + tw / 2).concat([C]);
+          if (inSpan.some((q) => ptSeg(q, A, B) > 3)) continue;       // the street bends under the label
+          let ang = Math.atan2(B[1] - A[1], B[0] - A[0]);
+          if (ang > Math.PI / 2) ang -= Math.PI; else if (ang <= -Math.PI / 2) ang += Math.PI;
+          const ux = Math.cos(ang), uy = Math.sin(ang), nx = -uy, ny = ux;
+          // on the street, or just beside it: at most far enough for the label's near edge to clear the
+          // widest stretch a zoom draws (cap / 2 + 3 px), so it is never further off than that
+          const far = th / 2 + cap / 2 + 3;
+          [0, th / 2 + 2, -(th / 2 + 2), th / 2 + 4, -(th / 2 + 4), far, -far].forEach((off) => {
+            const cx = C[0] + nx * off, cy = C[1] + ny * off;
+            if (dOwn([cx, cy]) > far + 0.5) return;                   // a bend nearby pushed it further off
+            const pts = [];
+            for (let i = 0; i <= 8; i++) for (const v of [-th / 2, 0, th / 2]) {
+              const u = -tw / 2 - 2 + ((tw + 4) * i) / 8;
+              pts.push([cx + u * ux + v * nx, cy + u * uy + v * ny]);
+            }
+            let c = pts.every((q) => q[0] >= 2 && q[0] <= w - 2 && q[1] >= top + 2 && q[1] <= h - 2) ? 0 : 1000;
+            c += pts.filter((q) => furniture.some((o) => ptRect(q, o) === 0)).length ? 500 : 0;
+            c += pts.filter((q) => placed.some((o) => ptRect(q, pad(o, 3)) === 0)).length ? 500 : 0;
+            c += pts.some((q) => coloured.some((sg) => ptSeg(q, sg.a, sg.b) < sg.hw + 2)) ? 300 : 0;
+            if (dOther([cx, cy]) <= dOwn([cx, cy]) + 1) c += 300;  // reads as another street's name
+            c += pts.some((q) => dOther(q) < 1.5) ? 60 : 0;          // crosses another street
+            c += pts.some((q) => outlines.some(([e0, e1]) => ptSeg(q, e0, e1) < 2)) ? 60 : 0;
+            c += pts.some((q) => wardBoxes.some((o) => ptRect(q, o) === 0)) ? 40 : 0;
+            c += Math.abs(off) * 0.3 + Math.hypot(cx - w / 2, cy - (top + h) / 2) * 0.01;
+            if (c < bestCost) { bestCost = c; best = [cx, cy, ang]; }
+          });
+        }
+      });
+      if (!best || bestCost >= 300) { t.remove(); return; }  // no clean straight run in view: say nothing
+      t.attr("transform", `translate(${best[0].toFixed(1)},${best[1].toFixed(1)}) rotate(${((best[2] * 180) / Math.PI).toFixed(1)})`);
+      placed.push(rel(t.node()));
+    });
+  };
+  /* ---- pair (v2.2): where the buildings stand beside where the map puts food ----
+     data.density = {grid:{w,h,bounds}, buildings:[uint8], listings:[uint8]}, row 0 = north, each
+     layer already scaled to its own 98th percentile. Both panels use ONE projection and ONE grid, so
+     the same pixel is the same street. Two <canvas class="density"> in a panel each; the figure is a
+     flex row >= 900 px and `display: contents` below, where CSS order puts .big-number between them. */
+  A.heroes.pair = function (fig, data, base) {
+    d3.select(fig).selectAll(".panel").remove();
+    const { grid } = data.density;
+    const W = 1100;
+    const [x0, y0, x1, y1] = grid.bounds;
+    const probe = A.projection(base.bounds || grid.bounds, W, W);
+    const a = probe([x0, y1]), c = probe([x1, y0]);
+    const H = Math.round(W * (c[1] - a[1] + 16) / (c[0] - a[0] + 16));
+    const proj = A.projection(grid.bounds, W, H);
+    const tl = proj([x0, y1]), br = proj([x1, y0]);
+    const cssOf = (name) => {   // the token's computed colour, as a string a canvas accepts
+      const el = document.createElement("span"); el.style.color = `var(${name})`; document.body.append(el);
+      const v = getComputedStyle(el).color; el.remove(); return v;
+    };
+    const rgbOf = (name) => cssOf(name).match(/[\d.]+/g).map(Number);
+    const panels = [
+      { key: "buildings", title: "where the buildings stand", color: "--ink-soft", label: "Building density",
+        note: "Darker = more buildings per cell, shaded to this panel’s own peak" },
+      { key: "listings", title: "where the map puts food", color: "--c1", label: "Listed-kitchen density",
+        note: "Redder = more listed kitchens per cell, shaded to this panel’s own peak" },
+    ];
+    panels.forEach((pn) => {
+      const wrap = d3.select(fig).append("div").attr("class", "panel").attr("data-key", pn.key);
+      wrap.append("h3").attr("class", "panel-title").style("color", `var(${pn.color})`).text(pn.title);
+      const cv = wrap.append("canvas").attr("class", "density").attr("width", W).attr("height", H)
+        .attr("role", "img").attr("aria-label", `${pn.label}, Bình Thạnh`).node();
+      const g = cv.getContext("2d");
+      const path = d3.geoPath(proj, g);
+      // the district, then the density clipped to it: nothing bleeds past the boundary
+      g.save();
+      g.beginPath(); path(base.outline); g.clip();
+      g.fillStyle = cssOf("--base-fill"); g.fillRect(0, 0, W, H);
+      const rgb = rgbOf(pn.color);
+      const off = document.createElement("canvas"); off.width = grid.w; off.height = grid.h;
+      const og = off.getContext("2d"), im = og.createImageData(grid.w, grid.h), v = data.density[pn.key];
+      for (let i = 0; i < v.length; i++) {
+        // alpha follows the density, gamma-lifted so the faint fringe stays out of the way
+        const t = Math.pow(v[i] / 255, 1.25);
+        im.data[i * 4] = rgb[0]; im.data[i * 4 + 1] = rgb[1]; im.data[i * 4 + 2] = rgb[2];
+        im.data[i * 4 + 3] = Math.round(t * 255);
+      }
+      og.putImageData(im, 0, 0);
+      g.imageSmoothingEnabled = true; g.imageSmoothingQuality = "high";
+      g.drawImage(off, tl[0], tl[1], br[0] - tl[0], br[1] - tl[1]);
+      g.restore();
+      g.beginPath(); path(base.outline);
+      g.strokeStyle = cssOf("--ink-soft"); g.lineWidth = 1.4; g.stroke();
+      // each layer is scaled to its own 98th percentile: the two panels do not share one scale
+      wrap.append("p").attr("class", "density-key").text(pn.note);
+    });
+  };
+
+  /* ---- block (v2.2): every footprint, in grey; only a building holding a listed kitchen is phượng ----
+     data: {cell:[w,s,e,n], footprints:[ring], streets:[polylines], n_buildings, n_listings,
+     layers:[{kind:"listed", slot, footprint_idx:[]}]}. A block with no listed footprint stays all grey:
+     no stand-in mark, so nothing reads as listed that is not. */
+  A.heroes.block = function (fig, data, base) {
+    const { svg, map, w, mh, compact } = A.frame(fig);
+    const proj = A.projection(data.cell, w, mh);
+    svg.attr("aria-label", `One block: ${data.n_buildings} buildings, ${data.n_listings} listed kitchens`);
+    const inner = map.append("g").attr("class", "block-map");
+    clipTo(svg, inner, "block-clip", w, mh);
+    const P = (q) => proj(q).map((v) => v.toFixed(1)).join(",");
+    inner.append("path").attr("class", "block-streets")
+      .attr("d", data.streets.map((l) => "M" + l.map(P).join("L")).join(""))
+      .attr("fill", "none").attr("stroke", "var(--context-soft)").attr("stroke-width", compact ? 3.5 : 4.5)
+      .attr("stroke-linecap", "round").attr("stroke-linejoin", "round");
+    const lit = new Set();
+    (data.layers || []).forEach((l) => (l.footprint_idx || []).forEach((i) => lit.add(i)));
+    const order = data.footprints.map((_, i) => i).sort((a, b) => lit.has(a) - lit.has(b));
+    inner.append("g").attr("class", "footprints").selectAll("path").data(order).join("path")
+      .attr("class", (i) => (lit.has(i) ? "fp listed" : "fp")).attr("data-i", (i) => i)
+      .attr("d", (i) => "M" + data.footprints[i].map(P).join("L") + "Z")
+      .attr("fill", (i) => (lit.has(i) ? "var(--c1)" : "var(--context-mid)"))
+      .attr("stroke", "none");
+    // a light plan: mid-grey footprints, pale thin streets, so one phượng building would jump out.
+    // The scale bar and the arrow sit on paper cards: on a phone the block reaches every corner
+    card(A.scaleBar(svg, proj, 14, mh - 14, 100), 4);
+    card(A.north(svg, w - 22, 26), 3);
   };
 
   /* ---- dispatch: load the page's data + the shared base, draw, redraw on resize ---- */
@@ -851,7 +756,10 @@
       showFallback(fig);
       return Promise.resolve(null);
     }
-    return Promise.all([d3.json(fig.dataset.src), d3.json(fig.dataset.base)]).then(([data, base]) => {
+    // labels are placed by their measured boxes: draw only once the faces have loaded, or a box measured
+    // in a fallback face grows onto a stretch when the real face swaps in (seen under load, v2.2-S6)
+    const fonts = document.fonts && document.fonts.ready ? document.fonts.ready.catch(() => null) : Promise.resolve();
+    return Promise.all([d3.json(fig.dataset.src), d3.json(fig.dataset.base), fonts]).then(([data, base]) => {
       let lastW = -1, lastH = -1, raf = 0;
       const redraw = () => {
         const cw = Math.floor(fig.clientWidth), ch = Math.floor(fig.clientHeight);

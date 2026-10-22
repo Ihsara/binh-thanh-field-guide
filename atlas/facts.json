@@ -1,10 +1,66 @@
 {
- "blt_top_dish": {
-  "value": "Cơm",
-  "display": "Cơm",
-  "source_file": "binh-thanh-story/web/story.json",
+ "avenue_ratio": {
+  "value": 6.8,
+  "display": "~7×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
   "release": "2026-06-17.0",
-  "how": "new_wards[Bình Lợi Trung].dish.label"
+  "how": "listings per building on the avenues / in the hẻm, whole district, 30 m frontage rule: within 30 m of an avenue segment of map_roads.json (2025 frame)"
+ },
+ "bld_on_avenue_pct": {
+  "value": 26.3,
+  "display": "26.3%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
+  "release": "2026-06-17.0",
+  "how": "share of the district's buildings on an avenue (30 m frontage rule: within 30 m of an avenue segment of map_roads.json (2025 frame); bounding-box centres)"
+ },
+ "block_buildings": {
+  "value": 278,
+  "display": "278",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/block.json",
+  "release": "2026-06-17.0",
+  "how": "building footprints in the block cell (check H5)"
+ },
+ "block_cell_m": {
+  "value": 300,
+  "display": "300 m",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "BLOCK_CELL_M: side of a block cell (check H5)"
+ },
+ "block_hem_pct": {
+  "value": 80,
+  "display": "80%",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "BLOCK_HEM_SHARE: share of a cell's buildings that must sit back from the avenues"
+ },
+ "block_listings": {
+  "value": 0,
+  "display": "No",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/block.json",
+  "release": "2026-06-17.0",
+  "how": "Overture food listings in the block cell after a hand check of each name (check H6); left out as not food: House For Rent (rental ad); Vỏ Bưởi Sấy Dẻo tại Phổ Yên - Thái Nguyên (dried-fruit retailer, not a kitchen)"
+ },
+ "block_listings_noun": {
+  "value": "kitchens",
+  "display": "kitchens",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/block.json",
+  "release": "2026-06-17.0",
+  "how": "the noun that agrees with the block's listing count (1 kitchen, 0 or 2+ kitchens)"
+ },
+ "block_median_bld": {
+  "value": 245,
+  "display": "245",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/block.json",
+  "release": "2026-06-17.0",
+  "how": "median buildings per non-empty core cell (check H5)"
+ },
+ "buildings_total": {
+  "value": 44723,
+  "display": "44,723",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
+  "release": "2026-06-17.0",
+  "how": "Overture buildings whose bounding-box centre lies in the district (buildings theme, same release)"
  },
  "built1984_bq_pct": {
   "value": 0.2,
@@ -48,96 +104,19 @@
   "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
   "how": "lowest share over every colour setting tied best on the hand-labelled cells"
  },
- "bun_points": {
-  "value": 219,
-  "display": "219",
-  "source_file": "binh-thanh-field-guide/web/cuisine.json",
-  "release": "2026-06-17.0",
-  "how": "points with group == 'bun'"
- },
- "bun_top_wards": {
-  "value": 4,
-  "display": "4",
-  "source_file": "binh-thanh-story/web/story.json",
-  "release": "2026-06-17.0",
-  "how": "new wards whose dish.key == 'bun'"
- },
- "cafe_cat": {
-  "value": 560,
-  "display": "560",
-  "source_file": "binh-thanh-story/web/census.json",
-  "release": "2026-06-17.0",
-  "how": "anatomy.top[cat=='cafe'].n"
- },
- "chain_brands": {
-  "value": 42,
-  "display": "42",
-  "source_file": "binh-thanh-story/web/chains.json",
-  "release": "2026-06-17.0",
-  "how": "len(roster)"
- },
- "chain_outlets": {
-  "value": 177,
-  "display": "177",
-  "source_file": "binh-thanh-story/web/chains.json",
-  "release": "2026-06-17.0",
-  "how": "totals.outlets"
- },
- "coffee_points": {
-  "value": 2210,
-  "display": "2,210",
-  "source_file": "binh-thanh-field-guide/web/cuisine.json",
-  "release": "2026-06-17.0",
-  "how": "points with group == 'ca_phe' (Cà phê / trà sữa)"
- },
- "coffee_share_pct": {
-  "value": 39.6,
-  "display": "39.6%",
-  "source_file": "binh-thanh-field-guide/web/cuisine.json",
-  "release": "2026-06-17.0",
-  "how": "coffee_points / food_points"
- },
- "coffee_shop_cat": {
-  "value": 1230,
-  "display": "1,230",
-  "source_file": "binh-thanh-story/web/census.json",
-  "release": "2026-06-17.0",
-  "how": "anatomy.top[cat=='coffee_shop'].n"
- },
- "dakao_box_coffee": {
-  "value": 111,
-  "display": "111",
-  "source_file": "binh-thanh-field-guide/web/cuisine.json",
-  "release": "2026-06-17.0",
-  "how": "cuisine.json points inside hub:19 (Đa Kao) bbox [106.7052, 10.78679, 106.7122, 10.79379] with group == 'ca_phe'"
- },
- "dakao_box_japanese": {
-  "value": 57,
-  "display": "57",
-  "source_file": "binh-thanh-field-guide/web/cuisine.json",
-  "release": "2026-06-17.0",
-  "how": "cuisine.json points inside hub:19 (Đa Kao) bbox [106.7052, 10.78679, 106.7122, 10.79379] with group == 'japanese'"
- },
- "dakao_box_japanese_share_pct": {
-  "value": 44.9,
-  "display": "44.9%",
-  "source_file": "binh-thanh-field-guide/web/cuisine.json",
-  "release": "2026-06-17.0",
-  "how": "dakao_box_japanese / japanese_points"
- },
- "dakao_coffee": {
+ "cafe_street_cafes_in": {
   "value": 38,
   "display": "38",
-  "source_file": "binh-thanh-field-guide/web/hubs.json",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
-  "how": "hub:19 food_breakdown.ca_phe"
+  "how": "cafe_street n_in: cafés inside the 200 m window around the pocket centre (pockets.json)"
  },
- "dakao_japanese": {
-  "value": 37,
-  "display": "37",
-  "source_file": "binh-thanh-field-guide/web/hubs.json",
+ "cafe_street_lq": {
+  "value": 2.1,
+  "display": "2.1×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
-  "how": "hub:19 food_breakdown.japanese"
+  "how": "cafe_street lq: café share of the window's food places / café share of the district's"
  },
  "food_points": {
   "value": 5583,
@@ -145,6 +124,13 @@
   "source_file": "binh-thanh-field-guide/web/cuisine.json",
   "release": "2026-06-17.0",
   "how": "len(points)"
+ },
+ "frontage_m": {
+  "value": 30,
+  "display": "30 m",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "FRONTAGE_M: the frontage rule"
  },
  "georef1984_grid_max_m": {
   "value": 116.8,
@@ -167,12 +153,26 @@
   "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
   "how": "drawn road junctions and bridge mid-spans matched to OpenStreetMap"
  },
+ "hutech_m": {
+  "value": 93,
+  "display": "93 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "OpenStreetMap 2025-01-01 (vn-2025-01-01.osm.pbf)",
+  "how": "distance from the little_seoul pocket centre to OSM a385024764 (Trường Đại học Công nghệ TP.HCM), spec check P3"
+ },
  "japanese_points": {
   "value": 127,
   "display": "127",
   "source_file": "binh-thanh-field-guide/web/cuisine.json",
   "release": "2026-06-17.0",
   "how": "points with group == 'japanese'"
+ },
+ "korean_points": {
+  "value": 46,
+  "display": "46",
+  "source_file": "binh-thanh-field-guide/web/cuisine.json",
+  "release": "2026-06-17.0",
+  "how": "points with group == 'korean'"
  },
  "landmark81_m": {
   "value": 461.2,
@@ -188,19 +188,26 @@
   "release": "history-v1 (two independent sources per beat)",
   "how": "beat[Tân Cảng (nam), 2018].year"
  },
+ "lst_on_avenue_pct": {
+  "value": 71.0,
+  "display": "71%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
+  "release": "2026-06-17.0",
+  "how": "share of the district's listed food places on an avenue (30 m frontage rule: within 30 m of an avenue segment of map_roads.json (2025 frame))"
+ },
+ "neighbour_radius_m": {
+  "value": 300,
+  "display": "300 m",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "NEIGHBOUR_RADIUS_M: how far from a pocket centre check P3 looks"
+ },
  "new_ward_count": {
   "value": 5,
   "display": "5",
   "source_file": "binh-thanh-story/web/redraw.json",
   "release": "2025 ward redraw (redraw.json resolution_citation)",
   "how": "new_ward_count"
- },
- "new_wards": {
-  "value": 5,
-  "display": "5",
-  "source_file": "binh-thanh-story/web/story.json",
-  "release": "2026-06-17.0",
-  "how": "len(new_wards)"
  },
  "old_ward_count": {
   "value": 20,
@@ -209,40 +216,40 @@
   "release": "2025 ward redraw (redraw.json resolution_citation)",
   "how": "old_ward_count"
  },
- "osm_cafe_coverage_pct": {
-  "value": 2.9,
-  "display": "2.9%",
-  "source_file": "binh-thanh-story/web/data.json",
-  "release": "OSM 2025 vs Overture 2026-06-10",
-  "how": "osm_cafes_2025 / overture_cafe_like"
- },
- "osm_cafes_2025": {
-  "value": 62,
-  "display": "62",
-  "source_file": "binh-thanh-story/web/data.json",
-  "release": "OSM 2025",
-  "how": "cafe_fuel.series[cafe].n[2025]"
- },
- "osm_restaurants_2025": {
-  "value": 77,
-  "display": "77",
-  "source_file": "binh-thanh-story/web/data.json",
-  "release": "OSM 2025",
-  "how": "cafe_fuel.series[restaurant].n[2025]"
- },
- "overture_cafe_like": {
-  "value": 2126,
-  "display": "2,126",
-  "source_file": "binh-thanh-story/web/data.json",
-  "release": "2026-06-10 (Overture download)",
-  "how": "streetlife.overture.cafe_like"
- },
  "plate1815_year": {
   "value": 1815,
   "display": "1815",
   "source_file": "binh-thanh-field-guide/web/atlas/data/then/crops.json",
   "release": "Wikimedia Commons photo of a 1987 reproduction",
   "how": "year Trần Văn Học drew the map (plate1815.licence)"
+ },
+ "pocket_min_lq": {
+  "value": 2,
+  "display": "2×",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "MIN_LQ: how much more common than district-wide"
+ },
+ "pocket_min_n": {
+  "value": 6,
+  "display": "6",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "MIN_IN_WINDOW: places of one kind a window needs"
+ },
+ "pocket_radius_m": {
+  "value": 200,
+  "display": "200 m",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "RADIUS_M: radius of each pocket window"
+ },
+ "pockets_drawn": {
+  "value": 7,
+  "display": "7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "2026-06-17.0",
+  "how": "pockets in pockets.json, less western_tokyo (drawn only on the Little Tokyo zoom)"
  },
  "redraw_year": {
   "value": 2025,
@@ -251,12 +258,19 @@
   "release": "2025 ward redraw (redraw.json resolution_citation)",
   "how": "year of Nghị quyết 1685/NQ-UBTVQH15 (resolution_citation)"
  },
- "restaurant_cat": {
-  "value": 1218,
-  "display": "1,218",
-  "source_file": "binh-thanh-story/web/census.json",
+ "seoul_korean_in": {
+  "value": 11,
+  "display": "11",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
-  "how": "anatomy.top[cat=='restaurant'].n"
+  "how": "little_seoul n_in: Korean places inside the 200 m window around the pocket centre (pockets.json)"
+ },
+ "seoul_lq": {
+  "value": 5.7,
+  "display": "5.7×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "2026-06-17.0",
+  "how": "little_seoul lq: Korean share of the window's food places / Korean share of the district's"
  },
  "sheet1895_median_m": {
   "value": 1218,
@@ -293,26 +307,19 @@
   "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
   "how": "edition year printed on the sheet"
  },
- "street_km_beyond": {
-  "value": 28.3,
-  "display": "28.3 km",
-  "source_file": "binh-thanh-story/web/chains-territory.json",
-  "release": "2026-06-17.0",
-  "how": "edges with cls == 'unclaimed' (beyond every chain's 1 km walk)"
+ "snap_m": {
+  "value": 40,
+  "display": "40 m",
+  "source_file": "binh-thanh-field-guide/src/atlas/heroes.py",
+  "release": "method setting (src/atlas)",
+  "how": "SNAP_M: farthest a place may sit from the street segment it colours"
  },
- "street_km_total": {
-  "value": 469.3,
-  "display": "469.3 km",
-  "source_file": "binh-thanh-story/web/chains-territory.json",
+ "social_page_pct": {
+  "value": 99,
+  "display": "99%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
   "release": "2026-06-17.0",
-  "how": "sum of walked-street edge lengths"
- },
- "street_share_within_pct": {
-  "value": 94.0,
-  "display": "94%",
-  "source_file": "binh-thanh-story/web/chains-territory.json",
-  "release": "2026-06-17.0",
-  "how": "(total - beyond) / total"
+  "how": "listed food places whose Overture record has a social-media page: 99% on the avenues, 99% in the hẻm"
  },
  "tancang_base_year": {
   "value": 1965,
@@ -342,11 +349,46 @@
   "release": "OpenStreetMap, as frozen in road-beneath-figures.json",
   "how": "date of the northern Thiên Lý branch (binh-thanh-story/docs/THIEN-LY-AND-MAPS-FINDINGS.md)"
  },
- "top_chain_outlets": {
-  "value": 24,
-  "display": "24",
-  "source_file": "binh-thanh-story/web/chains.json",
+ "tokyo_japanese_in": {
+  "value": 45,
+  "display": "45",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
-  "how": "roster[0].n (largest brand)"
+  "how": "little_tokyo n_in: Japanese places inside the 200 m window around the pocket centre (pockets.json)"
+ },
+ "tokyo_lq": {
+  "value": 11,
+  "display": "11×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "2026-06-17.0",
+  "how": "little_tokyo lq 11.3, to the whole number: Japanese share of the window's food places / Japanese share of the district's"
+ },
+ "tokyo_western_in": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "2026-06-17.0",
+  "how": "western_tokyo n_in: Western places inside the 200 m window around the pocket centre (pockets.json)"
+ },
+ "vanlang_m": {
+  "value": 83,
+  "display": "83 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "OpenStreetMap 2025-01-01 (vn-2025-01-01.osm.pbf)",
+  "how": "distance from the cafe_street pocket centre to OSM a986315282 (Đại học Văn Lang), spec check P3"
+ },
+ "ward_ratio_max": {
+  "value": 7.8,
+  "display": "7.8×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
+  "release": "2026-06-17.0",
+  "how": "highest per-ward ratio, Bình Lợi Trung (30 m frontage rule: within 30 m of an avenue segment of map_roads.json (2025 frame))"
+ },
+ "ward_ratio_min": {
+  "value": 5.3,
+  "display": "5.3×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/avenue_gap.json",
+  "release": "2026-06-17.0",
+  "how": "lowest per-ward ratio, Thạnh Mỹ Tây (30 m frontage rule: within 30 m of an avenue segment of map_roads.json (2025 frame))"
  }
 }
