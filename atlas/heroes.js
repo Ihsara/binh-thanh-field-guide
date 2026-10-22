@@ -748,6 +748,7 @@
   };
 
   /* ---- dispatch: load the page's data + the shared base, draw, redraw on resize ---- */
+  const FONT_WAIT_MS = 3000;
   A.render = function (fig) {
     const kind = document.body.dataset.hero;
     const draw = A.heroes[kind];
@@ -758,7 +759,11 @@
     }
     // labels are placed by their measured boxes: draw only once the faces have loaded, or a box measured
     // in a fallback face grows onto a stretch when the real face swaps in (seen under load, v2.2-S6)
-    const fonts = document.fonts && document.fonts.ready ? document.fonts.ready.catch(() => null) : Promise.resolve();
+    // ... but not forever: a stalled font request must not leave the hero blank (v2.2.1). After the
+    // timeout the map draws in the fallback face and redraws once when the faces do arrive
+    const ready = document.fonts && document.fonts.ready ? document.fonts.ready.catch(() => null) : Promise.resolve();
+    let late = false;
+    const fonts = Promise.race([ready, new Promise((r) => setTimeout(() => { late = true; r(); }, FONT_WAIT_MS))]);
     return Promise.all([d3.json(fig.dataset.src), d3.json(fig.dataset.base), fonts]).then(([data, base]) => {
       let lastW = -1, lastH = -1, raf = 0;
       const redraw = () => {
@@ -768,6 +773,7 @@
         draw(fig, data, base);
       };
       redraw();
+      if (late) ready.then(() => { lastW = -1; redraw(); });
       if ("ResizeObserver" in window) {
         new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(redraw); }).observe(fig);
       }
