@@ -146,6 +146,9 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
    meets the map before the number (v2.1.7); under 900 px `order` puts it back under the hero */
 @media (min-width: 900px) {
   .body-lead + .big-number { margin-top: 1.4rem; }
+  /* ...and is set below the headline's size: at 71.7 px it was still read before a 0.63-share map
+     in 4 of 5 readings (v2.1.8). The hue stays: number and marks are one claim. */
+  .big-number .value { font-size: clamp(1.9rem, 2.6vw, 2.9rem); }
 }
 .body .run-in { font-weight: 700; }
 .body .fact { font-variant-numeric: lining-nums; white-space: nowrap; }
@@ -172,6 +175,9 @@ a:focus-visible { outline: 2px solid var(--chapter-hue); outline-offset: 2px; }
   min-width: 0; max-width: 100%;
   overflow: hidden;
   /* bleeds to the right viewport edge: no right padding on the spread */
+  /* one column: the sticky head must not cover the hero's top when it is scrolled to (#hero).
+     +1rem like .appendix: at 320 px the head wraps to 87.5 px, past --head-h (73.6) */
+  scroll-margin-top: calc(var(--head-h) + 1rem);
 }
 .hero svg.hero-map { display: block; max-width: 100%; }
 
