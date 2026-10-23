@@ -471,6 +471,22 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
   .hero .street-label { font-size: 14px; }
   .hero .campus-label { font-size: 11px; }
 }
+/* two panels at one scale (v2.3): the measured pocket-centre -> campus line, in ink, dashed, on a paper
+   halo so it reads across the grey streets; its number in the display face. Stacked under 900 px, so
+   the phone hero is two maps tall (each ~0.9 of the column width) plus the furniture band */
+.hero .to-campus-halo { fill: none; stroke: var(--ground); stroke-width: 4; stroke-linecap: round; }
+.hero .to-campus-line { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.hero .to-campus-ends { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.hero .to-campus-label {
+  font-family: var(--font-display); font-weight: 700; font-size: 13px; fill: var(--ink);
+  font-variant-numeric: lining-nums;
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+.hero .panel-frame { fill: none; stroke: var(--rule); stroke-width: 1; }
+.hero .locator-link { fill: none; stroke: var(--ink); stroke-width: 0.8; stroke-dasharray: 2 1.5; }
+.hero .locator-pocket { stroke: var(--ground); stroke-width: 0.8; }
+@media (min-width: 900px) { .hero .to-campus-label { font-size: 15px; } }
+@media (max-width: 899.98px) { .hero.panelled { aspect-ratio: 1 / 1.95; } }
 
 /* ---------------- Task 7: the density pair ---------------- */
 /* two panels side by side; below 900 px the figure spans three grid rows (a subgrid) with its panels in
