@@ -472,8 +472,9 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
   .hero .campus-label { font-size: 11px; }
 }
 /* two panels at one scale (v2.3): the measured pocket-centre -> campus line, in ink, dashed, on a paper
-   halo so it reads across the grey streets; its number in the display face. Stacked under 900 px, so
-   the phone hero is two maps tall (each ~0.9 of the column width) plus the furniture band */
+   halo so it reads across the grey streets; its number in the display face. Under 900 px the renderer
+   sets the figure's height from its layout (v2.3.1: side by side where the 40 px line floor holds, else
+   two short stacked panels, both in one screen); the aspect-ratio below only holds the box until then */
 .hero .to-campus-halo { fill: none; stroke: var(--ground); stroke-width: 4; stroke-linecap: round; }
 .hero .to-campus-line { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
 .hero .to-campus-ends { fill: none; stroke: var(--ink); stroke-width: 1.5; }

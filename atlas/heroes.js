@@ -30,6 +30,18 @@
     return { svg, map, w, h, mh: h - top, top, compact };
   };
 
+  /** The atlas's "beyond" ground: 7 px hatch, ground fill, --rule strokes at 45 degrees. Appends the
+      pattern to `defs` and returns its id (the sheet renderer's off-sheet paper; v2.3.1 the ground outside
+      the district in a panelled streets hero). */
+  A.beyondHatch = function (defs) {
+    const id = "beyond-hatch";
+    const hatch = defs.append("pattern").attr("id", id).attr("patternUnits", "userSpaceOnUse")
+      .attr("width", 7).attr("height", 7).attr("patternTransform", "rotate(45)");
+    hatch.append("rect").attr("width", 7).attr("height", 7).attr("fill", "var(--ground)");
+    hatch.append("path").attr("d", "M0,0V7").attr("stroke", "var(--rule)").attr("stroke-width", 1.4);
+    return id;
+  };
+
   /** Locator (bottom right), 500 m scale (bottom left), north (top right).
       opts.northY moves the north arrow; a renderer with a key band above the
       map passes a negative y so the arrow sits in the band, clear of the
@@ -198,10 +210,7 @@
     svg.attr("aria-label", data.aria || "The 1984 map sheet");
 
     const defs = svg.append("defs");
-    const hatch = defs.append("pattern").attr("id", "beyond-hatch").attr("patternUnits", "userSpaceOnUse")
-      .attr("width", 7).attr("height", 7).attr("patternTransform", "rotate(45)");
-    hatch.append("rect").attr("width", 7).attr("height", 7).attr("fill", "var(--ground)");
-    hatch.append("path").attr("d", "M0,0V7").attr("stroke", "var(--rule)").attr("stroke-width", 1.4);
+    A.beyondHatch(defs);
     // the key's 10 px swatch needs a tighter, darker hatch to read as the same thing
     const kh = defs.append("pattern").attr("id", "beyond-hatch-key").attr("patternUnits", "userSpaceOnUse")
       .attr("width", 3.5).attr("height", 3.5).attr("patternTransform", "rotate(45)");
@@ -451,22 +460,40 @@
   /* ---- two panels at one scale (v2.3, two-campuses-two-pockets) ----
      data.panels = [{pocket, campus, centre, size_m:[w,h], to_campus:{a,b,m}, streets}]. Both panels share
      ONE Mercator scale, sized so the larger group (pocket + campus) fits with a margin: 700 m across
-     side by side, 600 m stacked (user, v2.3-S1). Under 900 px the panels stack (the phone column); on a
-     spread they sit side by side unless that draws the shorter distance line under MIN_LINE_PX, then
-     they stack (a narrow spread, ~900-1070 px, where side by side gave it ~32 px). */
+     side by side, 600 m stacked (user, v2.3-S1). On a spread (>= 900 px, the grid owns the height) they
+     sit side by side unless that draws the shorter distance line under MIN_LINE_PX, then they stack (a
+     narrow spread, ~900-1070 px, where side by side gave it ~32 px). Under 900 px (v2.3.1) the figure's
+     height is the layout's own (phoneLayout): side by side wherever the width alone holds the floor,
+     else stacked at about STACK_LINE_PX for the shorter line, so both panels fit one screen. */
   const PANEL_GAP = 6;
   const MIN_LINE_PX = 40;
+  const STACK_LINE_PX = 46;
   const EARTH_R = 6378137;
-  function campusPanels(data, w, mh) {
+  const panelGroup = (ps) => ({ gw: d3.max(ps, (p) => p.size_m[0]), gh: d3.max(ps, (p) => p.size_m[1]),
+    shortest: d3.min(ps, (p) => p.to_campus.m) });
+  /** Under 900 px: {across, h}, the layout and the figure height it needs at width w. Side by side when
+      the width-limited scale keeps the shorter line >= MIN_LINE_PX; otherwise stacked, the shorter line
+      about STACK_LINE_PX, capped by the width and by the screen under the running head (never below
+      the floor). */
+  function phoneLayout(data, w) {
+    const { gw, gh, shortest } = panelGroup(data.panels);
+    const top = w < 560 ? 44 : 0;                    // A.frame's compact key band
+    const kSide = (w - PANEL_GAP) / 2 / (gw + 120);
+    if (kSide * shortest >= MIN_LINE_PX) return { across: true, h: Math.ceil(top + (gh + 120) * kSide) };
+    const head = document.querySelector("header.running-head");
+    const avail = window.innerHeight - (head ? head.getBoundingClientRect().height : 0);
+    const fit = (avail - top - PANEL_GAP) / (2 * (gh + 40));
+    const k = Math.min(w / (gw + 20), Math.max((MIN_LINE_PX + 1) / shortest, Math.min(STACK_LINE_PX / shortest, fit)));
+    return { across: false, h: Math.floor(top + 2 * (gh + 40) * k + PANEL_GAP) };   // floor: never past the screen
+  }
+  function campusPanels(data, w, mh, phone) {
     const ps = data.panels;
     const lat = (d3.mean(ps, (p) => p.centre[1]) * Math.PI) / 180;
-    const gw = d3.max(ps, (p) => p.size_m[0]), gh = d3.max(ps, (p) => p.size_m[1]);
+    const { gw, gh, shortest } = panelGroup(ps);
     const side = { across: true, pw: (w - PANEL_GAP) / 2, ph: mh, need: [gw + 120, gh + 120] };
     const stack = { across: false, pw: w, ph: (mh - PANEL_GAP) / 2, need: [gw + 20, gh + 40] };
     const pxPerM = (o) => Math.min(o.pw / o.need[0], o.ph / o.need[1]);
-    const phone = window.matchMedia("(max-width: 899.98px)").matches;
-    const shortest = d3.min(ps, (p) => p.to_campus.m);
-    const lay = !phone && pxPerM(side) * shortest >= MIN_LINE_PX ? side : stack;
+    const lay = phone ? (phone.across ? side : stack) : pxPerM(side) * shortest >= MIN_LINE_PX ? side : stack;
     const k = pxPerM(lay) * EARTH_R * Math.cos(lat);   // d3 Mercator: px per radian of longitude
     return ps.map((pn, i) => {
       const proj = d3.geoMercator().scale(k).translate([0, 0]);
@@ -480,13 +507,14 @@
   /** One scale bar and one north for both panels; the locator (both pockets on the district, how far
       apart) in the last panel's bottom-right corner. On a phone the bar and the arrow sit in the band
       above the maps. */
-  function campusFurniture(svg, base, panels, data, w, top, compact) {
+  function campusFurniture(svg, base, panels, data, w, top, compact, phone) {
     const first = panels[0], last = panels[panels.length - 1];
     const sb = compact ? A.scaleBar(svg, first.proj, 16, top - 14, 100)
       : A.scaleBar(first.g, first.proj, 14, first.ph - 18, 100);
     if (compact) A.north(svg, w - 22, 18);
     else A.north(last.g, last.pw - 22, 26);
-    const size = compact ? 64 : 96;
+    // under 900 px a panel is only as tall as its layout (v2.3.1): the 96 px locator landed on a stretch
+    const size = compact || phone ? 64 : 96;
     const loc = A.locator(last.g, base, last.pw - size - 14, last.ph - size - 26, size);
     const lp = d3.geoMercator().fitExtent([[5, 5], [size - 5, size - 5]], base.outline);
     const ends = panels.map((pn) => ({ q: lp(pn.to_campus.a), slot: (data.pockets.find((p) => p.id === pn.pocket) || {}).slot }));
@@ -501,6 +529,15 @@
 
   A.heroes.streets = function (fig, data, base) {
     fig.classList.toggle("panelled", Array.isArray(data.panels));   // before the frame: it sets the phone height
+    // v2.3.1: under 900 px a panelled hero is as tall as its layout needs (both panels in one screen);
+    // on a spread the grid owns the height, so any inline height from a narrower draw is cleared
+    let phone = null;
+    if (data.panels) {
+      if (window.matchMedia("(max-width: 899.98px)").matches) {
+        phone = phoneLayout(data, Math.max(240, Math.floor(fig.clientWidth)));
+        fig.style.height = `${phone.h}px`;
+      } else fig.style.height = "";
+    }
     const { svg, map, w, h, mh, top, compact } = A.frame(fig);
     const zoom = data.zoom === true;
     let proj;
@@ -522,12 +559,17 @@
     // one panel, or (v2.3) one per pocket at a shared scale. Each panel draws into its own clipped group;
     // everything after drawing is placed in svg coordinates: a panel sits at (x, y) in the map group, which
     // sits `top` px down
-    const panels = data.panels ? campusPanels(data, w, mh) : [{ proj, x: 0, y: 0, pw: w, ph: mh }];
+    const panels = data.panels ? campusPanels(data, w, mh, phone) : [{ proj, x: 0, y: 0, pw: w, ph: mh }];
+    // v2.3.1: in a panel the ground beyond the district wears the atlas's beyond hatch; drawBase's land
+    // fill then covers the inside, so only the outside stays hatched (bare paper read as water or no data)
+    const hatchId = data.panels ? A.beyondHatch(svg.append("defs")) : null;
     panels.forEach((pn, i) => {
       pn.g = map.append("g").attr("class", data.panels ? "map-panel" : null).attr("data-pocket", pn.pocket || null)
         .attr("transform", pn.x || pn.y ? `translate(${pn.x.toFixed(1)},${pn.y.toFixed(1)})` : null);
       pn.inner = pn.g.append("g").attr("class", "streets-map");
       clipTo(svg, pn.inner, `streets-clip-${i}`, pn.pw, pn.ph);
+      if (hatchId) pn.inner.append("rect").attr("class", "beyond").attr("width", pn.pw).attr("height", pn.ph)
+        .attr("fill", `url(#${hatchId})`);
       A.drawBase(pn.inner, base, pn.proj, pn.streets || data.streets);
       // a hairline edge: where a panel reaches past the district (paper), it would melt into the gap
       if (data.panels) pn.g.append("rect").attr("class", "panel-frame").attr("width", pn.pw).attr("height", pn.ph);
@@ -550,11 +592,13 @@
       const polys = c.geometry.type === "Polygon" ? [c.geometry.coordinates] : c.geometry.coordinates;
       const d = polys.map((poly) => poly.map((ring) =>
         "M" + ring.map((p) => pn.proj(p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z").join("")).join("");
+      // in a panel a campus is solid paper, so one beyond the district reads as a shape on the hatch
       pn.inner.append("path").attr("class", "campus").attr("d", d)
-        .attr("fill", "none").attr("stroke", "var(--ink)").attr("stroke-width", 1.4)
+        .attr("fill", data.panels ? "var(--ground)" : "none").attr("stroke", "var(--ink)").attr("stroke-width", 1.4)
         .attr("stroke-linejoin", "round");
       const ring = polys[0][0].map(pn.S);
       c._ring = ring;
+      c._rings = polys.flatMap((poly) => poly.map((r) => r.map(pn.S)));
       c._panel = pn;
       ring.slice(1).forEach((b, i) => outlines.push([ring[i], b]));
     });
@@ -599,7 +643,7 @@
       A.key(svg, data.key.map((k) => ({ label: k.label, fill: `var(--${k.slot})`, line: 5 })),
         14, compact ? 12 : 22);
     }
-    if (data.panels) campusFurniture(svg, base, panels, data, w, top, compact);
+    if (data.panels) campusFurniture(svg, base, panels, data, w, top, compact, phone);
     else {
       const sbMetres = zoom ? 100 : data.focus ? 200 : 500;
       A.furniture(map, base, proj, w, mh, { northY: compact ? 18 - top : 26, metres: sbMetres, mark: data.focus });
@@ -699,6 +743,72 @@
         return (crossOther ? 200 : 0) + d;
       }, { "data-osm": c.osm }, c._panel.rect);
     });
+
+    // v2.3.1: name the hatched ground where it covers >= 8 % of a panel: one label, off every mark and
+    // label above, on the hatch (its corners outside the district, not in a campus), as far from the
+    // district edge as it will go. The neighbouring district is not named
+    if (data.panels) {
+      const inside = (pn, q) => d3.geoContains(base.outline, pn.proj.invert([q[0] - pn.x, q[1] - pn.y - top]));
+      const inRing = (q, R) => {
+        let c = false;
+        for (let i = 0, j = R.length - 1; i < R.length; j = i++) {
+          if ((R[i][1] > q[1]) !== (R[j][1] > q[1])
+            && q[0] < ((R[j][0] - R[i][0]) * (q[1] - R[i][1])) / (R[j][1] - R[i][1]) + R[i][0]) c = !c;
+        }
+        return c;
+      };
+      const og = base.outline.type === "Feature" ? base.outline.geometry : base.outline;
+      const outlinePolys = og.type === "Polygon" ? [og.coordinates] : og.coordinates;
+      panels.forEach((pn) => {
+        const [x0, y0, x1, y1] = pn.rect;
+        let out = 0, n = 0;
+        for (let gx = 0.5; gx < 24; gx++) for (let gy = 0.5; gy < 24; gy++) {
+          n++;
+          if (!inside(pn, [x0 + (gx / 24) * pn.pw, y0 + (gy / 24) * pn.ph])) out++;
+        }
+        if (out / n < 0.08) return;
+        const edge = outlinePolys.flatMap((poly) => poly.flatMap((r) => {
+          const P = r.map(pn.S);
+          return P.slice(1).map((b, i) => [P[i], b]);
+        }));
+        const t = pn.g.append("text").attr("class", "beyond-label").attr("text-anchor", "middle").attr("dy", "0.35em")
+          .attr("x", 0).attr("y", 0).text("Outside Bình Thạnh");
+        const bb = t.node().getBBox(), ox = bb.x + bb.width / 2, oy = bb.y + bb.height / 2;
+        const campusRings = (data.campuses || []).filter((c) => c._panel === pn).flatMap((c) => c._rings || []);
+        // across first; turned up the strip (as the sheet's "Beyond this sheet") when the hatch is too narrow
+        const search = (bw, bh) => {
+          let best = null, bestD = -1;
+          for (let cy = y0 + bh / 2 + 8; cy <= y1 - bh / 2 - 8; cy += 6) {
+            for (let cx = x0 + bw / 2 + 8; cx <= x1 - bw / 2 - 8; cx += 6) {
+              const b = [cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2];
+              if (!inView(b, pn.rect)) continue;
+              const pts = [[b[0], b[1]], [b[2], b[1]], [b[0], b[3]], [b[2], b[3]], [cx, cy],
+                [cx, b[1]], [cx, b[3]], [b[0], cy], [b[2], cy]];
+              if (pts.some((q) => inside(pn, q))) continue;
+              if (pts.some((q) => campusRings.some((R) => inRing(q, R)))) continue;
+              const bp = pad(b, 3);
+              if (furniture.some((o) => hit(o, bp)) || placed.some((o) => hit(o, pad(b, 4)))) continue;
+              if (wardBoxes.some((o) => hit(o, b)) || onStretch(bp)) continue;
+              if (reach.some((r) => segRect(r.a, r.b, b) < 3)) continue;
+              if (outlines.some(([a, e]) => segRect(a, e, b) < 3)) continue;
+              const d = Math.min(...edge.map(([a, e]) => segRect(a, e, b)));
+              if (d > bestD) { bestD = d; best = [cx, cy]; }
+            }
+          }
+          return best;
+        };
+        let best = search(bb.width, bb.height), turned = false;
+        if (!best) { best = search(bb.height, bb.width); turned = !!best; }
+        if (!best) { t.remove(); return; }                 // no clean spot on the hatch: say nothing
+        if (turned) {
+          t.attr("x", null).attr("y", null).attr("transform",
+            `translate(${(best[0] - pn.x).toFixed(1)},${(best[1] - pn.y - top).toFixed(1)}) rotate(90) translate(${(-ox).toFixed(1)},${(-oy).toFixed(1)})`);
+        } else {
+          t.attr("x", (best[0] - ox - pn.x).toFixed(1)).attr("y", (best[1] - oy - pn.y - top).toFixed(1));
+        }
+        placed.push(rel(t.node()));
+      });
+    }
 
     // street names: along a straight stretch of the named street, upright, off the coloured stretches
     // and every label above; on a phone only the street the headline names
