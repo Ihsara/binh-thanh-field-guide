@@ -37,6 +37,9 @@
   /* context: warm greys for everything that is not one of the six (chroma < 0.03) */
   --context-soft: #e6dfd2;    /* a quiet fill or stroke beside a colour */
   --context-mid: #c2b9aa;     /* a mid warm grey mass, e.g. the block's footprints (chroma 0.023) */
+  /* v2.4: every other food listing's stretch on a pocket close-up. On land 2.26:1, between the base
+     streets (1.45) and the data (--c1 4.14): it reads against land and never passes for data (chroma 0.027) */
+  --context-tone: #aba190;
   /* the six street colours, in validated slot order (src/atlas/colours.py is the source) */
   --c1: #ce4522; --c1-name: "phượng";
   --c2: #009399; --c2-name: "rêu";
@@ -456,6 +459,28 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
   paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
 }
 @media (min-width: 900px) { .hero .pocket-label { font-size: 14px; } }
+/* v2.4 pocket close-up: the grey context stretches (one weight, set by the renderer) */
+.hero .context-stretch { fill: none; stroke: var(--context-tone); stroke-linecap: round; stroke-linejoin: round; }
+/* dish words: set along their own stretch in the pocket label's face, size and colour (the renderer sets
+   the fill to the pocket's slot) — no new type size */
+.hero .dish-word {
+  font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: 0.02em;
+  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+@media (min-width: 900px) { .hero .dish-word { font-size: 14px; } }
+/* the why-anchor: a note line of HUTECH's campus label (v2.4-S6), the street-label face and size, in ink,
+   not upper-cased (two lines on a phone) */
+.hero .campus-label .campus-note {
+  font-family: var(--font-text); font-weight: 400; font-size: 11px; letter-spacing: 0.01em; text-transform: none;
+  fill: var(--ink); paint-order: stroke; stroke: var(--base-fill); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+/* a named one-off: its name in the street-label size, a short leader to its grey stretch, never a dot */
+.hero .oddity-label {
+  font-family: var(--font-text); font-size: 11px; letter-spacing: 0.01em; fill: var(--ink-soft);
+  paint-order: stroke; stroke: var(--base-fill); stroke-width: var(--halo-width); stroke-linejoin: round;
+}
+.hero .oddity-leader { stroke: var(--ink-soft); stroke-width: 0.8; }
+@media (min-width: 900px) { .hero .campus-label .campus-note, .hero .oddity-label { font-size: 14px; } }
 /* zoom furniture (v2.2-S6): the street a headline names, and the campus outline's name. Both are
    context, so they are warm grey / ink and never wear a series colour */
 .hero .street-label {
@@ -471,22 +496,12 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
   .hero .street-label { font-size: 14px; }
   .hero .campus-label { font-size: 11px; }
 }
-/* two panels at one scale (v2.3): the measured pocket-centre -> campus line, in ink, dashed, on a paper
-   halo so it reads across the grey streets; its number in the display face. Under 900 px the renderer
-   sets the figure's height from its layout (v2.3.1: side by side where the 40 px line floor holds, else
-   two short stacked panels, both in one screen); the aspect-ratio below only holds the box until then */
-.hero .to-campus-halo { fill: none; stroke: var(--ground); stroke-width: 4; stroke-linecap: round; }
-.hero .to-campus-line { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
-.hero .to-campus-ends { fill: none; stroke: var(--ink); stroke-width: 1.5; }
-.hero .to-campus-label {
-  font-family: var(--font-display); font-weight: 700; font-size: 13px; fill: var(--ink);
-  font-variant-numeric: lining-nums;
-  paint-order: stroke; stroke: var(--ground); stroke-width: var(--halo-width); stroke-linejoin: round;
-}
+/* two panels at one scale (v2.3). Under 900 px the renderer sets the figure's height from its layout (v2.3.1:
+   side by side where both panels' labels fit, else two short stacked panels, both in one screen; v2.4-S5 the
+   dimension lines are retired); the aspect-ratio below only holds the box until then */
 .hero .panel-frame { fill: none; stroke: var(--rule); stroke-width: 1; }
 .hero .locator-link { fill: none; stroke: var(--ink); stroke-width: 0.8; stroke-dasharray: 2 1.5; }
 .hero .locator-pocket { stroke: var(--ground); stroke-width: 0.8; }
-@media (min-width: 900px) { .hero .to-campus-label { font-size: 15px; } }
 @media (max-width: 899.98px) { .hero.panelled { aspect-ratio: 1 / 1.95; } }
 
 /* ---------------- Task 7: the density pair ---------------- */

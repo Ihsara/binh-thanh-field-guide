@@ -456,44 +456,58 @@
      street_labels?:[{name,primary,lines}], labelled?}. Segment width is clamp(1.5, k * sqrt(n), cap)
      with k = cap / sqrt(nMax), nMax = the biggest n on the page, so the busiest stretch lands exactly
      on the cap (7 px overview, 12 px when data.zoom). `focus` ([w,s,e,n]) frames a part of the
-     district instead of all of it. */
+     district instead of all of it. v2.4: a hero with grey context stretches (data.context, or per panel)
+     encodes no count by width: one weight per class (close-up 6 / 3.5 px, overview 3.5 / 2 px). */
   /* ---- two panels at one scale (v2.3, two-campuses-two-pockets) ----
-     data.panels = [{pocket, campus, centre, size_m:[w,h], to_campus:{a,b,m}, streets}]. Both panels share
+     data.panels = [{pocket, campus, centre, size_m:[w,h], context, campuses, streets}]. Both panels share
      ONE Mercator scale, sized so the larger group (pocket + campus) fits with a margin: 700 m across
-     side by side, 600 m stacked (user, v2.3-S1). On a spread (>= 900 px, the grid owns the height) they
-     sit side by side unless that draws the shorter distance line under MIN_LINE_PX, then they stack (a
-     narrow spread, ~900-1070 px, where side by side gave it ~32 px). Under 900 px (v2.3.1) the figure's
-     height is the layout's own (phoneLayout): side by side wherever the width alone holds the floor,
-     else stacked at about STACK_LINE_PX for the shorter line, so both panels fit one screen. */
+     side by side, 600 m stacked (user, v2.3-S1). v2.4-S5 (Task 8): the dimension lines are retired; each panel
+     names its campuses with their walking minutes. Side by side needs a shared scale of at least SIDE_PX_PER_M
+     (under 900 px; SPREAD_SIDE_PX_PER_M on a spread), the smallest at which both panels' labels (pocket names, campus names with minutes, "Outside Bình Thạnh")
+     all sit inside their own panel, clear of each other and of every stroke (measured, Task 8 report); below it
+     they stack. On a spread (>= 900 px) the grid owns the height. Under 900 px (v2.3.1) the figure's height is
+     the layout's own (phoneLayout): side by side wherever the width alone gives that scale, else stacked at
+     about STACK_PX_PER_M, smaller where needed so both panels fit one screen. */
   const PANEL_GAP = 6;
-  const MIN_LINE_PX = 40;
-  const STACK_LINE_PX = 46;
+  // a pocket close-up (v2.4): one weight per class, no width encoding (close-up: red 6 px, grey 3.5 px); an
+  // overview (v2.4-S5, Task 8) one weight down the same ladder (2, 3.5, 6): red 3.5 px, grey 2 px
+  const RED_W = 6, GREY_W = 3.5, OV_RED_W = 3.5, OV_GREY_W = 2;
+  const DISH_NEAR_PX = 48;   // two dish words closer than this across their text direction must not sit side by side
+  // an overview's dish word fits its stretch when the stretch is this much longer than the word at each end: the
+  // streets that meet a stretch meet it at its ends, and a word turned to it reaches past them otherwise
+  const DISH_FIT_PAD = 6;
+  const KIND_NAME = { korean: "Korean", japanese: "Japanese" };
+  // side by side needs at least this shared scale. scripts/derive_panel_threshold.py forces side by side and sweeps
+  // the widths (Task 8 fix 1, UTH beside Vo Oanh): every label is clean from 0.386 up under 900 px (highest failure
+  // 0.372) and from 0.435 up on a spread (highest failure 0.421). Both thresholds sit above that and keep v2.3.1's
+  // breakpoints: 0.51 puts the phone switch at 720 px (700 px: 0.501), 0.482 the spread switch at about 1030 px
+  const SIDE_PX_PER_M = 0.51;
+  const SPREAD_SIDE_PX_PER_M = 0.482;
+  const STACK_PX_PER_M = 0.554;   // the stacked panels' scale v2.3.1 set (46 px for the old 83 m), kept
   const EARTH_R = 6378137;
-  const panelGroup = (ps) => ({ gw: d3.max(ps, (p) => p.size_m[0]), gh: d3.max(ps, (p) => p.size_m[1]),
-    shortest: d3.min(ps, (p) => p.to_campus.m) });
+  const panelGroup = (ps) => ({ gw: d3.max(ps, (p) => p.size_m[0]), gh: d3.max(ps, (p) => p.size_m[1]) });
   /** Under 900 px: {across, h}, the layout and the figure height it needs at width w. Side by side when
-      the width-limited scale keeps the shorter line >= MIN_LINE_PX; otherwise stacked, the shorter line
-      about STACK_LINE_PX, capped by the width and by the screen under the running head (never below
-      the floor). */
+      the width-limited scale reaches SIDE_PX_PER_M; otherwise stacked at about STACK_PX_PER_M, capped by the
+      width and by the screen under the running head (v2.3.1: both panels in one screen). */
   function phoneLayout(data, w) {
-    const { gw, gh, shortest } = panelGroup(data.panels);
+    const { gw, gh } = panelGroup(data.panels);
     const top = w < 560 ? 44 : 0;                    // A.frame's compact key band
     const kSide = (w - PANEL_GAP) / 2 / (gw + 120);
-    if (kSide * shortest >= MIN_LINE_PX) return { across: true, h: Math.ceil(top + (gh + 120) * kSide) };
+    if (kSide >= SIDE_PX_PER_M) return { across: true, h: Math.ceil(top + (gh + 120) * kSide) };
     const head = document.querySelector("header.running-head");
     const avail = window.innerHeight - (head ? head.getBoundingClientRect().height : 0);
     const fit = (avail - top - PANEL_GAP) / (2 * (gh + 40));
-    const k = Math.min(w / (gw + 20), Math.max((MIN_LINE_PX + 1) / shortest, Math.min(STACK_LINE_PX / shortest, fit)));
+    const k = Math.min(w / (gw + 20), STACK_PX_PER_M, fit);
     return { across: false, h: Math.floor(top + 2 * (gh + 40) * k + PANEL_GAP) };   // floor: never past the screen
   }
   function campusPanels(data, w, mh, phone) {
     const ps = data.panels;
     const lat = (d3.mean(ps, (p) => p.centre[1]) * Math.PI) / 180;
-    const { gw, gh, shortest } = panelGroup(ps);
+    const { gw, gh } = panelGroup(ps);
     const side = { across: true, pw: (w - PANEL_GAP) / 2, ph: mh, need: [gw + 120, gh + 120] };
     const stack = { across: false, pw: w, ph: (mh - PANEL_GAP) / 2, need: [gw + 20, gh + 40] };
     const pxPerM = (o) => Math.min(o.pw / o.need[0], o.ph / o.need[1]);
-    const lay = phone ? (phone.across ? side : stack) : pxPerM(side) * shortest >= MIN_LINE_PX ? side : stack;
+    const lay = phone ? (phone.across ? side : stack) : pxPerM(side) >= SPREAD_SIDE_PX_PER_M ? side : stack;
     const k = pxPerM(lay) * EARTH_R * Math.cos(lat);   // d3 Mercator: px per radian of longitude
     return ps.map((pn, i) => {
       const proj = d3.geoMercator().scale(k).translate([0, 0]);
@@ -517,7 +531,7 @@
     const size = compact || phone ? 64 : 96;
     const loc = A.locator(last.g, base, last.pw - size - 14, last.ph - size - 26, size);
     const lp = d3.geoMercator().fitExtent([[5, 5], [size - 5, size - 5]], base.outline);
-    const ends = panels.map((pn) => ({ q: lp(pn.to_campus.a), slot: (data.pockets.find((p) => p.id === pn.pocket) || {}).slot }));
+    const ends = panels.map((pn) => { const pk = data.pockets.find((p) => p.id === pn.pocket) || {}; return { q: lp(pk.centre), slot: pk.slot }; });
     loc.append("path").attr("class", "locator-link")
       .attr("d", `M${ends.map((e) => e.q.map((v) => v.toFixed(1)).join(",")).join("L")}`);
     const s = compact ? 5 : 6;
@@ -540,8 +554,14 @@
     }
     const { svg, map, w, h, mh, top, compact } = A.frame(fig);
     const zoom = data.zoom === true;
+    // v2.4: a close-up with context stretches (little-seoul; little-tokyo since v2.4-S5) is a pocket map with no width encoding: every
+    // coloured stretch one weight, every grey one lighter weight, and it is framed on data.focus (both
+    // campus outlines and the coloured stretches; grey may run off the edge)
+    const pocketZoom = zoom && Array.isArray(data.context);
     let proj;
-    if (zoom) {
+    if (pocketZoom && data.focus) {
+      proj = A.projection(data.focus, w, mh);
+    } else if (zoom) {
       // frame a ~230 m radius around the pocket, filling the figure's aspect
       const R = 230, [cx, cy] = data.center;
       const dLat = R / 111320, dLon = R / (111320 * Math.cos((cy * Math.PI) / 180));
@@ -553,7 +573,7 @@
     svg.attr("aria-label", zoom
       ? "Street-scale map: streets coloured by the kind of place on them"
       : data.panels
-        ? "Two maps at one scale: each pocket's streets coloured by the kind of place on them, its campus outlined, and the distance between them drawn"
+        ? "Two maps at one scale: each pocket's streets coloured by the kind of place on them, and the campuses beside it outlined and named"
         : "Map of Bình Thạnh: streets inside each pocket coloured by the kind of place on them");
 
     // one panel, or (v2.3) one per pocket at a shared scale. Each panel draws into its own clipped group;
@@ -587,13 +607,16 @@
       .attr("d", st.lines.map((l) => "M" + l.map((q) => proj(q).map((v) => v.toFixed(1)).join(",")).join("L")).join("")));
 
     const outlines = [];   // campus outline edges, svg coords
-    (data.campuses || []).forEach((c) => {
-      const pn = panelOf(null, c.osm);
+    // v2.4-S5 (Task 8): a panel draws the campuses it names (Little Seoul's: UTH and HUTECH), each in that panel
+    const campusList = data.panels ? panels.flatMap((pn) => (pn.campuses || []).map((c) => ({ ...c, _pocket: pn.pocket })))
+      : (data.campuses || []);
+    campusList.forEach((c) => {
+      const pn = c._pocket ? panelOf(c._pocket) : panelOf(null, c.osm);
       const polys = c.geometry.type === "Polygon" ? [c.geometry.coordinates] : c.geometry.coordinates;
       const d = polys.map((poly) => poly.map((ring) =>
         "M" + ring.map((p) => pn.proj(p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z").join("")).join("");
       // in a panel a campus is solid paper, so one beyond the district reads as a shape on the hatch
-      pn.inner.append("path").attr("class", "campus").attr("d", d)
+      pn.inner.append("path").attr("class", "campus").attr("data-osm", c.osm).attr("d", d)
         .attr("fill", data.panels ? "var(--ground)" : "none").attr("stroke", "var(--ink)").attr("stroke-width", 1.4)
         .attr("stroke-linejoin", "round");
       const ring = polys[0][0].map(pn.S);
@@ -607,41 +630,77 @@
     let nMax = 1;
     data.pockets.forEach((p) => p.segments.forEach((s) => { nMax = Math.max(nMax, s.n); }));
     const kScale = cap / Math.sqrt(nMax);
-    const width = (n) => Math.max(1.5, Math.min(cap, kScale * Math.sqrt(n)));
+    // the sqrt width scale stays on the heroes that still encode count by width (overview, the panels); a
+    // pocket close-up (little-seoul, little-tokyo) draws one weight per class instead (v2.4)
+    // v2.4-S5 (Task 8): an overview with grey context (two-campuses per panel) drops the width scale too, one weight
+    // down the close-up's ladder
+    const ctxOf = (pn) => (data.panels ? pn.context : pn === P0 ? data.context : null);
+    const widthless = pocketZoom || panels.some((pn) => Array.isArray(ctxOf(pn)));
+    const redW = pocketZoom ? RED_W : OV_RED_W, greyW = pocketZoom ? GREY_W : OV_GREY_W;
+    const width = widthless ? () => redW : (n) => Math.max(1.5, Math.min(cap, kScale * Math.sqrt(n)));
+    // grey context first, so the coloured stretches paint over it
+    const context = [];    // every grey stretch: {a, b, hw, i}, svg coords
+    panels.forEach((pn) => {
+      const ctx = ctxOf(pn);
+      if (!Array.isArray(ctx)) return;
+      pn.inner.append("g").attr("class", "context").selectAll("path").data(ctx).join("path")
+        .attr("class", "context-stretch").attr("data-i", (_, i) => i)
+        .attr("d", (s) => "M" + s.c.map((q) => pn.proj(q).map((v) => v.toFixed(1)).join(",")).join("L"))
+        .attr("stroke-width", greyW);
+      ctx.forEach((s, i) => context.push({ a: pn.S(s.c[0]), b: pn.S(s.c[1]), hw: greyW / 2, i, panel: pn }));
+    });
     const coloured = [];   // every drawn stretch: {a, b, hw, id}, svg coords
+    // v2.4-S5 (Task 7): at one weight, a stretch two layers share (little-tokyo: one, Japanese and Western) would
+    // show only the layer painted last; it is drawn twice instead, side by side, one weight apart
+    const shared = {};
+    if (pocketZoom) data.pockets.forEach((p) => p.segments.forEach((s) => {
+      const k = JSON.stringify(s.c);
+      (shared[k] = shared[k] || []).push(p.id);
+    }));
+    const shifted = (p, s, pn) => {      // the stretch's vertices in panel px, moved off a shared centreline
+      const pts = s.c.map((q) => pn.proj(q)), ids = shared[JSON.stringify(s.c)];
+      if (!ids || ids.length < 2) return pts;
+      const o = (ids.indexOf(p.id) - (ids.length - 1) / 2) * RED_W, a = pts[0], b = pts[pts.length - 1];
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1, nx = (-(b[1] - a[1]) / L) * o, ny = ((b[0] - a[0]) / L) * o;
+      return pts.map(([x, y]) => [x + nx, y + ny]);
+    };
     data.pockets.forEach((p) => {
       const pn = panelOf(p.id);
       const g = pn.inner.append("g").attr("class", "pocket").attr("data-id", p.id).attr("data-kind", p.kind);
       const col = `var(--${p.slot})`;
-      g.selectAll("path").data(p.segments.slice().sort((a, b) => a.n - b.n)).join("path")
-        .attr("class", "seg")
-        .attr("d", (s) => "M" + s.c.map((q) => pn.proj(q).map((v) => v.toFixed(1)).join(",")).join("L"))
+      const segs = p.segments.map((s, i) => ({ ...s, i }));
+      g.selectAll("path").data(pocketZoom ? segs : segs.sort((a, b) => a.n - b.n)).join("path")
+        .attr("class", "seg stretch").attr("data-i", (s) => s.i)
+        .attr("d", (s) => "M" + shifted(p, s, pn).map((q) => q.map((v) => v.toFixed(1)).join(",")).join("L"))
         .attr("fill", "none").attr("stroke", col)
         .attr("stroke-width", (s) => width(s.n).toFixed(2))
         .attr("stroke-linecap", "round").attr("stroke-linejoin", "round");
-      p.segments.forEach((s) => coloured.push({ a: pn.S(s.c[0]), b: pn.S(s.c[1]), hw: width(s.n) / 2, n: s.n, id: p.id }));
-    });
-    // the measured pocket-centre -> campus line the copy quotes (v2.3): drawn, not only written
-    const reach = [];   // {a, b, m, panel}, svg coords
-    panels.filter((pn) => pn.to_campus).forEach((pn) => {
-      const { a, b, m } = pn.to_campus, pa = pn.proj(a), pb = pn.proj(b);
-      const g = pn.inner.append("g").attr("class", "to-campus").attr("data-pocket", pn.pocket).attr("data-m", m);
-      const f = (q) => q.map((v) => v.toFixed(1)).join(",");
-      const d = `M${f(pa)}L${f(pb)}`;
-      // a dimension line: a short tick across each end (no dot: the atlas draws no dots)
-      const len = Math.hypot(pb[0] - pa[0], pb[1] - pa[1]) || 1;
-      const nx = (-(pb[1] - pa[1]) / len) * 4, ny = ((pb[0] - pa[0]) / len) * 4;
-      const ticks = [pa, pb].map((q) => `M${f([q[0] - nx, q[1] - ny])}L${f([q[0] + nx, q[1] + ny])}`).join("");
-      g.append("path").attr("class", "to-campus-halo").attr("d", d + ticks);
-      g.append("path").attr("class", "to-campus-line").attr("d", d);
-      g.append("path").attr("class", "to-campus-ends").attr("d", ticks);
-      reach.push({ a: pn.S(a), b: pn.S(b), m, panel: pn });
+      p.segments.forEach((s, i) => {
+        const q = shifted(p, s, pn), at = (v) => [v[0] + pn.x, v[1] + pn.y + top];
+        coloured.push({ a: at(q[0]), b: at(q[q.length - 1]), hw: width(s.n) / 2, n: s.n, id: p.id, i });
+      });
     });
     panels.forEach((pn) => pn.inner.select("g.base-labels").raise());
 
+    // a pocket close-up with its own key (little-tokyo: Japanese, then Western): every coloured row at the one
+    // weight, then the grey; no width row
     if (zoom && data.key) {
-      A.key(svg, data.key.map((k) => ({ label: k.label, fill: `var(--${k.slot})`, line: 5 })),
+      A.key(svg, data.key.map((k) => ({ label: k.label, fill: `var(--${k.slot})`, line: pocketZoom ? RED_W : 5 }))
+        .concat(pocketZoom ? [{ label: "Other places listed as food", fill: "var(--context-tone)", line: GREY_W }] : []),
         14, compact ? 12 : 22);
+    }
+    // a pocket close-up's key: its two weights, one row each, no width row
+    const pocketKey = pocketZoom && !data.key;
+    if (pocketKey) {
+      const p = data.pockets[0];
+      A.key(svg, [{ label: `Places listed as ${KIND_NAME[p.kind] || p.kind}`, fill: `var(--${p.slot})`, line: RED_W },
+        { label: "Other places listed as food", fill: "var(--context-tone)", line: GREY_W }], 14, compact ? 12 : 22);
+    }
+    // an overview with grey context (v2.4-S5, Task 8): its pockets are named on the map in their own colour, so
+    // the key explains only the grey, at its weight. On a phone it sits in the band above the maps, left of north
+    if (widthless && !pocketZoom) {
+      const kg = A.key(svg, [{ label: "Other places listed as food", fill: "var(--context-tone)", line: greyW }], 14, compact ? 12 : 22);
+      if (compact && data.panels) kg.attr("transform", `translate(${Math.round(w - 40 - kg.node().getBBox().width)},12)`);
     }
     if (data.panels) campusFurniture(svg, base, panels, data, w, top, compact, phone);
     else {
@@ -682,7 +741,109 @@
       return Math.min(ptRect(a, r), ptRect(b, r), ...c.map((q) => ptSeg(q, a, b)));
     };
     const onStretch = (b) => coloured.some((s) => segRect(s.a, s.b, b) < s.hw + 1.5);
+    // v2.4: labels that may turn along a street are tested by their own glyph quad, not an axis box
+    const inPoly = (q, R) => {
+      let k = false;
+      for (let i = 0, j = R.length - 1; i < R.length; j = i++) {
+        if ((R[i][1] > q[1]) !== (R[j][1] > q[1])
+          && q[0] < ((R[j][0] - R[i][0]) * (q[1] - R[i][1])) / (R[j][1] - R[i][1]) + R[i][0]) k = !k;
+      }
+      return k;
+    };
+    /** Distance from segment a-b to a convex quad (0 when it crosses or lies inside it). */
+    const segQuad = (a, b, Q) => {
+      if (inPoly(a, Q) || inPoly(b, Q)) return 0;
+      for (let i = 0; i < 4; i++) if (segsCross(a, b, Q[i], Q[(i + 1) % 4])) return 0;
+      let d = Infinity;
+      for (let i = 0; i < 4; i++) {
+        const e0 = Q[i], e1 = Q[(i + 1) % 4];
+        d = Math.min(d, ptSeg(Q[i], a, b), ptSeg(a, e0, e1), ptSeg(b, e0, e1));
+      }
+      return d;
+    };
+    const boxQuad = (r) => [[r[0], r[1]], [r[2], r[1]], [r[2], r[3]], [r[0], r[3]]];
+    /** Two convex quads overlap (separating axes). */
+    const quadsHit = (P1, P2) => {
+      for (const poly of [P1, P2]) for (let i = 0; i < 4; i++) {
+        const a = poly[i], b = poly[(i + 1) % 4], nx = b[1] - a[1], ny = a[0] - b[0];
+        const pa = P1.map((q) => nx * q[0] + ny * q[1]), pb = P2.map((q) => nx * q[0] + ny * q[1]);
+        if (Math.max(...pa) <= Math.min(...pb) || Math.max(...pb) <= Math.min(...pa)) return false;
+      }
+      return true;
+    };
+    const upright = (a) => (a > Math.PI / 2 ? a - Math.PI : a <= -Math.PI / 2 ? a + Math.PI : a);
+    /** A label placed by its glyph quad over candidate centres and angles: cands(tw, th) -> [{c, ang}];
+        cost(q) adds the label's own rules (q = {quad, box, ang, cand}); onBest(cand) hears the winner. Shared: out of view 1000, on furniture or
+        a placed label 500, on a coloured stretch 500, on a grey one 120. Sets a transform; returns the node. */
+    const placeQuad = (cls, text, attrs, cands, cost, onBest, rect) => {
+      // text: a string (one line) or an array of lines (tspans); a line may be {s, cls} (v2.4-S6: HUTECH's note)
+      const t = svg.append("text").attr("class", cls).attr("text-anchor", "middle").attr("x", 0).attr("y", 0);
+      if (Array.isArray(text)) text.forEach((s, i) => t.append("tspan").attr("x", 0).attr("dy", i ? "1.2em" : "0.35em")
+        .attr("class", typeof s === "object" ? s.cls : null).text(typeof s === "object" ? s.s : s));
+      else t.attr("dy", "0.35em").text(text);
+      Object.entries(attrs || {}).forEach(([k, v]) => t.attr(k, v));
+      const bb = t.node().getBBox(), ox = bb.x + bb.width / 2, oy = bb.y + bb.height / 2, tw = bb.width, th = bb.height;
+      let best = null, bestCost = Infinity;
+      let bestCand = null;
+      cands(tw, th).forEach((cand) => {
+        const { c: [cx, cy], ang } = cand;
+        const ux = Math.cos(ang), uy = Math.sin(ang);
+        const at = (u, v) => [cx + u * ux - v * uy, cy + u * uy + v * ux];
+        const quad = [at(-tw / 2, -th / 2), at(tw / 2, -th / 2), at(tw / 2, th / 2), at(-tw / 2, th / 2)];
+        const xs = quad.map((q) => q[0]), ys = quad.map((q) => q[1]);
+        const box = [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
+        let k = inView(box, rect) ? 0 : 1000;
+        if (furniture.some((o) => quadsHit(quad, boxQuad(o)))) k += 500;
+        if (placed.some((o) => quadsHit(quad, boxQuad(pad(o, 4))))) k += 500;
+        if (coloured.some((s) => segQuad(s.a, s.b, quad) < s.hw + 1.5)) k += 500;
+        if (context.some((s) => segQuad(s.a, s.b, quad) < s.hw + 1)) k += 120;
+        if (wardBoxes.some((o) => quadsHit(quad, boxQuad(o)))) k += 40;
+        if (k >= bestCost) return;
+        k += cost({ quad, box, ang, cand });
+        if (k < bestCost) { bestCost = k; best = [cx, cy, ang]; bestCand = cand; }
+      });
+      const deg = (best[2] * 180) / Math.PI;
+      t.attr("transform", `translate(${best[0].toFixed(1)},${best[1].toFixed(1)})`
+        + (Math.abs(deg) > 0.05 ? ` rotate(${deg.toFixed(1)})` : "") + ` translate(${(-ox).toFixed(1)},${(-oy).toFixed(1)})`)
+        .attr("data-cost", bestCost.toFixed(0));
+      placed.push(rel(t.node()));
+      if (onBest) onBest(bestCand);
+      return t;
+    };
+    /** Candidate centres for a label of tw x th: around points (upright), and along segments [a, b, hw]
+        (turned to the segment, either side, clear of a stroke hw wide). */
+    const around = (pts, tw, th) => pts.flatMap((p) => [3, 8, 14, 22, 34].flatMap((gap) => DIRS.map(([dx, dy]) =>
+      ({ c: [p[0] + dx * (1 + gap + tw / 2), p[1] + dy * (1 + gap + th / 2)], ang: 0 }))));
+    const along = (segs, tw, th, fs, gaps) => segs.flatMap(([a, b, hw]) => {
+      const ang = upright(Math.atan2(b[1] - a[1], b[0] - a[0])), nx = -Math.sin(ang), ny = Math.cos(ang);
+      return fs.flatMap((f) => [1, -1].flatMap((side) => gaps.map((gap) => {
+        const C = [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], off = side * (hw + th / 2 + gap);
+        return { c: [C[0] + nx * off, C[1] + ny * off], ang };
+      })));
+    });
     const DIRS = [[1, 0], [-1, 0], [0, -1], [0, 1], [1, -1], [-1, -1], [1, 1], [-1, 1]];
+    // v2.4 pocket close-up: the scale bar searches along the bottom (then a row up, then another) for the first
+    // spot >= 6 px clear of every campus outline, every stretch and the locator; the labels then avoid it
+    if (pocketZoom) {
+      const sb = svg.select("g.scale-bar"), loc = svg.select("g.locator");
+      if (!sb.empty()) {
+        const bb = sb.node().getBBox(), lr = loc.empty() ? null : pad(rel(loc.node()), 6);
+        let best = null;
+        for (const y of [mh - 18, mh - 40, mh - 62, mh - 84]) {
+          for (let x = 16; x <= w - bb.width - 16 && !best; x += 4) {
+            const b = [x + bb.x - 6, y + top + bb.y - 6, x + bb.x + bb.width + 6, y + top + bb.y + bb.height + 6];
+            if (lr && hit(lr, b)) continue;
+            if (outlines.some(([a, e]) => segRect(a, e, b) < 0.5)) continue;
+            if (coloured.concat(context).some((s) => segRect(s.a, s.b, b) < s.hw + 0.5)) continue;
+            best = [x, y];
+          }
+          if (best) break;
+        }
+        if (best) sb.attr("transform", `translate(${best[0]},${best[1]})`);
+        furniture.length = 0;
+        svg.selectAll("g.locator, g.scale-bar, g.north, g.key").each(function () { furniture.push(pad(rel(this), 3)); });
+      }
+    }
 
     /** A label of class cls, its centre searched over `anchors` (points it should sit next to); `cost`
         adds the label's own rules. Returns the text node, set where the total cost is lowest. */
@@ -700,7 +861,7 @@
         c += furniture.filter((o) => hit(o, b)).length * 500 + placed.filter((o) => hit(o, pad(b, 4))).length * 500;
         c += wardBoxes.filter((o) => hit(o, b)).length * 40;
         if (onStretch(b)) c += 500;
-        if (reach.some((r) => segRect(r.a, r.b, b) < 2)) c += 500;
+        if (context.some((s) => segRect(s.a, s.b, b) < s.hw + 1)) c += 120;   // grey: cheaper than red
         c += cost(b) + gap * 0.05;
         if (c < bestCost) { bestCost = c; best = [cx, cy]; }
       })));
@@ -709,8 +870,117 @@
       return t;
     };
 
+    // v2.4-S5: the road an "across the road" campus is across, as drawn: the stretch (red or grey) nearest the
+    // pocket centre, grown end to end through stretches running the same way (UTH: Vo Oanh). Its label is set
+    // upright beside this road and nowhere else; dish words leave it to that label. Task 8 fix 1: a panel grows it
+    // from its own pocket centre over its own stretches (Sfn: that panel's lon/lat -> svg)
+    const growRoad = (centre, all, Sfn) => {
+      const pc = Sfn(centre), [lon, lat] = centre;
+      const q1 = Sfn([lon + 10 / (111320 * Math.cos((lat * Math.PI) / 180)), lat]);
+      const tol = 8 * Math.hypot(q1[0] - pc[0], q1[1] - pc[1]) / 10;      // 8 m, in px
+      const dir = (s) => upright(Math.atan2(s.b[1] - s.a[1], s.b[0] - s.a[0]));
+      const sameWay = (s, o) => { const d = Math.abs(dir(s) - dir(o)); return Math.min(d, Math.PI - d) < (25 * Math.PI) / 180; };
+      const meet = (s, o) => [s.a, s.b].some((p) => [o.a, o.b].some((q) => Math.hypot(p[0] - q[0], p[1] - q[1]) < tol));
+      const seed = all.reduce((m, s) => (ptSeg(pc, s.a, s.b) < ptSeg(pc, m.a, m.b) ? s : m), all[0]);
+      const road = [seed];
+      for (let grew = true; grew;) {
+        grew = false;
+        all.forEach((s) => { if (!road.includes(s) && road.some((o) => sameWay(s, o) && meet(s, o))) { road.push(s); grew = true; } });
+      }
+      return road;
+    };
+    /** Upright candidates beside the road: the label's centre over a road point, its near edge clear of the
+        road all along the label's span, on the side away from the campus centre ctr. */
+    const besideRoad = (road, ctr, tw, th) => {
+      const pts = road.flatMap((s) => [s.a, s.b]), x0 = Math.min(...pts.map((p) => p[0])), x1 = Math.max(...pts.map((p) => p[0]));
+      const yAt = (x) => road.filter((s) => s.a[0] !== s.b[0] && Math.min(s.a[0], s.b[0]) <= x && x <= Math.max(s.a[0], s.b[0]))
+        .map((s) => ({ y: s.a[1] + ((x - s.a[0]) * (s.b[1] - s.a[1])) / (s.b[0] - s.a[0]), hw: s.hw }));
+      const out = [];
+      for (let cx = x0; cx <= x1; cx += 3) {
+        const here = yAt(cx);
+        if (!here.length) continue;
+        const below = ctr[1] < d3.mean(here, (q) => q.y);
+        const span = d3.range(cx - tw / 2, cx + tw / 2 + 0.1, Math.max(2, tw / 24)).flatMap(yAt);
+        const edge = below ? d3.max(span, (q) => q.y + q.hw) : d3.min(span, (q) => q.y - q.hw);
+        [2, 4, 7, 10, 14].forEach((gap) => out.push({ c: [cx, below ? edge + gap + th / 2 : edge - gap - th / 2], ang: 0 }));
+      }
+      return out;
+    };
+
+    // campus names: beside their own outline, off the coloured stretches. v2.4-S5 (Task 8): in a panel each one
+    // carries its walking minutes ("name · walk label"); under 900 px the short name, on a spread the full name
+    // wherever it fits (some spot by its outline inside its panel, clear of every stroke, outline, label and the
+    // furniture), else the short name: a fit test, not a cost threshold. Set before the pocket names: a campus
+    // name has one place to go (by its outline), a pocket's name can sit by any of its stretches
+    campusList.forEach((c) => {
+      if (pocketZoom || !c._ring) return;
+      if (!data.panels && !c.label) return;
+      const pn = c._panel, anchors = c._ring.map((p) => ({ p, r: 1 }));
+      const edges = c._ring.slice(1).map((b, i) => [c._ring[i], b]);
+      const text = (n) => (c.walk ? `${n} · ${c.walk.label}` : n);
+      const clear = (b) => inView(b, pn.rect) && !furniture.some((o) => hit(o, b)) && !placed.some((o) => hit(o, pad(b, 4)))
+        && !onStretch(b) && !context.some((s) => segRect(s.a, s.b, b) < s.hw + 1)
+        && !outlines.some(([a, e]) => segRect(a, e, b) < 1.5);
+      const fits = (label) => {
+        const m = svg.append("text").attr("class", "campus-label").attr("dy", "0.35em").text(label);
+        const bb = m.node().getBBox();
+        m.remove();
+        return anchors.some(({ p, r }) => [3, 8, 14, 22, 34].some((gap) => DIRS.some(([dx, dy]) => {
+          const cx = p[0] + dx * (r + gap + bb.width / 2), cy = p[1] + dy * (r + gap + bb.height / 2);
+          return clear([cx - bb.width / 2, cy - bb.height / 2, cx + bb.width / 2, cy + bb.height / 2]);
+        })));
+      };
+      // Task 8 fix 1 (the user's close-up verdict, on the overview too): a campus "across the road" is named upright
+      // beside the road it is across (UTH: Vo Oanh, on the side away from the campus), grown from this panel's own
+      // pocket centre over this panel's stretches. The full name where it fits there clean, else the short one, else
+      // the short one on two lines, then three; it never leaves the road
+      const pk = data.panels && c.walk && c.walk.label === "across the road" && data.pockets.find((q) => q.id === pn.pocket);
+      if (pk) {
+        const road = growRoad(pk.centre, coloured.filter((q) => q.id === pk.id).concat(context.filter((q) => q.panel === pn)), pn.S);
+        const ctr = [d3.mean(c._ring, (q) => q[0]), d3.mean(c._ring, (q) => q[1])];
+        const size = (lines) => {
+          const m = svg.append("text").attr("class", "campus-label");
+          (Array.isArray(lines) ? lines : [lines]).forEach((l, i) => m.append("tspan").attr("x", 0).attr("dy", i ? "1.2em" : 0).text(l));
+          const bb = m.node().getBBox();
+          m.remove();
+          return bb;
+        };
+        const boxAt = ([cx, cy], bb) => [cx - bb.width / 2, cy - bb.height / 2, cx + bb.width / 2, cy + bb.height / 2];
+        const fitsBeside = (lines) => { const bb = size(lines);
+          return besideRoad(road, ctr, bb.width, bb.height).some(({ c: q }) => clear(boxAt(q, bb))); };
+        const short = text(c.short || c.name), full = text(c.name);
+        const phoneW = window.matchMedia("(max-width: 899.98px)").matches;
+        // the walk label broken at its spaces last ("across" / "the road"): the overview's tightest panels leave only
+        // the room between two grey side streets
+        const nm = c.short || c.name, wl = c.walk.label.split(" ");
+        const stack = [[nm, c.walk.label], [nm, wl[0], wl.slice(1).join(" ")]].filter((ls) => ls.every(Boolean));
+        const lines = !phoneW && full !== short && fitsBeside(full) ? full : fitsBeside(short) ? short
+          : stack.find(fitsBeside) || stack[stack.length - 1];
+        placeQuad("campus-label", lines, { "data-osm": c.osm }, (tw, th) => besideRoad(road, ctr, tw, th),
+          ({ quad, box }) => {
+            const d = Math.min(...edges.map(([a, e]) => segQuad(a, e, quad)));
+            // it must read as beside this road: nearer it than any other stretch the panel draws
+            const dRoad = Math.min(...road.map((q) => segQuad(q.a, q.b, quad) - q.hw));
+            const near = coloured.concat(context).some((q) => !road.includes(q) && (q.panel === pn || q.id === pk.id)
+              && segQuad(q.a, q.b, quad) - q.hw <= dRoad);
+            return (clear(box) ? 0 : 600) + (near ? 200 : 0) + (d < 1.5 ? 400 : 0) + d * 0.5;   // clean, by the road, near its outline
+          }, null, pn.rect);
+        return;
+      }
+      let label = c.label;
+      if (data.panels) {
+        const short = text(c.short || c.name), full = text(c.name);
+        label = window.matchMedia("(max-width: 899.98px)").matches || full === short || !fits(full) ? short : full;
+      }
+      placeBox("campus-label", label, null, anchors, (b) => {
+        const d = Math.min(...edges.map(([a, e]) => segRect(a, e, b)));
+        const crossOther = outlines.some(([a, e]) => !edges.some(([q]) => q === a) && segRect(a, e, b) < 1);
+        return (crossOther ? 200 : 0) + (data.panels && d < 1.5 ? 400 : 0) + d;   // never across its own outline
+      }, { "data-osm": c.osm }, pn.rect);
+    });
+
     // pocket labels: beside their own stretches, never on a stretch, never nearer another pocket's
-    if (data.labelled || !data.key) {
+    if (data.labelled || !(data.key || pocketKey)) {
       data.pockets.forEach((p) => {
         const own = coloured.filter((s) => s.id === p.id), other = coloured.filter((s) => s.id !== p.id);
         const anchors = [];
@@ -719,99 +989,175 @@
         placeBox("pocket-label", p.label, `var(--${p.slot})`, anchors, (b) => {
           const dOwn = Math.min(...own.map((s) => segRect(s.a, s.b, b) - s.hw));
           const dOther = other.length ? Math.min(...other.map((s) => segRect(s.a, s.b, b) - s.hw)) : Infinity;
-          return (dOther <= dOwn + 3 ? 300 : 0) + dOwn;
+          // v2.4-S5 (Task 8): never across a campus outline (a panel draws them beside the pocket); and never floating
+          // more than 20 px off its own streets: the overview's grey context ring (120 to cross) must not push it away
+          return (dOther <= dOwn + 3 ? 300 : 0) + (outlines.some(([a, e]) => segRect(a, e, b) < 1) ? 400 : 0)
+            + (dOwn > 20 ? 200 : 0) + dOwn;
         }, { "data-id": p.id }, panelOf(p.id).rect);
       });
     }
 
-    // the distance's number: beside its own line's middle, off the line and every stretch
-    reach.forEach((r) => {
-      const mid = [(r.a[0] + r.b[0]) / 2, (r.a[1] + r.b[1]) / 2];
-      const anchors = [0.35, 0.5, 0.65].map((f) => ({ p: [r.a[0] + (r.b[0] - r.a[0]) * f, r.a[1] + (r.b[1] - r.a[1]) * f], r: 1 }));
-      placeBox("to-campus-label", `${r.m} m`, null, anchors,
-        (b) => ptRect(mid, b) * 0.5, { "data-pocket": r.panel.pocket }, r.panel.rect);
-    });
-
-    // campus names: beside their own outline, off the coloured stretches and the line itself
-    (data.campuses || []).forEach((c) => {
-      if (!c.label || !c._ring) return;
-      const anchors = c._ring.map((p) => ({ p, r: 1 }));
-      const edges = c._ring.slice(1).map((b, i) => [c._ring[i], b]);
-      placeBox("campus-label", c.label, null, anchors, (b) => {
-        const d = Math.min(...edges.map(([a, e]) => segRect(a, e, b)));
-        const crossOther = outlines.some(([a, e]) => segRect(a, e, b) < 1);
-        return (crossOther ? 200 : 0) + d;
-      }, { "data-osm": c.osm }, c._panel.rect);
-    });
-
-    // v2.3.1: name the hatched ground where it covers >= 8 % of a panel: one label, off every mark and
-    // label above, on the hatch (its corners outside the district, not in a campus), as far from the
-    // district edge as it will go. The neighbouring district is not named
-    if (data.panels) {
-      const inside = (pn, q) => d3.geoContains(base.outline, pn.proj.invert([q[0] - pn.x, q[1] - pn.y - top]));
-      const inRing = (q, R) => {
-        let c = false;
-        for (let i = 0, j = R.length - 1; i < R.length; j = i++) {
-          if ((R[i][1] > q[1]) !== (R[j][1] > q[1])
-            && q[0] < ((R[j][0] - R[i][0]) * (q[1] - R[i][1])) / (R[j][1] - R[i][1]) + R[i][0]) c = !c;
-        }
-        return c;
-      };
-      const og = base.outline.type === "Feature" ? base.outline.geometry : base.outline;
-      const outlinePolys = og.type === "Polygon" ? [og.coordinates] : og.coordinates;
-      panels.forEach((pn) => {
-        const [x0, y0, x1, y1] = pn.rect;
-        let out = 0, n = 0;
-        for (let gx = 0.5; gx < 24; gx++) for (let gy = 0.5; gy < 24; gy++) {
-          n++;
-          if (!inside(pn, [x0 + (gx / 24) * pn.pw, y0 + (gy / 24) * pn.ph])) out++;
-        }
-        if (out / n < 0.08) return;
-        const edge = outlinePolys.flatMap((poly) => poly.flatMap((r) => {
-          const P = r.map(pn.S);
-          return P.slice(1).map((b, i) => [P[i], b]);
-        }));
-        const t = pn.g.append("text").attr("class", "beyond-label").attr("text-anchor", "middle").attr("dy", "0.35em")
-          .attr("x", 0).attr("y", 0).text("Outside Bình Thạnh");
-        const bb = t.node().getBBox(), ox = bb.x + bb.width / 2, oy = bb.y + bb.height / 2;
-        const campusRings = (data.campuses || []).filter((c) => c._panel === pn).flatMap((c) => c._rings || []);
-        // across first; turned up the strip (as the sheet's "Beyond this sheet") when the hatch is too narrow
-        const search = (bw, bh) => {
-          let best = null, bestD = -1;
-          for (let cy = y0 + bh / 2 + 8; cy <= y1 - bh / 2 - 8; cy += 6) {
-            for (let cx = x0 + bw / 2 + 8; cx <= x1 - bw / 2 - 8; cx += 6) {
-              const b = [cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2];
-              if (!inView(b, pn.rect)) continue;
-              const pts = [[b[0], b[1]], [b[2], b[1]], [b[0], b[3]], [b[2], b[3]], [cx, cy],
-                [cx, b[1]], [cx, b[3]], [b[0], cy], [b[2], cy]];
-              if (pts.some((q) => inside(pn, q))) continue;
-              if (pts.some((q) => campusRings.some((R) => inRing(q, R)))) continue;
-              const bp = pad(b, 3);
-              if (furniture.some((o) => hit(o, bp)) || placed.some((o) => hit(o, pad(b, 4)))) continue;
-              if (wardBoxes.some((o) => hit(o, b)) || onStretch(bp)) continue;
-              if (reach.some((r) => segRect(r.a, r.b, b) < 3)) continue;
-              if (outlines.some(([a, e]) => segRect(a, e, b) < 3)) continue;
-              const d = Math.min(...edge.map(([a, e]) => segRect(a, e, b)));
-              if (d > bestD) { bestD = d; best = [cx, cy]; }
-            }
-          }
-          return best;
-        };
-        let best = search(bb.width, bb.height), turned = false;
-        if (!best) { best = search(bb.height, bb.width); turned = !!best; }
-        if (!best) { t.remove(); return; }                 // no clean spot on the hatch: say nothing
-        if (turned) {
-          t.attr("x", null).attr("y", null).attr("transform",
-            `translate(${(best[0] - pn.x).toFixed(1)},${(best[1] - pn.y - top).toFixed(1)}) rotate(90) translate(${(-ox).toFixed(1)},${(-oy).toFixed(1)})`);
-        } else {
-          t.attr("x", (best[0] - ox - pn.x).toFixed(1)).attr("y", (best[1] - oy - pn.y - top).toFixed(1));
-        }
-        placed.push(rel(t.node()));
-      });
+    // v2.4 pocket close-up: each campus named once, one line "name · walk label" (a phone, < 900 px, uses the
+    // short name), on or by its outline and never across it; no line, no ring. A campus "across the road"
+    // keeps its label on the side facing the pocket (the road it is across: UTH's Vo Oanh) and over its
+    // outline's span. The label may turn along a street when that tucks it closer (UTH at 1440)
+    const phoneNames = window.matchMedia("(max-width: 899.98px)").matches;
+    let acrossRoad = [];
+    if (pocketZoom && data.pockets[0] && (data.campuses || []).some((c) => c.walk && c.walk.label === "across the road")) {
+      acrossRoad = growRoad(data.pockets[0].centre, coloured.concat(context), S);
     }
+    if (pocketZoom) (data.campuses || []).forEach((c) => {
+      if (!c._ring) return;
+      const nm = phoneNames ? c.short || c.name : c.name;
+      const edges = c._ring.slice(1).map((b, i) => [c._ring[i], b]);
+      const others = outlines.filter(([a]) => !c._ring.includes(a));
+      const xs = c._ring.map((q) => q[0]), ys = c._ring.map((q) => q[1]);
+      const ctr = [d3.mean(xs), d3.mean(ys)], pc = S(data.pockets[0].centre);
+      // the side facing the pocket, as a map into a frame where that side is +y
+      const across = c.walk && c.walk.label === "across the road";
+      const dv = [pc[0] - ctr[0], pc[1] - ctr[1]];
+      const into = Math.abs(dv[1]) >= Math.abs(dv[0]) ? (dv[1] > 0 ? (q) => q : (q) => [q[0], -q[1]])
+        : dv[0] > 0 ? (q) => [q[1], q[0]] : (q) => [q[1], -q[0]];
+      const R = c._ring.map(into), rx0 = Math.min(...R.map((q) => q[0])), rx1 = Math.max(...R.map((q) => q[0]));
+      const env = (x) => {             // the outline's far edge (largest y) at x, clamped into its span
+        const X = Math.max(rx0, Math.min(rx1, x));
+        let y = -Infinity;
+        for (let i = 1; i < R.length; i++) {
+          const a = R[i - 1], b = R[i];
+          if (a[0] === b[0]) { if (a[0] === X) y = Math.max(y, a[1], b[1]); }
+          else if ((a[0] - X) * (b[0] - X) <= 0) y = Math.max(y, a[1] + ((X - a[0]) * (b[1] - a[1])) / (b[0] - a[0]));
+        }
+        return y;
+      };
+      const onSide = (quad) => { const Q = quad.map(into);
+        return Q.every((q) => q[1] >= env(q[0])) && Math.min(...Q.map((q) => q[0])) < rx1 && Math.max(...Q.map((q) => q[0])) > rx0; };
+      const near = coloured.concat(context).filter((s) => Math.min(...edges.map(([a, e]) => Math.min(ptSeg(a, s.a, s.b), ptSeg(e, s.a, s.b)))) < 60);
+      const fs = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+      const cost = ({ quad, ang }) => {
+        const d = Math.min(...edges.map(([a, e]) => segQuad(a, e, quad)));
+        let k = d < 1.5 ? 400 : 0;                                        // never on or across its outline
+        if (others.some(([a, e]) => segQuad(a, e, quad) < 1.5)) k += 400;
+        if (across && !onSide(quad)) k += 300;                           // the facing side first, but never at the cost of a red stretch
+        if (ang) k += 8 + Math.abs((ang * 180) / Math.PI) * 0.3;          // upright unless turning tucks it closer
+        return k + d;
+      };
+      const text = (n) => (c.walk ? `${n} · ${c.walk.label}` : n);
+      // v2.4-S6 (final review I1): HUTECH's why-anchor rides on its label as a note (street-label size; two lines
+      // on a phone), so the anchor is no element of its own. The block stays upright, by its outline and outside it,
+      // nearer it than any other campus (the anchor's own rules)
+      if (c.note) {
+        const lines = [text(nm), ...(phoneNames ? c.note_lines : [c.note]).map((s) => ({ s, cls: "campus-note" }))];
+        placeQuad("campus-label", lines, { "data-osm": c.osm },
+          // above or below a ring point the block may also slide sideways (a multi-line block is wide)
+          (tw, th) => around(c._ring, tw, th).concat(around(c._ring, tw, th).filter((q, i) => DIRS[i % 8][1] && !DIRS[i % 8][0])
+            .flatMap((q) => [-0.5, -0.25, 0.25, 0.5].map((f) => ({ c: [q.c[0] + f * tw, q.c[1]], ang: 0 })))),
+          (q) => {
+            const d = Math.min(...edges.map(([a, e]) => segQuad(a, e, q.quad)));
+            const dO = others.length ? Math.min(...others.map(([a, e]) => segQuad(a, e, q.quad))) : Infinity;
+            let k = cost(q);
+            if (q.quad.some((p) => (c._rings || []).some((R) => inPoly(p, R)))) k += 400;   // outside its campus
+            if (dO <= d + 4) k += 300;                                                        // nearer its own outline
+            return k + d * 0.5;
+          });
+        return;
+      }
+      if (across && acrossRoad.length) {
+        // v2.4-S5 (user verdict): upright beside the road it is across, at every width. The full name is kept
+        // whenever it FITS there: some upright spot inside the hero, clear of every red and grey stretch, every
+        // outline, the furniture and the labels already set. Only when none exists does it take the short name
+        // rather than leave the road (fix round 2: a fit test, not a cost threshold)
+        const clean = (quad) => {
+          const xs = quad.map((q) => q[0]), ys = quad.map((q) => q[1]);
+          return inView([Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)])
+            && !furniture.some((o) => quadsHit(quad, boxQuad(o)))
+            && !placed.some((o) => quadsHit(quad, boxQuad(pad(o, 4))))
+            && !coloured.some((s) => segQuad(s.a, s.b, quad) < s.hw + 1.5)
+            && !context.some((s) => segQuad(s.a, s.b, quad) < s.hw + 1)
+            && !outlines.some(([a, e]) => segQuad(a, e, quad) < 1.5);
+        };
+        const fits = (label) => {
+          const m = svg.append("text").attr("class", "campus-label").attr("dy", "0.35em").text(label);
+          const bb = m.node().getBBox();
+          m.remove();
+          return besideRoad(acrossRoad, ctr, bb.width, bb.height).some(({ c: [cx, cy] }) => clean([
+            [cx - bb.width / 2, cy - bb.height / 2], [cx + bb.width / 2, cy - bb.height / 2],
+            [cx + bb.width / 2, cy + bb.height / 2], [cx - bb.width / 2, cy + bb.height / 2]]));
+        };
+        const label = !c.short || nm === c.short || fits(text(nm)) ? text(nm) : text(c.short);
+        // a clean spot always beats one on a grey stretch, even off the facing side
+        placeQuad("campus-label", label, { "data-osm": c.osm }, (tw, th) => besideRoad(acrossRoad, ctr, tw, th),
+          (q) => cost(q) + (clean(q.quad) ? 0 : 600));
+        return;
+      }
+      placeQuad("campus-label", text(nm), { "data-osm": c.osm }, (tw, th) =>
+        around(c._ring, tw, th)
+          .concat(along(near.map((s) => [s.a, s.b, s.hw]), tw, th, fs, [2, 4, 7]))
+          .concat(along(edges.filter(([a, e]) => Math.hypot(e[0] - a[0], e[1] - a[1]) > 20).map(([a, e]) => [a, e, 0]), tw, th, fs, [3, 6])),
+      cost);
+    });
+
+    // v2.4 dish words: each set along the stretch its own places snap to (dish_words[].segment_index), just
+    // clear of the stroke, never inside or across a campus outline; the pocket label's size and colour. Placed
+    // after the campus labels (they avoid every label already set), before the oddities. v2.4-S6 (final review I1):
+    // a word with at most two stretches has little room, so it is set before the street names; a word with more
+    // (Little Tokyo's) after them, so on a phone the street the title names keeps its one clear run
+    const kor = data.pockets[0];
+    const rings = pocketZoom ? (data.campuses || []).flatMap((c) => c._rings || []) : [];
+    const dishes = [];   // words already set: {s: their stretch, quad}
+    const setDish = (dw) => {
+      // its main stretch first; another stretch carrying its places costs a little more (segment_indices)
+      const own = (dw.segment_indices || [dw.segment_index]).map((si, rank) => ({ rank,
+        s: coloured.find((q) => q.id === kor.id && q.i === si) })).filter((o) => o.s);
+      if (!own.length) return;
+      const fs = [0.5, 0.4, 0.6, 0.3, 0.7, 0.2, 0.8, 0.1, 0.9];   // v2.4-S5: the ends too (Little Tokyo's short stretches)
+      let chosen = own[0].s, chosenQuad = null;
+      const t = placeQuad("dish-word", dw.word, { fill: `var(--${kor.slot})` },
+        (tw, th) => own.flatMap(({ s, rank }) => along([[s.a, s.b, s.hw]], tw, th, fs, [2, 3.5, 5, 8, 11])
+          .map((c) => ({ ...c, s, rank }))),
+        ({ quad, cand }) => {
+          let k = cand.rank ? 30 : 0;
+          if (outlines.some(([a, e]) => segQuad(a, e, quad) < 1.5)) k += 400;       // across an outline
+          if (quad.some((q) => rings.some((R) => inPoly(q, R)))) k += 400;          // reads as the campus's
+          // v2.4-S5: the road a campus is across carries that campus's label, not a dish word
+          if (own.length > 1 && acrossRoad.includes(cand.s)) k += 200;
+          // the word's centre over its own stretch, not hanging past its end onto the next one
+          const ctr = [d3.mean(quad, (q) => q[0]), d3.mean(quad, (q) => q[1])];
+          const dx = cand.s.b[0] - cand.s.a[0], dy = cand.s.b[1] - cand.s.a[1];
+          const f = ((ctr[0] - cand.s.a[0]) * dx + (ctr[1] - cand.s.a[1]) * dy) / (dx * dx + dy * dy || 1);
+          if (f < 0 || f > 1) k += 150;
+          // v2.4-S5 (Task 7): nearer its own stretch than any other coloured one (Little Tokyo: the Western too)
+          const dOwn = ptSeg(ctr, cand.s.a, cand.s.b);
+          if (coloured.some((q) => q !== cand.s && ptSeg(ctr, q.a, q.b) < dOwn)) k += 150;
+          // two words never side by side, and never one run on one side of the road ("kimbap mì cay")
+          const u = [Math.cos(cand.ang), Math.sin(cand.ang)], pr = (Q) => Q.map((q) => q[0] * u[0] + q[1] * u[1]);
+          const side = (Q, s) => Math.sign(cross(s.a[1] <= s.b[1] ? s.a : s.b, s.a[1] <= s.b[1] ? s.b : s.a,
+            [d3.mean(Q, (q) => q[0]), d3.mean(Q, (q) => q[1])]));
+          dishes.forEach((o) => {
+            const p = pr(quad), q = pr(o.quad), gap = Math.max(Math.min(...q) - Math.max(...p), Math.min(...p) - Math.max(...q));
+            if (o.s === cand.s) k += 300;
+            // v2.4-S5 (Task 7): only a word close across the text direction can read beside this one; on
+            // Little Tokyo's spread-out stretches two far-apart words may share a band
+            const off = Math.abs((d3.mean(quad, (v) => v[0]) - d3.mean(o.quad, (v) => v[0])) * -u[1]
+              + (d3.mean(quad, (v) => v[1]) - d3.mean(o.quad, (v) => v[1])) * u[0]);
+            if (off < DISH_NEAR_PX && (gap < 0 || (gap < 16 && side(quad, cand.s) === side(o.quad, o.s)))) k += 200;
+            // ... and two words on one line of text ("ramen sushi") keep that gap too, whatever their stretches
+            const th = Math.hypot(quad[3][0] - quad[0][0], quad[3][1] - quad[0][1]);
+            if (off < 0.8 * th && gap < 2 * th) k += 200;   // two line-heights: a word space is far smaller
+          });
+          cand.quad = quad;
+          return k + segQuad(cand.s.a, cand.s.b, quad) * 0.5;
+        }, (cand) => { chosen = cand.s; chosenQuad = cand.quad; });
+      t.attr("data-seg", chosen.i);
+      dishes.push({ s: chosen, quad: chosenQuad });
+    };
+    const zoomWords = pocketZoom ? (data.dish_words || []) : [];
+    const roomy = (dw) => (dw.segment_indices || [dw.segment_index]).length > 2;
+    zoomWords.filter((dw) => !roomy(dw)).forEach(setDish);
 
     // street names: along a straight stretch of the named street, upright, off the coloured stretches
-    // and every label above; on a phone only the street the headline names
+    // and every label above; on a phone only the street the headline names. v2.4-S5 (Task 7): set before the
+    // oddities and every dish word with more than two stretches, so on a phone the street the title names keeps its
+    // one clear run (v2.4-S6: a word with two stretches or fewer is set first, above)
     (data.street_labels || []).filter((s) => !compact || s.primary).forEach((st) => {
       const t = svg.append("text").attr("class", "street-label").attr("data-name", st.name)
         .attr("text-anchor", "middle").attr("dy", "0.35em").text(st.name);
@@ -858,6 +1204,11 @@
             c += pts.filter((q) => furniture.some((o) => ptRect(q, o) === 0)).length ? 500 : 0;
             c += pts.filter((q) => placed.some((o) => ptRect(q, pad(o, 3)) === 0)).length ? 500 : 0;
             c += pts.some((q) => coloured.some((sg) => ptSeg(q, sg.a, sg.b) < sg.hw + 2)) ? 300 : 0;
+            // v2.4-S5: a short stretch crossing the label can slip between those sample points; test the label's
+            // own quad as well
+            const quad = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([i, j]) => [cx + i * (tw / 2 + 2) * ux + j * (th / 2) * nx,
+              cy + i * (tw / 2 + 2) * uy + j * (th / 2) * ny]);
+            if (coloured.some((sg) => segQuad(sg.a, sg.b, quad) < sg.hw + 1)) c += 300;
             if (dOther([cx, cy]) <= dOwn([cx, cy]) + 1) c += 300;  // reads as another street's name
             c += pts.some((q) => dOther(q) < 1.5) ? 60 : 0;          // crosses another street
             c += pts.some((q) => outlines.some(([e0, e1]) => ptSeg(q, e0, e1) < 2)) ? 60 : 0;
@@ -870,6 +1221,163 @@
       if (!best || bestCost >= 300) { t.remove(); return; }  // no clean straight run in view: say nothing
       t.attr("transform", `translate(${best[0].toFixed(1)},${best[1].toFixed(1)}) rotate(${((best[2] * 180) / Math.PI).toFixed(1)})`);
       placed.push(rel(t.node()));
+    });
+
+    zoomWords.filter(roomy).forEach(setDish);
+
+    // (v2.4-S6: the why-anchor is HUTECH's campus-label note, set with the campus labels above)
+
+    // v2.4-S5 (Task 8): an overview's dish words, each only where its text fits along one of its own stretches at
+    // this width (else omitted here): the stretch at least DISH_FIT_PAD longer than the word at each end. Set along
+    // that stretch, its whole length over it, like the close-up's
+    if (!pocketZoom) data.pockets.forEach((p) => (p.dish_words || []).forEach((dw) => {
+      const pn = panelOf(p.id);
+      const m = svg.append("text").attr("class", "dish-word").text(dw.word);
+      const tw0 = m.node().getBBox().width;
+      m.remove();
+      const len = (s) => Math.hypot(s.b[0] - s.a[0], s.b[1] - s.a[1]);
+      const own = (dw.segment_indices || [dw.segment_index]).map((si, rank) => ({ rank,
+        s: coloured.find((q) => q.id === p.id && q.i === si) })).filter((o) => o.s && len(o.s) >= tw0 + 2 * DISH_FIT_PAD);
+      if (!own.length) return;
+      const rings = campusList.flatMap((c) => c._rings || []);
+      let chosen = own[0].s;
+      const t = placeQuad("dish-word", dw.word, { fill: `var(--${p.slot})`, "data-pocket": p.id },
+        (tw, th) => own.flatMap(({ s, rank }) => {
+          // every centre that keeps the whole word over the stretch, in 5 % steps from the middle out
+          const L = len(s), lo = (tw / 2 + DISH_FIT_PAD) / L, fs = d3.range(0, 0.51, 0.05).flatMap((d) => [0.5 - d, 0.5 + d])
+            .filter((f) => f >= lo && f <= 1 - lo);
+          return along([[s.a, s.b, s.hw]], tw, th, fs.length ? fs : [0.5], [2, 3.5, 5, 8]).map((c) => ({ ...c, s, rank }));
+        }),
+        ({ quad, cand }) => {
+          let k = cand.rank ? 30 : 0;
+          if (outlines.some(([a, e]) => segQuad(a, e, quad) < 1.5)) k += 400;
+          if (quad.some((q) => rings.some((R) => inPoly(q, R)))) k += 400;
+          const ctr = [d3.mean(quad, (q) => q[0]), d3.mean(quad, (q) => q[1])];
+          if (coloured.some((q) => q !== cand.s && ptSeg(ctr, q.a, q.b) < ptSeg(ctr, cand.s.a, cand.s.b))) k += 150;
+          // across a grey stretch only when nothing else is left (placeQuad's 120 is below the rule above)
+          if (context.some((q) => segQuad(q.a, q.b, quad) < q.hw + 1)) k += 200;
+          return k + segQuad(cand.s.a, cand.s.b, quad) * 0.5;
+        }, (cand) => { chosen = cand.s; }, pn.rect);
+      t.attr("data-seg", chosen.i);
+    }));
+
+    // v2.3.1: name the hatched ground where it covers >= 8 % of a panel: one label, off every mark and
+    // label above, on the hatch (its corners outside the district, not in a campus), as far from the
+    // district edge as it will go. The neighbouring district is not named
+    if (data.panels) {
+      const inside = (pn, q) => d3.geoContains(base.outline, pn.proj.invert([q[0] - pn.x, q[1] - pn.y - top]));
+      const inRing = (q, R) => {
+        let c = false;
+        for (let i = 0, j = R.length - 1; i < R.length; j = i++) {
+          if ((R[i][1] > q[1]) !== (R[j][1] > q[1])
+            && q[0] < ((R[j][0] - R[i][0]) * (q[1] - R[i][1])) / (R[j][1] - R[i][1]) + R[i][0]) c = !c;
+        }
+        return c;
+      };
+      const og = base.outline.type === "Feature" ? base.outline.geometry : base.outline;
+      const outlinePolys = og.type === "Polygon" ? [og.coordinates] : og.coordinates;
+      panels.forEach((pn) => {
+        const [x0, y0, x1, y1] = pn.rect;
+        let out = 0, n = 0;
+        for (let gx = 0.5; gx < 24; gx++) for (let gy = 0.5; gy < 24; gy++) {
+          n++;
+          if (!inside(pn, [x0 + (gx / 24) * pn.pw, y0 + (gy / 24) * pn.ph])) out++;
+        }
+        if (out / n < 0.08) return;
+        const edge = outlinePolys.flatMap((poly) => poly.flatMap((r) => {
+          const P = r.map(pn.S);
+          return P.slice(1).map((b, i) => [P[i], b]);
+        }));
+        const t = pn.g.append("text").attr("class", "beyond-label").attr("text-anchor", "middle").attr("dy", "0.35em")
+          .attr("x", 0).attr("y", 0).text("Outside Bình Thạnh");
+        const bb = t.node().getBBox(), ox = bb.x + bb.width / 2, oy = bb.y + bb.height / 2;
+        const campusRings = campusList.filter((c) => c._panel === pn).flatMap((c) => c._rings || []);
+        // across first; turned up the strip (as the sheet's "Beyond this sheet") when the hatch is too narrow
+        const search = (bw, bh) => {
+          let best = null, bestD = -1;
+          for (let cy = y0 + bh / 2 + 8; cy <= y1 - bh / 2 - 8; cy += 6) {
+            for (let cx = x0 + bw / 2 + 8; cx <= x1 - bw / 2 - 8; cx += 6) {
+              const b = [cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2];
+              if (!inView(b, pn.rect)) continue;
+              const pts = [[b[0], b[1]], [b[2], b[1]], [b[0], b[3]], [b[2], b[3]], [cx, cy],
+                [cx, b[1]], [cx, b[3]], [b[0], cy], [b[2], cy]];
+              if (pts.some((q) => inside(pn, q))) continue;
+              if (pts.some((q) => campusRings.some((R) => inRing(q, R)))) continue;
+              const bp = pad(b, 3);
+              if (furniture.some((o) => hit(o, bp)) || placed.some((o) => hit(o, pad(b, 4)))) continue;
+              if (wardBoxes.some((o) => hit(o, b)) || onStretch(bp)) continue;
+              if (outlines.some(([a, e]) => segRect(a, e, b) < 3)) continue;
+              const d = Math.min(...edge.map(([a, e]) => segRect(a, e, b)));
+              if (d > bestD) { bestD = d; best = [cx, cy]; }
+            }
+          }
+          return best;
+        };
+        let best = search(bb.width, bb.height), turned = false;
+        if (!best) { best = search(bb.height, bb.width); turned = !!best; }
+        if (!best) { t.remove(); return; }                 // no clean spot on the hatch: say nothing
+        if (turned) {
+          t.attr("x", null).attr("y", null).attr("transform",
+            `translate(${(best[0] - pn.x).toFixed(1)},${(best[1] - pn.y - top).toFixed(1)}) rotate(90) translate(${(-ox).toFixed(1)},${(-oy).toFixed(1)})`);
+        } else {
+          t.attr("x", (best[0] - ox - pn.x).toFixed(1)).attr("y", (best[1] - oy - pn.y - top).toFixed(1));
+        }
+        placed.push(rel(t.node()));
+      });
+    }
+
+    // v2.4 oddities: a named one-off, upright, with a short leader (<= 24 px) from its own grey stretch to the
+    // name; never a dot
+    if (pocketZoom) (data.oddities || []).forEach((od) => {
+      const s = context.find((q) => q.i === od.segment_index);
+      if (!s) return;
+      const rings = (data.campuses || []).flatMap((c) => c._rings || []);
+      // a street name beside it would read as one run ("Quán Thái Sawasdee Phạm Viết Chánh"): keep 12 px clear
+      const streetBoxes = [];
+      svg.selectAll("text.street-label").each(function () { streetBoxes.push(pad(rel(this), 12)); });
+      const near = (box) => {            // the leader: stroke edge -> the name's nearest box point
+        const c = [(box[0] + box[2]) / 2, (box[1] + box[3]) / 2];
+        const dx = s.b[0] - s.a[0], dy = s.b[1] - s.a[1], L2 = dx * dx + dy * dy || 1;
+        const f = Math.max(0.1, Math.min(0.9, ((c[0] - s.a[0]) * dx + (c[1] - s.a[1]) * dy) / L2));
+        const p = [s.a[0] + f * dx, s.a[1] + f * dy];
+        const q = [Math.max(box[0], Math.min(box[2], p[0])), Math.max(box[1], Math.min(box[3], p[1]))];
+        const L = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+        return { a: [p[0] + ((q[0] - p[0]) / L) * s.hw, p[1] + ((q[1] - p[1]) / L) * s.hw], b: q, len: L - s.hw };
+      };
+      const fs = [0.2, 0.35, 0.5, 0.65, 0.8, 0.1, 0.9];
+      const pts = fs.map((f) => [s.a[0] + (s.b[0] - s.a[0]) * f, s.a[1] + (s.b[1] - s.a[1]) * f]);
+      const g = svg.append("g").attr("class", "oddity").attr("data-id", od.id).attr("data-seg", od.segment_index);
+      const place = (text) => placeQuad("oddity-label", text, {},
+        (tw, th) => pts.flatMap((p) => [8, 12, 16, 5, 20].flatMap((gap) => DIRS.map(([dx, dy]) =>
+          ({ c: [p[0] + dx * (s.hw + gap + tw / 2), p[1] + dy * (s.hw + gap + th / 2)], ang: 0 })))),
+        ({ quad, box }) => {
+          const l = near(box);
+          let k = l.len > 24 || l.len < 5 ? 600 : 0;
+          if (outlines.some(([a, e]) => segQuad(a, e, quad) < 1.5)) k += 400;
+          if (quad.some((q) => rings.some((R) => inPoly(q, R)))) k += 400;
+          if (coloured.some((r) => segQuad(r.a, r.b, [l.a, l.b, l.b, l.a]) < r.hw)) k += 300;   // leader over red
+          if (streetBoxes.some((o) => quadsHit(quad, boxQuad(o)))) k += 200;
+          // v2.4-S5 fix 2: a grey one-off set close to the colour reads as one of the pocket's own listings
+          if (coloured.some((r) => segQuad(r.a, r.b, quad) < r.hw + 12)) k += 250;
+          return k + l.len * 0.5;
+        });
+      let t = place(od.name);
+      // v2.4-S5 (Task 7): where a one-line name finds no clear spot (Little Tokyo on a phone), it breaks into
+      // two lines at the space nearest its middle
+      const sp = [...od.name].map((ch, i) => (ch === " " ? i : -1)).filter((i) => i > 0);
+      if (+t.attr("data-cost") >= 500 && sp.length) {
+        const at = sp.reduce((a, b) => (Math.abs(b - od.name.length / 2) < Math.abs(a - od.name.length / 2) ? b : a));
+        const t2 = place([od.name.slice(0, at), od.name.slice(at + 1)]);
+        if (+t2.attr("data-cost") < +t.attr("data-cost")) {
+          placed.splice(placed.length - 2, 1);   // t's box (placeQuad pushed t, then t2)
+          t.remove();
+          t = t2;
+        } else { placed.pop(); t2.remove(); }
+      }
+      const l = near(rel(t.node()));                 // the placed name's box, svg coordinates
+      g.append("line").attr("class", "oddity-leader")
+        .attr("x1", l.a[0].toFixed(1)).attr("y1", l.a[1].toFixed(1)).attr("x2", l.b[0].toFixed(1)).attr("y2", l.b[1].toFixed(1));
+      g.node().appendChild(t.node());
     });
   };
   /* ---- pair (v2.2): where the buildings stand beside where the map puts food ----

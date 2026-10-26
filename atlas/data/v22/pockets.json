@@ -5,40 +5,40 @@
   {
    "id": "little_tokyo",
    "group": "japanese",
-   "n_in": 45,
-   "n_total": 127,
-   "n_window": 175,
-   "lq": 11.3,
-   "lat": 10.78985,
-   "lon": 106.71012
+   "n_in": 44,
+   "n_total": 104,
+   "n_window": 173,
+   "lq": 13.4,
+   "lat": 10.78981,
+   "lon": 106.71014
   },
   {
    "id": "western_tokyo",
    "group": "western_other",
    "n_in": 8,
    "n_total": 22,
-   "n_window": 177,
-   "lq": 11.5,
+   "n_window": 175,
+   "lq": 11.4,
    "lat": 10.79016,
    "lon": 106.71051
   },
   {
    "id": "little_seoul",
    "group": "korean",
-   "n_in": 11,
-   "n_total": 46,
-   "n_window": 236,
-   "lq": 5.7,
-   "lat": 10.80302,
-   "lon": 106.71592
+   "n_in": 9,
+   "n_total": 41,
+   "n_window": 183,
+   "lq": 6.6,
+   "lat": 10.8041,
+   "lon": 106.71671
   },
   {
    "id": "cafe_street",
    "group": "ca_phe",
-   "n_in": 38,
-   "n_total": 2210,
-   "n_window": 46,
-   "lq": 2.1,
+   "n_in": 35,
+   "n_total": 2177,
+   "n_window": 43,
+   "lq": 2.0,
    "lat": 10.82775,
    "lon": 106.70154
   },
@@ -46,9 +46,9 @@
    "id": "chay_phan_dang_luu",
    "group": "vegetarian",
    "n_in": 7,
-   "n_total": 59,
+   "n_total": 80,
    "n_window": 48,
-   "lq": 13.8,
+   "lq": 10.0,
    "lat": 10.80481,
    "lon": 106.68928
   },
@@ -56,108 +56,85 @@
    "id": "chay_le_quang_dinh",
    "group": "vegetarian",
    "n_in": 7,
-   "n_total": 59,
-   "n_window": 66,
-   "lq": 10.0,
-   "lat": 10.81154,
-   "lon": 106.69103
+   "n_total": 80,
+   "n_window": 65,
+   "lq": 7.4,
+   "lat": 10.81179,
+   "lon": 106.69078
   },
   {
    "id": "seafood_xvnt",
    "group": "seafood",
-   "n_in": 14,
-   "n_total": 216,
-   "n_window": 89,
-   "lq": 4.1,
+   "n_in": 12,
+   "n_total": 207,
+   "n_window": 86,
+   "lq": 3.7,
    "lat": 10.80166,
    "lon": 106.71065
   },
   {
    "id": "seafood_pvd",
    "group": "seafood",
-   "n_in": 9,
-   "n_total": 216,
-   "n_window": 42,
-   "lq": 5.5,
+   "n_in": 8,
+   "n_total": 207,
+   "n_window": 40,
+   "lq": 5.3,
    "lat": 10.82157,
    "lon": 106.70285
   }
  ],
+ "not_food_dropped": 120,
  "neighbours": {
   "little_tokyo": [
    {
     "kind": "big_road",
     "name": "Nguyễn Hữu Cảnh",
     "osm": "w409014810",
-    "m": 64
+    "m": 59
    },
    {
     "kind": "bridge",
     "name": "Cầu Thị Nghè 2",
     "osm": "w193085737",
-    "m": 177
+    "m": 174
    },
    {
     "kind": "bridge",
     "name": "Cầu Vượt Văn Thánh 2",
-    "osm": "w33574429",
-    "m": 228
+    "osm": "w58800534",
+    "m": 225
    },
    {
     "kind": "water",
     "name": "Kênh Thị Nghè",
     "osm": "w1316089873",
-    "m": 254
+    "m": 249
    },
    {
     "kind": "campus",
     "name": "Đại học Tôn Đức Thắng",
     "osm": "a385024676",
-    "m": 272
+    "m": 275
    }
   ],
   "little_seoul": [
    {
     "kind": "campus",
-    "name": "Trường Đại học Công nghệ TP.HCM",
-    "osm": "a385024764",
-    "m": 93
-   },
-   {
-    "kind": "campus",
     "name": "Trường Đại học Giao thông Vận tải TP.HCM",
     "osm": "a452371502",
-    "m": 150
+    "m": 19
    },
    {
     "kind": "water",
     "name": "Rạch Văn Thánh",
     "osm": "w35114389",
-    "m": 159
+    "m": 132
    },
    {
-    "kind": "big_road",
-    "name": "Điện Biên Phủ",
-    "osm": "w55880235",
-    "m": 230
-   },
-   {
-    "kind": "big_road",
-    "name": "Đường Điện Biên Phủ",
-    "osm": "w35085959",
-    "m": 246
-   },
-   {
-    "kind": "bridge",
-    "name": "Cầu Văn Thánh 2",
-    "osm": "w33103624",
-    "m": 266
-   },
-   {
-    "kind": "bridge",
-    "name": "Cầu Văn Thánh 1",
-    "osm": "w53551190",
-    "m": 283
+    "kind": "campus",
+    "name": "Trường Đại học Công nghệ TP.HCM",
+    "osm": "a385024764",
+    "m": 239
    }
   ],
   "cafe_street": [
@@ -512,6 +489,53 @@
       [
        106.6979071,
        10.8287642
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "name": "Trường Đại học Giao thông Vận tải TP.HCM",
+   "osm": "a452371502",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       106.7161916,
+       10.8043523
+      ],
+      [
+       106.7162643,
+       10.8055006
+      ],
+      [
+       106.7167403,
+       10.8054192
+      ],
+      [
+       106.7167687,
+       10.8055979
+      ],
+      [
+       106.7169491,
+       10.805568
+      ],
+      [
+       106.7169243,
+       10.8054182
+      ],
+      [
+       106.7173718,
+       10.8053446
+      ],
+      [
+       106.7172092,
+       10.8042003
+      ],
+      [
+       106.7161916,
+       10.8043523
       ]
      ]
     ]

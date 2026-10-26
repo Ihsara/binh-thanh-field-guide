@@ -105,25 +105,48 @@
   "how": "lowest share over every colour setting tied best on the hand-labelled cells"
  },
  "cafe_street_cafes_in": {
-  "value": 38,
-  "display": "38",
+  "value": 35,
+  "display": "35",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
   "how": "cafe_street n_in: cafés inside the 200 m window around the pocket centre (pockets.json)"
  },
  "cafe_street_lq": {
-  "value": 2.1,
-  "display": "2.1×",
+  "value": 2.0,
+  "display": "2×",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
   "how": "cafe_street lq: café share of the window's food places / café share of the district's"
+ },
+ "cafe_streets": {
+  "value": [
+   "Đặng Thùy Trâm"
+  ],
+  "display": "Đặng Thùy Trâm",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pocket_streets.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "the streets (at most 2; 1 here) of the cafe_street coloured stretches with the most listings, each stretch named by the nearest OSM walk-graph edge (graph-e2796a4c; pocket_streets.json), a hẻm counted with the street it opens off, ranked by listings: Đặng Thùy Trâm 30"
+ },
+ "dish_cap": {
+  "value": 3,
+  "display": "3",
+  "source_file": "binh-thanh-field-guide/src/atlas/heroes.py",
+  "release": "method setting (src/atlas)",
+  "how": "DISH_CAP: most dish words drawn per pocket"
+ },
+ "dish_floor": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/src/atlas/heroes.py",
+  "release": "method setting (src/atlas)",
+  "how": "DISH_FLOOR: places a dish word must turn up in"
  },
  "food_points": {
   "value": 5583,
   "display": "5,583",
   "source_file": "binh-thanh-field-guide/web/cuisine.json",
   "release": "2026-06-17.0",
-  "how": "len(points)"
+  "how": "len(points): every listing filed as food or drink, before the v2.3.2 non-food review"
  },
  "frontage_m": {
   "value": 30,
@@ -153,26 +176,40 @@
   "release": "DMA L7014 sheet 6330-IV, edition 5-DMA (1984)",
   "how": "drawn road junctions and bridge mid-spans matched to OpenStreetMap"
  },
- "hutech_m": {
-  "value": 93,
-  "display": "93 m",
-  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
-  "release": "OpenStreetMap 2025-01-01 (vn-2025-01-01.osm.pbf)",
-  "how": "distance from the little_seoul pocket centre to OSM a385024764 (Trường Đại học Công nghệ TP.HCM), spec check P3"
+ "hutech_endpoint": {
+  "value": "Điện Biên Phủ frontage, end of Hẻm 479 (inferred from its address, 475A Điện Biên Phủ; no entrance mapped)",
+  "display": "Điện Biên Phủ frontage, end of Hẻm 479 (inferred from its address, 475A Điện Biên Phủ; no entrance mapped)",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "walks.json endpoint_kind of the walk to OSM a385024764 (node 5778235550)"
+ },
+ "hutech_walk_m": {
+  "value": 613,
+  "display": "613 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "route on the OSM walk graph from the little_seoul pocket centre, snapped to the nearest street edge, to the campus endpoint (Điện Biên Phủ frontage, end of Hẻm 479 (inferred from its address, 475A Điện Biên Phủ; no entrance mapped)); minutes = round(route / 80 m per min)"
+ },
+ "hutech_walk_min": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "route on the OSM walk graph from the little_seoul pocket centre, snapped to the nearest street edge, to the campus endpoint (Điện Biên Phủ frontage, end of Hẻm 479 (inferred from its address, 475A Điện Biên Phủ; no entrance mapped)); minutes = round(route / 80 m per min)"
  },
  "japanese_points": {
-  "value": 127,
-  "display": "127",
+  "value": 104,
+  "display": "104",
   "source_file": "binh-thanh-field-guide/web/cuisine.json",
   "release": "2026-06-17.0",
-  "how": "points with group == 'japanese'"
+  "how": "points with group == 'japanese', less those the non-food review (nonfood_review.json) judged not food"
  },
  "korean_points": {
-  "value": 46,
-  "display": "46",
+  "value": 41,
+  "display": "41",
   "source_file": "binh-thanh-field-guide/web/cuisine.json",
   "release": "2026-06-17.0",
-  "how": "points with group == 'korean'"
+  "how": "points with group == 'korean', less those the non-food review (nonfood_review.json) judged not food"
  },
  "landmark81_m": {
   "value": 461.2,
@@ -251,6 +288,13 @@
   "release": "2026-06-17.0",
   "how": "pockets in pockets.json, less western_tokyo (drawn only on the Little Tokyo zoom)"
  },
+ "pockets_not_food": {
+  "value": 120,
+  "display": "120",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "2026-06-17.0",
+  "how": "not_food_dropped: listings the non-food review (nonfood_review.json) took out before the pocket scan"
+ },
  "redraw_year": {
   "value": 2025,
   "display": "2025",
@@ -259,18 +303,42 @@
   "how": "year of Nghị quyết 1685/NQ-UBTVQH15 (resolution_citation)"
  },
  "seoul_korean_in": {
-  "value": 11,
-  "display": "11",
+  "value": 9,
+  "display": "9",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
   "how": "little_seoul n_in: Korean places inside the 200 m window around the pocket centre (pockets.json)"
  },
  "seoul_lq": {
-  "value": 5.7,
-  "display": "5.7×",
+  "value": 6.6,
+  "display": "6.6×",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
   "how": "little_seoul lq: Korean share of the window's food places / Korean share of the district's"
+ },
+ "seoul_street": {
+  "value": "Võ Oanh",
+  "display": "Võ Oanh",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "the name of the street edge the little_seoul pocket centre snaps to on the OSM walk graph (walks.json route_streets[0], the same for every little_seoul walk)"
+ },
+ "seoul_streets": {
+  "value": [
+   "Nguyễn Gia Trí",
+   "Võ Oanh"
+  ],
+  "display": "Nguyễn Gia Trí and Võ Oanh",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pocket_streets.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "the streets (at most 2; 2 here) of the little_seoul coloured stretches with the most listings, each stretch named by the nearest OSM walk-graph edge (graph-b842e295; pocket_streets.json), a hẻm counted with the street it opens off, ranked by listings: Nguyễn Gia Trí 6, Võ Oanh 3"
+ },
+ "seoul_window_n": {
+  "value": 183,
+  "display": "183",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
+  "release": "2026-06-17.0",
+  "how": "little_seoul n_window: audited food places inside the 200 m window around the pocket centre (pockets.json), of any kind"
  },
  "sheet1895_median_m": {
   "value": 1218,
@@ -321,6 +389,13 @@
   "release": "2026-06-17.0",
   "how": "listed food places whose Overture record has a social-media page: 99% on the avenues, 99% in the hẻm"
  },
+ "streets_named": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/src/atlas/facts.py",
+  "release": "method setting (src/atlas)",
+  "how": "STREETS_NAMED: most streets a pocket page names (seoul_streets, tokyo_streets, cafe_streets)"
+ },
  "tancang_base_year": {
   "value": 1965,
   "display": "1965",
@@ -350,18 +425,35 @@
   "how": "date of the northern Thiên Lý branch (binh-thanh-story/docs/THIEN-LY-AND-MAPS-FINDINGS.md)"
  },
  "tokyo_japanese_in": {
-  "value": 45,
-  "display": "45",
+  "value": 44,
+  "display": "44",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
   "how": "little_tokyo n_in: Japanese places inside the 200 m window around the pocket centre (pockets.json)"
  },
  "tokyo_lq": {
-  "value": 11,
-  "display": "11×",
+  "value": 13,
+  "display": "13×",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
-  "how": "little_tokyo lq 11.3, to the whole number: Japanese share of the window's food places / Japanese share of the district's"
+  "how": "little_tokyo lq 13.4, to the whole number: Japanese share of the window's food places / Japanese share of the district's"
+ },
+ "tokyo_script_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pocket_scripts.json",
+  "release": "2026-06-17.0",
+  "how": "little_tokyo: Japanese places inside the 200 m window around the pocket centre (pockets.json) whose Overture name carries hiragana, katakana or kanji (U+3040-30FF, U+4E00-9FFF), of 44"
+ },
+ "tokyo_streets": {
+  "value": [
+   "Phạm Viết Chánh",
+   "Mê Linh"
+  ],
+  "display": "Phạm Viết Chánh and Mê Linh",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pocket_streets.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache graph-51075bd7, the district walk graph, Overpass, fetched 2026-10-07)",
+  "how": "the streets (at most 2; 2 here) of the little_tokyo coloured stretches with the most listings, each stretch named by the nearest OSM walk-graph edge (graph-51075bd7; pocket_streets.json), a hẻm counted with the street it opens off, ranked by listings: Phạm Viết Chánh 20, Mê Linh 9, Nguyễn Công Trứ 7, Huỳnh Mẫn Đạt 3, Huỳnh Tịnh Của 2, Nguyễn Hữu Cảnh 2"
  },
  "tokyo_western_in": {
   "value": 8,
@@ -370,12 +462,47 @@
   "release": "2026-06-17.0",
   "how": "western_tokyo n_in: Western places inside the 200 m window around the pocket centre (pockets.json)"
  },
- "vanlang_m": {
-  "value": 83,
-  "display": "83 m",
+ "tokyo_window_n": {
+  "value": 173,
+  "display": "173",
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
-  "release": "OpenStreetMap 2025-01-01 (vn-2025-01-01.osm.pbf)",
-  "how": "distance from the cafe_street pocket centre to OSM a986315282 (Đại học Văn Lang), spec check P3"
+  "release": "2026-06-17.0",
+  "how": "little_tokyo n_window: audited food places inside the 200 m window around the pocket centre (pockets.json), of any kind"
+ },
+ "uth_endpoint": {
+  "value": "outline point on Võ Oanh (no entrance mapped)",
+  "display": "outline point on Võ Oanh (no entrance mapped)",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "walks.json endpoint_kind of the walk to OSM a452371502 (node 366386878)"
+ },
+ "uth_walk_label": {
+  "value": "across the road",
+  "display": "across the road",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "route on the OSM walk graph from the little_seoul pocket centre, snapped to the nearest street edge, to the campus endpoint (outline point on Võ Oanh (no entrance mapped)); minutes = round(route / 80 m per min); 51 m"
+ },
+ "vanlang_walk_m": {
+  "value": 180,
+  "display": "180 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "route on the OSM walk graph from the cafe_street pocket centre, snapped to the nearest street edge, to the campus endpoint (mapped gate (barrier=gate)); minutes = round(route / 80 m per min)"
+ },
+ "vanlang_walk_min": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v22/walks.json",
+  "release": "OpenStreetMap walk graphs (osmkit cache) and endpoint nodes from F:/osm-archive/vietnam-latest.osm.pbf (2026-05-29)",
+  "how": "route on the OSM walk graph from the cafe_street pocket centre, snapped to the nearest street edge, to the campus endpoint (mapped gate (barrier=gate)); minutes = round(route / 80 m per min)"
+ },
+ "walk_speed_m": {
+  "value": 80,
+  "display": "80 m",
+  "source_file": "binh-thanh-field-guide/src/atlas/bake_v22.py",
+  "release": "method setting (src/atlas)",
+  "how": "WALK_SPEED_M_MIN: metres walked per minute; minutes = round(route / speed)"
  },
  "ward_ratio_max": {
   "value": 7.8,
