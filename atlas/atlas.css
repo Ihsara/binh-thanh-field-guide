@@ -469,8 +469,8 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
 }
 @media (min-width: 900px) { .hero .dish-word { font-size: 14px; } }
 /* the why-anchor: a note line of HUTECH's campus label (v2.4-S6), the street-label face and size, in ink,
-   not upper-cased (two lines on a phone) */
-.hero .campus-label .campus-note {
+   not upper-cased; v2.4.1: a campus label's walk line ("8 min walk") under its short name wears the same */
+.hero .campus-label .campus-note, .hero .campus-label .campus-walk {
   font-family: var(--font-text); font-weight: 400; font-size: 11px; letter-spacing: 0.01em; text-transform: none;
   fill: var(--ink); paint-order: stroke; stroke: var(--base-fill); stroke-width: var(--halo-width); stroke-linejoin: round;
 }
@@ -480,7 +480,7 @@ body[data-hero="route"] .hero .ward-label { font-size: 9px; }
   paint-order: stroke; stroke: var(--base-fill); stroke-width: var(--halo-width); stroke-linejoin: round;
 }
 .hero .oddity-leader { stroke: var(--ink-soft); stroke-width: 0.8; }
-@media (min-width: 900px) { .hero .campus-label .campus-note, .hero .oddity-label { font-size: 14px; } }
+@media (min-width: 900px) { .hero .campus-label .campus-note, .hero .campus-label .campus-walk, .hero .oddity-label { font-size: 14px; } }
 /* zoom furniture (v2.2-S6): the street a headline names, and the campus outline's name. Both are
    context, so they are warm grey / ink and never wear a series colour */
 .hero .street-label {
