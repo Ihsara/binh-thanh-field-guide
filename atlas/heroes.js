@@ -933,8 +933,9 @@
       if (pk) {
         const road = growRoad(pk.centre, coloured.filter((q) => q.id === pk.id).concat(context.filter((q) => q.panel === pn)), pn.S);
         const ctr = [d3.mean(c._ring, (q) => q[0]), d3.mean(c._ring, (q) => q[1])];
-        // the overview's tightest panels leave only the room between two grey side streets: where the block does
-        // not fit there clean, its walk line breaks at its first space ("across" / "the road"), still the same words
+        // the overview's tightest panels leave only the room between two grey side streets: where the block fits
+        // clean on neither side of the road (v2.4.2: 1028-1040 px), its walk line breaks at its first space
+        // ("across" / "the road"), still the same words
         const size = (ls) => {
           const m = svg.append("text").attr("class", "campus-label");
           ls.forEach((l, i) => m.append("tspan").attr("x", 0).attr("dy", i ? "1.2em" : 0)
@@ -952,18 +953,24 @@
             return others.some((q) => segQuad(q.a, q.b, quad) - k * q.hw <= dRoad);
           });
         };
-        const fitsBeside = (ls) => { const bb = size(ls);
-          return besideRoad(road, ctr, bb.width, bb.height).some(({ c: [x, y] }) => {
+        // never inside the campus it names (the campus side of the road can run under its outline)
+        const inCampus = (b) => [[b[0], b[1]], [b[2], b[1]], [b[2], b[3]], [b[0], b[3]]].some((q) => inPoly(q, c._ring));
+        const fitsBeside = (ls, side) => { const bb = size(ls);
+          return besideRoad(road, side, bb.width, bb.height).some(({ c: [x, y] }) => {
             const b = [x - bb.width / 2, y - bb.height / 2, x + bb.width / 2, y + bb.height / 2];
-            return clear(b) && !nearOther(boxQuad(b));
+            return clear(b) && !nearOther(boxQuad(b)) && !inCampus(b);
           }); };
         const wl = c.walk.label.split(" ");
         const broken = [lines[0], { s: wl[0], cls: "campus-walk" }, { s: wl.slice(1).join(" "), cls: "campus-walk" }];
-        const block = fitsBeside(lines) ? lines : broken;
-        placeQuad("campus-label", block, { "data-osm": c.osm }, (tw, th) => besideRoad(road, ctr, tw, th),
+        // v2.4.2: where the room between the side streets south of the road is too narrow for the two-line block
+        // (1030-1160 px: about 90 px for a 94 px line), the block stays two lines on the campus side of the road,
+        // beside its outline; it breaks only where neither side has a clean spot
+        const flip = [ctr[0], Infinity];
+        const [block, side] = fitsBeside(lines, ctr) ? [lines, ctr] : fitsBeside(lines, flip) ? [lines, flip] : [broken, ctr];
+        placeQuad("campus-label", block, { "data-osm": c.osm }, (tw, th) => besideRoad(road, side, tw, th),
           ({ quad, box }) => {
             const d = Math.min(...edges.map(([a, e]) => segQuad(a, e, quad)));
-            return (clear(box) ? 0 : 600) + (nearOther(quad) ? 200 : 0) + (d < 1.5 ? 400 : 0) + d * 0.5;   // clean, by the road, near its outline
+            return (clear(box) ? 0 : 600) + (nearOther(quad) ? 200 : 0) + (d < 1.5 || inCampus(box) ? 400 : 0) + d * 0.5;   // clean, by the road, near its outline
           }, null, pn.rect);
         return;
       }
