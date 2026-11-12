@@ -304,10 +304,15 @@
       placed, pxPerM, cam: { k: 1, x: 0, y: 0, n: null }, state: null, pinned: false, timer: 0, numTimer: 0,
       step: prev && !prev.desk && !desk ? prev.step : 0, outlinePath, landPath,
       keyInFoot: !!(opts && opts.keyInFoot), claimCompact: !!(opts && opts.claimCompact), noNames: !!(opts && opts.noNames),
-      nextOpts: null };
+      wide: !!(opts && opts.wide), nextOpts: null };
 
     stageEl.classList.toggle("key-in-foot", !!(desk && opts && opts.keyInFoot));
     stageEl.toggleAttribute("data-ink", inkNums);   // page 3 points in ink: its notes' numerals and names too
+    // v2.5.2: the scale bar at rest before the key is measured (setCamera sets it only after placement, so a key fitted
+    // to a narrow side-margin pocket grew past it)
+    const s0 = scaleFor(pxPerM);
+    stageEl.querySelectorAll(".scale-bar").forEach((b) => { b.style.width = s0.L.toFixed(1) + "px"; });
+    stageEl.querySelectorAll(".scale-label").forEach((t) => { t.textContent = s0.label; });
     if (desk && placeDesk() === "refit") return A.heroes.alleys(fig, data, base, ctx.nextOpts);
     if (!desk) placePhone();
     stageEl.style.setProperty("--map-bottom", mapH + "px");
@@ -333,10 +338,14 @@
         longest note may then be left out, logged, its words carried by route 3's note (map-page standard §1).
       - S5: if any other block is left out while the key holds a pocket, the key moves to the footer strip and the
         blocks are placed again (R18's fallback, before a note goes hover-only).
-      In each pocket a block tries its own type, then its tight variant (one step down the type scale). */
+      In each pocket a block tries its own type, then its tight variant (one step down the type scale).
+      v2.5.2: the pockets are searched in the land's box first. When that pass loses anything (the key to the footer, a
+      block hidden, the claim compact, the door numbers dropped), all is placed again over the land's rows at the full
+      stage width (`wide`): on a height-bound fit the side margins beside the box are the largest pockets there are. */
   function placeDesk() {
     const { stageEl, w, mapH, land } = ctx;
-    const g = landGrid(land, CELL, CLEAR, ctx.landPath);
+    const area = ctx.wide ? [FIT_PAD, land[1], w - FIT_PAD, land[3]] : land;
+    const g = landGrid(area, CELL, CLEAR, ctx.landPath);
     const found = pockets(g, MIN_W, MIN_H, PGAP, 10);
     const log = [];
     stageEl.querySelectorAll(".pockets .pocket").forEach((el) => {
@@ -425,7 +434,10 @@
         // R31: a compact form's names line only while it costs no other block its pocket (the refit pass drops it)
         const compact = b.compact && ctx.noNames && b.compact.some((f) => f.includes("nonames"))
           ? b.compact.filter((f) => f.includes("nonames")) : b.compact;
-        for (const forms of [b.variants || VARIANTS, compact].filter(Boolean)) {
+        // v2.5.2: a form that drops content (R30 `nogrid`, R31 `nonames`) only once no pocket holds a form that keeps it
+        const lossy = (f) => / (nogrid|nonames)\b/.test(" " + f);
+        const keep = compact && compact.filter((f) => !lossy(f)), drop = compact && compact.filter(lossy);
+        for (const forms of [b.variants || VARIANTS, keep, drop].filter((f) => f && f.length)) {
           for (const p of list) { got = fitIn(b, el, p, forms); if (got) break; }
           if (got) break;
         }
@@ -450,13 +462,21 @@
     // the footer strip grew a row (the key): the map was fitted above its old height, so the caller fits it again
     const fh = Math.ceil(stageEl.querySelector(".stage-foot").getBoundingClientRect().height);
     const refit = (o) => { ctx.nextOpts = Object.assign({ keyInFoot: ctx.keyInFoot, claimCompact: ctx.claimCompact,
-      noNames: ctx.noNames }, o); return "refit"; };
+      noNames: ctx.noNames, wide: ctx.wide }, o); return "refit"; };
+    // v2.5.2: the land's box lost something: place everything again, the side margins searched too
+    const nogrid = !!stageEl.querySelector(".pockets .pocket.placed.nogrid");
+    const claimEl = stageEl.querySelector('.pockets [data-pocket="claim"]');
+    if (!ctx.wide && (stageEl.classList.contains("key-in-foot") || hidden.size || nogrid || ctx.claimCompact ||
+      (claimEl && claimEl.classList.contains("compact"))))
+      return refit({ wide: true });
     if (!ctx.keyInFoot && stageEl.classList.contains("key-in-foot") && Math.abs(ctx.h - fh - mapH) > 1) return refit({ keyInFoot: true });
     // R21: the secondary (bars) yields only to the claim: hidden, the claim drops to its compact form and all is placed
     // again; S5: a block that must show lost its pocket while the key holds one: the key gives its pocket up
     const must = ctx.blocks.filter((b) => !b.may_hide && hidden.has(b.name));
     if (!ctx.claimCompact && hidden.has("bars")) return refit({ claimCompact: true });
     if (!ctx.keyInFoot && must.length && ctx.placed.blocks.key) { stageEl.classList.add("key-in-foot"); return refit({ keyInFoot: true }); }
+    // v2.5.2: the door numbers (R30) outrank the key's pocket too
+    if (!ctx.keyInFoot && nogrid && ctx.placed.blocks.key) { stageEl.classList.add("key-in-foot"); return refit({ keyInFoot: true }); }
     // R31: a block left out while another kept its compact names line: place again without the names lines
     const named = stageEl.querySelectorAll(".pockets .pocket.placed.compact:not(.nonames)");
     if (!ctx.noNames && hidden.size && [...named].some((el) => ((ctx.blocks.find((b) => b.name === el.dataset.pocket) || {}).compact || [])
@@ -469,6 +489,9 @@
     const g3 = emptyGrid([0, 0, w, mapH], CELL);
     Object.values(ctx.placed.blocks).forEach((b) => block(g3, b, TEXT_GAP));
     ctx.placed.frame = pockets(g3, 0, 0, 0, 1)[0] || [0, 0, w, mapH];
+    // v2.5.2: with blocks in the side margins too, the largest box can be the wrong shape for a target: camFor
+    // searches this grid for the clear box of the target's own shape at the largest scale
+    ctx.placed.frameGrid = g3;
     return "ok";
   }
   /** Where the note may go in the current camera: at rest the free pockets of the land's box; under a closer camera
@@ -513,9 +536,24 @@
     const pad = t.pad * (ctx.land[2] - ctx.land[0]);
     const bw = Math.max(...xs) - Math.min(...xs) + 2 * pad, bh = Math.max(...ys) - Math.min(...ys) + 2 * pad;
     const cx = (Math.max(...xs) + Math.min(...xs)) / 2, cy = (Math.max(...ys) + Math.min(...ys)) / 2;
-    const [x0, y0, x1, y1] = ctx.placed.frame;
-    const k = Math.min((x1 - x0) / bw, (y1 - y0) / bh);
+    const fit = (f) => Math.min((f[2] - f[0]) / bw, (f[3] - f[1]) / bh);
+    const [x0, y0, x1, y1] = [shapedFrame(bw, bh), ctx.placed.frame].filter(Boolean).reduce((a, f) => (fit(f) > fit(a) ? f : a));
+    const k = fit([x0, y0, x1, y1]);
     return { k, x: (x0 + x1) / 2 - k * cx, y: (y0 + y1) / 2 - k * cy, n };
+  }
+  /** v2.5.2: the clear box (off every block) that holds a bw x bh target at the largest scale: the largest k for which
+      an empty k*bw x k*bh rectangle exists, by bisection on the frame grid (maxRect finds one when any does) */
+  function shapedFrame(bw, bh) {
+    const g = ctx.placed.frameGrid;
+    if (!g || !(bw > 0 && bh > 0)) return null;
+    const c = g.cell, free = g.occ.map((v) => (v ? 0 : 1));
+    let lo = 0, hi = Math.min((g.cw * c) / bw, (g.ch * c) / bh), best = null;
+    for (let i = 0; i < 16; i++) {
+      const k = (lo + hi) / 2;
+      const r = maxRect(free, g.cw, g.ch, Math.ceil((k * bw) / c), Math.ceil((k * bh) / c));
+      if (r) { lo = k; best = r; } else hi = k;
+    }
+    return best && [g.ox + best[0] * c, g.oy + best[1] * c, g.ox + (best[0] + best[2]) * c, g.oy + (best[1] + best[3]) * c];
   }
   function setCamera(cam) {
     ctx.cam = cam;
