@@ -1,4 +1,3175 @@
 {
+ "alleys_cu_1": {
+  "value": "36 Nguyễn Gia Trí ( D2 cũ ), P.25, Quận Bình Thạnh",
+  "display": "36 Nguyễn Gia Trí ( D2 cũ ), P.25, Quận Bình Thạnh",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "a listed address that writes 'cũ' (old_street_name)"
+ },
+ "alleys_cu_2": {
+  "value": "744, số cũ/604 Xô Viết Nghệ Tĩnh",
+  "display": "744, số cũ/604 Xô Viết Nghệ Tĩnh",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "a listed address that writes 'cũ' (old_number)"
+ },
+ "alleys_cu_3": {
+  "value": "25/15 Nguyễn công trứ, Phường Thạnh Mỹ Tây (P19, Q.Bình Thạnh Cũ)",
+  "display": "25/15 Nguyễn công trứ, Phường Thạnh Mỹ Tây (P19, Q.Bình Thạnh Cũ)",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "a listed address that writes 'cũ' (old_ward_or_district)"
+ },
+ "alleys_cu_n": {
+  "value": 26,
+  "display": "26",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings whose address writes 'cũ'"
+ },
+ "alleys_d3_n": {
+  "value": 29,
+  "display": "29",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "listings inside old Phường 25 that write D3 as a street"
+ },
+ "alleys_d3_near_n": {
+  "value": 27,
+  "display": "27",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "of those, listings whose point lies nearest võ oanh of the three D-streets' OSM centrelines"
+ },
+ "alleys_d_code_aliased_n": {
+  "value": 175,
+  "display": "175",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings inside old Phường 25 whose street is written D1, D2 or D3, counted on the street's new name"
+ },
+ "alleys_deep_n": {
+  "value": 48,
+  "display": "48",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings with three slashes (depth 3)"
+ },
+ "alleys_degenerate_m": {
+  "value": 5.0,
+  "display": "5 m",
+  "source_file": "binh-thanh-field-guide/src/alleys/geometry.py",
+  "release": "method setting (src/atlas)",
+  "how": "a route shorter than this is not drawn: the point sits on the named street itself (geometry.DEGENERATE_M)"
+ },
+ "alleys_door_al_100_le_quang_dinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 100 Lê Quang Định"
+ },
+ "alleys_door_al_110_truong_sa_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 110 Trường Sa"
+ },
+ "alleys_door_al_114_bui_dinh_tuy_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 114 Bùi Đình Túy"
+ },
+ "alleys_door_al_182_bach_dang_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 182 Bạch Đằng"
+ },
+ "alleys_door_al_18_tang_bat_ho_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 18 Tăng Bạt Hổ"
+ },
+ "alleys_door_al_194_4_bui_dinh_tuy_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 194/4 Bùi Đình Túy"
+ },
+ "alleys_door_al_1_46_dang_thuy_tram_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 1/46 Đặng Thuỳ Trâm"
+ },
+ "alleys_door_al_1_dang_thuy_tram_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 1 Đặng Thuỳ Trâm"
+ },
+ "alleys_door_al_206_xo_viet_nghe_tinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 206 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_20_dang_thuy_tram_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 20 Đặng Thuỳ Trâm"
+ },
+ "alleys_door_al_211_hoang_hoa_tham_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 211 Hoàng Hoa Thám"
+ },
+ "alleys_door_al_217_xo_viet_nghe_tinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 217 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_220_xo_viet_nghe_tinh_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 220 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_232_1_binh_loi_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 232/1 Bình Lợi"
+ },
+ "alleys_door_al_238_bach_dang_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 238 Bạch Đằng"
+ },
+ "alleys_door_al_23_dang_thuy_tram_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 23 Đặng Thuỳ Trâm"
+ },
+ "alleys_door_al_24_bui_dinh_tuy_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 24 Bùi Đình Túy"
+ },
+ "alleys_door_al_251_le_quang_dinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 251 Lê Quang Định"
+ },
+ "alleys_door_al_293_ung_van_khiem_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 293 Ung Văn Khiêm"
+ },
+ "alleys_door_al_30_nguyen_cuu_van_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 30 Nguyễn Cửu Vân"
+ },
+ "alleys_door_al_30_vo_duy_ninh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 30 Võ Duy Ninh"
+ },
+ "alleys_door_al_32_me_linh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 32 Mê Linh"
+ },
+ "alleys_door_al_377_le_quang_dinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 377 Lê Quang Định"
+ },
+ "alleys_door_al_39_dang_thuy_tram_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 39 Đặng Thuỳ Trâm"
+ },
+ "alleys_door_al_40_mai_xuan_thuong_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 40 Mai Xuân Thưởng"
+ },
+ "alleys_door_al_46_tan_cang_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 46 Tân Cảng"
+ },
+ "alleys_door_al_47_42_bui_dinh_tuy_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 47/42 Bùi Đình Túy"
+ },
+ "alleys_door_al_47_52_bui_dinh_tuy_n": {
+  "value": 12,
+  "display": "12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 47/52 Bùi Đình Túy"
+ },
+ "alleys_door_al_480_xo_viet_nghe_tinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 480 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_527_dien_bien_phu_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 527 Điện Biên Phủ"
+ },
+ "alleys_door_al_5_no_trang_long_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 5 Nơ Trang Long"
+ },
+ "alleys_door_al_602_33_dien_bien_phu_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 602/33 Điện Biên Phủ"
+ },
+ "alleys_door_al_602_39_dien_bien_phu_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 602/39 Điện Biên Phủ"
+ },
+ "alleys_door_al_677_dien_bien_phu_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 677 Điện Biên Phủ"
+ },
+ "alleys_door_al_685_36_xo_viet_nghe_tinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 685/36 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_702_xo_viet_nghe_tinh_n": {
+  "value": 3,
+  "display": "3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 702 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_71_dien_bien_phu_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 71 Điện Biên Phủ"
+ },
+ "alleys_door_al_818_xo_viet_nghe_tinh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 818 Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_door_al_81_vo_duy_ninh_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors naming Hẻm 81 Võ Duy Ninh"
+ },
+ "alleys_door_alleys_n": {
+  "value": 39,
+  "display": "39",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "named alleys where a listing's house number points at a different alley than the one it names, and OSM names that alley on that street"
+ },
+ "alleys_door_found_n": {
+  "value": 70,
+  "display": "70",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "named alleys where a listing's number points at another alley, before the OSM cross-check"
+ },
+ "alleys_door_lead_door_01": {
+  "value": "122/56a",
+  "display": "122/56a",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 1 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_02": {
+  "value": "125/57E",
+  "display": "125/57E",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 2 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_03": {
+  "value": "183/4",
+  "display": "183/4",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 3 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_04": {
+  "value": "214/12",
+  "display": "214/12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 4 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_05": {
+  "value": "217/20",
+  "display": "217/20",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 5 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_06": {
+  "value": "229/3",
+  "display": "229/3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 6 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_07": {
+  "value": "24/31",
+  "display": "24/31",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 7 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_08": {
+  "value": "304/48",
+  "display": "304/48",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 8 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_09": {
+  "value": "304/55B",
+  "display": "304/55B",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 9 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_10": {
+  "value": "47/24/2A",
+  "display": "47/24/2A",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 10 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_11": {
+  "value": "47/24/38AB",
+  "display": "47/24/38AB",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 11 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_door_12": {
+  "value": "47/24/7",
+  "display": "47/24/7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "door 12 of 12 listed on Hẻm 47/52 Bùi Đình Túy (its house number, verbatim)"
+ },
+ "alleys_door_lead_hem": {
+  "value": "47/52",
+  "display": "47/52",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the alley's own number, as the listings name it"
+ },
+ "alleys_door_lead_label": {
+  "value": "Hẻm 47/52 Bùi Đình Túy",
+  "display": "Hẻm 47/52 Bùi Đình Túy",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the alley with the most distinct doors, as its listings name it"
+ },
+ "alleys_door_lead_listings_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings naming Hẻm 47/52 Bùi Đình Túy whose house number gives another alley's"
+ },
+ "alleys_door_lead_n": {
+  "value": 12,
+  "display": "12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors listed on Hẻm 47/52 Bùi Đình Túy, none numbered 47/52/…"
+ },
+ "alleys_door_lead_naming_doors_n": {
+  "value": 32,
+  "display": "32",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors (first address lines) among them"
+ },
+ "alleys_door_lead_naming_n": {
+  "value": 35,
+  "display": "35",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings with a house number that name Hẻm 47/52 Bùi Đình Túy, whichever alley the number gives"
+ },
+ "alleys_door_multi_min_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/src/atlas/facts.py",
+  "release": "method setting (src/atlas)",
+  "how": "page 4 draws an alley thick when at least this many distinct doors name it (ALLEYS_DOOR_MULTI_MIN)"
+ },
+ "alleys_door_multi_n": {
+  "value": 6,
+  "display": "6",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "of those alleys, the ones where two or more distinct doors do it"
+ },
+ "alleys_door_multi_others_n": {
+  "value": 5,
+  "display": "5",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "alleys with two or more such doors besides the lead"
+ },
+ "alleys_door_one_door": {
+  "value": "33/4",
+  "display": "33/4",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "that door's house number, as listed"
+ },
+ "alleys_door_one_label": {
+  "value": "Hẻm 24 Bùi Đình Túy",
+  "display": "Hẻm 24 Bùi Đình Túy",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the alley whose listings are the most at a single door"
+ },
+ "alleys_door_one_listings_n": {
+  "value": 11,
+  "display": "11",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings naming that alley, all at one door"
+ },
+ "alleys_door_unmatched_none_n": {
+  "value": 7,
+  "display": "7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "of those, alleys OSM does not name at all"
+ },
+ "alleys_door_unmatched_other_n": {
+  "value": 24,
+  "display": "24",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "of those, alleys OSM names only on other streets"
+ },
+ "alleys_doors_most_new_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the most doors giving a new ward name on any one street"
+ },
+ "alleys_doors_most_new_street": {
+  "value": "Điện Biên Phủ",
+  "display": "Điện Biên Phủ",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the street with the most doors giving a new ward name"
+ },
+ "alleys_doors_most_new_total_n": {
+  "value": 101,
+  "display": "101",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors naming a ward on điện biên phủ"
+ },
+ "alleys_doors_note_min_n": {
+  "value": 30,
+  "display": "30",
+  "source_file": "binh-thanh-field-guide/src/atlas/facts.py",
+  "release": "method setting (src/atlas)",
+  "how": "page 3's notes give a street's ward share only on at least this many doors (ALLEYS_NOTE_MIN_DOORS)"
+ },
+ "alleys_doors_pick_new_n": {
+  "value": 9,
+  "display": "9",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn hữu cảnh giving the new ward"
+ },
+ "alleys_doors_pick_new_street": {
+  "value": "Nguyễn Hữu Cảnh",
+  "display": "Nguyễn Hữu Cảnh",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the highest share of doors giving a new ward name, among streets with at least 30 doors"
+ },
+ "alleys_doors_pick_new_total_n": {
+  "value": 30,
+  "display": "30",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn hữu cảnh naming a ward"
+ },
+ "alleys_doors_pick_old_n": {
+  "value": 38,
+  "display": "38",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bạch đằng giving the old ward"
+ },
+ "alleys_doors_pick_old_street": {
+  "value": "Bạch Đằng",
+  "display": "Bạch Đằng",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the highest share of doors giving an old ward number, among streets with at least 30 doors"
+ },
+ "alleys_doors_pick_old_total_n": {
+  "value": 44,
+  "display": "44",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bạch đằng naming a ward"
+ },
+ "alleys_doors_st_bach_dang_new_n": {
+  "value": 6,
+  "display": "6",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bạch đằng giving a new ward name"
+ },
+ "alleys_doors_st_bach_dang_old_n": {
+  "value": 38,
+  "display": "38",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bạch đằng giving an old ward number"
+ },
+ "alleys_doors_st_bach_dang_total_n": {
+  "value": 44,
+  "display": "44",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bạch đằng naming a ward"
+ },
+ "alleys_doors_st_binh_loi_new_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bình lợi giving a new ward name"
+ },
+ "alleys_doors_st_binh_loi_old_n": {
+  "value": 40,
+  "display": "40",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bình lợi giving an old ward number"
+ },
+ "alleys_doors_st_binh_loi_total_n": {
+  "value": 50,
+  "display": "50",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bình lợi naming a ward"
+ },
+ "alleys_doors_st_binh_quoi_new_n": {
+  "value": 9,
+  "display": "9",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bình quới giving a new ward name"
+ },
+ "alleys_doors_st_binh_quoi_old_n": {
+  "value": 29,
+  "display": "29",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bình quới giving an old ward number"
+ },
+ "alleys_doors_st_binh_quoi_total_n": {
+  "value": 38,
+  "display": "38",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bình quới naming a ward"
+ },
+ "alleys_doors_st_bui_dinh_tuy_new_n": {
+  "value": 5,
+  "display": "5",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bùi đình túy giving a new ward name"
+ },
+ "alleys_doors_st_bui_dinh_tuy_old_n": {
+  "value": 27,
+  "display": "27",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bùi đình túy giving an old ward number"
+ },
+ "alleys_doors_st_bui_dinh_tuy_total_n": {
+  "value": 32,
+  "display": "32",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bùi đình túy naming a ward"
+ },
+ "alleys_doors_st_bui_huu_nghia_new_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bùi hữu nghĩa giving a new ward name"
+ },
+ "alleys_doors_st_bui_huu_nghia_old_n": {
+  "value": 11,
+  "display": "11",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bùi hữu nghĩa giving an old ward number"
+ },
+ "alleys_doors_st_bui_huu_nghia_total_n": {
+  "value": 12,
+  "display": "12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on bùi hữu nghĩa naming a ward"
+ },
+ "alleys_doors_st_chu_van_an_new_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on chu văn an giving a new ward name"
+ },
+ "alleys_doors_st_chu_van_an_old_n": {
+  "value": 15,
+  "display": "15",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on chu văn an giving an old ward number"
+ },
+ "alleys_doors_st_chu_van_an_total_n": {
+  "value": 16,
+  "display": "16",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on chu văn an naming a ward"
+ },
+ "alleys_doors_st_dang_thuy_tram_new_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on đặng thùy trâm giving a new ward name"
+ },
+ "alleys_doors_st_dang_thuy_tram_old_n": {
+  "value": 39,
+  "display": "39",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on đặng thùy trâm giving an old ward number"
+ },
+ "alleys_doors_st_dang_thuy_tram_total_n": {
+  "value": 52,
+  "display": "52",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on đặng thùy trâm naming a ward"
+ },
+ "alleys_doors_st_dien_bien_phu_new_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on điện biên phủ giving a new ward name"
+ },
+ "alleys_doors_st_dien_bien_phu_old_n": {
+  "value": 83,
+  "display": "83",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on điện biên phủ giving an old ward number"
+ },
+ "alleys_doors_st_dien_bien_phu_total_n": {
+  "value": 101,
+  "display": "101",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on điện biên phủ naming a ward"
+ },
+ "alleys_doors_st_dinh_bo_linh_new_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on đinh bộ lĩnh giving a new ward name"
+ },
+ "alleys_doors_st_dinh_bo_linh_old_n": {
+  "value": 19,
+  "display": "19",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on đinh bộ lĩnh giving an old ward number"
+ },
+ "alleys_doors_st_dinh_bo_linh_total_n": {
+  "value": 21,
+  "display": "21",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on đinh bộ lĩnh naming a ward"
+ },
+ "alleys_doors_st_hoang_hoa_tham_new_n": {
+  "value": 7,
+  "display": "7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on hoàng hoa thám giving a new ward name"
+ },
+ "alleys_doors_st_hoang_hoa_tham_old_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on hoàng hoa thám giving an old ward number"
+ },
+ "alleys_doors_st_hoang_hoa_tham_total_n": {
+  "value": 25,
+  "display": "25",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on hoàng hoa thám naming a ward"
+ },
+ "alleys_doors_st_le_quang_dinh_new_n": {
+  "value": 9,
+  "display": "9",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on lê quang định giving a new ward name"
+ },
+ "alleys_doors_st_le_quang_dinh_old_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on lê quang định giving an old ward number"
+ },
+ "alleys_doors_st_le_quang_dinh_total_n": {
+  "value": 27,
+  "display": "27",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on lê quang định naming a ward"
+ },
+ "alleys_doors_st_le_van_duyet_new_n": {
+  "value": 5,
+  "display": "5",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on lê văn duyệt giving a new ward name"
+ },
+ "alleys_doors_st_le_van_duyet_old_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on lê văn duyệt giving an old ward number"
+ },
+ "alleys_doors_st_le_van_duyet_total_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on lê văn duyệt naming a ward"
+ },
+ "alleys_doors_st_ngo_tat_to_new_n": {
+  "value": 3,
+  "display": "3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on ngô tất tố giving a new ward name"
+ },
+ "alleys_doors_st_ngo_tat_to_old_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on ngô tất tố giving an old ward number"
+ },
+ "alleys_doors_st_ngo_tat_to_total_n": {
+  "value": 16,
+  "display": "16",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on ngô tất tố naming a ward"
+ },
+ "alleys_doors_st_nguyen_huu_canh_new_n": {
+  "value": 9,
+  "display": "9",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn hữu cảnh giving a new ward name"
+ },
+ "alleys_doors_st_nguyen_huu_canh_old_n": {
+  "value": 21,
+  "display": "21",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn hữu cảnh giving an old ward number"
+ },
+ "alleys_doors_st_nguyen_huu_canh_total_n": {
+  "value": 30,
+  "display": "30",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn hữu cảnh naming a ward"
+ },
+ "alleys_doors_st_nguyen_thuong_hien_new_n": {
+  "value": 3,
+  "display": "3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn thượng hiền giving a new ward name"
+ },
+ "alleys_doors_st_nguyen_thuong_hien_old_n": {
+  "value": 11,
+  "display": "11",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn thượng hiền giving an old ward number"
+ },
+ "alleys_doors_st_nguyen_thuong_hien_total_n": {
+  "value": 14,
+  "display": "14",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn thượng hiền naming a ward"
+ },
+ "alleys_doors_st_nguyen_van_dau_new_n": {
+  "value": 9,
+  "display": "9",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn văn đậu giving a new ward name"
+ },
+ "alleys_doors_st_nguyen_van_dau_old_n": {
+  "value": 12,
+  "display": "12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn văn đậu giving an old ward number"
+ },
+ "alleys_doors_st_nguyen_van_dau_total_n": {
+  "value": 21,
+  "display": "21",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn văn đậu naming a ward"
+ },
+ "alleys_doors_st_nguyen_xi_new_n": {
+  "value": 7,
+  "display": "7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn xí giving a new ward name"
+ },
+ "alleys_doors_st_nguyen_xi_old_n": {
+  "value": 28,
+  "display": "28",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn xí giving an old ward number"
+ },
+ "alleys_doors_st_nguyen_xi_total_n": {
+  "value": 35,
+  "display": "35",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nguyễn xí naming a ward"
+ },
+ "alleys_doors_st_no_trang_long_new_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nơ trang long giving a new ward name"
+ },
+ "alleys_doors_st_no_trang_long_old_n": {
+  "value": 35,
+  "display": "35",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nơ trang long giving an old ward number"
+ },
+ "alleys_doors_st_no_trang_long_total_n": {
+  "value": 43,
+  "display": "43",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on nơ trang long naming a ward"
+ },
+ "alleys_doors_st_pham_van_dong_new_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on phạm văn đồng giving a new ward name"
+ },
+ "alleys_doors_st_pham_van_dong_old_n": {
+  "value": 11,
+  "display": "11",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on phạm văn đồng giving an old ward number"
+ },
+ "alleys_doors_st_pham_van_dong_total_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on phạm văn đồng naming a ward"
+ },
+ "alleys_doors_st_phan_van_tri_new_n": {
+  "value": 6,
+  "display": "6",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on phan văn trị giving a new ward name"
+ },
+ "alleys_doors_st_phan_van_tri_old_n": {
+  "value": 19,
+  "display": "19",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on phan văn trị giving an old ward number"
+ },
+ "alleys_doors_st_phan_van_tri_total_n": {
+  "value": 25,
+  "display": "25",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on phan văn trị naming a ward"
+ },
+ "alleys_doors_st_tan_cang_new_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on tân cảng giving a new ward name"
+ },
+ "alleys_doors_st_tan_cang_old_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on tân cảng giving an old ward number"
+ },
+ "alleys_doors_st_tan_cang_total_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on tân cảng naming a ward"
+ },
+ "alleys_doors_st_thanh_da_new_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on thanh đa giving a new ward name"
+ },
+ "alleys_doors_st_thanh_da_old_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on thanh đa giving an old ward number"
+ },
+ "alleys_doors_st_thanh_da_total_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on thanh đa naming a ward"
+ },
+ "alleys_doors_st_ung_van_khiem_new_n": {
+  "value": 7,
+  "display": "7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on ung văn khiêm giving a new ward name"
+ },
+ "alleys_doors_st_ung_van_khiem_old_n": {
+  "value": 21,
+  "display": "21",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on ung văn khiêm giving an old ward number"
+ },
+ "alleys_doors_st_ung_van_khiem_total_n": {
+  "value": 28,
+  "display": "28",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on ung văn khiêm naming a ward"
+ },
+ "alleys_doors_st_xo_viet_nghe_tinh_new_n": {
+  "value": 17,
+  "display": "17",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on xô viết nghệ tĩnh giving a new ward name"
+ },
+ "alleys_doors_st_xo_viet_nghe_tinh_old_n": {
+  "value": 72,
+  "display": "72",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on xô viết nghệ tĩnh giving an old ward number"
+ },
+ "alleys_doors_st_xo_viet_nghe_tinh_total_n": {
+  "value": 89,
+  "display": "89",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "doors on xô viết nghệ tĩnh naming a ward"
+ },
+ "alleys_doors_ward_new_n": {
+  "value": 296,
+  "display": "296",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors (first address line, normalised) of October listings that name a Bình Thạnh ward, giving a new ward name (both counts as new)"
+ },
+ "alleys_doors_ward_old_in": {
+  "value": 0.8,
+  "display": "4 in 5",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "1159 of 1455 doors give the old number (0.797): the smallest k in d within 0.01"
+ },
+ "alleys_doors_ward_old_n": {
+  "value": 1159,
+  "display": "1,159",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors (first address line, normalised) of October listings that name a Bình Thạnh ward, giving an old ward number"
+ },
+ "alleys_doors_ward_total_n": {
+  "value": 1455,
+  "display": "1,455",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "distinct doors (first address line, normalised) of October listings that name a Bình Thạnh ward"
+ },
+ "alleys_faint_min_doors": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/src/atlas/facts.py",
+  "release": "method setting (src/atlas)",
+  "how": "page 3 paints a street faint when at least this many doors on it name a ward (ALLEYS_FAINT_MIN_DOORS)"
+ },
+ "alleys_faint_streets_n": {
+  "value": 24,
+  "display": "24",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "streets page 3 paints faint"
+ },
+ "alleys_hem_share": {
+  "value": 30,
+  "display": "30%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings with at least one slash (a hẻm address): 7299 of 24349"
+ },
+ "alleys_junk_no_address_n": {
+  "value": 1296,
+  "display": "1,296",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings with no address (junk.no_address)"
+ },
+ "alleys_junk_no_number_n": {
+  "value": 3420,
+  "display": "3,420",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings whose address does not start with a house number (junk.no_leading_number)"
+ },
+ "alleys_junk_no_street_n": {
+  "value": 206,
+  "display": "206",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings with a house number but no street the parser can read (junk.no_street); they count as numbered, on no street"
+ },
+ "alleys_junk_range_n": {
+  "value": 381,
+  "display": "381",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings whose number is a range; the first number counts (junk.range_info)"
+ },
+ "alleys_kind_food_n": {
+  "value": 5426,
+  "display": "5,426",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings of kind 'food' (depth.by_kind.food)"
+ },
+ "alleys_kind_food_share": {
+  "value": 28,
+  "display": "28%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings of kind 'food' whose address has at least one slash: 1532 of 5426"
+ },
+ "alleys_kind_office_n": {
+  "value": 8690,
+  "display": "8,690",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings of kind 'office' (depth.by_kind.office)"
+ },
+ "alleys_kind_office_share": {
+  "value": 30,
+  "display": "30%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings of kind 'office' whose address has at least one slash: 2622 of 8690"
+ },
+ "alleys_kind_other_n": {
+  "value": 3354,
+  "display": "3,354",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings of kind 'other' (depth.by_kind.other)"
+ },
+ "alleys_kind_other_share": {
+  "value": 31,
+  "display": "31%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings of kind 'other' whose address has at least one slash: 1044 of 3354"
+ },
+ "alleys_kind_school_n": {
+  "value": 1097,
+  "display": "1,097",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings of kind 'school' (depth.by_kind.school)"
+ },
+ "alleys_kind_school_share": {
+  "value": 29,
+  "display": "29%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings of kind 'school' whose address has at least one slash: 314 of 1097"
+ },
+ "alleys_kind_shop_n": {
+  "value": 5659,
+  "display": "5,659",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings of kind 'shop' (depth.by_kind.shop)"
+ },
+ "alleys_kind_shop_share": {
+  "value": 31,
+  "display": "31%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings of kind 'shop' whose address has at least one slash: 1726 of 5659"
+ },
+ "alleys_listings_n": {
+  "value": 29065,
+  "display": "29,065",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings whose box centre lies inside the pre-2025 outline (distinct ids)"
+ },
+ "alleys_longest_worship_m": {
+  "value": 575,
+  "display": "575 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "the longest drawn worship route, Đền Giê-ra-đô (352/19 Bình Quới): 575.4 m along the OSM alleys from the named street to the listed point, rounded to the metre"
+ },
+ "alleys_max_drawn_m": {
+  "value": 1000.0,
+  "display": "1,000 m",
+  "source_file": "binh-thanh-field-guide/src/alleys/geometry.py",
+  "release": "method setting (src/atlas)",
+  "how": "a route longer than this is not drawn (geometry.MAX_DRAWN_M)"
+ },
+ "alleys_named_1_address": {
+  "value": "273/29/13/34, Nguyễn Văn Đậu",
+  "display": "273/29/13/34, Nguyễn Văn Đậu",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "page 1's place 1, its address as listed"
+ },
+ "alleys_named_1_name": {
+  "value": "Bửu Lâm Tự",
+  "display": "Bửu Lâm Tự",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "page 1's place 1, its name as listed"
+ },
+ "alleys_named_2_address": {
+  "value": "482/10/36/10 Hẻm 10 Đường Nơ Trang Long",
+  "display": "482/10/36/10 Hẻm 10 Đường Nơ Trang Long",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "page 1's place 2, its address as listed"
+ },
+ "alleys_named_2_name": {
+  "value": "Chùa Pháp Quang Tự",
+  "display": "Chùa Pháp Quang Tự",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "page 1's place 2, its name as listed"
+ },
+ "alleys_named_3_address": {
+  "value": "352/19 Bình Quới",
+  "display": "352/19 Bình Quới",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "page 1's place 3, its address as listed"
+ },
+ "alleys_named_3_name": {
+  "value": "Đền Giê-ra-đô",
+  "display": "Đền Giê-ra-đô",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "page 1's place 3, its name as listed"
+ },
+ "alleys_names_both_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "D-street listings giving both names; they count as giving the old"
+ },
+ "alleys_names_new_only_n": {
+  "value": 1486,
+  "display": "1,486",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "D-street listings giving the new name only"
+ },
+ "alleys_names_old_only_n": {
+  "value": 231,
+  "display": "231",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "D-street listings giving the old code name only"
+ },
+ "alleys_names_unit_n": {
+  "value": 5,
+  "display": "5",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings whose D1, D2 or D3 is a block or unit code, left out"
+ },
+ "alleys_numbered_n": {
+  "value": 24349,
+  "display": "24,349",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings whose address parses to a house number on a named street (depth.n_numbered)"
+ },
+ "alleys_old_name_in_n": {
+  "value": 7,
+  "display": "1 in 7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on the three D-streets that give the old code name: 239 of 1,725 = 1 in 7.22, rounded"
+ },
+ "alleys_old_name_n": {
+  "value": 239,
+  "display": "239",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on the three renamed streets that give the old D-name at all (old only + both; both = 8)"
+ },
+ "alleys_old_name_nguyen_gia_tri_n": {
+  "value": 155,
+  "display": "155",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on Nguyễn Gia Trí that give D2 (old only + both)"
+ },
+ "alleys_old_name_nguyen_gia_tri_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "Nguyễn Gia Trí, old name D2: 155 of 971"
+ },
+ "alleys_old_name_nguyen_gia_tri_total": {
+  "value": 971,
+  "display": "971",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on Nguyễn Gia Trí giving either name"
+ },
+ "alleys_old_name_nguyen_van_thuong_n": {
+  "value": 55,
+  "display": "55",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on Nguyễn Văn Thương that give D1 (old only + both)"
+ },
+ "alleys_old_name_nguyen_van_thuong_share": {
+  "value": 11,
+  "display": "11%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "Nguyễn Văn Thương, old name D1: 55 of 510"
+ },
+ "alleys_old_name_nguyen_van_thuong_total": {
+  "value": 510,
+  "display": "510",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on Nguyễn Văn Thương giving either name"
+ },
+ "alleys_old_name_share": {
+  "value": 14,
+  "display": "14%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "old name given at all: 239 of 1725 (Nguyễn Gia Trí / D2, Nguyễn Văn Thương / D1, Võ Oanh / D3)"
+ },
+ "alleys_old_name_total": {
+  "value": 1725,
+  "display": "1,725",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on the three renamed streets giving either name"
+ },
+ "alleys_old_name_vo_oanh_n": {
+  "value": 29,
+  "display": "29",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on Võ Oanh that give D3 (old only + both)"
+ },
+ "alleys_old_name_vo_oanh_share": {
+  "value": 12,
+  "display": "12%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "Võ Oanh, old name D3: 29 of 244"
+ },
+ "alleys_old_name_vo_oanh_total": {
+  "value": 244,
+  "display": "244",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings on Võ Oanh giving either name"
+ },
+ "alleys_other_district_n": {
+  "value": 148,
+  "display": "148",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "October listings in the district whose address names a ward of another district; left out of every ward count"
+ },
+ "alleys_other_kinds_in_10": {
+  "value": 3,
+  "display": "3 in 10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "every numbered listing that is not a place of worship, pooled: 7238 of 24226 have at least one slash, rounded to tenths; each of the 5 other kinds rounds to the same tenth"
+ },
+ "alleys_release_main": {
+  "value": "2026-10-21.0",
+  "display": "2026-10-21.0",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the Overture places release every page counts"
+ },
+ "alleys_snap_max_m": {
+  "value": 60,
+  "display": "60 m",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "a listing further than this from any OSM street or alley gets no route"
+ },
+ "alleys_split_district_in_n": {
+  "value": 6,
+  "display": "1 in 6",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings with a split number: 3,793 of 24,349 = 1 in 6.42, rounded"
+ },
+ "alleys_split_district_n": {
+  "value": 24349,
+  "display": "24,349",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings (a house number on a named street)"
+ },
+ "alleys_split_district_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings with a split number (a letter or bis/ter in the house or alley number): 3793 of 24349"
+ },
+ "alleys_split_district_split_n": {
+  "value": 3793,
+  "display": "3,793",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings whose house number is split (a letter, or bis/ter)"
+ },
+ "alleys_split_gate": {
+  "value": 2.0,
+  "display": "2×",
+  "source_file": "binh-thanh-field-guide/src/alleys/measure.py",
+  "release": "method setting (src/atlas)",
+  "how": "page 2's test, set before the count: the other main streets' split share at least this many times the D-streets' (measure.gate_split)"
+ },
+ "alleys_split_grid_in_n": {
+  "value": 12,
+  "display": "1 in 12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on old Phường 25's D-streets: 131 of 1,549 = 1 in 11.82, rounded"
+ },
+ "alleys_split_grid_n": {
+  "value": 1549,
+  "display": "1,549",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on old Phường 25's D-streets (nguyễn gia trí, nguyễn văn thương, võ oanh)"
+ },
+ "alleys_split_grid_share": {
+  "value": 8,
+  "display": "8%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on the planned grid (nguyễn gia trí, nguyễn văn thương, võ oanh): 131 of 1549"
+ },
+ "alleys_split_grid_split_n": {
+  "value": 131,
+  "display": "131",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on old Phường 25's D-streets"
+ },
+ "alleys_split_min_n": {
+  "value": 30,
+  "display": "30",
+  "source_file": "binh-thanh-field-guide/src/alleys/measure.py",
+  "release": "method setting (src/atlas)",
+  "how": "no street's share is printed or painted on fewer numbered listings than this (measure.MIN_STREET_N)"
+ },
+ "alleys_split_other_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on the other 70 main streets (n >= 30): 3271 of 20335"
+ },
+ "alleys_split_ratio": {
+  "value": 1.9,
+  "display": "1.9×",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "other-street split share / planned-grid split share (1.902); the page-2 gate needs >= 2 (gates.split_houses.pass = False)"
+ },
+ "alleys_split_st_bach_dang_n": {
+  "value": 645,
+  "display": "645",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Bạch Đằng (split.per_street)"
+ },
+ "alleys_split_st_bach_dang_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Bạch Đằng: 104 of 645"
+ },
+ "alleys_split_st_bach_dang_split_n": {
+  "value": 104,
+  "display": "104",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Bạch Đằng"
+ },
+ "alleys_split_st_binh_loi_n": {
+  "value": 459,
+  "display": "459",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Bình Lợi (split.per_street)"
+ },
+ "alleys_split_st_binh_loi_share": {
+  "value": 6,
+  "display": "6%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Bình Lợi: 26 of 459"
+ },
+ "alleys_split_st_binh_loi_split_n": {
+  "value": 26,
+  "display": "26",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Bình Lợi"
+ },
+ "alleys_split_st_binh_quoi_n": {
+  "value": 570,
+  "display": "570",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Bình Quới (split.per_street)"
+ },
+ "alleys_split_st_binh_quoi_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Bình Quới: 94 of 570"
+ },
+ "alleys_split_st_binh_quoi_split_n": {
+  "value": 94,
+  "display": "94",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Bình Quới"
+ },
+ "alleys_split_st_bui_dinh_tuy_n": {
+  "value": 670,
+  "display": "670",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Bùi Đình Túy (split.per_street)"
+ },
+ "alleys_split_st_bui_dinh_tuy_share": {
+  "value": 11,
+  "display": "11%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Bùi Đình Túy: 74 of 670"
+ },
+ "alleys_split_st_bui_dinh_tuy_split_n": {
+  "value": 74,
+  "display": "74",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Bùi Đình Túy"
+ },
+ "alleys_split_st_bui_huu_nghia_n": {
+  "value": 258,
+  "display": "258",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Bùi Hữu Nghĩa (split.per_street)"
+ },
+ "alleys_split_st_bui_huu_nghia_share": {
+  "value": 9,
+  "display": "9%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Bùi Hữu Nghĩa: 24 of 258"
+ },
+ "alleys_split_st_bui_huu_nghia_split_n": {
+  "value": 24,
+  "display": "24",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Bùi Hữu Nghĩa"
+ },
+ "alleys_split_st_chu_van_an_n": {
+  "value": 600,
+  "display": "600",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Chu Văn An (split.per_street)"
+ },
+ "alleys_split_st_chu_van_an_share": {
+  "value": 15,
+  "display": "15%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Chu Văn An: 90 of 600"
+ },
+ "alleys_split_st_chu_van_an_split_n": {
+  "value": 90,
+  "display": "90",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Chu Văn An"
+ },
+ "alleys_split_st_dang_thuy_tram_n": {
+  "value": 368,
+  "display": "368",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Đặng Thuỳ Trâm (split.per_street)"
+ },
+ "alleys_split_st_dang_thuy_tram_share": {
+  "value": 13,
+  "display": "13%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Đặng Thuỳ Trâm: 49 of 368"
+ },
+ "alleys_split_st_dang_thuy_tram_split_n": {
+  "value": 49,
+  "display": "49",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Đặng Thuỳ Trâm"
+ },
+ "alleys_split_st_dien_bien_phu_n": {
+  "value": 2144,
+  "display": "2,144",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Điện Biên Phủ (split.per_street)"
+ },
+ "alleys_split_st_dien_bien_phu_share": {
+  "value": 19,
+  "display": "19%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Điện Biên Phủ: 407 of 2144"
+ },
+ "alleys_split_st_dien_bien_phu_split_n": {
+  "value": 407,
+  "display": "407",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Điện Biên Phủ"
+ },
+ "alleys_split_st_dinh_bo_linh_n": {
+  "value": 585,
+  "display": "585",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Đinh Bộ Lĩnh (split.per_street)"
+ },
+ "alleys_split_st_dinh_bo_linh_share": {
+  "value": 12,
+  "display": "12%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Đinh Bộ Lĩnh: 71 of 585"
+ },
+ "alleys_split_st_dinh_bo_linh_split_n": {
+  "value": 71,
+  "display": "71",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Đinh Bộ Lĩnh"
+ },
+ "alleys_split_st_hoang_hoa_tham_n": {
+  "value": 555,
+  "display": "555",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Hoàng Hoa Thám (split.per_street)"
+ },
+ "alleys_split_st_hoang_hoa_tham_share": {
+  "value": 18,
+  "display": "18%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Hoàng Hoa Thám: 101 of 555"
+ },
+ "alleys_split_st_hoang_hoa_tham_split_n": {
+  "value": 101,
+  "display": "101",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Hoàng Hoa Thám"
+ },
+ "alleys_split_st_huynh_dinh_hai_n": {
+  "value": 127,
+  "display": "127",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Huỳnh Đình Hai (split.per_street)"
+ },
+ "alleys_split_st_huynh_dinh_hai_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Huỳnh Đình Hai: 20 of 127"
+ },
+ "alleys_split_st_huynh_dinh_hai_split_n": {
+  "value": 20,
+  "display": "20",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Huỳnh Đình Hai"
+ },
+ "alleys_split_st_huynh_man_dat_n": {
+  "value": 65,
+  "display": "65",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Huỳnh Mẫn Đạt (split.per_street)"
+ },
+ "alleys_split_st_huynh_man_dat_share": {
+  "value": 12,
+  "display": "12%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Huỳnh Mẫn Đạt: 8 of 65"
+ },
+ "alleys_split_st_huynh_man_dat_split_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Huỳnh Mẫn Đạt"
+ },
+ "alleys_split_st_huynh_tinh_cua_n": {
+  "value": 36,
+  "display": "36",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Huỳnh Tịnh Của (split.per_street)"
+ },
+ "alleys_split_st_huynh_tinh_cua_share": {
+  "value": 3,
+  "display": "3%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Huỳnh Tịnh Của: 1 of 36"
+ },
+ "alleys_split_st_huynh_tinh_cua_split_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Huỳnh Tịnh Của"
+ },
+ "alleys_split_st_le_quang_dinh_n": {
+  "value": 778,
+  "display": "778",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Lê Quang Định (split.per_street)"
+ },
+ "alleys_split_st_le_quang_dinh_share": {
+  "value": 17,
+  "display": "17%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Lê Quang Định: 132 of 778"
+ },
+ "alleys_split_st_le_quang_dinh_split_n": {
+  "value": 132,
+  "display": "132",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Lê Quang Định"
+ },
+ "alleys_split_st_le_truc_n": {
+  "value": 48,
+  "display": "48",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Lê Trực (split.per_street)"
+ },
+ "alleys_split_st_le_truc_share": {
+  "value": 29,
+  "display": "29%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Lê Trực: 14 of 48"
+ },
+ "alleys_split_st_le_truc_split_n": {
+  "value": 14,
+  "display": "14",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Lê Trực"
+ },
+ "alleys_split_st_le_van_duyet_n": {
+  "value": 277,
+  "display": "277",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Lê Văn Duyệt (split.per_street)"
+ },
+ "alleys_split_st_le_van_duyet_share": {
+  "value": 26,
+  "display": "26%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Lê Văn Duyệt: 71 of 277"
+ },
+ "alleys_split_st_le_van_duyet_split_n": {
+  "value": 71,
+  "display": "71",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Lê Văn Duyệt"
+ },
+ "alleys_split_st_me_linh_n": {
+  "value": 85,
+  "display": "85",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Mê Linh (split.per_street)"
+ },
+ "alleys_split_st_me_linh_share": {
+  "value": 9,
+  "display": "9%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Mê Linh: 8 of 85"
+ },
+ "alleys_split_st_me_linh_split_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Mê Linh"
+ },
+ "alleys_split_st_ngo_duc_ke_n": {
+  "value": 76,
+  "display": "76",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Ngô Đức Kế (split.per_street)"
+ },
+ "alleys_split_st_ngo_duc_ke_share": {
+  "value": 24,
+  "display": "24%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Ngô Đức Kế: 18 of 76"
+ },
+ "alleys_split_st_ngo_duc_ke_split_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Ngô Đức Kế"
+ },
+ "alleys_split_st_ngo_tat_to_n": {
+  "value": 314,
+  "display": "314",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Ngô Tất Tố (split.per_street)"
+ },
+ "alleys_split_st_ngo_tat_to_share": {
+  "value": 18,
+  "display": "18%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Ngô Tất Tố: 57 of 314"
+ },
+ "alleys_split_st_ngo_tat_to_split_n": {
+  "value": 57,
+  "display": "57",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Ngô Tất Tố"
+ },
+ "alleys_split_st_nguyen_cong_tru_n": {
+  "value": 54,
+  "display": "54",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Công Trứ (split.per_street)"
+ },
+ "alleys_split_st_nguyen_cong_tru_share": {
+  "value": 6,
+  "display": "6%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Công Trứ: 3 of 54"
+ },
+ "alleys_split_st_nguyen_cong_tru_split_n": {
+  "value": 3,
+  "display": "3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Công Trứ"
+ },
+ "alleys_split_st_nguyen_cuu_van_n": {
+  "value": 332,
+  "display": "332",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Cửu Vân (split.per_street)"
+ },
+ "alleys_split_st_nguyen_cuu_van_share": {
+  "value": 7,
+  "display": "7%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Cửu Vân: 22 of 332"
+ },
+ "alleys_split_st_nguyen_cuu_van_split_n": {
+  "value": 22,
+  "display": "22",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Cửu Vân"
+ },
+ "alleys_split_st_nguyen_duy_n": {
+  "value": 36,
+  "display": "36",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Duy (split.per_street)"
+ },
+ "alleys_split_st_nguyen_duy_share": {
+  "value": 36,
+  "display": "36%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Duy: 13 of 36"
+ },
+ "alleys_split_st_nguyen_duy_split_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Duy"
+ },
+ "alleys_split_st_nguyen_gia_tri_n": {
+  "value": 870,
+  "display": "870",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Gia Trí (split.per_street)"
+ },
+ "alleys_split_st_nguyen_gia_tri_share": {
+  "value": 9,
+  "display": "9%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Gia Trí: 78 of 870"
+ },
+ "alleys_split_st_nguyen_gia_tri_split_n": {
+  "value": 78,
+  "display": "78",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Gia Trí"
+ },
+ "alleys_split_st_nguyen_hong_n": {
+  "value": 76,
+  "display": "76",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyên Hồng (split.per_street)"
+ },
+ "alleys_split_st_nguyen_hong_share": {
+  "value": 29,
+  "display": "29%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyên Hồng: 22 of 76"
+ },
+ "alleys_split_st_nguyen_hong_split_n": {
+  "value": 22,
+  "display": "22",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyên Hồng"
+ },
+ "alleys_split_st_nguyen_huu_canh_n": {
+  "value": 1324,
+  "display": "1,324",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Hữu Cảnh (split.per_street)"
+ },
+ "alleys_split_st_nguyen_huu_canh_share": {
+  "value": 15,
+  "display": "15%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Hữu Cảnh: 198 of 1324"
+ },
+ "alleys_split_st_nguyen_huu_canh_split_n": {
+  "value": 198,
+  "display": "198",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Hữu Cảnh"
+ },
+ "alleys_split_st_nguyen_huy_luong_n": {
+  "value": 54,
+  "display": "54",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Huy Lượng (split.per_street)"
+ },
+ "alleys_split_st_nguyen_huy_luong_share": {
+  "value": 2,
+  "display": "2%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Huy Lượng: 1 of 54"
+ },
+ "alleys_split_st_nguyen_huy_luong_split_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Huy Lượng"
+ },
+ "alleys_split_st_nguyen_huy_tuong_n": {
+  "value": 54,
+  "display": "54",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Huy Tưởng (split.per_street)"
+ },
+ "alleys_split_st_nguyen_huy_tuong_share": {
+  "value": 2,
+  "display": "2%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Huy Tưởng: 1 of 54"
+ },
+ "alleys_split_st_nguyen_huy_tuong_split_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Huy Tưởng"
+ },
+ "alleys_split_st_nguyen_khuyen_n": {
+  "value": 34,
+  "display": "34",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Khuyến (split.per_street)"
+ },
+ "alleys_split_st_nguyen_khuyen_share": {
+  "value": 18,
+  "display": "18%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Khuyến: 6 of 34"
+ },
+ "alleys_split_st_nguyen_khuyen_split_n": {
+  "value": 6,
+  "display": "6",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Khuyến"
+ },
+ "alleys_split_st_nguyen_ngoc_phuong_n": {
+  "value": 72,
+  "display": "72",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Ngọc Phương (split.per_street)"
+ },
+ "alleys_split_st_nguyen_ngoc_phuong_share": {
+  "value": 22,
+  "display": "22%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Ngọc Phương: 16 of 72"
+ },
+ "alleys_split_st_nguyen_ngoc_phuong_split_n": {
+  "value": 16,
+  "display": "16",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Ngọc Phương"
+ },
+ "alleys_split_st_nguyen_thien_thuat_n": {
+  "value": 80,
+  "display": "80",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Thiện Thuật (split.per_street)"
+ },
+ "alleys_split_st_nguyen_thien_thuat_share": {
+  "value": 24,
+  "display": "24%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Thiện Thuật: 19 of 80"
+ },
+ "alleys_split_st_nguyen_thien_thuat_split_n": {
+  "value": 19,
+  "display": "19",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Thiện Thuật"
+ },
+ "alleys_split_st_nguyen_thuong_hien_n": {
+  "value": 162,
+  "display": "162",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Thượng Hiền (split.per_street)"
+ },
+ "alleys_split_st_nguyen_thuong_hien_share": {
+  "value": 27,
+  "display": "27%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Thượng Hiền: 44 of 162"
+ },
+ "alleys_split_st_nguyen_thuong_hien_split_n": {
+  "value": 44,
+  "display": "44",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Thượng Hiền"
+ },
+ "alleys_split_st_nguyen_trung_truc_n": {
+  "value": 59,
+  "display": "59",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Trung Trực (split.per_street)"
+ },
+ "alleys_split_st_nguyen_trung_truc_share": {
+  "value": 19,
+  "display": "19%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Trung Trực: 11 of 59"
+ },
+ "alleys_split_st_nguyen_trung_truc_split_n": {
+  "value": 11,
+  "display": "11",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Trung Trực"
+ },
+ "alleys_split_st_nguyen_van_dau_n": {
+  "value": 628,
+  "display": "628",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Văn Đậu (split.per_street)"
+ },
+ "alleys_split_st_nguyen_van_dau_share": {
+  "value": 19,
+  "display": "19%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Văn Đậu: 119 of 628"
+ },
+ "alleys_split_st_nguyen_van_dau_split_n": {
+  "value": 119,
+  "display": "119",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Văn Đậu"
+ },
+ "alleys_split_st_nguyen_van_lac_n": {
+  "value": 116,
+  "display": "116",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Văn Lạc (split.per_street)"
+ },
+ "alleys_split_st_nguyen_van_lac_share": {
+  "value": 18,
+  "display": "18%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Văn Lạc: 21 of 116"
+ },
+ "alleys_split_st_nguyen_van_lac_split_n": {
+  "value": 21,
+  "display": "21",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Văn Lạc"
+ },
+ "alleys_split_st_nguyen_van_thuong_n": {
+  "value": 455,
+  "display": "455",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Văn Thương (split.per_street)"
+ },
+ "alleys_split_st_nguyen_van_thuong_share": {
+  "value": 8,
+  "display": "8%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Văn Thương: 35 of 455"
+ },
+ "alleys_split_st_nguyen_van_thuong_split_n": {
+  "value": 35,
+  "display": "35",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Văn Thương"
+ },
+ "alleys_split_st_nguyen_xi_n": {
+  "value": 845,
+  "display": "845",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nguyễn Xí (split.per_street)"
+ },
+ "alleys_split_st_nguyen_xi_share": {
+  "value": 19,
+  "display": "19%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nguyễn Xí: 162 of 845"
+ },
+ "alleys_split_st_nguyen_xi_split_n": {
+  "value": 162,
+  "display": "162",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nguyễn Xí"
+ },
+ "alleys_split_st_no_trang_long_n": {
+  "value": 1058,
+  "display": "1,058",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Nơ Trang Long (split.per_street)"
+ },
+ "alleys_split_st_no_trang_long_share": {
+  "value": 20,
+  "display": "20%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Nơ Trang Long: 209 of 1058"
+ },
+ "alleys_split_st_no_trang_long_split_n": {
+  "value": 209,
+  "display": "209",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Nơ Trang Long"
+ },
+ "alleys_split_st_pham_van_dong_n": {
+  "value": 260,
+  "display": "260",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phạm Văn Đồng (split.per_street)"
+ },
+ "alleys_split_st_pham_van_dong_share": {
+  "value": 9,
+  "display": "9%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phạm Văn Đồng: 24 of 260"
+ },
+ "alleys_split_st_pham_van_dong_split_n": {
+  "value": 24,
+  "display": "24",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phạm Văn Đồng"
+ },
+ "alleys_split_st_pham_viet_chanh_n": {
+  "value": 237,
+  "display": "237",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phạm Viết Chánh (split.per_street)"
+ },
+ "alleys_split_st_pham_viet_chanh_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phạm Viết Chánh: 39 of 237"
+ },
+ "alleys_split_st_pham_viet_chanh_split_n": {
+  "value": 39,
+  "display": "39",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phạm Viết Chánh"
+ },
+ "alleys_split_st_phan_boi_chau_n": {
+  "value": 54,
+  "display": "54",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Bội Châu (split.per_street)"
+ },
+ "alleys_split_st_phan_boi_chau_share": {
+  "value": 19,
+  "display": "19%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phan Bội Châu: 10 of 54"
+ },
+ "alleys_split_st_phan_boi_chau_split_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Bội Châu"
+ },
+ "alleys_split_st_phan_chu_trinh_n": {
+  "value": 175,
+  "display": "175",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Chu Trinh (split.per_street)"
+ },
+ "alleys_split_st_phan_chu_trinh_share": {
+  "value": 11,
+  "display": "11%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phan Chu Trinh: 19 of 175"
+ },
+ "alleys_split_st_phan_chu_trinh_split_n": {
+  "value": 19,
+  "display": "19",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Chu Trinh"
+ },
+ "alleys_split_st_phan_dang_luu_n": {
+  "value": 182,
+  "display": "182",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Đăng Lưu (split.per_street)"
+ },
+ "alleys_split_st_phan_dang_luu_share": {
+  "value": 34,
+  "display": "34%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phan Đăng Lưu: 62 of 182"
+ },
+ "alleys_split_st_phan_dang_luu_split_n": {
+  "value": 62,
+  "display": "62",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Đăng Lưu"
+ },
+ "alleys_split_st_phan_van_han_n": {
+  "value": 182,
+  "display": "182",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Văn Hân (split.per_street)"
+ },
+ "alleys_split_st_phan_van_han_share": {
+  "value": 5,
+  "display": "5%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phan Văn Hân: 10 of 182"
+ },
+ "alleys_split_st_phan_van_han_split_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Văn Hân"
+ },
+ "alleys_split_st_phan_van_tri_n": {
+  "value": 690,
+  "display": "690",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Văn Trị (split.per_street)"
+ },
+ "alleys_split_st_phan_van_tri_share": {
+  "value": 25,
+  "display": "25%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phan Văn Trị: 171 of 690"
+ },
+ "alleys_split_st_phan_van_tri_split_n": {
+  "value": 171,
+  "display": "171",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Văn Trị"
+ },
+ "alleys_split_st_phan_xich_long_n": {
+  "value": 69,
+  "display": "69",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Xích Long (split.per_street)"
+ },
+ "alleys_split_st_phan_xich_long_share": {
+  "value": 3,
+  "display": "3%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phan Xích Long: 2 of 69"
+ },
+ "alleys_split_st_phan_xich_long_split_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Xích Long"
+ },
+ "alleys_split_st_pho_duc_chinh_n": {
+  "value": 39,
+  "display": "39",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phó Đức Chính (split.per_street)"
+ },
+ "alleys_split_st_pho_duc_chinh_share": {
+  "value": 8,
+  "display": "8%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phó Đức Chính: 3 of 39"
+ },
+ "alleys_split_st_pho_duc_chinh_split_n": {
+  "value": 3,
+  "display": "3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phó Đức Chính"
+ },
+ "alleys_split_st_phu_my_n": {
+  "value": 57,
+  "display": "57",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phú Mỹ (split.per_street)"
+ },
+ "alleys_split_st_phu_my_share": {
+  "value": 23,
+  "display": "23%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Phú Mỹ: 13 of 57"
+ },
+ "alleys_split_st_phu_my_split_n": {
+  "value": 13,
+  "display": "13",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phú Mỹ"
+ },
+ "alleys_split_st_quoc_lo_13_n": {
+  "value": 256,
+  "display": "256",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Quốc Lộ 13 (split.per_street)"
+ },
+ "alleys_split_st_quoc_lo_13_share": {
+  "value": 7,
+  "display": "7%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Quốc Lộ 13: 19 of 256"
+ },
+ "alleys_split_st_quoc_lo_13_split_n": {
+  "value": 19,
+  "display": "19",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Quốc Lộ 13"
+ },
+ "alleys_split_st_tan_cang_n": {
+  "value": 125,
+  "display": "125",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Tân Cảng (split.per_street)"
+ },
+ "alleys_split_st_tan_cang_share": {
+  "value": 5,
+  "display": "5%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Tân Cảng: 6 of 125"
+ },
+ "alleys_split_st_tan_cang_split_n": {
+  "value": 6,
+  "display": "6",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Tân Cảng"
+ },
+ "alleys_split_st_tang_bat_ho_n": {
+  "value": 62,
+  "display": "62",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Tăng Bạt Hổ (split.per_street)"
+ },
+ "alleys_split_st_tang_bat_ho_share": {
+  "value": 27,
+  "display": "27%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Tăng Bạt Hổ: 17 of 62"
+ },
+ "alleys_split_st_tang_bat_ho_split_n": {
+  "value": 17,
+  "display": "17",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Tăng Bạt Hổ"
+ },
+ "alleys_split_st_thanh_da_n": {
+  "value": 149,
+  "display": "149",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Thanh Đa (split.per_street)"
+ },
+ "alleys_split_st_thanh_da_share": {
+  "value": 23,
+  "display": "23%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Thanh Đa: 35 of 149"
+ },
+ "alleys_split_st_thanh_da_split_n": {
+  "value": 35,
+  "display": "35",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Thanh Đa"
+ },
+ "alleys_split_st_tran_binh_trong_n": {
+  "value": 145,
+  "display": "145",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Trần Bình Trọng (split.per_street)"
+ },
+ "alleys_split_st_tran_binh_trong_share": {
+  "value": 30,
+  "display": "30%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Trần Bình Trọng: 43 of 145"
+ },
+ "alleys_split_st_tran_binh_trong_split_n": {
+  "value": 43,
+  "display": "43",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Trần Bình Trọng"
+ },
+ "alleys_split_st_tran_ke_xuong_n": {
+  "value": 31,
+  "display": "31",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Trần Kế Xương (split.per_street)"
+ },
+ "alleys_split_st_tran_ke_xuong_share": {
+  "value": 23,
+  "display": "23%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Trần Kế Xương: 7 of 31"
+ },
+ "alleys_split_st_tran_ke_xuong_split_n": {
+  "value": 7,
+  "display": "7",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Trần Kế Xương"
+ },
+ "alleys_split_st_tran_quang_long_n": {
+  "value": 30,
+  "display": "30",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Trần Quang Long (split.per_street)"
+ },
+ "alleys_split_st_tran_quang_long_share": {
+  "value": 0,
+  "display": "0%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Trần Quang Long: 0 of 30"
+ },
+ "alleys_split_st_tran_quang_long_split_n": {
+  "value": 0,
+  "display": "0",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Trần Quang Long"
+ },
+ "alleys_split_st_tran_quy_cap_n": {
+  "value": 71,
+  "display": "71",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Trần Quý Cáp (split.per_street)"
+ },
+ "alleys_split_st_tran_quy_cap_share": {
+  "value": 17,
+  "display": "17%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Trần Quý Cáp: 12 of 71"
+ },
+ "alleys_split_st_tran_quy_cap_split_n": {
+  "value": 12,
+  "display": "12",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Trần Quý Cáp"
+ },
+ "alleys_split_st_tran_van_ky_n": {
+  "value": 64,
+  "display": "64",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Trần Văn Kỷ (split.per_street)"
+ },
+ "alleys_split_st_tran_van_ky_share": {
+  "value": 6,
+  "display": "6%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Trần Văn Kỷ: 4 of 64"
+ },
+ "alleys_split_st_tran_van_ky_split_n": {
+  "value": 4,
+  "display": "4",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Trần Văn Kỷ"
+ },
+ "alleys_split_st_truong_sa_n": {
+  "value": 163,
+  "display": "163",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Trường Sa (split.per_street)"
+ },
+ "alleys_split_st_truong_sa_share": {
+  "value": 20,
+  "display": "20%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Trường Sa: 33 of 163"
+ },
+ "alleys_split_st_truong_sa_split_n": {
+  "value": 33,
+  "display": "33",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Trường Sa"
+ },
+ "alleys_split_st_ung_van_khiem_n": {
+  "value": 728,
+  "display": "728",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Ung Văn Khiêm (split.per_street)"
+ },
+ "alleys_split_st_ung_van_khiem_share": {
+  "value": 18,
+  "display": "18%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Ung Văn Khiêm: 134 of 728"
+ },
+ "alleys_split_st_ung_van_khiem_split_n": {
+  "value": 134,
+  "display": "134",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Ung Văn Khiêm"
+ },
+ "alleys_split_st_van_kiep_n": {
+  "value": 248,
+  "display": "248",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Vạn Kiếp (split.per_street)"
+ },
+ "alleys_split_st_van_kiep_share": {
+  "value": 11,
+  "display": "11%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Vạn Kiếp: 27 of 248"
+ },
+ "alleys_split_st_van_kiep_split_n": {
+  "value": 27,
+  "display": "27",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Vạn Kiếp"
+ },
+ "alleys_split_st_vo_duy_ninh_n": {
+  "value": 93,
+  "display": "93",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Võ Duy Ninh (split.per_street)"
+ },
+ "alleys_split_st_vo_duy_ninh_share": {
+  "value": 2,
+  "display": "2%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Võ Duy Ninh: 2 of 93"
+ },
+ "alleys_split_st_vo_duy_ninh_split_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Võ Duy Ninh"
+ },
+ "alleys_split_st_vo_oanh_n": {
+  "value": 224,
+  "display": "224",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Võ Oanh (split.per_street)"
+ },
+ "alleys_split_st_vo_oanh_share": {
+  "value": 8,
+  "display": "8%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Võ Oanh: 18 of 224"
+ },
+ "alleys_split_st_vo_oanh_split_n": {
+  "value": 18,
+  "display": "18",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Võ Oanh"
+ },
+ "alleys_split_st_vu_huy_tan_n": {
+  "value": 128,
+  "display": "128",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Vũ Huy Tấn (split.per_street)"
+ },
+ "alleys_split_st_vu_huy_tan_share": {
+  "value": 16,
+  "display": "16%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Vũ Huy Tấn: 20 of 128"
+ },
+ "alleys_split_st_vu_huy_tan_split_n": {
+  "value": 20,
+  "display": "20",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Vũ Huy Tấn"
+ },
+ "alleys_split_st_vu_ngoc_phan_n": {
+  "value": 36,
+  "display": "36",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Vũ Ngọc Phan (split.per_street)"
+ },
+ "alleys_split_st_vu_ngoc_phan_share": {
+  "value": 28,
+  "display": "28%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Vũ Ngọc Phan: 10 of 36"
+ },
+ "alleys_split_st_vu_ngoc_phan_split_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Vũ Ngọc Phan"
+ },
+ "alleys_split_st_vu_tung_n": {
+  "value": 138,
+  "display": "138",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Vũ Tùng (split.per_street)"
+ },
+ "alleys_split_st_vu_tung_share": {
+  "value": 12,
+  "display": "12%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Vũ Tùng: 17 of 138"
+ },
+ "alleys_split_st_vu_tung_split_n": {
+  "value": 17,
+  "display": "17",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Vũ Tùng"
+ },
+ "alleys_split_st_xo_viet_nghe_tinh_n": {
+  "value": 1670,
+  "display": "1,670",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Xô Viết Nghệ Tĩnh (split.per_street)"
+ },
+ "alleys_split_st_xo_viet_nghe_tinh_share": {
+  "value": 14,
+  "display": "14%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split share on Xô Viết Nghệ Tĩnh: 229 of 1670"
+ },
+ "alleys_split_st_xo_viet_nghe_tinh_split_n": {
+  "value": 229,
+  "display": "229",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Xô Viết Nghệ Tĩnh"
+ },
+ "alleys_split_streets_n": {
+  "value": 65,
+  "display": "65",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "main streets drawn on pages 2 and 3"
+ },
+ "alleys_split_top_in_n": {
+  "value": 3,
+  "display": "1 in 3",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Đăng Lưu: 62 of 182 = 1 in 2.94, rounded"
+ },
+ "alleys_split_top_min_n": {
+  "value": 100,
+  "display": "100",
+  "source_file": "binh-thanh-field-guide/src/atlas/facts.py",
+  "release": "method setting (src/atlas)",
+  "how": "page 2's 1 is the most split of the drawn streets with at least this many numbered listings (ALLEYS_SPLIT_GLOSS_MIN_N)"
+ },
+ "alleys_split_top_n": {
+  "value": 182,
+  "display": "182",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings on Phan Đăng Lưu"
+ },
+ "alleys_split_top_share": {
+  "value": 34,
+  "display": "34%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the drawn main street with at least 100 numbered listings and the highest split share: 62 of 182"
+ },
+ "alleys_split_top_split_n": {
+  "value": 62,
+  "display": "62",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "split numbers on Phan Đăng Lưu"
+ },
+ "alleys_split_top_street": {
+  "value": "Phan Đăng Lưu",
+  "display": "Phan Đăng Lưu",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "the drawn main street with at least 100 numbered listings and the highest split share: 62 of 182"
+ },
+ "alleys_street_variants_n": {
+  "value": 57,
+  "display": "57",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "street spellings folded into another spelling of the same street"
+ },
+ "alleys_streets_unmatched_n": {
+  "value": 8,
+  "display": "8",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "streets with enough listings that OSM cannot draw: numbered streets in several pieces, a name OSM lacks, or a street outside the outline"
+ },
+ "alleys_undrawn_long_n": {
+  "value": 1,
+  "display": "1",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "worship routes not drawn: over_1000m"
+ },
+ "alleys_undrawn_long_names": {
+  "value": "Chùa Pháp Quang Bình Thạnh, 414/17 Đường Nơ Trang Long",
+  "display": "Chùa Pháp Quang Bình Thạnh, 414/17 Đường Nơ Trang Long",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "the places of worship not drawn (over_1000m), name and address as listed"
+ },
+ "alleys_undrawn_outside_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "worship routes not drawn: named_outside_outline"
+ },
+ "alleys_undrawn_outside_names": {
+  "value": "Chùa Thiền Tịnh, 87/410, Đinh Tiên Hoàng; Chùa Phổ Hiền, 87/44/6 Hẻm 87 Đinh Tiên Hoàng",
+  "display": "Chùa Thiền Tịnh, 87/410, Đinh Tiên Hoàng; Chùa Phổ Hiền, 87/44/6 Hẻm 87 Đinh Tiên Hoàng",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "the places of worship not drawn (named_outside_outline), name and address as listed"
+ },
+ "alleys_undrawn_short_n": {
+  "value": 4,
+  "display": "4",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "worship routes not drawn: degenerate"
+ },
+ "alleys_undrawn_short_names": {
+  "value": "Nhà Thờ Bình Hòa, 93/9, Nơ Trang Long; Chùa Diệu Giác, 248/2, Trần Kế Xương; Chua Chau An, 498/1/2, Lê Quang Định; Chùa An Hòa, 70/1, Quốc Lộ 4, Khu Phố 2",
+  "display": "Nhà Thờ Bình Hòa, 93/9, Nơ Trang Long; Chùa Diệu Giác, 248/2, Trần Kế Xương; Chua Chau An, 498/1/2, Lê Quang Định; Chùa An Hòa, 70/1, Quốc Lộ 4, Khu Phố 2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "the places of worship not drawn (degenerate), name and address as listed"
+ },
+ "alleys_unread_ward_n": {
+  "value": 50,
+  "display": "50",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "October listings that write a numbered ward as 'Ward 22' or 'Phuong 25' (English, or without tone marks); not read"
+ },
+ "alleys_ward5_name_1": {
+  "value": "In Bạt Hiflex Khổ Lớn Lấy Ngay",
+  "display": "In Bạt Hiflex Khổ Lớn Lấy Ngay",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listing name 1 at that door, as listed (its first part, before ' - ')"
+ },
+ "alleys_ward5_name_2": {
+  "value": "In Folder, Bìa Hồ Sơ Giá Rẻ TPHCM",
+  "display": "In Folder, Bìa Hồ Sơ Giá Rẻ TPHCM",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listing name 2 at that door, as listed (its first part, before ' - ')"
+ },
+ "alleys_ward5_named_n": {
+  "value": 55,
+  "display": "55",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings in old Phường 5 that name a ward"
+ },
+ "alleys_ward5_new_n": {
+  "value": 31,
+  "display": "31",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "of those, listings that give a new ward name"
+ },
+ "alleys_ward5_top_door": {
+  "value": "365 Lê Quang Định",
+  "display": "365 Lê Quang Định",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "that door's number and street, as one of its listings writes it"
+ },
+ "alleys_ward5_top_n": {
+  "value": 23,
+  "display": "23",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "of those, listings at the one most-listed door"
+ },
+ "alleys_ward_absent_n": {
+  "value": 262,
+  "display": "262",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "April's old-ward listings not listed in October"
+ },
+ "alleys_ward_april_old_n": {
+  "value": 981,
+  "display": "981",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "listings that gave an old ward in 2026-04-15.0 (262 of them are not listed in 2026-10-21.0)"
+ },
+ "alleys_ward_baseline_n": {
+  "value": 719,
+  "display": "719",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "listings that gave an old ward in 2026-04-15.0 and are still listed in 2026-10-21.0 (981 gave an old ward; 262 are gone)"
+ },
+ "alleys_ward_dropped_n": {
+  "value": 152,
+  "display": "152",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "April's old-ward listings that give no ward in October"
+ },
+ "alleys_ward_release_april": {
+  "value": "2026-04-15.0",
+  "display": "2026-04-15.0",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "the earlier release page 3's ward table compares with"
+ },
+ "alleys_ward_still_old_n": {
+  "value": 557,
+  "display": "557",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "April's old-ward listings that still give an old ward in October"
+ },
+ "alleys_ward_switched_n": {
+  "value": 10,
+  "display": "10",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-04-15.0 → 2026-10-21.0",
+  "how": "of those 719, listings that now give a new ward instead (557 still give the old ward, 152 give none)"
+ },
+ "alleys_worship_drawn_n": {
+  "value": 54,
+  "display": "54",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "worship routes drawn on page 1; not drawn: 7 (Nhà Thờ Bình Hòa: degenerate, Chùa Thiền Tịnh: named_outside_outline, Chùa Phổ Hiền: named_outside_outline, Chùa Pháp Quang Bình Thạnh: over_1000m, Chùa Diệu Giác: degenerate, Chua Chau An: degenerate, Chùa An Hòa: degenerate)"
+ },
+ "alleys_worship_fallback_n": {
+  "value": 2,
+  "display": "2",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/geometry.json",
+  "release": "Overture 2026-10-21.0; OpenStreetMap vietnam-latest.osm.pbf (sha256 a662d65fac31)",
+  "how": "drawn worship routes that start on the nearest main road, as the named street has no usable OSM match"
+ },
+ "alleys_worship_hem_n": {
+  "value": 61,
+  "display": "61",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "places of worship whose address has at least one slash"
+ },
+ "alleys_worship_hem_share": {
+  "value": 50,
+  "display": "50%",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "places of worship with at least one slash: 61 of 123"
+ },
+ "alleys_worship_kind_n": {
+  "value": 194,
+  "display": "194",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "listings Overture's category files as a place of worship"
+ },
+ "alleys_worship_n": {
+  "value": 123,
+  "display": "123",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "numbered listings reviewed as places of worship (worship_review.json)"
+ },
+ "alleys_worship_not_n": {
+  "value": 30,
+  "display": "30",
+  "source_file": "binh-thanh-field-guide/web/atlas/data/v25/measures.json",
+  "release": "Overture 2026-10-21.0",
+  "how": "of those, listings the hand review (worship_review.json) found are not a place of worship; they count as other"
+ },
  "avenue_ratio": {
   "value": 6.8,
   "display": "~7×",
@@ -294,6 +3465,20 @@
   "source_file": "binh-thanh-field-guide/web/atlas/data/v22/pockets.json",
   "release": "2026-06-17.0",
   "how": "not_food_dropped: listings the non-food review (nonfood_review.json) took out before the pocket scan"
+ },
+ "redraw_resolution": {
+  "value": "Nghị quyết 1685/NQ-UBTVQH15, 16/6/2025",
+  "display": "Nghị quyết 1685/NQ-UBTVQH15, 16/6/2025",
+  "source_file": "binh-thanh-story/web/redraw.json",
+  "release": "2025 ward redraw (redraw.json resolution_citation)",
+  "how": "the resolution of the 2025 ward redraw, with its date (claims.json reform_1685: sourced)"
+ },
+ "redraw_resolution_no": {
+  "value": "Nghị quyết 1685/NQ-UBTVQH15",
+  "display": "Nghị quyết 1685/NQ-UBTVQH15",
+  "source_file": "binh-thanh-story/web/redraw.json",
+  "release": "2025 ward redraw (redraw.json resolution_citation)",
+  "how": "the resolution of the 2025 ward redraw (claims.json reform_1685: sourced)"
  },
  "redraw_year": {
   "value": 2025,

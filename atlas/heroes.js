@@ -3,7 +3,7 @@
    own <svg> inside fig (Atlas.frame), sizes it from fig.clientWidth, draws the
    shared base (Atlas.drawBase) and the furniture (Atlas.furniture), and is
    redrawn on resize by the dispatch. Chapter 1 (v2.2) draws `streets`, `pair` and
-   `block`; chapter 2 draws `sheet`, `plate`, `route` and `wards`. The v2.0 renderers
+   `block`; chapter 2 draws `sheet`, `plate`, `route` and `wards`; chapter 3 (v2.5) draws `alleys` (in stage.js). The v2.0 renderers
    (dots, compare, glyphs, zoom, territories, units) left with their pages in v2.2. */
 (function () {
   "use strict";
@@ -1456,8 +1456,21 @@
     card(A.north(svg, w - 22, 26), 3);
   };
 
+  /* ================= chapter 3 (v2.5): The Alleys =================
+     v2.5-S3: chapter 3 leaves the spread; its `alleys` hero, the pockets and the steps live in stage.js, which the
+     stage template loads after this file (before the dispatch runs on DOMContentLoaded). */
+
   /* ---- dispatch: load the page's data + the shared base, draw, redraw on resize ---- */
   const FONT_WAIT_MS = 3000;
+  /** A layer that names a shared file (`src`, e.g. chapter 3's alleys-network.json) gets its lines loaded next to
+      the page's own data, with the page's cache-bust. */
+  function loadLayers(fig, data) {
+    const [src, q] = fig.dataset.src.split("?");
+    const dir = src.replace(/[^/]*$/, "");
+    return Promise.all((data.layers || []).filter((l) => l.src && !l.lines).map((l) =>
+      d3.json(dir + l.src + (q ? "?" + q : "")).then((x) => { l.lines = x.lines; l.source = x.source; })))
+      .then(() => data);
+  }
   A.render = function (fig) {
     const kind = document.body.dataset.hero;
     const draw = A.heroes[kind];
@@ -1473,7 +1486,7 @@
     const ready = document.fonts && document.fonts.ready ? document.fonts.ready.catch(() => null) : Promise.resolve();
     let late = false;
     const fonts = Promise.race([ready, new Promise((r) => setTimeout(() => { late = true; r(); }, FONT_WAIT_MS))]);
-    return Promise.all([d3.json(fig.dataset.src), d3.json(fig.dataset.base), fonts]).then(([data, base]) => {
+    return Promise.all([d3.json(fig.dataset.src).then((d) => loadLayers(fig, d)), d3.json(fig.dataset.base), fonts]).then(([data, base]) => {
       let lastW = -1, lastH = -1, raf = 0;
       const redraw = () => {
         const cw = Math.floor(fig.clientWidth), ch = Math.floor(fig.clientHeight);

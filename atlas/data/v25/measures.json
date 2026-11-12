@@ -1,0 +1,6302 @@
+{
+ "release": {
+  "main": "2026-10-21.0",
+  "baseline": "2026-04-15.0"
+ },
+ "n_listings": 29065,
+ "n_listings_baseline": 25267,
+ "depth": {
+  "all": {
+   "0": 17050,
+   "1": 6027,
+   "2": 1224,
+   "3": 48,
+   "4": 0
+  },
+  "by_kind": {
+   "food": {
+    "0": 3894,
+    "1": 1321,
+    "2": 203,
+    "3": 8,
+    "4": 0
+   },
+   "office": {
+    "0": 6068,
+    "1": 2130,
+    "2": 481,
+    "3": 11,
+    "4": 0
+   },
+   "other": {
+    "0": 2310,
+    "1": 850,
+    "2": 184,
+    "3": 10,
+    "4": 0
+   },
+   "school": {
+    "0": 783,
+    "1": 268,
+    "2": 46,
+    "3": 0,
+    "4": 0
+   },
+   "shop": {
+    "0": 3933,
+    "1": 1408,
+    "2": 301,
+    "3": 17,
+    "4": 0
+   },
+   "worship": {
+    "0": 62,
+    "1": 50,
+    "2": 9,
+    "3": 2,
+    "4": 0
+   }
+  },
+  "n_numbered": 24349
+ },
+ "worship": {
+  "n": 123,
+  "hem_n": 61,
+  "hem_share": 0.4959349593495935,
+  "all_n": 24349,
+  "all_hem_n": 7299,
+  "all_hem_share": 0.29976590414390736,
+  "deep": [
+   {
+    "id": "0c9d5c16-cd98-4d86-9651-136140397b80",
+    "name": "Công Ty Hannah Trading",
+    "address": "201/13/1/22 Đ. Nguyễn Xí",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "0f66ee41-bff4-4fac-97ee-509246c9696c",
+    "name": "Cân Điện Tử Chính Hãng",
+    "address": "4A/4A/6/6 Hẻm 4A/6 Nguyễn Đường D1",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "12c0bae5-3c52-4147-abba-edf710eac5cc",
+    "name": "Boone Vintage ( Cafe Điếu Cày )",
+    "address": "146/59/18/23 Đ. Vũ Tùng",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "1a0b0910-8e23-41c5-94f2-afc47842b94f",
+    "name": "Văn Phòng Phẩm Vinacom",
+    "address": "23/2/1/6 Đường số 27, Phường hiệp bình chánh, thành phố thủ đức",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": true
+   },
+   {
+    "id": "22a5504f-49cc-43dc-ba5d-11b17cc943d5",
+    "name": "Thiết Kế Thi Công An Huy Décor",
+    "address": "85/2/1/42 Đ. Võ Thị Liễu, Khu Phố 4, Phường An Phú Đông, Quận 12",
+    "depth": 3,
+    "kind": "office",
+    "other_district": true
+   },
+   {
+    "id": "27c0d695-321e-487b-9588-499bc6636935",
+    "name": "Cơ sở tiện Thành Tâm",
+    "address": "1/6/11/11, 1/6/11/18 Đinh Bộ Lĩnh",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "28cee1ae-e99b-48ea-9d54-375863d17193",
+    "name": "Cống Bê Tông Ly Tâm - Bê Tông MQB",
+    "address": "235/50/11/32 Hẻm 50 Đường Đặng Thùy Trâm",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "2d4c9f54-a2ac-4444-9de1-1828f6cf6e9f",
+    "name": "𝐕𝐮̛𝐨̛̀𝐧 𝐆𝐚̂́𝐮 𝐁𝐨̂𝐧𝐠",
+    "address": "265/332/42/15 Hẻm 265 Nơ Trang Long",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "32f80279-8192-41fc-8a8f-4e40b3dd5681",
+    "name": "Nhà Trọ Ven Sông",
+    "address": "482/10/28/35B Nơ Trang Long",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "34e5249d-bd24-4c85-9175-3b8ff0f13cb8",
+    "name": "Bida Thanh Minh",
+    "address": "71/71/1/23 Đường Nguyễn Văn Thương",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "389d5a2c-08e6-4e4f-9717-f7645a1ceabc",
+    "name": "Cá Viên Sỉ và Lẻ - HAĐP",
+    "address": "280/29/20/30 bùi hữu nghĩa , phường 2 , quận bình thạnh",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "41bdb183-da60-43d6-8a57-53de3aceb125",
+    "name": "Công ty TNHH Cement Nam Hải",
+    "address": "235/50/7/13, Đ. Đặng Thuỳ Trâm",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "433b9194-2067-4def-a329-f67d1a29f4a6",
+    "name": "Bún cô hồng",
+    "address": "334/64/81/21 Chu Văn An",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "458f6360-b401-44a9-9e86-c53a0a930ba5",
+    "name": "Hoàng Thái Music",
+    "address": "20/1/36/6B Đường Nguyên Hồng",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "48840ef8-16d3-4f8a-8ccd-94dafa65afe3",
+    "name": "Quán ăn Ngõ",
+    "address": "602/37/16/10 Điện Biên Phủ",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "4a62b914-4a98-44ad-bbb9-74483e3f0160",
+    "name": "An Duy Computer - CN Bình Lợi",
+    "address": "111/8/2/66 Đ. Đặng Thuỳ Trâm",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "4bfdac7a-f876-4013-a161-41f1db7eed92",
+    "name": "HomyPlus",
+    "address": "235/50/11/13, Đ. Đặng Thuỳ Trâm",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "5b62e2c4-d3c6-4bb8-a893-a2b2574b2a14",
+    "name": "Halo Air  - Vé máy bay giá rẻ, khách sạn, combo du lịch",
+    "address": "111/8/2/56 Đường Trục, Phường 13, Quận Bình Thạnh, TP Hồ Chí Minh",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "5f5241fb-b4af-4ae6-b979-a320e6dfad95",
+    "name": "Piano HT",
+    "address": "20/1/36/6B Đường Nguyên Hồng",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "63f24e3e-e086-446d-b7b4-2351f9488407",
+    "name": "Làng Lẩu Mộc",
+    "address": "235/50/11/32 Hẻm 50 Đường Đặng Thùy Trâm",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "652bfc6d-b9cd-4856-ac3b-e7324f231473",
+    "name": "Văn Phòng Phẩm Quận Bình Thạnh",
+    "address": "125/42/9/2 Bùi Đình Tuý",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "657cc71e-10e6-4cff-848e-72a85b367ff1",
+    "name": "Bida Thanh HiỂN",
+    "address": "92/4/29/11 Đường Vườn Lài",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "65cac67b-670f-4bb3-886c-7b00b90b0fe2",
+    "name": "Cris Barber Shop",
+    "address": "36/32/8/15 Hẻm 36 Nguyễn Gia Trí",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "67fdecdc-bc94-41f3-a6f8-3c84636d4e80",
+    "name": "SagittB Therapy - Gội Đầu Trị Liệu",
+    "address": "290/45/20/6 Nơ Trang Long",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "694f7286-1250-4f13-9e14-2c0e90b9fe46",
+    "name": "ĐẠI CÁT - Npp Bia TƯƠI 89",
+    "address": "235/50/7/2, Đ. Đặng Thuỳ Trâm",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "707f2f2b-9136-4311-9424-e39a932d8bb4",
+    "name": "Nhà Mẹ Sam",
+    "address": "235/50/7/13 Hẻm 235/50/7 Đường Đặng Thùy Trâm",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "76472ef8-bcb6-4779-86d4-3f214b66946e",
+    "name": "Quan Nhau Ty Ngo",
+    "address": "255/6/7/46 Lê Thánh Tôn",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "7cf87163-9128-45ec-b7be-554b5459882d",
+    "name": "Q House Spa",
+    "address": "113/4/16/3 Võ Duy Ninh",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "82191485-ed44-4bb1-8895-8c6276bfec00",
+    "name": "TN Quality - Sim ghép cho iPhone Lock",
+    "address": "146/59/18/34 Đường Vũ Tùng",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "8ec5abb3-79ec-4c17-bd84-a620166f75aa",
+    "name": "Cafe Mộc",
+    "address": "29/8E/A31/58 Đinh Bộ Lĩnh",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "9697471c-acf5-4685-aa82-45f44e49e736",
+    "name": "Tirtim.vn",
+    "address": "4/4/1/7 Đường số 3, Phường Hiệp Bình Chánh",
+    "depth": 3,
+    "kind": "other",
+    "other_district": true
+   },
+   {
+    "id": "a7ab6d16-fd7e-48b8-865f-48e97a8f73d8",
+    "name": "Chami Nail",
+    "address": "334/64/81/3, Chu Văn An",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "b24fffe6-b990-4240-a6b1-590702054091",
+    "name": "Chùa Pháp Quang Tự",
+    "address": "482/10/36/10 Hẻm 10 Đường Nơ Trang Long",
+    "depth": 3,
+    "kind": "worship",
+    "other_district": false
+   },
+   {
+    "id": "b2f0e279-3187-40a0-91f5-6f63746b3bc1",
+    "name": "Thư Pháp Petrus",
+    "address": "480/31/2/9 Bình Quới",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "bb40de21-9cb7-401a-9919-2b501efd5774",
+    "name": "SagittB",
+    "address": "290/45/20/6 Nơ Trang Long",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "c73601d0-a0f1-4951-b9d1-4f7cd289d2d6",
+    "name": "Hồng Ân Corset Chuẩn 0898158806",
+    "address": "201/13/1/12 Hẻm 201/13 Nguyễn Xí",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "c74bc646-a3e9-4194-8162-bbbcfeb01a65",
+    "name": "Pod Vape BÌNh ThẠNh",
+    "address": "146/59/18/23 Đường Vũ Tùng",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "c7952aac-1994-41cf-9e68-97e38768f30a",
+    "name": "Purisia Home",
+    "address": "273/29/13/6 Nguyễn Văn Đậu",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "cbd56b11-da8f-4061-b3b1-d2caf555a939",
+    "name": "Happy House",
+    "address": "482/10/36/8 đường, Nơ Trang Long",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "ccce52cd-0d7b-4321-8b6f-1ac243835574",
+    "name": "Công Ty TNHH Dịch Vụ Bảo Vệ Sao Mai",
+    "address": "111/8/2/11 Đ. Đặng Thuỳ Trâm",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "cf3f1aa0-bd0a-4cda-b027-ccb2f2152d9e",
+    "name": "Quán Ba Tộ",
+    "address": "480/31/2/1 Bình Quới",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "e05829a9-9483-47cb-985b-f8fdb6cdefa1",
+    "name": "Shop BebiBebi",
+    "address": "290/56/13/5 Hẻm 290 Đường Nơ Trang Long",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "e1488fea-4d2f-4bf0-9291-255582c9edcc",
+    "name": "Home Care HCM",
+    "address": "201/13/1/22 Hẻm 201/13 Nguyễn Xí",
+    "depth": 3,
+    "kind": "office",
+    "other_district": false
+   },
+   {
+    "id": "e5495af0-01ef-4d6d-b3d6-9f9e575d54d2",
+    "name": "Bửu Lâm Tự",
+    "address": "273/29/13/34, Nguyễn Văn Đậu",
+    "depth": 3,
+    "kind": "worship",
+    "other_district": false
+   },
+   {
+    "id": "e5ec2335-b34e-4b05-87da-0b4a1cf847bb",
+    "name": "Bánh Tráng Trộn Vạn Kiếp",
+    "address": "146/59/18/96 Đ. Vũ Tùng",
+    "depth": 3,
+    "kind": "food",
+    "other_district": false
+   },
+   {
+    "id": "f02b03d0-2cce-4ec3-8486-31affc24bc0c",
+    "name": "EM Bridal",
+    "address": "201/13/1/35 Hẻm 201/13/1 Đường Nguyễn Xí",
+    "depth": 3,
+    "kind": "shop",
+    "other_district": false
+   },
+   {
+    "id": "f802409a-8cbb-4ec6-bd93-4eea33d4ca67",
+    "name": "S2M GAMING - Đường D2 - Q. Bình Thạnh",
+    "address": "36/32/8/15 Hẻm 36 Nguyễn Gia Trí",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   },
+   {
+    "id": "fb286018-cce8-45b8-b29f-1790198b909f",
+    "name": "Bếp Ông Tú - Sữa Hạt Dinh Dưỡng",
+    "address": "480/31/7/4 Bình Quới, Phường Bình Quới ",
+    "depth": 3,
+    "kind": "other",
+    "other_district": false
+   }
+  ],
+  "kind_n": 194,
+  "not_worship_n": 30,
+  "review_missing": [],
+  "review_complete": true
+ },
+ "split": {
+  "per_street": {
+   "điện biên phủ": {
+    "name": "Điện Biên Phủ",
+    "n": 2144,
+    "split_n": 407,
+    "share": 0.18983208955223882
+   },
+   "xô viết nghệ tĩnh": {
+    "name": "Xô Viết Nghệ Tĩnh",
+    "n": 1670,
+    "split_n": 229,
+    "share": 0.137125748502994
+   },
+   "nguyễn hữu cảnh": {
+    "name": "Nguyễn Hữu Cảnh",
+    "n": 1324,
+    "split_n": 198,
+    "share": 0.14954682779456194
+   },
+   "nơ trang long": {
+    "name": "Nơ Trang Long",
+    "n": 1058,
+    "split_n": 209,
+    "share": 0.19754253308128544
+   },
+   "nguyễn gia trí": {
+    "name": "Nguyễn Gia Trí",
+    "n": 870,
+    "split_n": 78,
+    "share": 0.0896551724137931
+   },
+   "nguyễn xí": {
+    "name": "Nguyễn Xí",
+    "n": 845,
+    "split_n": 162,
+    "share": 0.19171597633136095
+   },
+   "lê quang định": {
+    "name": "Lê Quang Định",
+    "n": 778,
+    "split_n": 132,
+    "share": 0.16966580976863754
+   },
+   "ung văn khiêm": {
+    "name": "Ung Văn Khiêm",
+    "n": 728,
+    "split_n": 134,
+    "share": 0.18406593406593408
+   },
+   "phan văn trị": {
+    "name": "Phan Văn Trị",
+    "n": 690,
+    "split_n": 171,
+    "share": 0.24782608695652175
+   },
+   "bùi đình túy": {
+    "name": "Bùi Đình Túy",
+    "n": 670,
+    "split_n": 74,
+    "share": 0.11044776119402985
+   },
+   "bạch đằng": {
+    "name": "Bạch Đằng",
+    "n": 645,
+    "split_n": 104,
+    "share": 0.16124031007751938
+   },
+   "nguyễn văn đậu": {
+    "name": "Nguyễn Văn Đậu",
+    "n": 628,
+    "split_n": 119,
+    "share": 0.18949044585987262
+   },
+   "chu văn an": {
+    "name": "Chu Văn An",
+    "n": 600,
+    "split_n": 90,
+    "share": 0.15
+   },
+   "đinh bộ lĩnh": {
+    "name": "Đinh Bộ Lĩnh",
+    "n": 585,
+    "split_n": 71,
+    "share": 0.12136752136752137
+   },
+   "bình quới": {
+    "name": "Bình Quới",
+    "n": 570,
+    "split_n": 94,
+    "share": 0.1649122807017544
+   },
+   "hoàng hoa thám": {
+    "name": "Hoàng Hoa Thám",
+    "n": 555,
+    "split_n": 101,
+    "share": 0.18198198198198198
+   },
+   "bình lợi": {
+    "name": "Bình Lợi",
+    "n": 459,
+    "split_n": 26,
+    "share": 0.05664488017429194
+   },
+   "nguyễn văn thương": {
+    "name": "Nguyễn Văn Thương",
+    "n": 455,
+    "split_n": 35,
+    "share": 0.07692307692307693
+   },
+   "đặng thùy trâm": {
+    "name": "Đặng Thuỳ Trâm",
+    "n": 368,
+    "split_n": 49,
+    "share": 0.1331521739130435
+   },
+   "nguyễn cửu vân": {
+    "name": "Nguyễn Cửu Vân",
+    "n": 332,
+    "split_n": 22,
+    "share": 0.06626506024096386
+   },
+   "ngô tất tố": {
+    "name": "Ngô Tất Tố",
+    "n": 314,
+    "split_n": 57,
+    "share": 0.18152866242038215
+   },
+   "lê văn duyệt": {
+    "name": "Lê Văn Duyệt",
+    "n": 277,
+    "split_n": 71,
+    "share": 0.2563176895306859
+   },
+   "phạm văn đồng": {
+    "name": "Phạm Văn Đồng",
+    "n": 260,
+    "split_n": 24,
+    "share": 0.09230769230769231
+   },
+   "bùi hữu nghĩa": {
+    "name": "Bùi Hữu Nghĩa",
+    "n": 258,
+    "split_n": 24,
+    "share": 0.09302325581395349
+   },
+   "quốc lộ 13": {
+    "name": "Quốc Lộ 13",
+    "n": 256,
+    "split_n": 19,
+    "share": 0.07421875
+   },
+   "vạn kiếp": {
+    "name": "Vạn Kiếp",
+    "n": 248,
+    "split_n": 27,
+    "share": 0.10887096774193548
+   },
+   "phạm viết chánh": {
+    "name": "Phạm Viết Chánh",
+    "n": 237,
+    "split_n": 39,
+    "share": 0.16455696202531644
+   },
+   "võ oanh": {
+    "name": "Võ Oanh",
+    "n": 224,
+    "split_n": 18,
+    "share": 0.08035714285714286
+   },
+   "phan văn hân": {
+    "name": "Phan Văn Hân",
+    "n": 182,
+    "split_n": 10,
+    "share": 0.054945054945054944
+   },
+   "phan đăng lưu": {
+    "name": "Phan Đăng Lưu",
+    "n": 182,
+    "split_n": 62,
+    "share": 0.34065934065934067
+   },
+   "đinh tiên hoàng": {
+    "name": "Đinh Tiên Hoàng",
+    "n": 177,
+    "split_n": 33,
+    "share": 0.1864406779661017
+   },
+   "phan chu trinh": {
+    "name": "Phan Chu Trinh",
+    "n": 175,
+    "split_n": 19,
+    "share": 0.10857142857142857
+   },
+   "d5": {
+    "name": "D5",
+    "n": 168,
+    "split_n": 15,
+    "share": 0.08928571428571429
+   },
+   "trường sa": {
+    "name": "Trường Sa",
+    "n": 163,
+    "split_n": 33,
+    "share": 0.20245398773006135
+   },
+   "nguyễn thượng hiền": {
+    "name": "Nguyễn Thượng Hiền",
+    "n": 162,
+    "split_n": 44,
+    "share": 0.2716049382716049
+   },
+   "thanh đa": {
+    "name": "Thanh Đa",
+    "n": 149,
+    "split_n": 35,
+    "share": 0.2348993288590604
+   },
+   "trần bình trọng": {
+    "name": "Trần Bình Trọng",
+    "n": 145,
+    "split_n": 43,
+    "share": 0.296551724137931
+   },
+   "vũ tùng": {
+    "name": "Vũ Tùng",
+    "n": 138,
+    "split_n": 17,
+    "share": 0.12318840579710146
+   },
+   "vũ huy tấn": {
+    "name": "Vũ Huy Tấn",
+    "n": 128,
+    "split_n": 20,
+    "share": 0.15625
+   },
+   "huỳnh đình hai": {
+    "name": "Huỳnh Đình Hai",
+    "n": 127,
+    "split_n": 20,
+    "share": 0.15748031496062992
+   },
+   "tân cảng": {
+    "name": "Tân Cảng",
+    "n": 125,
+    "split_n": 6,
+    "share": 0.048
+   },
+   "nguyễn văn lạc": {
+    "name": "Nguyễn Văn Lạc",
+    "n": 116,
+    "split_n": 21,
+    "share": 0.1810344827586207
+   },
+   "võ duy ninh": {
+    "name": "Võ Duy Ninh",
+    "n": 93,
+    "split_n": 2,
+    "share": 0.021505376344086023
+   },
+   "số 1": {
+    "name": "Số 1",
+    "n": 85,
+    "split_n": 6,
+    "share": 0.07058823529411765
+   },
+   "mê linh": {
+    "name": "Mê Linh",
+    "n": 85,
+    "split_n": 8,
+    "share": 0.09411764705882353
+   },
+   "nguyễn thiện thuật": {
+    "name": "Nguyễn Thiện Thuật",
+    "n": 80,
+    "split_n": 19,
+    "share": 0.2375
+   },
+   "nguyên hồng": {
+    "name": "Nguyên Hồng",
+    "n": 76,
+    "split_n": 22,
+    "share": 0.2894736842105263
+   },
+   "ngô đức kế": {
+    "name": "Ngô Đức Kế",
+    "n": 76,
+    "split_n": 18,
+    "share": 0.23684210526315788
+   },
+   "nguyễn ngọc phương": {
+    "name": "Nguyễn Ngọc Phương",
+    "n": 72,
+    "split_n": 16,
+    "share": 0.2222222222222222
+   },
+   "trần quý cáp": {
+    "name": "Trần Quý Cáp",
+    "n": 71,
+    "split_n": 12,
+    "share": 0.16901408450704225
+   },
+   "phan xích long": {
+    "name": "Phan Xích Long",
+    "n": 69,
+    "split_n": 2,
+    "share": 0.028985507246376812
+   },
+   "huỳnh mẫn đạt": {
+    "name": "Huỳnh Mẫn Đạt",
+    "n": 65,
+    "split_n": 8,
+    "share": 0.12307692307692308
+   },
+   "trần văn kỷ": {
+    "name": "Trần Văn Kỷ",
+    "n": 64,
+    "split_n": 4,
+    "share": 0.0625
+   },
+   "tăng bạt hổ": {
+    "name": "Tăng Bạt Hổ",
+    "n": 62,
+    "split_n": 17,
+    "share": 0.27419354838709675
+   },
+   "nguyễn trung trực": {
+    "name": "Nguyễn Trung Trực",
+    "n": 59,
+    "split_n": 11,
+    "share": 0.1864406779661017
+   },
+   "phú mỹ": {
+    "name": "Phú Mỹ",
+    "n": 57,
+    "split_n": 13,
+    "share": 0.22807017543859648
+   },
+   "phan bội châu": {
+    "name": "Phan Bội Châu",
+    "n": 54,
+    "split_n": 10,
+    "share": 0.18518518518518517
+   },
+   "nguyễn huy lượng": {
+    "name": "Nguyễn Huy Lượng",
+    "n": 54,
+    "split_n": 1,
+    "share": 0.018518518518518517
+   },
+   "nguyễn huy tưởng": {
+    "name": "Nguyễn Huy Tưởng",
+    "n": 54,
+    "split_n": 1,
+    "share": 0.018518518518518517
+   },
+   "nguyễn công trứ": {
+    "name": "Nguyễn Công Trứ",
+    "n": 54,
+    "split_n": 3,
+    "share": 0.05555555555555555
+   },
+   "lê trực": {
+    "name": "Lê Trực",
+    "n": 48,
+    "split_n": 14,
+    "share": 0.2916666666666667
+   },
+   "số 5": {
+    "name": "Số 5",
+    "n": 41,
+    "split_n": 2,
+    "share": 0.04878048780487805
+   },
+   "phó đức chính": {
+    "name": "Phó Đức Chính",
+    "n": 39,
+    "split_n": 3,
+    "share": 0.07692307692307693
+   },
+   "số 2": {
+    "name": "Số 2",
+    "n": 38,
+    "split_n": 2,
+    "share": 0.05263157894736842
+   },
+   "vũ ngọc phan": {
+    "name": "Vũ Ngọc Phan",
+    "n": 36,
+    "split_n": 10,
+    "share": 0.2777777777777778
+   },
+   "huỳnh tịnh của": {
+    "name": "Huỳnh Tịnh Của",
+    "n": 36,
+    "split_n": 1,
+    "share": 0.027777777777777776
+   },
+   "nguyễn duy": {
+    "name": "Nguyễn Duy",
+    "n": 36,
+    "split_n": 13,
+    "share": 0.3611111111111111
+   },
+   "cư xá thanh đa": {
+    "name": "Cư Xá Thanh Đa",
+    "n": 35,
+    "split_n": 3,
+    "share": 0.08571428571428572
+   },
+   "số 3": {
+    "name": "Số 3",
+    "n": 35,
+    "split_n": 1,
+    "share": 0.02857142857142857
+   },
+   "nguyễn khuyến": {
+    "name": "Nguyễn Khuyến",
+    "n": 34,
+    "split_n": 6,
+    "share": 0.17647058823529413
+   },
+   "trần kế xương": {
+    "name": "Trần Kế Xương",
+    "n": 31,
+    "split_n": 7,
+    "share": 0.22580645161290322
+   },
+   "trần quang long": {
+    "name": "Trần Quang Long",
+    "n": 30,
+    "split_n": 0,
+    "share": 0.0
+   },
+   "số 4": {
+    "name": "Số 4",
+    "n": 30,
+    "split_n": 5,
+    "share": 0.16666666666666666
+   },
+   "trục": {
+    "name": "Trục",
+    "n": 29,
+    "split_n": 6,
+    "share": null
+   },
+   "số 6": {
+    "name": "Số 6",
+    "n": 29,
+    "split_n": 9,
+    "share": null
+   },
+   "diên hồng": {
+    "name": "Diên Hồng",
+    "n": 28,
+    "split_n": 2,
+    "share": null
+   },
+   "d nguyễn trung trực": {
+    "name": "D. Nguyễn Trung Trực",
+    "n": 28,
+    "split_n": 15,
+    "share": null
+   },
+   "số 14": {
+    "name": "Số 14",
+    "n": 28,
+    "split_n": 6,
+    "share": null
+   },
+   "lam sơn": {
+    "name": "Lam Sơn",
+    "n": 26,
+    "split_n": 1,
+    "share": null
+   },
+   "mai xuân thưởng": {
+    "name": "Mai Xuân Thưởng",
+    "n": 25,
+    "split_n": 3,
+    "share": null
+   },
+   "cư xá phan đăng lưu": {
+    "name": "Cư Xá Phan Đăng Lưu",
+    "n": 24,
+    "split_n": 18,
+    "share": null
+   },
+   "võ trường toản": {
+    "name": "Võ Trường Toản",
+    "n": 24,
+    "split_n": 0,
+    "share": null
+   },
+   "nguyễn lâm": {
+    "name": "Nguyễn Lâm",
+    "n": 23,
+    "split_n": 8,
+    "share": null
+   },
+   "số 7": {
+    "name": "Số 7",
+    "n": 18,
+    "split_n": 0,
+    "share": null
+   },
+   "trần nguyên đán": {
+    "name": "Trần Nguyên Đán",
+    "n": 18,
+    "split_n": 2,
+    "share": null
+   },
+   "ng tất tố": {
+    "name": "Ng. Tất Tố",
+    "n": 17,
+    "split_n": 4,
+    "share": null
+   },
+   "số 8": {
+    "name": "Số 8",
+    "n": 16,
+    "split_n": 0,
+    "share": null
+   },
+   "nguyễn công hoan": {
+    "name": "Nguyễn Công Hoan",
+    "n": 16,
+    "split_n": 3,
+    "share": null
+   },
+   "trần văn khê": {
+    "name": "Trần Văn Khê",
+    "n": 15,
+    "split_n": 3,
+    "share": null
+   },
+   "số 12": {
+    "name": "Số 12",
+    "n": 15,
+    "split_n": 1,
+    "share": null
+   },
+   "thống nhất": {
+    "name": "Thống Nhất",
+    "n": 14,
+    "split_n": 0,
+    "share": null
+   },
+   "lương ngọc quyến": {
+    "name": "Lương Ngọc Quyến",
+    "n": 13,
+    "split_n": 3,
+    "share": null
+   },
+   "yên đỗ": {
+    "name": "Yên Đỗ",
+    "n": 13,
+    "split_n": 4,
+    "share": null
+   },
+   "nguyễn an ninh": {
+    "name": "Nguyễn An Ninh",
+    "n": 13,
+    "split_n": 1,
+    "share": null
+   },
+   "nguyễn xuân ôn": {
+    "name": "Nguyễn Xuân Ôn",
+    "n": 12,
+    "split_n": 1,
+    "share": null
+   },
+   "nguyễn thị minh khai": {
+    "name": "Nguyễn Thị Minh Khai",
+    "n": 12,
+    "split_n": 2,
+    "share": null
+   },
+   "mai chí thọ": {
+    "name": "Mai Chí Thọ",
+    "n": 12,
+    "split_n": 0,
+    "share": null
+   },
+   "quốc lộ 1a": {
+    "name": "Quốc Lộ 1A",
+    "n": 11,
+    "split_n": 1,
+    "share": null
+   },
+   "cách mạng tháng 8": {
+    "name": "Cách Mạng Tháng 8",
+    "n": 11,
+    "split_n": 1,
+    "share": null
+   },
+   "nguyễn văn hưởng": {
+    "name": "Nguyễn Văn Hưởng",
+    "n": 11,
+    "split_n": 3,
+    "share": null
+   },
+   "hiệp bình": {
+    "name": "Hiệp Bình",
+    "n": 11,
+    "split_n": 1,
+    "share": null
+   },
+   "pasteur": {
+    "name": "Pasteur",
+    "n": 11,
+    "split_n": 2,
+    "share": null
+   },
+   "trần não": {
+    "name": "Trần Não",
+    "n": 11,
+    "split_n": 4,
+    "share": null
+   },
+   "floor": {
+    "name": "Floor",
+    "n": 11,
+    "split_n": 10,
+    "share": null
+   },
+   "hồ xuân hương": {
+    "name": "Hồ Xuân Hương",
+    "n": 11,
+    "split_n": 3,
+    "share": null
+   },
+   "số 11": {
+    "name": "số 11",
+    "n": 10,
+    "split_n": 6,
+    "share": null
+   },
+   "dương quảng hàm": {
+    "name": "Dương Quảng Hàm",
+    "n": 10,
+    "split_n": 0,
+    "share": null
+   },
+   "số 9": {
+    "name": "Số 9",
+    "n": 10,
+    "split_n": 0,
+    "share": null
+   },
+   "nguyễn văn thủ": {
+    "name": "Nguyễn Văn Thủ",
+    "n": 10,
+    "split_n": 2,
+    "share": null
+   },
+   "lô b cư xá thanh đa": {
+    "name": "Lô B Cư Xá Thanh Đa",
+    "n": 10,
+    "split_n": 0,
+    "share": null
+   },
+   "cộng hòa": {
+    "name": "Cộng Hòa",
+    "n": 10,
+    "split_n": 1,
+    "share": null
+   },
+   "lê văn sỹ": {
+    "name": "Lê Văn Sỹ",
+    "n": 10,
+    "split_n": 3,
+    "share": null
+   }
+  },
+  "grid": {
+   "n": 1549,
+   "split_n": 131,
+   "share": 0.08457069076823757,
+   "streets": [
+    "nguyễn gia trí",
+    "nguyễn văn thương",
+    "võ oanh"
+   ]
+  },
+  "other": {
+   "n": 20335,
+   "split_n": 3271,
+   "share": 0.1608556675682321,
+   "streets": [
+    "xô viết nghệ tĩnh",
+    "phan văn hân",
+    "bình quới",
+    "điện biên phủ",
+    "đinh bộ lĩnh",
+    "vũ ngọc phan",
+    "nguyễn thượng hiền",
+    "chu văn an",
+    "huỳnh đình hai",
+    "nơ trang long",
+    "nguyễn hữu cảnh",
+    "nguyễn văn đậu",
+    "lê văn duyệt",
+    "nguyễn xí",
+    "phan chu trinh",
+    "lê quang định",
+    "phan văn trị",
+    "bùi hữu nghĩa",
+    "hoàng hoa thám",
+    "bạch đằng",
+    "d5",
+    "huỳnh tịnh của",
+    "trần văn kỷ",
+    "nguyên hồng",
+    "huỳnh mẫn đạt",
+    "trần quang long",
+    "võ duy ninh",
+    "bình lợi",
+    "phan bội châu",
+    "ngô tất tố",
+    "đinh tiên hoàng",
+    "ung văn khiêm",
+    "nguyễn huy lượng",
+    "quốc lộ 13",
+    "vũ tùng",
+    "phó đức chính",
+    "nguyễn thiện thuật",
+    "nguyễn văn lạc",
+    "vạn kiếp",
+    "ngô đức kế",
+    "đặng thùy trâm",
+    "phạm viết chánh",
+    "nguyễn huy tưởng",
+    "trần bình trọng",
+    "nguyễn công trứ",
+    "bùi đình túy",
+    "nguyễn cửu vân",
+    "phạm văn đồng",
+    "nguyễn duy",
+    "phan đăng lưu",
+    "số 1",
+    "tăng bạt hổ",
+    "trường sa",
+    "tân cảng",
+    "thanh đa",
+    "mê linh",
+    "nguyễn ngọc phương",
+    "phan xích long",
+    "số 4",
+    "vũ huy tấn",
+    "trần quý cáp",
+    "phú mỹ",
+    "số 5",
+    "nguyễn khuyến",
+    "nguyễn trung trực",
+    "cư xá thanh đa",
+    "lê trực",
+    "số 3",
+    "số 2",
+    "trần kế xương"
+   ]
+  },
+  "ratio": 1.902026176054897,
+  "district_n": 24349,
+  "district_split_n": 3793,
+  "district_share": 0.1557764179227073
+ },
+ "names": {
+  "per_street": {
+   "Nguyễn Gia Trí": {
+    "old_name": "D2",
+    "old_only": 150,
+    "new_only": 816,
+    "both": 5,
+    "total": 971,
+    "ids": [
+     "00074fac-6eb3-4b7b-9628-f09d7d40f75d",
+     "001032f0-f2a8-4e61-a494-687f4f24b62b",
+     "00234143-a94d-4299-913a-d6e37380035e",
+     "00fde594-1ffe-4623-ab04-ceb37ba50a14",
+     "0106cbad-0e1d-4c68-9da6-d8ca3e7c06fc",
+     "013d8ac9-32f3-4bbc-9892-ac6c1d18fce4",
+     "014c9ab5-ca1c-45c2-9f84-bcca92c7913b",
+     "0163b800-c926-4aac-b1e8-82a60f077f2f",
+     "01a017e8-109f-4f0c-93d2-43e9ed6fd523",
+     "030cdfa9-10f4-4fdf-ac5a-f5b1d52bd87e",
+     "030ce057-0707-4034-bbd6-dce830727c74",
+     "03550272-01d6-43b4-8f9c-b7dadb3663ee",
+     "0384ef46-eb58-40e4-93d7-523b74562821",
+     "03a0d6c7-53a8-4012-865a-25a4cd2289a6",
+     "03c59643-a232-4ff0-9c21-6fc6b57b17a6",
+     "03d23a3a-0e1b-47cd-b7fa-98da46fd4555",
+     "0442fc4c-a6a0-47b2-bc2b-01767c44a495",
+     "04edc1b6-9b5b-42d5-80ca-df45ff1ba827",
+     "052e8070-e128-4ffa-8d62-c15084b58df6",
+     "055c3bab-1133-42e5-8870-84bfb16165c3",
+     "056d65dd-a275-4e8b-8ff3-c5502f077e4d",
+     "05871ed7-0392-48fd-8b8e-d7b0bc6e8243",
+     "059483f3-bd38-4a90-b031-0bf793045269",
+     "05cfa1db-c031-414d-af2a-c37b3558f407",
+     "06afdf50-de2d-4eca-b3cf-3181a9ae758a",
+     "06d8ad84-1387-4b92-9902-01b69a6948c4",
+     "06f85bae-bbbb-4c53-b956-1cfb36ce2c37",
+     "0724eff3-a8ba-472f-a4bc-ff43b5f37299",
+     "0798868a-d450-4eab-af8f-68cc32c3dd70",
+     "07c31145-96ca-4869-a8b1-a296448f24d6",
+     "07c87e4f-2877-4433-a847-e88c090b6903",
+     "07e91ddc-4ba8-437a-9c33-5d7b34b5e94c",
+     "089a8a40-5dc9-4ec0-995c-0163d8d9e663",
+     "08c726cc-ea6d-46ed-8d0c-e2af68d5aa4a",
+     "09f462a7-3f63-4761-a3f4-024a78c4f324",
+     "0adba314-03e7-4bfb-a00b-b1cf2fd56260",
+     "0b001c09-2853-47a0-ae89-52659d121ef9",
+     "0b8b5bed-50bc-4d51-b8b6-59dd12fc8e90",
+     "0babbf3c-84a5-4340-ae99-f5fc6c4b38e5",
+     "0bbde1cd-1f45-422a-b4ca-29e96dacaa13",
+     "0bd3866f-aef6-4a20-995b-92de5c22b589",
+     "0c0aa59c-5c03-4fec-8626-13fb9daf3933",
+     "0c62b329-86e4-42bd-bb53-6d4b401169de",
+     "0cb7b605-6f68-4c4f-81c3-30f1504e7e7b",
+     "0cbf5f0e-730f-4fb9-b651-f57ff002f7e8",
+     "0cfc7f13-27b9-479a-a8ac-6f926a76d708",
+     "0d3db96d-e870-44d1-93fe-a27523aca396",
+     "0db34aa9-8897-4c67-bc10-d452b315eccc",
+     "0db8e6e0-b5ab-49cb-95bb-9bfa4b31988e",
+     "0e792cb1-1f06-4040-89bd-5fe585a428ac",
+     "0f72aa18-1055-43ec-92f2-dee0b27dbdb0",
+     "0fa1f983-dd4a-4715-bf3d-6afc70cc8064",
+     "1054ab65-d7f1-4737-986d-a5eb371697ba",
+     "10580d98-0968-446a-9162-c5e94ca13390",
+     "10587d61-ba2c-4bc2-a7cf-d8189530d6e4",
+     "10596a81-9a26-4f6d-b451-2cd570446059",
+     "10b26256-bb19-411e-9290-1e457d20139a",
+     "10cf5a1f-ffdd-41ee-8928-3a2fd88382f6",
+     "1112e023-32a3-4831-adc3-7ab29aa9c82e",
+     "117fb1b2-bc72-473c-9a76-776e4387de9c",
+     "1182320c-217c-481b-9cd9-7dd2fb2ecaca",
+     "11e31256-98ca-4ace-afbf-946f855b95e5",
+     "1245c944-e693-4b88-b3cd-65ad2f703d8a",
+     "130635c8-611b-42e1-b505-93bb53b6ddc6",
+     "138f4f3c-41c8-45ee-91dd-56cdcd6d4c1e",
+     "13e71b11-80cb-4481-9b95-929a0a775c9c",
+     "1412e6b1-45fe-495e-91d1-f731cec1616a",
+     "1425b1dd-ed9f-42b5-9c1c-5fe894ce5fb9",
+     "14b464a6-14c9-49e6-847d-565d910080b7",
+     "1550c727-e8a8-4aee-8800-b56837bcfb66",
+     "158ae1e0-b4ae-49c1-9886-9dcbd4502cea",
+     "16047d43-d2e0-488e-9279-25a8c5f660f8",
+     "162b82a3-8dcc-4814-835b-b36095169453",
+     "169959cb-f0e9-41a1-84fa-d27cdc893e26",
+     "17eb5294-532b-4251-be9f-a63292dd445c",
+     "18205cf9-ae5c-4747-bfc2-dfe25e8ee4c5",
+     "182b7066-e04d-45f4-a0c0-a7360479b4cd",
+     "187e994b-3a69-4131-a771-8453b84e1a02",
+     "18b0485a-3f77-4765-9a45-7cb147a0d41d",
+     "190f2ba0-7991-48be-a592-1d6ac318a610",
+     "1946e090-02a0-40b5-a039-97ca74ae3778",
+     "19476e63-b4db-42dc-bbae-79929a81a508",
+     "1956cb88-67a2-4d94-8e5f-4a68395a647a",
+     "1a2bbc52-aac8-4dd4-af7d-003e7bbce0f8",
+     "1a67a15f-bc2d-4428-828f-023a30a91c0a",
+     "1ad8c5fa-ee09-409e-8477-bbb35174a08c",
+     "1af41488-aa4a-48bb-b669-0bc36dc34f30",
+     "1af63355-cb37-45aa-b37e-9370b244ca19",
+     "1b518a65-a5c0-4816-8373-808a8db2bdaf",
+     "1b72688f-0a45-4e3d-9dce-27ef4e74aac4",
+     "1be40038-141c-461b-8702-eb67d296ecc0",
+     "1bee3ba4-2188-46f2-b5b2-4a260aea7762",
+     "1c5d1dee-72e4-4d59-ab19-7b14dc297a8c",
+     "1ca8e652-b122-452c-999a-9dbd4b6404de",
+     "1cb443ee-5da1-4e34-a99e-a010658a962b",
+     "1ce3d509-8655-46fd-a1a1-69071074b848",
+     "1d98cb07-15f7-4a73-9eee-0295366b20e0",
+     "1da9c81a-74fb-4e7e-91d3-2843f4368362",
+     "1e51c32c-2979-45ad-8974-f521e70e3ed7",
+     "1e7537cb-29a3-4fe1-b344-095fa311367e",
+     "1e79f42d-d082-42e8-afa6-4f4e886ac276",
+     "1e921b65-2759-47df-8f58-739bc7c97183",
+     "1ead1725-03c2-4823-a15d-87b1faa89c07",
+     "1f399d7c-9487-4d6d-a72b-a8774e06df02",
+     "1f6669f2-87eb-49eb-9f6f-20ab302e501e",
+     "1ff5d237-ca59-4815-8f5e-ff6f72d7c2d4",
+     "20461a7f-f32a-4103-ae68-78a68c793139",
+     "2076e338-4895-4cb6-bd65-18728cb9dff5",
+     "21010143-8c7f-4fb8-906c-6f50e84b6a8c",
+     "216eca55-927d-46e6-b6e0-52979953479b",
+     "21730fb0-053e-4d20-842e-356c9fd14e5e",
+     "222ce321-6697-41d1-82df-936b073f7621",
+     "2235b243-7c50-4a2b-a748-b84da2da00b5",
+     "2286c60e-848d-4372-8dda-d1e751f05539",
+     "229a84b6-9446-4173-a2ec-de645542992d",
+     "22d92316-db58-47df-a0a1-823de84411f1",
+     "2335da4f-7ab9-43f7-b4ff-72f2cb0dca47",
+     "24a6c405-85fc-4688-9db1-0a023389bc22",
+     "24c3b15a-e708-4bf9-bd92-eaa58eef5058",
+     "24edcc85-f4f2-4f27-9673-531aca72c563",
+     "253b1dbf-720e-4516-81fd-f34f0d64694a",
+     "2582fc86-0b33-4b0e-a9f2-339d45756116",
+     "26aaa7af-9132-4894-9105-9f524cac16e1",
+     "26d6d722-2645-4356-ad11-e5f083b36ca4",
+     "27206e83-abda-4024-814b-fea14c9575f9",
+     "272c7943-af74-4479-bba3-8e6148bd4b1a",
+     "278d0cc3-3e73-4f87-993d-2290a7e45644",
+     "27a6b591-045d-4e23-b57a-f8fb6fc8171e",
+     "288048b9-59b4-47a4-99e1-0fab0c05c9b2",
+     "288f2ef5-c6e6-4fb1-8f17-1db6db492d60",
+     "29084abc-93e7-43e1-8194-46807038e234",
+     "29a46f6b-18e1-4806-8994-9c0249856189",
+     "2aac6b98-5bd6-42c4-83c7-45da1b5e8c33",
+     "2b02a36b-a575-4b53-bc9f-4957bbdd18ce",
+     "2b6ea4d9-d4e2-4e3a-b46f-d4025c7e5898",
+     "2bb26f9c-900b-4eb7-9531-57bec8045f80",
+     "2bd12d8c-f8e8-4be1-b26b-f5832810f215",
+     "2c7a241f-70d8-401f-8116-d200f6c5efdd",
+     "2d2cbd70-3e09-45df-9f3b-a1184a86a903",
+     "2e11a2ae-426b-4e95-96b6-38701ca08fc7",
+     "2e170a69-eb7b-4926-87c1-c56821e5475a",
+     "2e63c1fc-18c7-44ff-83f9-afbb21a3ef4a",
+     "2ede949b-9021-4bae-888a-da44331bb669",
+     "2ee3891c-5ac0-4c63-ba5b-53ffea25939c",
+     "2f185b01-3b78-4b18-a4af-3846e69f313f",
+     "2f4e2394-ddf9-4b42-8708-aaa3e21c5db3",
+     "2f60f74b-7ee7-4be5-8fa2-001d536f2496",
+     "2f680a48-5284-43a1-8b4f-ce5e63731c64",
+     "2fd548b1-2608-437e-be71-68212688a42f",
+     "308813a8-c758-42d5-86d4-f95983b2a2f7",
+     "3092a562-e78d-4264-b736-cbdd07d537b4",
+     "30c011c0-15c3-412f-95a9-291e6e93d3e5",
+     "30c4146f-23a3-4f71-8fca-276b16f691a2",
+     "30cf3ae1-52e5-47cb-9e1d-b8635cecbb51",
+     "30cf89fe-3cfe-4a27-a3d4-37fc7ceeae29",
+     "310a9b7e-2dce-4df7-9222-9979b0c62975",
+     "315bf71c-bbbb-4ed1-bbc6-54cb16bffd11",
+     "315e6df9-9681-4dfc-aa35-8aed64cb9341",
+     "318eff8a-0ad7-485a-a4d9-08558e32adbe",
+     "3190d19e-c607-44d9-88a9-e9ed38e9f88c",
+     "31aa513e-6ad7-41fb-8bcf-31de16c76a0a",
+     "31b589f0-e625-4dab-96eb-952824259929",
+     "31b75600-cfc4-43dd-b4b8-0994e0930ff3",
+     "31e4afbb-f1d6-465d-832a-0d8b035a1690",
+     "331db3ff-3274-409e-bf9e-d92dcafff9b6",
+     "33546d5e-d2ce-496e-a2b8-2e94115010c9",
+     "34081329-c2f4-44af-aa40-6697b54cc56b",
+     "34a0ed14-919d-4458-8c92-bb6c37d2eb01",
+     "34b3b261-4e74-4b92-9d84-034a04459a1f",
+     "34f1d6fb-b008-4590-bdf2-6614aeeeaedc",
+     "34fd7064-7f8a-44f6-8510-b4a3b0478e74",
+     "35480dcc-b30c-41f8-ab32-25ac0c342fcd",
+     "355395d2-97d2-4714-a9e2-9fdb91e002eb",
+     "3709cdcd-913e-43eb-812c-51e6f992777a",
+     "371f78da-13a9-4444-b50a-4b87f32585bb",
+     "372a5c2d-ca80-4736-afcc-caa64e69a4ac",
+     "3741e2c1-95e2-4660-bd45-2dc816a14756",
+     "3745fe26-fbb2-4df4-8120-5f96fa304124",
+     "3749928f-6872-4fc9-ad6f-98dcd79daf83",
+     "37ede032-52d6-44e2-bb22-e3a9639c4f76",
+     "3874a8eb-27cd-40a2-9633-2ab404d1f909",
+     "389f871a-4e3c-4979-bb30-430871499712",
+     "38a152fc-6e0e-4161-b379-3c586bcb95d7",
+     "38c9af63-fa58-4a18-962f-0972b8865006",
+     "399000a2-c2b3-4e1e-9821-b21176c6919e",
+     "39935b43-ff85-4c12-8266-8d1a6975a4d6",
+     "3a370722-8811-44a1-984b-e7959a7ba173",
+     "3ac911f8-101d-47af-992a-9b5218b6c920",
+     "3b4f14bf-79d6-461a-8746-2d4219d30472",
+     "3b6d6d34-42c5-4461-a745-998bbb8cff05",
+     "3b96f955-22ad-43cd-aa54-e61355cd38c1",
+     "3d242fec-4924-41f7-9608-bc70215b9be1",
+     "3d8a2f1a-6d8a-410e-a2e6-904cd1e485a1",
+     "3dcfec74-3adf-4c27-b13c-47c54fabdf2f",
+     "3dd922b9-a735-40df-a03c-0184c04bab0e",
+     "3ddbb53b-5e56-43d6-9a24-9157be7389c6",
+     "3de6453a-df6a-4519-af7f-80ab8b76284a",
+     "3e86293c-297f-4285-a069-c9ebf13e894b",
+     "3ecc1a1c-737e-4b91-a4cc-1c3d55489e69",
+     "3ed5506b-6f79-4a48-bf8f-da0621072226",
+     "3ef72e56-f287-4052-8d00-9665e71969b9",
+     "3f1f4047-5510-48e0-a370-34f045977a7b",
+     "3f4c880b-f245-4c1d-9413-8bbc35c77892",
+     "3f74bb90-bc3b-4759-8490-5a44b3e4f23c",
+     "3f7573ba-7720-4532-a1d2-28f8b77c9f5f",
+     "3fb64a94-b734-42d9-b6ee-d92c8ac8fa5b",
+     "3fd68abc-2fcb-47a0-aa91-2eda9efcf274",
+     "40639e35-a389-4f36-bec2-afe46fb05576",
+     "409ebf97-fe28-45db-a4e2-bb2875bb0b92",
+     "40a3ff3c-b1f4-46c4-9235-4ac421d961a6",
+     "40ba3595-8bc9-487c-b84e-119a18165000",
+     "40d9105a-77e7-4465-ab17-0096c24c9059",
+     "4108406a-6883-4e76-b8b7-fae6a3fbbfd4",
+     "41300919-cdf5-41e4-8b2c-238383e6ef1f",
+     "414d958c-70c9-4cc6-98cd-d540de22f0a3",
+     "41e83db1-59e7-4cfd-859d-7d1e10b880a5",
+     "4234679a-7cec-4722-96ea-560cacd864d7",
+     "423f0fc5-d0ac-4840-acba-732400d89b49",
+     "42600bc4-6253-411e-a2c2-ed4077f33e65",
+     "42f47dd6-b011-44bf-b131-3f95c7a7fbac",
+     "437d7d7f-cf08-4b7b-979d-874979978440",
+     "43f1f883-d36d-4729-8921-b428af24535c",
+     "44039bda-828a-4a63-aa01-15181fbeab53",
+     "4466d85d-e3c2-4f8f-a9cb-5795101de0de",
+     "44bda792-08f0-4e2d-b4e1-bc435f377b0d",
+     "44e7597e-5ab0-4749-8f66-5afae19dd79f",
+     "45202f75-02ae-402f-a641-957e1b0ec111",
+     "456e25bc-ccd2-4753-93a8-1d8017879edc",
+     "460bcb12-5eff-4338-b192-5c87df8fe710",
+     "462b5f5a-1637-4c11-be5c-714f2eebc1f4",
+     "4636fa2b-6416-4925-9497-3e15c9aaee65",
+     "4639c422-6e66-4430-9907-190cda0360d9",
+     "46a898c2-8159-4b3f-a104-1996a32e0d78",
+     "46b785c1-c1ed-4d19-99fc-c3e0bfecb582",
+     "473178fe-934d-4cc6-901a-1f7193dd01f4",
+     "478acf71-bdbf-4058-8c15-4c6a3cbc916b",
+     "47cd453d-c7c2-41bb-84e5-67d8efd0a0fa",
+     "483e5540-44e5-492b-b5b2-2a48000ea0ce",
+     "48da4528-1935-4acf-b24f-42f79eb3ab9c",
+     "493ad9a2-09b5-49cd-9070-2d62521dd6d1",
+     "49d84c3a-49c3-466a-a65a-b2a292773770",
+     "4a239061-3a83-4679-bcbd-21ac198240fe",
+     "4ac70331-c8fc-4742-ba05-147909daac38",
+     "4aef91c3-4da8-499a-ac84-f252376e328b",
+     "4bc5ee59-777d-4f51-adcd-5f9dca2f8f9b",
+     "4c892a0d-6bbb-453e-8a2d-3948a2f44925",
+     "4d4abab4-abad-43d5-b3d9-3c7c1cdcbb80",
+     "4d9e917c-c2de-47dc-86a8-823502246275",
+     "4da913f9-282c-48d5-9ab1-b29da8d47bac",
+     "4dff7ec1-9afb-45cf-b7ed-ed75130dced6",
+     "4e045c79-e408-459b-b7c4-985b84a7288d",
+     "4e1f7852-abd2-4679-b8a9-90f5df705525",
+     "4e4ee823-9e24-410a-83d6-5c872828d13b",
+     "4e836375-2fd2-40c8-a3bc-dee4f27bbf09",
+     "4e8a1de3-f535-4e90-9da6-52bc391b6a60",
+     "4fa834c5-e1b2-4c07-9762-72466129a6bc",
+     "4ff85d74-8109-473f-8134-2c1be7d2d521",
+     "500ab103-a20b-4fbb-83fc-c4eac9458e5f",
+     "502cc7ba-81aa-437f-a2f9-1fcde45c18e8",
+     "5045c858-b4be-4054-ad72-4718f719c0df",
+     "509fdfea-a964-4c8d-ad4e-9f94f018f8e2",
+     "50badcbe-afbe-4b1b-81c3-7e799b6568a1",
+     "50db90d9-3d69-415c-92fe-f9a4242a4897",
+     "51242f62-094e-4bc6-9721-38e73391bae8",
+     "513dae87-902f-44a0-8f06-f8fbb085ab65",
+     "515b1c5c-8992-4c3d-b2b7-30f0bc64a629",
+     "519cd60c-1de6-4d0d-b287-eebacad082bc",
+     "51e9370b-d4bb-45a5-a0e6-d320de0943b7",
+     "51f4a8f3-b24b-45e0-8dc0-29a9fcb4268c",
+     "525a54fa-0a95-49e9-b72b-68682762bbaa",
+     "52766f13-cff1-4e1a-a06e-80246601711d",
+     "52ac10ff-1fbc-4286-ac22-de09ed3883b6",
+     "53de856f-5551-4da9-bc76-33054f513e4a",
+     "54508c7d-ad2e-469e-a9d0-585692a66e44",
+     "54d77ec8-43a9-43ad-864f-1f9db318d171",
+     "55651e91-a0d7-4786-94df-1b4c6c999d98",
+     "55bb5735-cd81-454f-9ce1-382dc8e6aeca",
+     "55be4801-bbdf-4609-b485-18e438522177",
+     "563a29ab-7e07-49ac-8d6b-99d1d0e4afd9",
+     "56be989a-8ba6-4783-88d3-a93ef835e252",
+     "5718c174-10f9-48fe-b5df-ae5d18da98e9",
+     "57818053-f19d-4a94-b15f-e5bbfda6e2c7",
+     "5801e55f-2f2a-4fb8-95e5-c2dfdcd74aa4",
+     "58458bed-2b16-422d-9deb-861bdc8e736a",
+     "58722561-fec6-4935-84d4-c48d5611fa74",
+     "58ceace6-b891-4d85-bb66-d0432c74ae8e",
+     "592b4647-0e36-4056-86e3-1e278e349c61",
+     "59d63ccc-b621-4273-96e6-2c0ca2ee476a",
+     "5a3331ce-0593-43cc-b655-9760c3d33d78",
+     "5aa4ec7c-80fd-489b-b6a2-0658a34b4710",
+     "5aabd4e6-c601-47dc-9060-4f0bcf809545",
+     "5b1d10a4-1c3e-45fa-8530-49d1933b2915",
+     "5b50337a-1b58-4883-8ece-a470df68b18a",
+     "5b6b6550-c121-4857-b6cd-dc52988e870c",
+     "5bc8d086-437b-4ca0-8cd8-eee700a4ba5f",
+     "5be5e5e9-5f99-4ff0-be5a-2d133d996143",
+     "5c1f902e-7da2-4144-94bb-a529ff2f1de1",
+     "5c36dae3-7f5d-4fec-9e01-928b7907f7cb",
+     "5c4ef3a4-63cb-45dd-89c6-3d2b4372956d",
+     "5c6ef182-bccf-46c6-b98e-4da916af54f0",
+     "5cfcc96b-b391-4159-98ea-cc8653a53c0d",
+     "5e59c8bd-6f79-4b7b-a6b2-404dcea27b87",
+     "5e5e03ed-3ab0-4fa5-86d0-380440e53d46",
+     "5e6bc4d0-dcfe-4c69-9adc-de612eadd874",
+     "5ea147ee-f70c-47c4-8ae1-3f592fc1c251",
+     "5ebf3739-225f-40bd-a5ab-c1729f75077a",
+     "5ee86d64-89c5-4118-ba8b-d09d772561c5",
+     "5fe8a0ef-a7f3-4921-82fc-90df2346aca5",
+     "5ffb51ac-ae58-4e68-b433-1694d34f6a24",
+     "5ffc3d39-3eec-4f11-8015-5ef39de0875f",
+     "6087ee91-d922-41ca-96b5-66d54575d8e6",
+     "60cfd0d7-2b03-4ca6-a5ae-4ef20a059b14",
+     "60f04ab6-e65f-48f7-80d7-0b7b8e883813",
+     "60f8dfda-8c61-4363-af45-1b8b6ff033f2",
+     "6136c2f4-7c98-47a0-bd78-29c83022d4c2",
+     "613ac713-04f5-4806-81bc-abe072f64131",
+     "61e1fc65-0fbd-4875-9eaf-085653421f5f",
+     "6227865e-6248-42c1-a714-f105fd4b9146",
+     "622e5fb8-3b58-48a0-9f3b-b779a1e65d75",
+     "62d69421-39dc-4ec4-9688-0fe5b0c12a77",
+     "62fd1001-6f2a-43cc-b510-e15ed1c83745",
+     "6327829f-3bbe-4612-9c70-2f8eb2b608e9",
+     "635a1e90-a4d2-46e3-81d2-399c753c4bd8",
+     "63a79ff2-9c55-4522-a56d-80c64211b697",
+     "6424f77b-8073-48c0-b373-1d0d0000e801",
+     "64ad91f6-716b-48bf-b63f-8e3c28a79b3f",
+     "64b1489b-3624-4705-94f0-0b74be05bf3f",
+     "64c42469-1c20-441b-ab6e-578f9cacb202",
+     "64d1ee84-8ef0-4176-b062-4cf6b9f4b0f6",
+     "64d8faa0-453a-4c68-9648-f240f7255895",
+     "6574e24a-a50b-4980-bb73-3db289456364",
+     "65b58ddf-fedb-4be8-a885-1d221b3940a2",
+     "65cac67b-670f-4bb3-886c-7b00b90b0fe2",
+     "65cc94b7-3897-41f6-a02d-47223873cecc",
+     "65e79842-765b-420e-9c6c-a3ed9814539f",
+     "66250f8e-aa2f-4876-9f8c-c04e68030087",
+     "66b82db0-5499-4dcd-9a6e-5f5a12599c79",
+     "66f45d23-4a40-4968-b8f8-9eedd424c956",
+     "67469332-b03c-427e-aae8-0aab301ecfc1",
+     "674c9701-f5d3-4835-8333-500237b5735d",
+     "676df039-8bef-4dc4-8e66-10701480db64",
+     "68ab9afa-3c41-43f0-8f57-85484224aa1a",
+     "68d16b13-88ba-48a1-b156-3fd9e1cb1679",
+     "68d72d92-82e6-4504-af4a-4bc29b7a52c7",
+     "68ed7e03-a92b-4183-81b0-01d71c4baf0c",
+     "690dafc2-77f9-4f49-9a23-062733ec82dc",
+     "698a3b74-8ef1-446a-9241-4e9a1297a3ac",
+     "69de1c37-453c-4b6c-a5e1-d703d1918814",
+     "69e301a9-909d-49e6-b29c-d4ee9e97e0f3",
+     "69e5a94c-c864-4062-8848-1b7b09057575",
+     "6a8a4a32-424f-4c78-a011-91fac85cfd42",
+     "6ab709cd-aa98-4577-b7f2-9a706184900f",
+     "6ac78931-bd10-481b-adaf-ea263fbe3662",
+     "6aff61a2-da29-4328-ad41-3ce890eaef8c",
+     "6be82d37-7680-42bd-a471-a337ab5189c0",
+     "6ce28dab-32ce-4a9a-94ac-c5f66e548e3e",
+     "6d29fae3-ce5a-4d4c-8d41-dd699ec75e35",
+     "6d6dec07-c3ea-4f2f-b955-ef4749632fd6",
+     "6dc67318-f3ff-46f6-9092-b7388cad8e6c",
+     "6de5efe9-3ba1-48f4-90ae-9fce2269090f",
+     "6e1d655f-b2fc-4bc3-bb6c-8c5f49071f52",
+     "6e1dbd26-a52e-4c7f-a59e-6c273a473b8d",
+     "6e29c7d3-3b47-4274-98a0-d156e0d7f754",
+     "6e58919a-7985-4cd9-b131-75ffe1fe455e",
+     "6ef012c8-8d29-4145-ab65-9f638b5c8e2f",
+     "6f1bcdcf-5b65-4076-bc23-d5f5c9379b6e",
+     "6f727833-8e34-4c16-bd46-d9a4328fb50a",
+     "6fce663d-718f-473f-8e6d-4bad0f721a5c",
+     "7009e94f-5ecf-4bfb-9f42-4391aecbcf37",
+     "70721009-622a-489d-a521-f006fff2a445",
+     "70934c4f-fdab-4a78-9e4e-dae430283927",
+     "709d293a-1c6c-4097-a5eb-07a160b3bdfc",
+     "70be0ce5-b31e-4334-a857-8c487b315da4",
+     "71152ac1-4e76-4eee-bce6-7ce622fa03a1",
+     "71589fd3-133e-45ea-bb01-531e408ab2ad",
+     "7161cc82-2925-403b-87c2-1bb6d2870fbf",
+     "71928668-a49d-4628-a90f-6c973590397f",
+     "71a7d3b8-626e-435d-912a-650835a69e50",
+     "720f1185-cf0c-446d-b5ac-5426740b288b",
+     "720fefeb-b16f-47ed-9577-7f0a2106eb12",
+     "72855723-8675-4008-89d1-e65c51338bc1",
+     "7296e4da-3711-478e-90a5-97dc5a0e0a49",
+     "72d58778-cc25-48d8-91bf-0f6cda477ede",
+     "733762b9-2ae3-4f00-acfd-d96137ef4bad",
+     "74accec7-a78c-4db9-87e3-37f79e192353",
+     "74fc09ad-d215-478d-850a-26db655bd3a5",
+     "75320447-1798-42c5-9e6b-f5a3fb9c9d68",
+     "75b38e1e-5c78-4c42-8c34-f3f1024c926e",
+     "7619dbe9-a879-4085-81bb-57634fe27536",
+     "7668f67a-15ca-4f35-a2dc-bba10a7e422b",
+     "769abafb-39c1-44bd-a168-d4de7484b8f9",
+     "76cb1344-4232-4e76-8b5e-215256da9ac5",
+     "76ccbe25-68aa-48c3-9605-1e0bca997f48",
+     "76ce3b57-ea1d-4d6c-8d70-cf7d114f86b8",
+     "76f164c9-fda2-44fa-9ead-0b8aaa822108",
+     "76f9537c-777f-4800-9842-12243a8dd97b",
+     "7756a4e5-bd60-4e0c-9fe9-d8f37f5fa04f",
+     "77da6638-524d-4459-8b27-b464ba600477",
+     "780b1c76-b5ac-417d-b18a-66e831476566",
+     "7879cff2-9768-43cd-9b1c-1d0f3d0f17c1",
+     "789236fc-33d7-4621-b1b5-81176acfe806",
+     "7892991d-fdbb-49fb-8e9d-cd8c5a5ecbee",
+     "789c3b28-735c-4467-a12e-299a09845944",
+     "78f389cf-3404-40de-8deb-7ab1b4b2f577",
+     "791a99ce-467d-47b9-9b50-355ed1919f35",
+     "795993c8-9c91-4e1d-82da-f863a2aa732a",
+     "79606699-e258-41ba-9891-b9ffeabaa794",
+     "796c3823-a6e1-43bf-8d23-e5a94f75be5d",
+     "7a1dbabb-3999-4f0b-81da-de9bf750b689",
+     "7a47fe3a-cd52-4dc7-bad6-fb2da541b06c",
+     "7a95bfff-d12c-4cb9-bbde-71317624917e",
+     "7aba7acc-2e5d-4bd9-b03c-fea8bbc59aba",
+     "7ababab5-6d53-47f8-9504-7a3b4998ed90",
+     "7ba57769-88eb-479b-a8d9-39bd15ce5c59",
+     "7bcd446f-5c19-463c-8cbc-c73ccb41b453",
+     "7c4f8dd1-8b4a-4c72-971c-7db09dbbad38",
+     "7c60bc55-2bb3-47f4-8bb6-d664c07c35eb",
+     "7cc6de41-1553-451f-add5-7b792888c7ed",
+     "7d20ae07-5bdc-4b16-bd14-344a26d99186",
+     "7dcdaf79-def9-44f7-960d-a2157ae6219f",
+     "7e244d78-bbf3-4599-95d2-b6bba6eab123",
+     "7e70be76-332a-4076-afdb-2c67a9916492",
+     "7e891ab6-3151-43ca-a50a-3a0b60ca21f8",
+     "7e897a7c-eb20-4e36-baab-b65bc76f24db",
+     "7eca2ccb-85c5-4e16-96e9-a3f9e5f8e407",
+     "7ee6c2a4-656b-4685-88ad-90633f44f42d",
+     "7fb7577b-42e7-4e44-b6ce-e715bcd30b16",
+     "7fd693e6-0151-4849-96aa-5ceeeeddb0cd",
+     "80026256-344c-4157-86c0-3e11f2aa7533",
+     "801539ec-7ca5-4204-ae27-6d4ef531c0f4",
+     "80280df2-6e2e-49d4-b204-4537d3fe32ef",
+     "8037de95-225c-4b72-b261-bf81f68ea8fb",
+     "80647d0e-c516-4f5d-808a-fcdec47b844b",
+     "80ca949a-f1fe-401e-9f78-d5c669182c2c",
+     "80fd5295-41fd-4ccc-ad68-38c104ea127d",
+     "8196681d-0ed1-468a-81e4-af302b38ae42",
+     "81b4dd9d-b59e-45c9-a19a-dd057815f3b5",
+     "825b8752-1e0f-40a0-8dab-74e3bd23139d",
+     "82ef645b-013b-420e-a1ea-f78484ab9b5a",
+     "83476629-2f13-4920-abd5-9eafafe841f8",
+     "83760a1c-bb27-42fa-b4e8-3f2e89c669ae",
+     "83be21b5-fc08-45e1-ac41-3ea7cd60e475",
+     "83e25468-b035-442e-82b2-0772f82cf809",
+     "840856d1-ef44-46a6-a70a-903fb1337c6e",
+     "846c0ca9-aaaf-4729-853a-ebd08753d445",
+     "8480af74-242b-4cb2-9c62-720180a8b0e5",
+     "849733d0-cf88-4aaa-96a0-fd5ea96e297e",
+     "849d23e7-aeab-4032-9401-58cf93397572",
+     "84e07959-f9d9-47e6-955d-6ca9fe7fcbfd",
+     "84ec1fd1-3e54-4fa6-ae3f-3478dddeb46f",
+     "8509cdbd-8c00-4a3f-a1e3-4173f3cd54d8",
+     "85170b06-1a67-450e-a15d-43aeb5754e34",
+     "85444c5c-bdce-40b9-8bfa-3ae7cc0513a6",
+     "85fe22fe-061e-434a-9884-8ca721223e15",
+     "8608665a-0c46-4bd1-b057-941634d04798",
+     "865e69b4-aefe-4125-9312-5f128c00a86a",
+     "866e5e02-7579-4413-a0c6-e253d4ec097f",
+     "8709109c-fa7a-4531-9d4f-90181763e144",
+     "8778cacf-dbc6-4cca-bf69-28cee7cf229a",
+     "8788f272-5d7f-4378-b07e-878151700d5c",
+     "87990138-e0e4-4163-86a4-ca7f84001706",
+     "879fb286-ed91-4c35-9f74-58dbf4fd2151",
+     "87b85277-0b77-4c75-b761-f4fa4370042d",
+     "87d6b63c-e76a-493a-8220-26910c4b45e2",
+     "87e5cbfc-7ef3-4b8a-a9a7-b0879dd626e5",
+     "87eab171-b75d-4883-8b9a-e8416b5b798d",
+     "8810fd5a-4a5a-479b-9bbe-511ef2c5fec2",
+     "8833d2bb-8b99-4a3e-9a0c-b7e4d0fc1a41",
+     "886f7eac-2bd7-4ddb-abe0-4eb1cc070a00",
+     "8895d363-8332-4c79-a8cc-efe6564d9fee",
+     "88b9d4be-350e-4ad4-8f06-f0eafffd6aab",
+     "88d5ffdf-74bc-4144-9854-7b46f6ee8d9e",
+     "89187856-c7d3-4e62-9d5a-5b34d057fde2",
+     "89880d7c-bcc3-4ced-9e87-15d1140058db",
+     "89b4df29-2af5-41e7-8db8-377898874602",
+     "89d67ec6-5d27-436d-be08-f422f6bf3df8",
+     "8a033c65-0e5d-42ba-a7af-8a3c4f70e6ad",
+     "8a5a037f-a277-48ec-9cfc-640e1beaa9a7",
+     "8a6f8ac3-3776-412a-a080-e13968dc1b0e",
+     "8ad8f9c9-52c4-480e-8047-c78f3cc1ea21",
+     "8ae62eed-ada4-424d-b37c-3b689cbb124f",
+     "8ae7c619-cd0b-4a7a-af53-6b3bba530590",
+     "8aecc5e3-3a03-49a4-8c32-85c429f6afb5",
+     "8af1370e-b804-4ed1-9fb6-fc58c85f9c53",
+     "8b8a7cba-26a9-4a07-b9cf-98682c70b3e1",
+     "8cb87c81-db83-46af-8a36-6d451bae424c",
+     "8cf725cd-d878-4b33-ac38-405afee3b405",
+     "8d218ec4-4138-4324-9841-4688004013aa",
+     "8d3f1ea4-8592-4f38-b267-b0c58294a7e1",
+     "8d46aeed-c7ae-4ee7-9697-f1d3c7e83443",
+     "8dca630c-1e1e-4264-92c2-0495095f41fe",
+     "8e7898d8-a01b-48a5-b987-d687a8efe39c",
+     "8eb2c57a-9cc5-4c90-b6fc-042330e015a0",
+     "8ee8d7d7-b4ba-42bd-864c-24073dcc78dd",
+     "902493cc-719f-4f66-89d1-3cff5d39e418",
+     "905cfce3-4dfa-412b-9e08-3128fc3f04ed",
+     "9098542f-310d-4ff7-a2fb-512ef4bc37fb",
+     "909d2cda-0ea7-4472-ae98-5f59b38897be",
+     "911cb141-91e3-4b68-9bd8-5d0cd88f2f78",
+     "912fa28c-70d0-4ea1-afac-b7b09bb3cd38",
+     "917fb63c-3763-4cac-884e-9cf85dd61737",
+     "91a5d5cb-2d0a-4a6d-a67a-6314a2e7bd1e",
+     "91b9ece7-f717-446b-a33a-759501c94bdd",
+     "91cb064f-697e-4ba2-a661-29dab252b0d3",
+     "91d8348c-cf0c-4ccd-9642-d6420d82bb41",
+     "91fe5686-6d0a-4143-8848-95bd9476603d",
+     "926e68fc-9915-4dde-b4b7-ffdec0f1c9eb",
+     "9286b6a1-a311-4311-8985-6747ff29e393",
+     "929c700d-9f78-4964-bc41-11532d5d5a9b",
+     "92a01575-ded0-4fd0-ad6f-30a8a7e938c3",
+     "930d1b2b-508c-4472-9d60-ce01c63dbcc1",
+     "93f3dff8-d435-477b-809d-fdc6a35c267e",
+     "93faa1a4-cd86-4ee2-b62b-5e9e77a388c4",
+     "94080c1c-744b-4ebf-8a35-26acafe0ce3d",
+     "945db9c8-30f2-4507-b52c-84671564ae44",
+     "94700c59-dc37-4876-8b62-a717b77cf134",
+     "94c5114f-9e7e-46a1-b397-c90c2d20fec9",
+     "94d90235-28c7-4031-b2dd-f39d6bd8b458",
+     "9503e021-e51e-4982-8ec2-50c9f1265542",
+     "951348de-bd08-44f6-9f26-0fb8cdb0cdbc",
+     "957bcc22-1187-4923-8d15-b26071fb26d7",
+     "958658c3-9721-40c1-bd0d-1e2ba6d7b1b5",
+     "95c1a858-535b-4ac4-968a-6d01ba28a2e2",
+     "95e7bd50-58d1-419e-b1d9-a3ef8ac900b1",
+     "96048ce7-f9b3-4db2-9d9e-6813adc36536",
+     "9610df03-0d55-4726-ad9e-eeefb3a77e9e",
+     "968f79c6-bb55-4028-a358-cde63a232367",
+     "96c79e32-d1e0-49ef-8310-ae2845d0b824",
+     "96cfa896-9d90-43b9-89e1-0c974e073666",
+     "96d42a66-d9a0-4a4c-8077-2a45bea21eeb",
+     "9736553e-5870-4795-8a73-d87dfb06f9ca",
+     "9759fc52-5738-4c80-8334-c8fb321dec5d",
+     "978ab2e3-7dc9-43fa-adaa-2deaff1b5312",
+     "979e480c-cb7d-403c-b8c8-ecad0baf8f49",
+     "9828ce0c-74e6-4c40-830f-9a6b26939363",
+     "98bff2a7-0d20-4c92-b6c2-9a8d0f349c8c",
+     "98ed248e-5f9b-4079-a463-bb78b5281c24",
+     "99837b58-6e29-4da3-9939-25de2fed4467",
+     "99c28e89-f400-4c8b-90cc-a502264deb77",
+     "99fb0566-5c67-4b2d-bb43-f671c6ff0b64",
+     "9a20c9ca-4f1c-4de7-bcdb-5be9ca31405a",
+     "9a59708a-bc52-479f-ba78-7bd3bce6a6c8",
+     "9a87c1c1-1c85-47e1-aa6a-2cb8ce1c1b51",
+     "9a9493f5-ff0d-4271-8efb-81615408dc32",
+     "9ab54dd5-29aa-4410-94dd-d14cb509a3fb",
+     "9afb6701-7dbd-4c25-8edc-9eafd9185e63",
+     "9b47d70e-02de-43c8-854b-42842cbcc77b",
+     "9c673191-76cf-4589-b232-3abee20ace4b",
+     "9c8f2edf-c04a-4e31-be39-33c50e0278a3",
+     "9c96e6f8-4270-47b1-bfad-242723dc0678",
+     "9c9b6850-58f0-41a0-9b1e-1a24ed1bda03",
+     "9d559449-0d56-4a59-9c7c-2e2ce27afa0d",
+     "9dcfddf9-96cf-4c09-a6d4-53d898f6dcec",
+     "9f9c699e-5de4-477f-a81d-238d7cfa134a",
+     "9fa7e4e3-c8f7-4629-83d6-e64b8f329508",
+     "9fb31dec-b609-4d1a-adb9-3304e0997511",
+     "9fb4a035-6a99-4761-a111-3e628ff2070d",
+     "a0281115-8cb7-4d27-bbb7-ee2fa82b340f",
+     "a0305a31-0b63-4ca8-9850-ca67f722a24c",
+     "a034b47c-5fed-4eab-9772-05f05e439ed5",
+     "a045193b-f030-474e-8e48-58cd8426026b",
+     "a04603a8-4fb1-4ea4-b264-d8ac61a4ec09",
+     "a0692485-70dd-4399-9634-c87028f5325c",
+     "a0c89693-593b-4c42-a964-f30e44b63dcd",
+     "a0eb65b3-1b2d-4955-bbcf-2b780890cccb",
+     "a1910dd7-dcbf-421e-8ccc-02d0edebd636",
+     "a1d7ff11-897c-4623-8068-d9e651d3e052",
+     "a20e9268-5a93-4fef-9b3f-1ff0e6b28aaf",
+     "a2110892-82b7-40f6-9c65-bbb4f89f4f9d",
+     "a26b675d-8f98-47c2-ad13-56a3876de134",
+     "a2793f4b-b6c3-4b28-9750-0ca23a22e459",
+     "a27ce111-444e-455b-9607-f94cddbc2273",
+     "a284a1dd-7bdf-4d87-8801-8dddbeb6994b",
+     "a39a0aa9-3a21-454f-a5ff-f42fcfc664c7",
+     "a3e445c3-cfc6-4bba-ba9f-48f60a110a95",
+     "a4703c49-19e6-4170-be96-ce67e4e517f7",
+     "a4acd0f9-ead4-492a-a22a-bd90d5f68585",
+     "a4fb8d6f-e5d3-4058-a2f9-a9129640bb7a",
+     "a51d0ce1-ddbc-43d0-8544-b5efadeb699d",
+     "a5580d5c-113a-4b91-9fcc-28ff5162c53e",
+     "a590d68e-fe6d-4ca8-9c94-a06aca8edbb8",
+     "a60c2ea8-66fe-4373-9113-b3001fab1d9d",
+     "a65f2ceb-73b2-4229-8072-e558be303ba7",
+     "a6814008-06f3-465e-b4a7-d94127706c5b",
+     "a69113b2-b9b7-453e-a068-745f9e956c04",
+     "a6b5906e-3e53-4076-8197-3387b2c1033b",
+     "a6e6673c-2c0d-46a3-ba15-f1e9c7602588",
+     "a6f136d1-d556-4173-822c-cf8be6085279",
+     "a6fdcf9b-6e00-4240-8942-d0d1c2742717",
+     "a717243c-98fc-4322-a76e-d3d70e174620",
+     "a75924e0-695d-4a1a-8fdb-55460b67e2a0",
+     "a773eb38-f212-4cc9-87a7-15c6ffb65836",
+     "a786dc34-0845-4fbf-989a-cd3de2e2b15a",
+     "a7b7ed7c-e2ae-45a0-9f53-3e1f341fa31e",
+     "a7d37384-2071-4017-901a-b12c69237c3b",
+     "a81b6f4a-f3a0-468f-96e0-43cf9cffaf91",
+     "a861cc43-d266-4219-81ba-0eb44ea24550",
+     "a86fe8c7-b859-475d-a18a-e565b78e16f3",
+     "a8a210b6-0075-4307-bb17-215c293445ff",
+     "a8a43793-1ac2-4fb3-9cdd-18475726d222",
+     "a8b08506-7745-42c2-9358-30a34e737aea",
+     "a8b37b23-b53b-45f0-9f6d-de5141971a92",
+     "a8cc0ff6-3fc4-4794-9466-850611931359",
+     "a8db93ed-e969-4ff4-bb61-97cbe49a4537",
+     "a8dfcf49-a463-4efe-9c1c-408e816a6d40",
+     "a9473d9e-4943-446e-8395-4b3aabe9dae1",
+     "a94e2f0a-a44d-428f-ad41-e8c1340b0af7",
+     "a981f961-6cc6-432e-8c7f-496dc01fdb91",
+     "a991cebc-480a-44a8-956f-135ca74f6ef5",
+     "a9951502-5add-4df7-b1ae-9373a96bc9e8",
+     "a9dc3908-86d8-46e1-a436-e8ed7ae80ed0",
+     "aa11294e-458f-417d-800c-34c853c18017",
+     "aa125241-2456-41e5-94d4-83c3c0296570",
+     "aaa70565-9a07-49f1-b223-5cdc86d456a0",
+     "aad697b3-0afd-49c6-bc04-6e4fd07cfe5a",
+     "aae5fb5b-1f3e-4529-adec-d1304b2eee04",
+     "aaed3136-bfc7-46d9-a516-0b368f621d8e",
+     "aaf91d92-638c-4644-9ffc-77b1661b9c66",
+     "ab08086d-96c5-4af1-90f9-4b366c1caf28",
+     "ab21f349-0b2d-4fc8-be5d-8d5ba9e7d8c5",
+     "ab817188-0522-4ac6-bae4-3a6b9b968d6e",
+     "abf63fc5-2e93-4cb7-9caf-5ced7772a2bc",
+     "ac0b948c-96ce-4a38-8992-2ce11aac66c5",
+     "ac1eb575-b90c-4d49-93aa-c37d100e6e85",
+     "acef9d2b-b9f9-43e2-8006-fdd6749a2de9",
+     "ad13dd45-4fa7-4acb-b07d-7e3ff54038eb",
+     "ad1c0e0b-aaac-4faf-a07f-1817b626296b",
+     "ad80f85d-3def-4891-8dfb-2b3ad966ba28",
+     "adef4ff3-b5a5-4608-beec-59e7ef7afc7a",
+     "adfa87da-4f2e-4e6c-bdaa-6ac6dec30508",
+     "ae3ad238-a8fa-46aa-af2c-f2e973ecd540",
+     "ae6306de-2332-4106-b3cb-51003b5813ff",
+     "ae92a154-d5d9-4dbf-aa31-b9ad5c8f8bbe",
+     "aeb83003-e67a-4d18-ac18-b8d8965e6423",
+     "aecff8a9-db31-404f-98c3-ab2acc7b37cd",
+     "af4da6dc-1f7c-4de0-990d-933e63a7dc51",
+     "afa3ab6f-8e7a-4685-9042-8c9a881b9fdd",
+     "afd96a66-8b6a-4353-9c92-67d2510477a1",
+     "b027f617-4dd0-42fd-9bd2-3786ed94f7aa",
+     "b02fe8da-5290-4317-9f39-ed1845e8e9f6",
+     "b03937f2-6a81-4786-ad50-c473f40f1e91",
+     "b0868982-5747-47e2-bf5e-c35f9764c105",
+     "b0df8dfb-4131-4702-b246-7bb37632c7f4",
+     "b1622017-daeb-4edc-912d-bf672beac3ff",
+     "b194b525-37bd-40d4-b91b-fd2fddc1ba20",
+     "b1a04595-fc6a-4117-b9a0-0f1e98b9644b",
+     "b1d75958-2815-41aa-a89d-e96203c0db31",
+     "b1d85c03-2310-4a67-a651-9260c76d57e2",
+     "b1f5c071-806c-424b-a181-fecb417d4708",
+     "b20da62c-9d0e-41c0-b056-3edb32295d5a",
+     "b2414812-2e68-45a2-b629-8fa4844f8fa4",
+     "b2582d1a-e1a9-4ab9-a01a-af49beb6b013",
+     "b291e1aa-0e9f-4dd0-87c6-43038af15d53",
+     "b2e503f6-5372-490c-9c88-2e699ea689c5",
+     "b3e763eb-3f41-409e-957d-532bef0b3c7f",
+     "b43d0209-bd22-46d3-bccd-2d8a0dfab10c",
+     "b469e2f6-80bd-4207-b48a-29b83e0bec2c",
+     "b4c7e43f-db3f-46b3-8686-2ea3309b7d90",
+     "b53d35f7-5a7a-44a4-adb1-583cbffe4e3f",
+     "b5fe5804-9f06-41ed-bd9e-cbe10654248d",
+     "b618baef-3069-4e8a-b905-314e14e7e903",
+     "b636b849-df77-42c3-b3f5-f7b9ff251f42",
+     "b6376235-6300-4872-9d0e-a32e33cbd18f",
+     "b65b59d8-d088-44c1-816b-f150dcbdb63f",
+     "b6631b1e-f29f-454f-a86a-37f88bc78ea1",
+     "b698b411-86f4-4d45-b047-13655d342dfb",
+     "b6a59ecb-8241-4513-abd2-69a560492b4d",
+     "b6c02d72-cb60-42a5-90b1-135f7de4e941",
+     "b7504545-ed7f-4625-ba19-375ed2deb8ba",
+     "b76ddc8d-a22e-4f69-ac79-ddd961ec00d6",
+     "b7bade41-72d0-4f00-811c-e2269b75cd03",
+     "b7f23d01-767d-4c48-b8f8-0bd0717dc2fe",
+     "b882757f-45a3-4499-81cf-3bc8dd4df36e",
+     "b89d8f2f-e1f2-48ca-8ce9-1ee0bf854e7f",
+     "b8fee5d5-230e-4cf1-b8b9-5f2d4c52e0a4",
+     "b9877a4a-0f11-4524-818e-59fe07ea9591",
+     "b9e87cea-81bd-4e29-acd5-7ad0eb520b67",
+     "ba703ffb-e670-4d8c-8112-a6b50e6ffe02",
+     "bab878aa-e694-4e06-96da-5435057bbfd7",
+     "bb125665-47f5-4013-a9f8-e73bd776f78a",
+     "bb65f5b7-df05-4169-b7ca-4d8dbd7a2dd9",
+     "bb6c9bc4-875f-4916-b73b-55a2313dad07",
+     "bb7b51e3-2159-4294-97e5-8aa22dbc193e",
+     "bb870ef4-e924-4a1b-a160-37556b765f5d",
+     "bba31ecc-0f0b-4eca-a6c5-c8c1aa5ba62f",
+     "bba9594d-be8c-41c7-b283-9ea6010309ec",
+     "bcb31303-be46-4c32-9417-1b18dabca49e",
+     "bd536958-a5f4-4171-9cb8-afb6ee5be7aa",
+     "bd670e67-126c-4bbf-9d35-72a4a2d6606f",
+     "bd7d7f25-7f62-495d-bb7a-caa942937380",
+     "bda4d7f4-7818-4b16-934f-64647c0cea1f",
+     "bdd035e0-33fd-452a-b945-1d53bb85f34c",
+     "bdf63ceb-d961-42c1-a787-975079007df6",
+     "be0cac16-8a35-4cf5-932f-16afbd18e954",
+     "be983452-6d2d-476e-bb65-c0d785dc14c2",
+     "bf08fbde-f42a-410e-a114-63f38c9ec4e0",
+     "bf6af8a1-76d2-458f-8b8c-503136bbc76a",
+     "bf754dce-eece-4138-a19e-4f3249fde79e",
+     "bfdcc2f4-322b-45d3-b518-7b9277b40ebc",
+     "c0a670a1-f180-4438-b92c-fba336818d81",
+     "c0fc62b7-d124-4e25-8945-5b3de920d4bc",
+     "c1323c1d-3898-4339-ac78-fa53350edcb0",
+     "c1b54ce6-15d4-459c-a7bf-d06ad46a237e",
+     "c1fc4f62-07b2-4bc4-8f70-9240383da5e9",
+     "c3291c45-00c1-4db1-87f2-8493a204576d",
+     "c33e2da0-4fa9-4145-8b98-996bcffd19b1",
+     "c367ed8e-05b5-48b0-b503-3c6031a899f9",
+     "c39bcc5a-e00e-4168-8848-7e7d1b00aeae",
+     "c3be8dc3-2046-490c-9cbb-8bcfa4deb62f",
+     "c457a5cb-a6c9-41e7-b984-62a7410dd6ed",
+     "c5161345-020d-4b29-9bde-875788e858e6",
+     "c5436e52-cf1b-4142-bfd6-2ece55213881",
+     "c56e47c0-2fe8-4e71-8033-68e25125fdb9",
+     "c5a35307-4375-4d72-a59e-c5b3a749ac4d",
+     "c619f1ae-4ab9-449e-8ea6-6d58c29830f1",
+     "c63433a1-46e9-43f1-92bd-f29e1c5e2818",
+     "c6cc9581-0947-46ab-b73a-d8cea21b6f46",
+     "c7064fc9-4b5c-4a8e-a76b-6d517a85dfe8",
+     "c7ac290a-013a-4aa4-a13b-c068c2ec9cbd",
+     "c883e5fd-d570-4f36-a287-35ea1b5ca3a2",
+     "c891fcdc-1423-4e32-993c-6723e9e5e375",
+     "c894fa34-9be4-44ea-8137-636864b12f64",
+     "c90d5c79-9edb-4e3e-8e2d-4b9430f23b04",
+     "c9ae8e1f-5dda-4a44-80f6-4dcd2b09e759",
+     "c9c7ecd8-61ec-44b0-bb0f-aa1e11ca74e2",
+     "ca22264c-021b-4085-9643-76a680d95084",
+     "ca402b5c-20ac-45b4-a665-70f577f18574",
+     "ca64f413-66f7-4a79-8cd8-dcbdc2cdf310",
+     "ca67deef-a042-43a7-9489-392341d085e8",
+     "ca68b511-0dc5-4403-a2bf-39e4379ded84",
+     "cb170017-d64d-49f8-8e62-3b37a59fa32c",
+     "cb529873-f5ec-45c6-a981-78fc2312d0e6",
+     "cb556610-182e-48e3-ab33-b9dd6a3f23fc",
+     "cb92af8b-bf82-43d3-aaa2-de9da04e676a",
+     "cbb55578-bfe6-49ea-805e-babe5b212837",
+     "cbb6570d-cee9-45a3-a676-02063bade67a",
+     "cbb6580e-707d-401b-8596-6b0b9d17c0e2",
+     "cbce1ce7-40b8-47e6-aa1b-c15d5c29594f",
+     "cc27e735-52bc-4d89-a275-93de9b5412a9",
+     "cc286801-f45e-4e5b-afbf-3097780c8354",
+     "cc489e8c-6e96-41ac-ab02-9da74ab7292e",
+     "cc5e00f5-076e-4040-b129-8b76187a9841",
+     "cc875cce-af46-4607-b18d-d84f90867102",
+     "ccdf4b3a-2853-497c-a33c-d1e82e4b71e5",
+     "cd0572bf-ee6a-4571-a794-a7efa3eef9ba",
+     "cd4907cd-b068-4a0d-9e6f-06ce3bab5f60",
+     "cd4fcd69-48bd-4362-b018-b0bda47b451d",
+     "cd592c09-9e59-4e70-ad84-eb38c4ff425e",
+     "cdb96c1e-ce56-40a4-9e83-79d9f5c528d0",
+     "ce02c5cb-6ec1-4cc2-baf8-1e58116f4b2a",
+     "ce7de452-1c7a-42a9-8e59-59144d3d7138",
+     "ce7de9dc-58db-43fd-8a72-1dc9f57be9d2",
+     "ce891304-7b42-4c59-9ed3-aebf59ca93cd",
+     "ced6ec92-c73c-484e-a10c-be47a04a4041",
+     "ced936fa-4e87-4d05-ba22-63fbe53bb2de",
+     "cef2e16a-033f-4b44-87f6-4dfc4ced6c60",
+     "cef4ef81-4134-483c-b388-4163d3d9358b",
+     "cf22f96f-50b2-411a-bcb2-9414b1d1f42c",
+     "d048225e-d455-4ad3-9eb4-e20659a49ffc",
+     "d0c7f3f8-e894-4fc3-88d7-fc3f6399df2b",
+     "d104bcb5-b9d2-4fa6-8168-0453dccc5ebc",
+     "d13189d0-5571-4b51-8a5b-b406950ccd0c",
+     "d1c2d441-95cc-486a-b019-2e634e8a5370",
+     "d1efc703-dd59-47c3-a532-fedd58e391be",
+     "d2119a5c-8ea3-4874-9d92-c2d8036016a6",
+     "d22f78c6-81fc-481c-90b8-40d48a588960",
+     "d2383af3-61ae-4097-972d-14aa1cad2c15",
+     "d239a90a-fb8f-4562-8d96-463aecb05fe9",
+     "d282e88a-0d92-4b93-bdb8-6429261d075b",
+     "d28873a2-647d-499c-8f47-afb489b92251",
+     "d308e8ba-a829-434b-8974-e4d709220276",
+     "d312956f-691e-40f2-93d5-faa565acf736",
+     "d3d40cdd-e778-46fd-9141-e2e66fe9b76c",
+     "d3ed7753-4a7f-4b53-94f4-f3be11e16b03",
+     "d41652a2-3c2e-48d4-8e56-ee308ad1aa05",
+     "d448d887-5a35-40d3-83a8-6a22c823bac4",
+     "d45d6e7c-b97c-4903-819f-6575d7fd3e5c",
+     "d465f539-99b6-4f05-a413-d964c0791193",
+     "d47d836d-2d8e-4153-9542-de3070454989",
+     "d4a1fd17-d870-4065-99de-c769222d2d7e",
+     "d5b68cd4-2e74-494a-b5da-a9efbff9148c",
+     "d5f1d234-2853-43a8-8c1b-0f6657d46646",
+     "d671951d-7caf-426a-8fa0-0e20254d8885",
+     "d686edeb-75bf-4814-a93b-ad3bdb11ecf5",
+     "d7159f1d-cd80-4c5f-9be5-834dd89a2371",
+     "d74d649d-1775-4b4a-9913-2a26c9e54402",
+     "d7810ba6-9ff2-4a90-a2c9-634141f43a96",
+     "d795a2a6-c0a9-428c-9dbf-d842ebd99ae2",
+     "d81afbb7-dd52-4fe2-9b45-58ea167f2fae",
+     "d89d79eb-2d0a-4c1f-897c-ca6675d66bbf",
+     "d8b8631f-2872-4dc0-bd90-2749e0d29847",
+     "d8ba1378-4016-48d7-9e1c-d55b132beece",
+     "d8e66693-a820-455b-b73f-920ac87ff49c",
+     "d8eb6a89-9b3b-4212-9bcb-ba855a5a5b6a",
+     "d8fd9bb6-1b93-4f3c-ab8b-2cabad51e7cd",
+     "d9130590-132e-47d4-afd6-0243e996b4ab",
+     "d9254328-f73d-48ef-a2a3-d98a47f25d16",
+     "d9416b07-6576-42be-9349-a48d5ada20c9",
+     "d9796c7e-958b-4096-b00b-141ccdcfb62d",
+     "d9cf1dd4-804b-4eb0-a2e2-2b4aabcc92e2",
+     "dbc71b74-8fd8-4839-8796-028c90270d08",
+     "dc0592a3-1863-4916-bfe3-734593672700",
+     "dc125990-1b1b-4f3f-90c4-687c85703bdc",
+     "dc2eab99-4d15-42f9-973a-d0ea8a74de59",
+     "dc684cc4-72c0-4b68-99b7-73df32e7d409",
+     "dcab1c2e-fcfe-4885-a0c6-cc9f663d3c61",
+     "dcad5506-02f9-4709-aea7-79d00ae8eb3b",
+     "dce6bfc8-baf3-4ed5-bc5e-53c59d653e8c",
+     "dcebe6d6-56cb-4c53-92c0-058a84b87ea8",
+     "dcf2c6a0-15ec-4642-a91c-96fd20602580",
+     "dd5be749-c30d-4643-8434-344e80c287e1",
+     "de194b30-99dc-4410-ada5-152d3e199931",
+     "de5ed8dd-d2c3-4b2b-83b5-51aed62b511f",
+     "dec470db-623e-42d6-84c8-67f61422c98d",
+     "df82ca14-f4a8-4021-8a2d-30e266230791",
+     "dfc15698-11fe-4070-9b1e-b8f66bf95180",
+     "dfc8a673-35b2-4701-b310-739fb684018e",
+     "dfe16f91-c416-4d2f-9af5-d45573213002",
+     "dfe82412-09bd-49be-beb9-0e825e293b89",
+     "e00cc5f9-2947-4cf7-b0b6-0ce49e3f6fe8",
+     "e0bfd31a-b66f-485b-a722-499f5274ddef",
+     "e0f1a047-59e8-4734-8af1-c74e2a84932c",
+     "e0f95f5d-0a19-4ea3-a960-baeaae7155a6",
+     "e123c63d-2310-411f-8e5e-f5625299fe30",
+     "e13df731-e069-4860-92c3-56f0f23b8050",
+     "e1472d8a-a5c7-48fe-beeb-738146a0b421",
+     "e151442f-08d3-472b-b695-a5529f2b9e6b",
+     "e1680a0c-bb26-4155-bf47-2c86aee0c797",
+     "e1a2b6e3-6918-4576-bdff-1dbfc15fcd8f",
+     "e1b54fd6-a85c-461a-9b3f-b1b9413db9dd",
+     "e1dc34a7-d5cb-4755-a0fe-ddc88e7252ef",
+     "e1e1f0d9-b208-4264-bcb5-ab3ffb11d213",
+     "e2293a21-9df6-4bf1-8f6b-cee9f0e9389d",
+     "e28d7259-316c-4201-8ba0-9dea67160046",
+     "e2e188a8-464b-4604-95e4-d3628ea97d55",
+     "e2f33b11-c50d-4e8f-a16b-c988d3cf84e1",
+     "e31ec92f-3e22-4afc-b72b-bf37d865c810",
+     "e3345587-9782-449e-9d14-712d2b6a6406",
+     "e48524c5-acd6-45fc-840b-4e516dc59747",
+     "e48fab39-e156-4ce9-b00b-a8d3680f8ec8",
+     "e4f74948-36af-4588-b714-b245be3efb70",
+     "e547b913-b96c-4bca-935f-9ae9d0bda1a3",
+     "e5bea96b-6eb8-4bad-8b5e-7826dbda2614",
+     "e61b3495-b9cd-48ec-8e5c-e52896cd7c0a",
+     "e64c2ff8-d515-40fb-97c0-2249b2c27573",
+     "e68ef084-4e11-47c9-a13d-083a06035b65",
+     "e6a35646-a5b3-4a02-93ed-559c20b11ff1",
+     "e7435f7c-542c-41d4-9d7a-43d9fe80602a",
+     "e778ec10-16db-47eb-afc5-152b7ce89d70",
+     "e7c191b2-bc0b-458d-a2e5-7f792ef01dba",
+     "e7e6383b-7dc1-401f-ad5d-0ddbb284f2e7",
+     "e7e7154c-3b11-44a3-a09e-c188b7ac05bb",
+     "e810af8a-2224-4bb5-b196-e0fbc7adba3b",
+     "e81faae7-1f09-4fdf-adec-ab5fe402efad",
+     "e87cc8f1-e9b9-4faf-a3f8-ae4f3c04cf90",
+     "e8a3c731-b879-4a58-9fe7-fef4af911557",
+     "e8afd0bc-1e91-4f84-877b-4253cb3dcc60",
+     "e8d89b59-decc-4916-b534-955bc45575b5",
+     "e936dc76-a4b1-4437-b03f-0b194b41a37f",
+     "e93b0a30-07d9-43a1-b1a4-37a774ab1fbe",
+     "e9f808a9-b446-42ae-8ecd-5dd7f6d94d69",
+     "eb21eb85-eb65-4004-b6a9-91067b68ac3e",
+     "eb2b404d-9c83-4191-8bd0-0a2f8352eec7",
+     "eb3aa64b-d1e6-4ade-965c-cc31dc14d9fc",
+     "eb41673d-8a4b-4a19-b1e7-95a45d2bc1dc",
+     "eb5eaf80-c962-40f5-aa26-233b1062df11",
+     "eb7912f1-40cb-42a7-9f81-cd8e0fa3ad10",
+     "eb7c2db9-8071-4fdb-afc2-ef65e17250b4",
+     "ebcf08db-3b67-4174-b6cb-9d19ee951f71",
+     "ebeed324-bb9e-4c57-ac62-d004aa48861c",
+     "ec40fe1d-0cab-49a0-a220-a42497064af3",
+     "ec41126f-fb69-4300-83ee-920096a0a170",
+     "ec4906b3-9e57-4b4b-b979-28934d0f73c4",
+     "ec6501fc-74e2-4fc6-b02b-f426b759eaa4",
+     "ec8a6d65-f300-48f3-afd2-90adedb26bc9",
+     "ec930732-5c83-4c07-adf3-233df7c19b74",
+     "eca9978f-7c54-4c7d-9f6d-8227cad975bf",
+     "ecf8aae8-b207-4611-b51f-41d93af71f84",
+     "ed88850c-f244-4a95-92ab-1ef13f949041",
+     "eda97f50-cbd6-4d71-920f-aed62e0c3e46",
+     "edcdab52-eafb-4631-8769-f719163ba616",
+     "edd8fe23-a2f7-4db3-9c3f-a7490f456d3a",
+     "ee07b24b-ac08-40a1-a99d-c2aad9448f15",
+     "ee1cf165-3103-40bb-92cc-543cb6e5b8a4",
+     "ee3d3059-e2e3-42d3-85d7-b58e4bc55071",
+     "ee66b7f6-4e45-4e53-9c11-3129c7970f95",
+     "ee7cf6bf-9385-485f-800c-caf49c92235c",
+     "ef451bb0-b439-4ad5-8d21-3cbe10076173",
+     "efb1e813-0360-44d0-9509-49b213e50c90",
+     "efb25393-8d55-4bbe-aa06-b510920fb416",
+     "efff05cd-4514-4814-a144-d1401e8a64c6",
+     "f048041d-fb1e-4ca5-ad35-0736eddf0cdf",
+     "f0492f07-bfb1-45fe-b1d7-e359d7650914",
+     "f0bed144-8434-4a6c-98ca-f2f7b7daad27",
+     "f1099f77-b227-4915-a74c-bfca53a366a2",
+     "f1187d78-5834-4d8c-aa9c-1cd254c51e08",
+     "f11ef7a3-f658-45a2-8e4e-d11460633b67",
+     "f14c732a-d351-489e-8a49-6ac107c24a90",
+     "f19f0b85-f7d2-45d6-ab76-fbb325eaaf63",
+     "f1e1e5db-b51f-40ca-99ca-f2c44bd8e06f",
+     "f2043f88-89ee-45ed-9fac-bb2948e2e101",
+     "f22f22ce-f005-483f-acbd-92028d62f931",
+     "f24acbc8-7b8f-4503-aa59-4ae8dd0a6aa9",
+     "f24c8352-a0a2-482a-b1c6-1c0b41bf0266",
+     "f25c08b4-7ba3-49e6-88f6-f2765b055bb1",
+     "f2b2035d-404e-4faf-90b4-42fd68a474d5",
+     "f3425c1b-8e48-489f-b386-932a32c991df",
+     "f387b651-3b63-417c-a5d7-dfff5726447c",
+     "f3d9117b-3e51-49f0-a46b-7f7d090629a6",
+     "f4096d3b-f469-43b7-98de-77984cfcc2f0",
+     "f44dad2f-268f-47e2-8a8f-7f8b1d443b6f",
+     "f4594afd-a2c6-4ffd-8853-7ff9c501915b",
+     "f485bd51-6d2f-41e1-898f-65c3e1222efd",
+     "f4a106cf-3370-425c-b4ce-8afc182c74ac",
+     "f4d84677-dc98-4812-b12d-6082967bfb0d",
+     "f5565284-715e-42ea-9a4d-2e4d87113032",
+     "f580a4fe-536a-4da2-a9d6-1677c00149ad",
+     "f5bb81cf-78cf-4f96-b199-b7addad72a7b",
+     "f5c95a86-906c-4b27-93f8-a5d8bd580157",
+     "f5caf77c-fb3f-4f0f-bc8b-f55eb34b9cba",
+     "f5e4e602-cbaf-42b3-b671-4ecefe2d0688",
+     "f621b490-60f3-4d71-b223-bd33518fb615",
+     "f623070e-0222-4b04-aaf3-7d1837a9e65e",
+     "f659c0f1-8edb-41fb-8f77-d6b6df6f11e7",
+     "f66aa867-2500-473d-8a0b-bdd1c21fcdc6",
+     "f6720644-d3f1-499d-bc2f-8538992d1365",
+     "f72db313-2486-414b-8ca5-534c7123601c",
+     "f7377668-1a9b-4984-8aca-0f505ed0ed01",
+     "f7ccd48b-cca9-4318-b55a-440f60eb5281",
+     "f7ef4c49-60c5-4b44-bafc-9e181dbb867e",
+     "f802409a-8cbb-4ec6-bd93-4eea33d4ca67",
+     "f82f7462-68ab-410a-8889-08d989b3d7d9",
+     "f85b31f5-15aa-40c2-971b-47d3221f12f7",
+     "f87601d8-b7fe-4140-bb52-023853b63de4",
+     "f89c186c-84c8-4ac6-8779-c86a7143369e",
+     "f8a39a04-a1d6-4dd6-9873-40ec89243c24",
+     "f8cbfae9-5352-45a4-8382-01dfb1bb9b59",
+     "f8ceb10b-0740-4458-9429-a153067c3dfe",
+     "f9293b45-f77d-4878-b659-14478439654d",
+     "f97ecec4-0ab0-4734-9823-cd66fb34170a",
+     "f97f0f46-2d14-47f5-bf59-454c64686997",
+     "f982b743-eea7-4636-b4a9-8d99ea8d170a",
+     "f983933e-76dd-4725-a67f-e6dd800862bf",
+     "f9925dd7-4a5d-435d-a3a1-e4a8fe70749f",
+     "f9b006cf-bd5f-4519-8cc6-ae667e534675",
+     "fa91efae-b75a-4ff4-8756-9fc46977fd31",
+     "fad0ffde-4d6d-471a-877c-46b4944175ed",
+     "fad52c7f-b121-4d1d-8e58-f4d595460ad1",
+     "fae6adc4-2f17-44ca-bcf8-7db47315959c",
+     "fb122d66-ba61-46eb-8690-92ffeff76a63",
+     "fb2ebd35-6c36-41d0-b8d8-e33db56eed8e",
+     "fb3fd217-184d-459b-970e-c3917a7ebcff",
+     "fb77cbfb-3c16-43ad-b4ee-5c35671582e3",
+     "fbc73497-521a-4a7b-b37b-6198b1252881",
+     "fca0abe6-3311-48be-925f-c0221d3d2144",
+     "fcb107a5-3383-4886-b69e-805c1f1ee4a7",
+     "fcc073df-1d65-4ff6-8eff-bfd2775d90ad",
+     "fcca482e-8c71-41c8-ada2-f9671e311faf",
+     "fd45acb6-5070-46b0-952e-babcf2cc9efb",
+     "fd773567-0bcc-4e7e-992f-9a7be3af0b33",
+     "fe0574f4-982a-4eb1-b630-ed22c7c38806",
+     "fe0be92d-7898-4b9a-bda8-e77ca563d472",
+     "fe2faaae-a2d1-43cf-aa04-7157c2b6c73e",
+     "fec0c480-3df3-478a-a28f-28646ab7514f",
+     "fecd6c2a-d842-4b11-ab17-a7207a9fe056",
+     "ff453e64-8580-4b49-96d3-a6676c6da00e",
+     "ff58bdcc-4e71-4261-a792-944ef2ec7096",
+     "ff773b6d-4ea7-4264-8fcb-eae6106b1072",
+     "ff774ed8-4ede-498c-9f15-2dcaf99a0e17",
+     "ff7f67cd-4e08-4f04-a8e6-e9ab3e9bf518",
+     "ffc02705-f618-4e35-9ea0-b5f900db2c63"
+    ],
+    "unit_code_excluded": [
+     {
+      "id": "604d02f5-8e88-48d1-9555-a50b9c05f480",
+      "address": "D2 - Văn Thánh"
+     },
+     {
+      "id": "8426cbd9-259b-4a40-bd60-4752dfdbb2d5",
+      "address": "D2 Xô Viết Nghệ Tĩnh, Phường 25, Quận Bình Thạnh, TP Hồ Chí Minh"
+     },
+     {
+      "id": "d3a87921-a2df-4dc3-8149-624964ec62eb",
+      "address": "B12, D2, Quận Bình Thạnh"
+     },
+     {
+      "id": "e4427896-7060-4aa9-a7b5-e5d3e5adf33c",
+      "address": "D2 Đường Ung Văn Khiêm"
+     }
+    ],
+    "old_any_share": 0.1596292481977343
+   },
+   "Nguyễn Văn Thương": {
+    "old_name": "D1",
+    "old_only": 52,
+    "new_only": 455,
+    "both": 3,
+    "total": 510,
+    "ids": [
+     "00c81653-52c7-44cb-a751-3fa979d68c31",
+     "00e1ef58-ba86-42f6-9c74-6e6b2b4ae685",
+     "0131eaea-f9da-4cdd-bec1-b19a3480334d",
+     "024d2972-9aaa-495e-a6c5-511d98955519",
+     "029760c9-eb04-4ba1-a53e-e5a2f176d00a",
+     "02b6d262-457a-444d-ba98-ea46e5c05ecd",
+     "03892ac3-3a8e-4133-ae0e-509890604ac0",
+     "05605d2a-ec55-462a-bd26-1a2f0effcce6",
+     "0607604a-b7aa-4820-a659-26111c6b8326",
+     "06a03442-6336-44ad-9b98-90beb145ab0a",
+     "0717ee9d-5a56-466d-b6f3-3291cf2103eb",
+     "0724fd2d-b6a4-48fb-961b-9794f1f469f3",
+     "0734de69-d249-418f-8fef-6f66fbbdfb9d",
+     "07d78ac6-71ae-4413-9bfe-476cdc9a5e36",
+     "080488ea-fd7d-43d8-a3cf-1aff0df73c43",
+     "097b54fd-6b7e-48ce-b355-eee0aaf85857",
+     "09b05c78-8b3b-4271-97b1-2e079ef85f98",
+     "0a07b9ce-0fcf-4082-8082-f6b7b5fdc4ba",
+     "0b2ed6fd-d566-4616-b541-2f32c5a90095",
+     "0b4fc7d3-9a22-47b1-9fa6-317da5ff2581",
+     "0b6d6658-0bad-4a8c-b670-43b156ba8893",
+     "0ba09058-972a-47f0-81a2-b562a0949cd0",
+     "0c46b62e-a95a-4dea-85cc-2d581486aa67",
+     "0c9d5663-ea7e-4526-aa3c-3b2c734731a6",
+     "0d04f7f6-f772-41bb-b040-a11bcce49bc7",
+     "0dd546d6-40a1-47d1-a918-e6bc696c9414",
+     "0e0bcd3c-757c-4be4-b9b6-ab0ea70a9026",
+     "0f3dc707-1fde-40f6-b96a-88198b1a7bd2",
+     "0f66ee41-bff4-4fac-97ee-509246c9696c",
+     "0f805b57-1fa1-464f-8687-332a61e55eaa",
+     "105aa114-7b50-47ab-94d4-2f0c1433c1a4",
+     "1102a788-eb14-4e78-9ca6-1ed52b9f6f73",
+     "11fbab85-7220-4f98-884a-e45b1bd08be9",
+     "131a7023-f3cc-486b-8377-bf7b7b9a19cf",
+     "1349e339-0b2c-4971-a226-05d231986e27",
+     "135e279b-aa9e-452b-b730-7f53383e5f4e",
+     "1399adb8-2e38-414e-8403-cd94925c7566",
+     "13e8a6ea-c2e3-4d7c-9197-08d3a54c78db",
+     "13fd7fd6-75ff-466c-a4d0-2a9465385d13",
+     "14a6f7df-658f-4ba8-ad41-c9a908487ea6",
+     "155ff023-a405-4b3e-82a1-c9b3da8e7835",
+     "1564f4c3-bf7c-49a9-9411-b5ba638465e1",
+     "1572ae7b-9d44-43e3-9326-dffafbaca204",
+     "16a62843-e3ae-4db0-af24-bfe635124e04",
+     "16d3a2c8-a13f-4d81-b9f6-cf83c3c6a5a2",
+     "16df65e0-bdfe-41f9-9cf2-3f9c454cfc7e",
+     "17b462a1-4cd0-4d93-8610-9cb12794f05f",
+     "18721f21-a3cd-435a-aa74-bbb0aed33a35",
+     "18b1407d-6b64-4c14-a23a-1e454b59feef",
+     "18e5181b-9aec-44ab-aa35-ac97c0e78d9a",
+     "193e3d01-53bf-4f84-8058-73e2d06a6c82",
+     "1998a4e2-b75b-4610-9ddd-8279b3ba593d",
+     "1a71f200-0639-4699-b023-992b2b7c67d6",
+     "1b735411-299c-4fa4-b536-d879c8649d40",
+     "1bd64097-9593-4e98-bdda-140a5a71f13d",
+     "1c41650f-d07c-4394-87e2-4e6587b6a408",
+     "1d001de4-a4e5-480c-848b-29a0f4aabdb1",
+     "1e4eeb89-a567-47de-b8ae-84ef99a29590",
+     "1e691b12-140b-47ae-a49b-a056ceb38c8a",
+     "2026cc96-9fc0-4a03-883c-ed463c3ced93",
+     "20476928-2bb8-4041-8214-96142255904f",
+     "213411e4-6681-4cf1-bd14-fa7887ce9805",
+     "2271bc6e-4fea-490f-ab1a-8851106c1de3",
+     "22d06804-d6ae-43de-bed3-7ffa1ab0a37c",
+     "22e433f0-013c-41fa-8191-318d5add918f",
+     "235795ac-982a-4e56-90cc-82d5d25bd50f",
+     "23984ecf-2b57-4dda-af45-4947b1fcdb3a",
+     "250ae909-39a4-4c78-b10d-e8a8b7b1297b",
+     "25c9764a-7fe2-4f52-9300-487eb4ee90c3",
+     "2721d4cd-5e53-4554-8382-1f169d5eec21",
+     "28381459-268b-44fe-b522-b7a844996ebb",
+     "286baac1-e342-4b82-8a7d-ccc5558c31c0",
+     "2925a9dd-6e26-404f-bacc-bbf938809e2b",
+     "296862ee-44e0-4ee4-9ba4-71bd4bd007e9",
+     "29821b3d-b2ea-40f9-ba38-d983b71487e7",
+     "2aaabb89-6791-4a5a-8ece-4f01296d19f0",
+     "2b459244-b3aa-4de7-a99a-1e8197371d3c",
+     "2c3cca4a-f07a-46d5-af53-05efbc6f5129",
+     "2cca5148-aa9f-45c4-b8fc-a200fb2b6c70",
+     "2cd80222-6502-424c-a0f9-44ed6f966d49",
+     "2d14d5ed-1b0a-4aa6-b0e8-cd8103c2433c",
+     "2d1ee079-c078-4981-9fea-effd6a37d145",
+     "2db0d5f7-33c7-4535-9e24-9535d02d9956",
+     "2e0b6440-a8c7-4fce-9b84-cd8c4b98a4d6",
+     "2e1ed79e-f8fc-4b10-83a9-8d8130a353d0",
+     "2f721c82-d8d4-438a-aef5-eda88c02c6cf",
+     "2fd0e900-d84b-4743-b791-273684b99eb0",
+     "30bc1249-30e0-4bc8-8a21-0fb812fc8fdf",
+     "327b3c32-363d-49b2-91d9-d70e4630c68b",
+     "33c0da99-53df-4e3f-a47b-78a4b8cd6d58",
+     "34282618-6352-4e4b-9c34-dee7a1b768c1",
+     "34e5249d-bd24-4c85-9175-3b8ff0f13cb8",
+     "34eb5946-6fe7-4263-8b15-fa29f1faa9dd",
+     "35d3c4ff-f0ca-4c89-814b-5587c71928ad",
+     "363d1ff3-63e7-4a9d-8a6f-8dbe65760815",
+     "366e9a46-338f-496b-a4ec-4791ac288da4",
+     "3680fe6a-d298-478c-8408-77535cd9e854",
+     "368b5e85-b68c-4c52-83b9-895f2e674876",
+     "36e23693-d80c-42aa-ba60-dd81e643b0e4",
+     "371c2e18-9ed8-4b8a-b204-b69f49b3d694",
+     "372db80a-a63f-41bb-b42d-2ddc06962a26",
+     "37b66feb-2322-430d-9985-8d9004b78f31",
+     "37ccf927-4868-4ae1-93f6-073bd43544e6",
+     "37d3f337-54eb-4ced-95e0-5f093dbd20d0",
+     "38315b90-2d59-48f3-90c3-3b943a835ee3",
+     "39482cbb-ccf1-4ae3-b5e0-96bbd74b2421",
+     "3963ee0d-574c-426a-9a5c-1ac4bba4bf59",
+     "3a29778b-a4f4-4067-83fb-28eef0ec882e",
+     "3ad6c5dd-7935-43f1-8574-13484067753b",
+     "3b258ffd-2488-4201-820a-0b00a6c52693",
+     "3cc2f655-b10e-4828-9113-4ab2bccdb217",
+     "3cdbb952-6fb6-46ed-9e8e-5e2a943ba9d0",
+     "3e27f569-1918-431e-97c3-5ad88ff37656",
+     "3e5926ae-e9df-4268-9d5f-c87d96775a53",
+     "3e9c7e59-3a29-460a-beb2-02383152b622",
+     "3ecf2f18-27b7-4952-8ea3-fb592201a437",
+     "3f5423dc-3b0d-4e45-838b-44e5839029f7",
+     "3f5ef33e-ec79-404f-96aa-4c913b539ab8",
+     "4027777c-871f-480e-91e0-de2572cb1ad3",
+     "402fca4f-b278-416f-b2c1-96c148703eb9",
+     "4072d387-6861-4864-ae69-cfbe7f162c44",
+     "407f1c9e-d130-48e4-b2c4-56b3ce604fb5",
+     "409465f9-a71e-41c8-ade2-4e25b6c7a910",
+     "4105636a-387b-4f44-bf73-6a6e9dceec32",
+     "4115ac2c-a34d-4b85-8f31-bfd74ba2fc69",
+     "41ad649b-e9c8-4cd4-baa8-dad7214856af",
+     "4420f09d-e58f-40ae-8696-e569cde2089a",
+     "45595c02-bcda-4f78-8224-d6c5a05d1e35",
+     "46155d5b-0c6b-4357-8d1b-58696e6ebc9e",
+     "462498ea-9720-4d2f-a30f-984b8c59eb72",
+     "46bda4d2-b61a-4229-82d0-c621754c2851",
+     "46d8f854-3c10-4f07-8a0b-8c9bced7249c",
+     "4757e437-a5c3-4e7c-8715-534274404823",
+     "487a5bf5-f980-4c9f-9d7c-a0cbd13172e1",
+     "4b7b2b80-e1e5-4270-8953-b770ec4c2054",
+     "4bb215ca-9eab-4afa-8dc7-4a3577a36408",
+     "4ce05b00-6a82-41a7-85c8-ddea5f8521a7",
+     "4d4c6a43-3e1f-48fd-bd2e-7c86b461b45a",
+     "4d98c99d-3e14-41d4-aa78-8fc9c3ab06db",
+     "4da963c2-48ae-4a56-bb34-03862370791d",
+     "4df3b365-dbe4-4e07-a5b9-cdf07e80753a",
+     "4e0caaf3-0bf0-4d92-bbe8-d322f1498f30",
+     "4eb2944a-d298-469e-9f95-66cdb70afc0a",
+     "4f2ecea9-043e-400e-8ab0-fb24e8a24892",
+     "4f56c3fe-7345-4b42-a0ac-899e70543765",
+     "50079e7f-057a-466f-90f9-100d8e288ecd",
+     "5066bca5-ebdb-49a0-8c14-d2601dfc47ed",
+     "50e46095-aa36-4f0f-8c36-ede2d8879126",
+     "5179af4e-56cd-44fb-8473-ab2f40b74854",
+     "518f3566-f928-44b6-a4f6-8178fb1b2d64",
+     "51a58382-44c3-41e8-b3b7-b528ea758ddd",
+     "546e1e9d-86cb-4725-9cd1-8d4eb8a86b35",
+     "54b277dc-86fc-42d8-8b04-83d6b0ab53a9",
+     "54b8ca67-e52d-4fee-9d72-d9947867d63d",
+     "54e1740a-462e-4277-bb76-559a55947336",
+     "550acdcb-72a4-4e5e-b6c4-1f4b988bfc99",
+     "55fc93bf-feba-4520-b79a-9d5b1235a4e3",
+     "565166ac-3454-43bd-aee7-33ddcb7ec673",
+     "5670e644-a33c-43d5-910e-3c3eae4118b4",
+     "597faacd-17e4-4384-bb08-88df5bb50b0f",
+     "5987daa6-328f-4628-a42d-fe93b21088ea",
+     "599ac9f6-db08-4190-b720-ec68c56e68d5",
+     "5a1555e1-2a99-46b8-924f-338bae00da65",
+     "5b14ab9b-5ea2-4fce-89e3-98ade19e6a37",
+     "5b56e235-826c-42e6-a216-7e93aa8a4d1f",
+     "5b59eb0a-bb8f-41e0-b589-cc6a9ec58c33",
+     "5b706a96-f6c2-454a-b762-bc97167043a6",
+     "5bf62dc9-629d-4794-8f2e-0d9e71b61605",
+     "5c24be49-fe6d-4ead-8515-d4023bf77a11",
+     "5ca03401-3077-49ca-b76f-68131bd83d32",
+     "5ca5951a-230a-43c4-ab03-6be212bc5303",
+     "5ce06014-528e-413a-ba76-62e1b5bd0558",
+     "5ce25ea9-b758-47d6-acd4-1c92cef84b15",
+     "5ceb5055-3ed8-4678-ab89-e936e6d9cc23",
+     "5e125241-3f5a-48aa-a21a-acdffa7c9e98",
+     "5f0ffb38-5c90-47b7-909e-3b72c1ae37eb",
+     "5fa7380d-85d3-4654-9c22-884af5d52823",
+     "60334298-9198-4231-9dd2-9e25aee15e41",
+     "6044f6e2-bf90-4860-96b6-4a653ce63f0a",
+     "609390b6-ee86-4ecd-9a2f-d2f3a172976d",
+     "610b0b1d-4b6a-4b98-b5e6-676dd67f17a4",
+     "61ba6b5f-d414-4147-b2fc-ae6833a1d9f3",
+     "61bf67ba-3319-44be-902c-b49ce99fd705",
+     "61f2c8bd-cc2e-425e-99ec-45d7b99e4ce4",
+     "6366aec6-3c2c-4fcd-bf41-7ed169c1c120",
+     "63785335-0067-46aa-837d-c65f256bb6a4",
+     "63c0dabc-1e0a-4b68-a17f-6b73c27a9acd",
+     "64120f48-e733-42d9-b407-b3cd6d8ec7d2",
+     "64234128-edf6-4624-b731-e68e69e275c9",
+     "644c7b7d-bc97-4411-a1fb-5972feb3a354",
+     "657b76fb-dff0-40f1-bb71-b68d8bfbaf67",
+     "65949752-ad92-483d-9266-b28b8e513630",
+     "66492e91-a8ac-44c8-9cda-77ae871571a4",
+     "66d7f9ab-e90d-4cdc-b75b-815ad24af73f",
+     "672feaef-35d8-465e-9b18-0ea34a513ea1",
+     "679d6762-9f37-4a68-883c-80f3be064c27",
+     "683b93e4-1e5b-4b53-8d4a-0f23b15194b6",
+     "68663910-e4af-409e-89ed-5ee0a73546cd",
+     "68779af1-d294-4889-ab35-0c1d5cdfd235",
+     "68ad003b-765b-4a69-b299-04af45054281",
+     "6947284c-91f0-4b1a-a5ab-674473620eb3",
+     "699089c4-8bb6-43ca-9153-a43697ad92ba",
+     "6a2295f8-689f-46f0-81cf-794ae20b7546",
+     "6a3095ad-8660-43e7-8844-bc14574b7ddb",
+     "6aa0619b-2931-43f3-93c0-d8eff8198088",
+     "6ac77d27-9d42-4e69-852e-41cbcf52a66a",
+     "6b3d0dc7-780b-4c02-aafc-9221060b234b",
+     "6c99d82b-ebfc-4a2a-b319-4436c88f5296",
+     "6e528ca4-341c-4c58-91d5-bcc7af13cd40",
+     "6e85d86c-aefa-4847-8016-3eaa49e31928",
+     "6eb49113-0bf6-4e75-b555-79bbb3d45322",
+     "6f8d3c20-30a7-4a79-8a52-ed7c521850ae",
+     "6fae5c5b-1fae-4121-a742-77aa1ca86729",
+     "6fdf8091-8ac8-45c2-9ff1-b0768035c3fa",
+     "7093275d-e0da-41fd-8115-91692ac92a1d",
+     "71286f18-fe12-49df-b38c-48fb62e8611b",
+     "7133c652-7c2b-45fc-b233-f88a08149e0d",
+     "725797ef-229c-4914-acfd-ae8074ffcb35",
+     "72a29301-0f73-4faa-8330-142690316282",
+     "72d9c67f-1c2f-4459-991f-39a918337fea",
+     "737a703b-74a2-47da-8d88-d3ff2c01e93b",
+     "75a2722a-72da-436d-a380-bb91e1257913",
+     "75bb6a59-8227-4622-a74d-721f084a8a57",
+     "75cfb6ad-1480-4c01-81ac-ef1a95c359b7",
+     "775b2761-82a4-44af-a6a5-dc6bca2620ac",
+     "77956657-09a5-4588-b7ac-d6c8459a4d60",
+     "78050b09-d647-486d-8df7-2cc2d997b2fa",
+     "786a39e8-9fd5-4679-aab5-9c0ad4a85e72",
+     "7886c2f5-87ef-4b12-a8b3-67f36b565085",
+     "789f04b8-8331-4559-901f-8609d4e82776",
+     "78cd721f-79a2-42b7-865f-cfcbfef53411",
+     "78ece6b7-1142-424b-90a5-64dab4dcd78b",
+     "794a43f7-8f47-4594-b86c-dfb7f8b6f194",
+     "7973a257-89f1-4c0e-a925-275fb5249872",
+     "7b8376b3-08af-4519-91dc-081526aaccab",
+     "7c9d352e-7fce-403b-893d-7a72c5a0050b",
+     "7ca562e3-21f5-40d9-bc6b-9e8ff33712aa",
+     "7cd0619c-2376-4039-85bb-764d6af0eaec",
+     "7d29a6c4-d4cb-48bf-98bb-333acf5ac902",
+     "7d6b244a-1eb9-4f8b-861c-b0fbe0b2f785",
+     "7e0ad77a-9f5a-4dba-9c10-f8e25e264b19",
+     "7e147ed9-0737-48b1-a749-109d75f71fa3",
+     "7e5b3d41-ffa1-4ef2-928f-85ad4c6a626d",
+     "7efd23f2-bcdf-41f5-b765-c627ca97eec6",
+     "7f342aee-2b80-4c1f-a8b9-fc653f41c8ae",
+     "7fc8027f-bd43-48cf-85b1-0ccb3210bb64",
+     "808585a8-6a78-4742-b331-2f6f126e4b8e",
+     "80b2924b-62ef-4bae-b85c-95a7679f3fa9",
+     "80b5eca7-a13e-404d-817a-133ec3a2cee7",
+     "81eae52f-3541-4311-a727-173325e7f2a0",
+     "820544b6-1c17-4189-a5f8-c28583b6c967",
+     "821c3861-bc84-47a7-bd0b-349bcbd2724d",
+     "8292f0ff-b28e-425a-9c9e-4ae6910b2411",
+     "830ed4e9-5da8-4b8d-bf99-190b12d0918e",
+     "83664288-47fa-438e-ac3d-cfba46707c9f",
+     "83c5779a-20a5-4847-ab3d-624bb91f4a20",
+     "84e9dbfe-2b02-4e8f-91e5-fe20f431ddbe",
+     "84fc5c58-416e-4b4c-9545-6e32755c23a2",
+     "8554272a-4163-4b8c-ad01-49ca2548bc1a",
+     "866a8680-ec68-483b-bca0-131f842d6c00",
+     "8677fb20-80fa-4498-bcaf-9d05941d0203",
+     "868aaa2b-f6b3-4305-bc51-d227918a1761",
+     "86a53d6b-8306-4795-a58e-730ec9f9700b",
+     "86ea2e69-807f-4d75-866f-ab72c835cb09",
+     "87fc2643-21d2-4512-af1b-a82224802696",
+     "8816dd30-11fa-4bb5-b128-f640af2b1308",
+     "88dce067-875b-471c-bd78-6782880dfe3e",
+     "8a863f52-3464-4fca-a542-df62fc7e30d0",
+     "8aad4129-86b3-4b6e-ac48-c16e157cffee",
+     "8cb117e9-c323-4160-bff8-dbb164c4cca0",
+     "8ce21020-1dba-41ef-b169-e51abc0829fe",
+     "8d2c7b69-9b3b-46e8-960b-088ff2926f78",
+     "8d5e9389-056d-4033-8ad4-48eafa70d67f",
+     "8e310399-4944-4659-a7c0-bf649cb98d6b",
+     "8f0d7513-ee4a-46da-aaf0-c36a79a248c7",
+     "8f31cc16-2af9-4689-b5e2-2008b0f60082",
+     "8f6abfea-872b-4aa6-a7d4-5116e6bfdfc8",
+     "90053577-864d-4e5a-818e-747d5cef5f68",
+     "90ae3287-b667-49ce-9947-33b54a68e3eb",
+     "92187db1-6eac-4544-b57b-34792c02fb2e",
+     "92631474-951d-4154-b62f-49f48181940b",
+     "9375d143-ba82-4651-be02-f82c484931e4",
+     "945e0e25-3c16-413a-94b5-1673cd03df86",
+     "9519fabd-a587-4d53-8b4d-553e65705569",
+     "956506df-1a41-4b5b-8eb4-820979f9a189",
+     "95d5fae3-f7b4-4799-8a2e-fc0ba1c5b95c",
+     "963f6bdc-e373-4f1a-ac1e-4d76cafacf89",
+     "96da254e-e8a4-493d-8e33-ee1322cb878a",
+     "97459f06-48c6-440a-90cd-62d6bc3de989",
+     "978f33c8-f903-43d2-9941-b97adc3f1757",
+     "980a8172-b57a-4531-b7c4-81f56aeb1b3e",
+     "984dd3cd-5e80-48fc-99a6-91af80de01ca",
+     "99a48f9f-eec1-482b-8882-e3a26d203681",
+     "9a5d026d-8644-46f0-849c-c4245c9fdfcf",
+     "9a60dac2-a4a3-4239-8046-c2f825c6b4c2",
+     "9a76c041-16e1-4457-9352-77e052019a9e",
+     "9bf7b354-6de9-4d4d-a902-bc393fc0737b",
+     "9d001c2b-f0bd-4f56-8251-bbc576f6e688",
+     "9d1d1473-5b39-47f0-a537-f7f9c0f88b18",
+     "9db71dd6-8341-4fba-a528-05c5e123f46e",
+     "9de67a49-472f-4c3b-8ef5-d9210497e44d",
+     "9e9e5251-0e21-45c2-9021-1f39bff419bd",
+     "9eceac31-c807-4f9d-bac6-e753af2ee768",
+     "a07b99cb-c053-4a19-93a0-f988a6d78c42",
+     "a0e4cb01-25f8-4fc2-9cff-79fe22d62d3c",
+     "a10e8850-df57-4b07-935f-8d8dfe09f588",
+     "a45a2ba5-df1a-4095-bf89-127294674c4c",
+     "a541d9ba-68ab-4d3f-a505-be455d1c180e",
+     "a56ac92e-be1e-4ac0-998b-79fbfb9f3ee7",
+     "a5b7e2db-42cf-45c9-9ddb-e2b85d727957",
+     "a5d9fb9a-5a15-4f85-b65f-b2f46935a4ed",
+     "a63b674c-839e-4a3a-91fc-9dda056150dd",
+     "a6e16074-7b1a-4b45-a3c4-29f94b48565e",
+     "a750f115-f54b-41b7-9ad5-5f4021084f28",
+     "a837762d-afc0-4318-9b12-5dd5cd216f5c",
+     "a857a3f6-a4a9-4f73-97cb-72bfa97c4027",
+     "a88d73c6-dc99-4ca7-ada9-d55eb7a01d88",
+     "a93090b4-6635-4c7d-84f9-863f34274d58",
+     "a9f2b608-70dd-4a14-9a99-bfe156450e1e",
+     "aa951442-ad47-4e14-94db-51b6302defe2",
+     "aacf1152-157c-4028-a234-37711b8b7bd6",
+     "aae2ef92-06a0-431c-b67d-f57852b47ec1",
+     "ac514e23-c04a-4016-a9c3-8a85f629bd0a",
+     "ac867229-ae8b-4085-9411-3577931892ed",
+     "ace2454e-8176-4979-8464-526cb34a783e",
+     "add00410-1a77-44be-8d9a-8e2fe1daf96d",
+     "ae6f94c9-f756-4d68-83a9-e7d10d279fa1",
+     "aeadae62-4f65-4093-aba2-59cfe5c3009f",
+     "aeead3c0-16d1-4f49-b005-7f9c98f71fe2",
+     "afd976c3-8f85-4a11-8150-535a8d2b21d4",
+     "aff90777-2e05-4519-8677-e566d307811a",
+     "b1490f43-b07e-43a5-8538-8c6470a0d0d0",
+     "b17e762b-d6ca-4574-8bf3-98dfadf8c38e",
+     "b186f555-a8fc-4571-a8a3-12c8ff22200c",
+     "b2d36fc2-2050-4fad-8ed0-7ac6497c21d4",
+     "b385fb31-dbae-44a2-8121-30cde54c363a",
+     "b3a07dc9-d670-4ced-af1e-d2bb222677b2",
+     "b47b155c-ff96-4dcb-b6df-ecfed56a2f41",
+     "b55382c1-56c0-4fdb-a0dc-022db15e4412",
+     "b5bf5061-39dd-4336-8d77-28a60fc8ce65",
+     "b5f142c0-eb17-43b5-8f15-f1d9b121f2c9",
+     "b63dfd2a-ea2d-48b2-9a83-dac3ca512547",
+     "b6cd4520-bcf3-4af0-8b4a-a39e15c6131a",
+     "b7cfa8ae-0c92-4e38-9f7e-c436199654b0",
+     "b7d01c54-30a4-49f3-aea0-2f19ccf01547",
+     "b822be88-f333-402b-8d53-072e7a5d51bf",
+     "b896d546-022d-488f-89f2-a60faf411c00",
+     "b922b4b2-711e-4d4c-a915-480d34913684",
+     "ba869cf2-e0be-4b2a-9758-8049732f0de9",
+     "ba8e9657-8e29-4cb7-85be-7f1e335fbeb8",
+     "ba914268-46dd-480b-bacc-530857aa5e2b",
+     "bac9ae9c-70ab-4713-816e-17388d39fc9d",
+     "bc1b0d77-44a5-4c45-8253-0226406b8208",
+     "bc21baf8-4be0-4463-b7c0-e23502e4429a",
+     "bcd28afa-2a2d-4066-a012-849d44f2bfff",
+     "bd211a45-0bd1-4a8c-a686-ea5c16961691",
+     "bd9bd666-1ba4-49e8-aad0-847ee70b88ca",
+     "bdb7a1f1-11f7-4685-8927-2ab3e88f7198",
+     "bdf1053c-71dd-4d96-a827-342da3f3e39d",
+     "be0ffbb7-392e-4804-8d40-23cd06e1e597",
+     "beac4427-13da-41f6-adf4-5dc0f5cca776",
+     "bf687c76-d1e2-4d61-a163-287d3d081e07",
+     "bf6e07eb-511f-4a3b-a450-d72e7481e99a",
+     "bf9b9ed3-4d36-4d0e-b064-7c5e1ea6ad1f",
+     "c13eb99c-3c60-4769-b675-61167b1b64b9",
+     "c144f5a6-1537-4548-8a7f-64225ec511d8",
+     "c14f958c-6d52-4c62-9226-bbe9aecfb9ed",
+     "c18981b0-73c4-4ec2-ae86-21e72a7b0bb6",
+     "c1feb764-cce9-4c4f-966b-bfeeb04525f3",
+     "c2ce4e7a-c18d-4119-9e40-9a0c27b71771",
+     "c32c02d9-b089-4611-b5ca-9af15a44a89e",
+     "c337e737-cb85-46d0-a4d8-6f67c5b0675c",
+     "c37304bf-e5bf-4d89-8e1d-ee2341e0fb97",
+     "c3a342da-f0e1-4bd0-84f5-8f100367c89a",
+     "c3cc3548-7bd4-4f49-8c0d-969093abf951",
+     "c4455b33-e726-441e-9a81-9571eed0c174",
+     "c4c416a9-af89-4adf-9ed9-ac1bee1e2fde",
+     "c603e809-f2e9-4687-9b03-4da5b64c0054",
+     "c69b8a49-a0a1-4d36-91ab-9448dbdc7263",
+     "c72102c7-515e-4de1-bb4f-b56e43b5e388",
+     "c74536eb-6982-495e-90b5-f32eb94ac416",
+     "c78c47af-572b-45a2-a742-52c3eb9ff6a1",
+     "c7f98084-a178-4e94-ac13-50843debe07b",
+     "c8075469-725c-4bc1-b363-8d7b58d2c759",
+     "c80cdb1d-3832-4a13-a879-7162f875c2cf",
+     "c8a1c424-8139-4e16-9163-16138b32ab70",
+     "c8c1d980-b647-4a83-a92b-8d111a1b1598",
+     "c92cf44d-2ae6-4f7e-af9a-cf740eeb5ef7",
+     "c9347a39-4f83-4976-a4e6-75f10addc794",
+     "c93aae47-8a9d-434a-946c-634b680d6e76",
+     "c9425584-f82f-4ec1-b833-22a90a2abe10",
+     "c9608062-2ebb-4881-bbd6-17fad4a320c6",
+     "c9bda300-37ba-47ed-9d84-8c376c73955a",
+     "c9d85077-23eb-4256-aa55-fcefbbda1096",
+     "ca97d8c0-0c7e-44dd-879f-786c41362454",
+     "cb429413-32ea-43d2-969b-a528083bcf39",
+     "cb552869-a6ac-4314-b7b2-30b1654e4023",
+     "cc2f0303-6546-4d5a-ba7d-3992336e224c",
+     "cd4df1b5-5fcd-4e4f-a38b-7a3235e92dc1",
+     "cd5808b9-5f77-4866-b09c-8b11140bbf3a",
+     "cdbc466e-55f6-410e-916a-b538186eb0f7",
+     "cfc8556a-6cd6-48e4-9b99-c9581d6bfdf3",
+     "d029847e-83a9-4f52-9e34-cc50fbbd4b5e",
+     "d06f68f2-512d-461b-ae03-b8567c2069b1",
+     "d0ad362c-450b-4929-b11d-ae2406d5e091",
+     "d0deba08-04a0-4d8b-940b-0ff67a702a46",
+     "d11e81d7-6efd-4dbe-8ad8-7e2cc7448b8f",
+     "d15ef04d-5fb1-4e7a-8975-c68b3639cc10",
+     "d2321cf7-9da0-4372-80d3-058a1e1fced5",
+     "d32d3647-aa7f-4a86-90de-0dd79584a761",
+     "d3338bb9-ff09-4a3a-8175-2d1789f01870",
+     "d36525af-a161-4c59-9b02-1b6ea67fffcf",
+     "d36aa87e-abd0-4f8e-b7e2-8a8b72907ca9",
+     "d37c57c4-edf3-44e2-8c11-f0002bb64b04",
+     "d42cd744-6a0d-4b08-ae6f-d42b583a7669",
+     "d548f0ec-4c01-40bf-9d1e-71a091fa2646",
+     "d579b00a-3b38-4394-bd97-fef2820b5b78",
+     "d5c67bb0-1702-4925-ac6b-167f07c1b337",
+     "d68d7929-678f-43f6-8286-c2751085b73e",
+     "d6d3f6ae-84e6-4d9c-ad90-6545cd1616cc",
+     "d73b9192-6d4f-4db6-ba28-98b5093da211",
+     "d80e08f3-19b1-4a19-afce-9678c065b37b",
+     "d82c0f1f-575c-4583-a872-932c668be26d",
+     "d84a97ce-43cc-4adb-a82c-24f9025ba167",
+     "d88c61bc-8675-46ed-bc11-b00cddfb77e7",
+     "d9095187-ce27-460a-ad05-f3d01a73f7d2",
+     "d95a29d8-406e-4240-a06c-4c66a4877d62",
+     "d95ffabc-93b5-4fa5-9971-000991bcefa0",
+     "d967b0fe-ddbf-4a1f-b75d-857f96aac72d",
+     "d9e80d6d-5109-4f80-be28-7f3326db806d",
+     "da0bfaed-3120-406d-aa1e-07139f91069e",
+     "dac0cb53-fb8f-4e7d-8cdb-4e7eb2aa54dd",
+     "dc86bd8f-36ff-4459-b735-05b8f4741ac4",
+     "dd2f0af1-943a-4d81-8e18-99e3e8e4fdf6",
+     "dd602ce5-b53d-4338-acb7-32114178bad9",
+     "ddfce726-15af-4864-b43e-be6768ff0630",
+     "de6d06db-7cec-400b-88b6-6e808535ab60",
+     "dedd24b7-548c-4cd4-a30a-0536f84c9347",
+     "df01af85-897d-46b8-b6af-ea5d74bf67c9",
+     "df09b541-7930-4f16-b64b-128eea5c9487",
+     "df45aa6d-395b-48aa-86dd-38e2781264d4",
+     "df700d6f-2a69-41d3-a50f-cac76a7e6e74",
+     "dfa7a272-92c7-46ed-ba67-8195051f3250",
+     "e0b164b0-8485-4b76-821f-5a2bc0ed84e1",
+     "e119c617-dede-4580-a382-890126ca7a86",
+     "e188824d-27a7-48d0-a4ce-426ef33bc0f9",
+     "e2a7fea3-079a-48fe-84f6-ff3721ab3771",
+     "e3752bb8-02d4-4280-b30f-c329eccc0c73",
+     "e3faf87e-2c9e-421c-91dd-99cfbeedd4ac",
+     "e4188233-2df4-4e81-8f2f-8bbb2f7e3ae6",
+     "e470c893-7c1c-4886-a776-87c388ad6fe6",
+     "e49d55ab-ac6f-498e-a5d0-895865f33f88",
+     "e4d0a48d-fae1-4f7a-a896-ea7b7b1deb34",
+     "e596efe7-2f2d-4527-940a-0d78b2779f61",
+     "e5d4ce4b-d9c5-42fb-9323-91430d429f54",
+     "e5f01450-215c-47b0-b135-89ffe09b6e48",
+     "e5f0dc3f-90a1-45c3-9d6b-c25d44168a20",
+     "e666a344-53e4-4483-a520-64ba49e11eeb",
+     "e753f600-a4c7-4e16-9e27-6895def87eeb",
+     "e7c5ca88-d2f6-4d2b-84f3-accca011e329",
+     "e7dafa97-fab2-4527-bb95-dc5445129680",
+     "e7fea8a8-99c7-4844-875f-23f994067207",
+     "e8c66160-f137-4ced-9585-de0218719c10",
+     "e8fae0cb-4eda-4cb7-ae10-292774e17ed9",
+     "e9d766e6-bf55-40af-8a00-fd520b22f4c8",
+     "e9e1be28-5cb6-45d4-be39-ddeab58c4635",
+     "ea8f1b0a-2677-47f8-b1c6-cce80afd0f34",
+     "eb12ac26-4539-4aef-a838-603755308759",
+     "ebe1188d-fe10-4ca4-b263-d2c7b12b043c",
+     "ec0dc540-7da3-4547-ace4-ae1af2b8431c",
+     "ec3fdd67-28e5-4a07-85f9-ed78ecae4bcb",
+     "ed3f860b-d0d0-4a60-b2b0-d5b6820f59a1",
+     "eda92152-2d43-49a0-baae-7078cc2bc7f4",
+     "edae6390-548a-456a-bd46-896fcf44cf2d",
+     "ef3f04e4-dbbd-4114-866f-cbb4bbda55fd",
+     "efb426fc-e714-45ba-8085-a17c9166c52d",
+     "efd4e8c4-3268-46ee-b6ad-201bdaebdb3d",
+     "f0ac4985-fea0-4925-a289-20fcb579886c",
+     "f145cf80-f15a-4d75-a30e-f42760b96e76",
+     "f283ba21-dc78-4487-bf1b-620fe7bf2940",
+     "f42c795e-7e80-451f-b3df-e9ae66b2988d",
+     "f5080230-8fcf-43a6-9feb-0caeeab352aa",
+     "f51438a2-1563-496e-b6d8-5927d44e870a",
+     "f6c0193a-2e0e-4ab1-a993-f686389423a6",
+     "f6cb4ab5-df9d-41fc-86d2-181e332fd0c5",
+     "f723142d-9c70-44e9-b64f-d6506166b537",
+     "f74a6081-a16f-4562-a4b8-721f116db9ae",
+     "f79fae73-f28a-45c0-99bf-224cd10f8226",
+     "f7c5a816-7d8c-4aa5-848c-f5dfa665c967",
+     "f7d3a578-1f62-4f6c-9c83-f3e5fa5ef890",
+     "f7dc2ece-a167-45ac-b1cc-054ea8d04014",
+     "f7e1fc86-d16a-4c45-8bed-32faa727f5fd",
+     "f7ffca4c-8ac9-4def-8d56-d62ba39baab8",
+     "f8402675-4944-4a20-9751-18f7e65429df",
+     "f8bc677f-a754-4c73-a420-708c4fd61f60",
+     "f8c671ce-55c2-4559-a1a9-a150c6297f9d",
+     "fa33ebb5-3b34-4e25-8390-102dda0edf55",
+     "fadd2101-6244-42bd-a998-e947ebc2a276",
+     "fc5d172c-926d-4e22-a4f8-1dc19e3bfc3f",
+     "fc7da055-69e2-4c3a-9622-b9673bad4d5c",
+     "fce1a0ef-0efe-45d1-941a-0d483de5bf31",
+     "fcea6438-b70d-45bc-a5da-20df9369e616",
+     "fdd79b75-00e6-4163-a2f7-850a9894ee2d",
+     "fde08e0b-703b-475e-8eca-191f8c60ded0",
+     "fe3a81f9-0956-4ffa-bd4a-05760bba663f",
+     "febd4980-d780-41b5-bd98-327982d1ea95",
+     "fef38002-8db5-42de-8268-c753a54777b4",
+     "ff75e706-081b-4712-bf71-1eb8f62d1ac5",
+     "ffa64b65-33ea-4c34-82b3-cdc5b056e393",
+     "ffdb7510-c2a6-4e65-923e-a59bb6a2c4fe"
+    ],
+    "unit_code_excluded": [
+     {
+      "id": "3cdbb952-6fb6-46ed-9e8e-5e2a943ba9d0",
+      "address": "D1 Hẻm 152 Đường Nguyễn Văn Thương"
+     }
+    ],
+    "old_any_share": 0.10784313725490197
+   },
+   "Võ Oanh": {
+    "old_name": "D3",
+    "old_only": 29,
+    "new_only": 215,
+    "both": 0,
+    "total": 244,
+    "ids": [
+     "00048115-7d12-4bfb-93ee-a2af0bbfe54d",
+     "002bd3a9-de18-4034-ba1d-75424e84dac5",
+     "00ae8c5b-1688-4ca4-8f15-af2387606df9",
+     "0119ec2f-23b5-442f-9cf6-0597f3b95d39",
+     "02adf504-a5db-4528-b3d5-6cf117bc27f4",
+     "03acf6fc-25fd-4cbe-affb-0c3f7a76cb24",
+     "040691e0-0103-48da-bf14-260cc4df9642",
+     "050c7cd0-7ef7-4fdd-8a31-1d542c2808bf",
+     "0568d43b-7b7a-4498-8c78-e8b9b130f881",
+     "061fbb4b-452d-41fd-9822-dad30244551c",
+     "0799dbd6-c526-4dc4-a401-302276d229b6",
+     "07d45114-9405-4bb3-b692-2fd4188e81c8",
+     "08f3e839-7542-4bcc-9db0-0dcae8a26277",
+     "0a2642b6-4ba1-4889-ba33-52068bb56575",
+     "0ae035cb-9102-4d40-bbd5-69c8f6a7aac9",
+     "0e694471-1ae8-479e-bedb-883853dc306a",
+     "0f4e0fc4-0eeb-49b3-9eba-0813bdcbdbbe",
+     "0fcb179d-38c8-49df-8e73-c32bbe25c707",
+     "120bac5c-dc42-467e-9a91-1dfe0fa5bba0",
+     "12cf2578-5f03-4a2c-a060-65bc9eceacca",
+     "145b9bb8-b671-4426-bc2b-3a8fea8c2062",
+     "16f2b118-084e-4f1c-b3dc-16d6011a95d7",
+     "171856b4-9d61-45aa-81f2-050d5f671a6a",
+     "1770b042-c845-4cec-a2c5-48e9d54189ea",
+     "17c57200-8e17-4866-9d98-7e07e53f6b87",
+     "1e611920-0565-4692-afad-80cee4c4feee",
+     "20ca5821-f698-44b3-9bc6-2d521861259f",
+     "2140defc-3332-474e-81de-286f1e19c6f6",
+     "222fa80d-5986-45f4-984f-a0560445532d",
+     "25a7ea9d-f517-4b00-9d6e-5571d2a3b496",
+     "281197db-d80f-4379-aae6-7957060fd492",
+     "29cd0793-16d9-4f05-8363-2ca6735dad56",
+     "2a1492fa-6d10-42e5-adcf-4f19422f2aef",
+     "304256f7-ea1a-414b-9748-afe5801451bf",
+     "308bc6ac-ba23-465a-ba97-fdb08c5859d8",
+     "311119c9-d8c5-4766-bd33-3e51b7c38d6b",
+     "32f671dd-dd9c-4279-b2c9-6e4e3a00c265",
+     "359fa453-b5a1-4635-a5b8-2da4f046aec5",
+     "361ad839-0961-4e56-826f-7c3d23092dbf",
+     "3680e63b-0dff-439b-af35-df144509258d",
+     "386940a3-2385-4841-a85d-0395f43391a4",
+     "3b4723b2-a54e-465f-8c02-f66ec9748177",
+     "3b59971a-7496-42a6-ac7d-9375a7e332b6",
+     "3ca0c6ba-b9a9-42b2-8c9b-a4b49104bf2f",
+     "3d319059-7cfc-496a-9108-a04babacca3c",
+     "3d5c7836-c084-43f6-a517-fc7c3921bf95",
+     "3db568b7-e746-4f64-8ce5-48269ba45f2d",
+     "3decb123-22eb-4b19-a9e7-e489fc1d8236",
+     "3fdc24f3-d838-4df7-8025-b9c837c13b17",
+     "41830d4c-41b8-4906-9a3c-9476bfcc8574",
+     "41bdb189-0f28-4378-9a21-d22a4ff7c20b",
+     "4306bf04-830e-49b3-8af9-eb58508a3377",
+     "442357d6-eb7a-4498-b6a6-08c0307f5647",
+     "442b5a7d-c68e-466d-bed2-eebf6a38eb99",
+     "46f9fcbf-53e7-440c-b302-eb544710ea1f",
+     "47e02654-7670-442e-bf1e-9c811f043095",
+     "48bce2d7-2652-4a55-8167-9db232a35083",
+     "4a20e1ad-1b89-487c-abe6-07b44b5b0a56",
+     "4bedfc1c-a6e0-43d3-a971-b37b213e8e1a",
+     "4bffd848-dcb5-43f0-901c-d2ca7b63d4ec",
+     "4cd12ea5-d55a-4e12-a8aa-d9010f8240f7",
+     "4e534c9e-4a0d-4223-a0aa-40982b336bce",
+     "4ed7b2ff-1b93-4eec-8260-a7a7f269841b",
+     "4f6f9ce5-4940-4c68-855c-6f511e8c4508",
+     "5240851f-1f67-4368-a99f-1084078e5dbe",
+     "52cd6ec7-a961-442b-8607-582dd1c9ac29",
+     "55dd29da-bc8f-45df-a57b-12e3c8cce424",
+     "570591e7-0dad-4f7f-813d-70f1a53e880f",
+     "58936964-8536-41ad-85a8-621766236ff0",
+     "58addf7e-e2ef-4640-9c45-7da3061e37d7",
+     "5a57c12e-4b9d-4e1e-b3b4-426843a0fbcd",
+     "5ebb9ded-2128-4f49-8d60-4ebadc080f88",
+     "5fed7905-ba9a-457f-8004-fcd367617115",
+     "606af50e-0740-43be-aa57-f9768c296464",
+     "635ae2be-d3ac-4bd4-8bf2-cf58ade932fb",
+     "67400d35-bfcd-43be-a093-8d375b3609de",
+     "68189a54-8b4d-4026-a11c-9246f191fd8e",
+     "683229e7-ae82-4454-a2ae-1b74df342082",
+     "68512041-df3b-4266-8054-63d6f021a628",
+     "6acfb064-52f9-4510-8d13-8d45e01c2c78",
+     "6b4ad34f-1121-49b6-886b-7e00d52aa580",
+     "6c5392f2-373d-44e0-b710-5126d0a86bd3",
+     "6e327f69-2a11-45d8-9bdf-5d525180af02",
+     "6f1b5b05-a949-4d68-a835-80fedd16ff5a",
+     "71165179-57c7-419a-a82a-f42219837029",
+     "72159724-27ef-4343-8ef8-4cdc95ad3959",
+     "7240ec61-a70c-422b-8e66-5324c732ab8a",
+     "72a79446-b9bc-4b78-9fd3-0887774b4b0b",
+     "72fde6ec-5295-4040-a289-ead1446df205",
+     "73aaefbc-56ba-469f-9c80-cccb1e78d863",
+     "74e84972-e080-4cf4-9136-5b6dffd2ff6b",
+     "7543d746-6627-4a84-8a56-3482caf900b9",
+     "75f5c7f6-6901-4d3f-b998-dcb279f9d71f",
+     "766013a8-713c-41c1-b96e-66843eb41f6b",
+     "76ff44dc-89c5-4ea3-9b5a-2f989957b430",
+     "7775261b-7c1f-4f0f-892c-4419995a2b53",
+     "7931bdad-a280-4e8c-9114-3bf799d3ec42",
+     "79a4bc8d-fb30-4d11-996c-6aabcef1d5cf",
+     "79b23548-8136-4c19-b543-aaa065172a65",
+     "7a4dd410-4f6b-4d0c-b8a3-df4ce228906f",
+     "7b3d79a1-20e6-493a-8067-73627eb30783",
+     "7cb8e1a6-0b4c-49fa-86a6-9dc3bb9cd1f2",
+     "7d4d854c-56c6-4328-9398-14810f3b3d79",
+     "7d6d930f-3b7e-4681-b0db-f26f139ebe06",
+     "7dc4b801-681d-4123-a6a8-aa5b3c072d22",
+     "809d61d5-728f-41ba-aa4a-6f910710caa9",
+     "80cc72d8-3a06-49ff-a08c-7f951ff13e4d",
+     "81b876a5-8aef-4eea-ad71-f916c2390528",
+     "82314dbe-ca56-41c7-8d4d-7232fbada8da",
+     "8341aa80-1f0e-4486-b45f-78d65b8dfc22",
+     "8377df73-cf5b-4160-9263-7061d4252de7",
+     "83885973-530e-4ce0-be4f-2142e6b3c8e4",
+     "83dda376-c4eb-4b4f-b7eb-92c7d304470d",
+     "856b897a-e39b-4b90-afe7-8e3428647720",
+     "87e41e02-dd99-4e46-8f02-3af6c64f7678",
+     "8899eb6d-60aa-4a3b-8a4a-f1e16f90efb7",
+     "8a9dc6c6-890b-4acd-9205-f64cb48d9873",
+     "8aa13167-6960-4cb6-a941-0a1dd455c1bc",
+     "8aa131e7-3311-4e64-ba66-46600f071a6b",
+     "8cdb243d-449e-413b-a415-2846f5b3f61e",
+     "90b2e1f2-fc41-4726-8d29-6714f5f1bea8",
+     "90ee2558-cd71-4d99-850c-c1ee578a880a",
+     "933a3380-0e4e-4f1b-8857-e24311cd500b",
+     "9363315c-01b7-4723-82ef-1b4cd1e781ce",
+     "9400c00d-bf3e-469c-89c4-3e7fb91e8abf",
+     "9406dede-fea0-4950-b719-5b2e0b8125a0",
+     "94716ad1-068b-4135-a883-a26a4fd467df",
+     "950be08a-95fe-45c8-bce6-7b3ed7388401",
+     "95eb8273-2061-4218-978f-a47c1a2917a9",
+     "97349961-5dfe-4bc3-84aa-7303a8b4fb71",
+     "995cfe52-5c1b-48df-b9d6-544b0a05c334",
+     "9a5b9760-e30a-4137-8bbf-61ffc2471656",
+     "9aa54b3c-ffdb-4590-9919-82078e72737f",
+     "9bd2cc8f-44dd-46a2-96f7-99a09c1c8077",
+     "9c28d87b-3da9-471a-9546-7a5675632ec4",
+     "9e0750ff-a408-4496-b6df-714e2839127b",
+     "9e73ebfe-b0cf-41d3-b268-7c1bda56d47e",
+     "9ef0b44a-d15e-473c-9db1-2919900048e3",
+     "9f2bdd85-afaf-4b13-bff1-6e90b695f1d5",
+     "a097ec52-682f-4b5c-9249-9eaaa8c86615",
+     "a0fedfe6-162d-4272-b336-9d4f0db00226",
+     "a1ce6f3d-6af1-442d-b6ec-1d738234f275",
+     "a2c72d3a-f019-4582-9af3-e1575b5b8e6a",
+     "a3667912-90d9-48cd-864d-0c702d258b6d",
+     "a3c818bd-326b-4ade-9973-c3d42ae6f0fe",
+     "a3cebc3b-2fae-4eb6-96ad-4c47722093fa",
+     "a4ad0ae8-e257-4109-8b4b-2a646ee7279b",
+     "a5382b17-c8a9-426b-9787-fcd70142c13b",
+     "a61a7af8-cb5a-458b-ba1e-3fd0c86351b3",
+     "a64d9a41-0c89-483f-a3e6-dd320be2d83b",
+     "a781eba3-281d-4940-89e5-9c938b83d1d9",
+     "a937e688-d042-40c0-bf03-05c25b2892d9",
+     "a9fb29af-155d-4351-8151-be772991ce36",
+     "abfdae3c-a3da-4d95-ab19-26b34d68aa99",
+     "aca07f9d-8440-44ed-954c-13eb5227a12b",
+     "ad03b9e3-d75e-4926-a3b6-433244d9c0a6",
+     "adf9bba0-e3dc-4d0b-a5d3-2d9ab85b0f43",
+     "ae81839c-5d24-46ed-93e3-fc1de39633da",
+     "aff92293-6972-4444-b6e3-7e9b7f3e37bd",
+     "b3997613-54ee-414c-bcb2-1919fdd9d5ac",
+     "b4891448-542c-48ae-b558-efb0be7eda72",
+     "b4e3c3b8-bd7f-408a-ab49-5aad99b00b5b",
+     "b6f25ed2-e6ea-4037-9cce-f38e08821961",
+     "b74e5828-f2f4-47f3-a91f-b041efb363b8",
+     "b75d3431-9767-4ec4-8488-0bf1f1fe2c7f",
+     "ba426aac-7c82-4bef-95c0-258751d61d82",
+     "bb71fdaf-eccc-4202-8fe4-d12359120fe6",
+     "bbcedf8d-6045-433f-ba31-978b7d5e2385",
+     "be554dd6-dedf-4354-bdb3-30fb792bbf21",
+     "be598e30-97ad-4b87-8107-ac3e96ce0c0a",
+     "beb37b13-f481-4ac5-9f08-f23061045b72",
+     "befa9309-3666-4a53-ad12-352655234c5f",
+     "bf4b37f8-5090-447e-abcd-6c266cd22963",
+     "c0d7de1f-01b3-49cc-8660-98dff4573ea9",
+     "c138add5-92e7-4c45-9d9a-8f5d71d13f82",
+     "c1b2f884-31b2-430c-a8a8-085d0069ded2",
+     "c256b384-5a1b-4a22-aa34-f158c97989c6",
+     "c3d0225f-48f8-4fb4-965e-36a59003f8d8",
+     "c49c639f-47c3-4ff3-b61c-902d54f88fbc",
+     "c4ee14bb-eaa6-42f3-93a7-811a45e7bec6",
+     "c522e9e6-2215-4273-a99b-aa41a6ed6182",
+     "c6c93e21-bad1-4fb5-b808-cd7222584e25",
+     "c7ba9cd0-5f20-47bf-a2a5-27a9af3d5f56",
+     "c7d7fb94-0d53-4344-bd84-6a09642be8bd",
+     "c7f1d18d-5bd9-4cfb-b1a7-de54cd79d315",
+     "c7fd0ac4-4394-4b3f-87bf-457e78fc1db5",
+     "c8026c3a-3292-490c-a8b9-ab374c4a6c8e",
+     "c819627d-4d62-4b2f-9f0b-1fc201071085",
+     "c830c8ca-0ca0-40b0-934a-9bb5be2ae6fa",
+     "c92c75a3-2b1b-4721-9251-acff1268d84f",
+     "ca1108e8-d5be-4653-9137-ff1a639e3de3",
+     "ca1b24d8-435e-4804-83fa-4652ae5919f3",
+     "cb23d1cf-3bf5-460e-b953-cbbaf3491214",
+     "cb8ecb1f-01eb-405b-b155-faf2448b382c",
+     "cbd98794-c072-45cc-969c-ccc6672e812a",
+     "cc83813d-5e46-4653-854f-36b9f32053ee",
+     "cca2db2f-14f3-4367-b452-1caa0f6506d3",
+     "cd6cfd9e-a0d2-4d64-b311-3a70c46503cc",
+     "cd84216b-055f-4d60-9de4-9424828be269",
+     "d0b21be2-f395-4ffe-ab32-994721a9defc",
+     "d14af896-e72d-4420-ad40-886a076e5b4e",
+     "d333fbb0-8bef-4fdf-acd8-fb1ac5593c71",
+     "d4a388aa-6a09-4abc-bb08-76284b385339",
+     "d5dfe7a8-75dc-4c80-9d2c-b9fbc5df91da",
+     "d6174931-212a-426b-8cc5-b92424c57a1f",
+     "d7f7f431-8182-45c1-8608-7c6e657393a0",
+     "d800bea5-2eb8-40b9-84db-c0c6634d812c",
+     "d92b36fd-00fc-48cf-93de-b130abd3e423",
+     "da78b06f-e8c7-4381-9144-c3601c935698",
+     "ddb66c65-5001-4dac-8ab5-19c063d047e5",
+     "de713892-882b-4ab6-999f-c8b6bf75b032",
+     "df5171f0-f4d8-4ee9-ac6d-e90dc754f357",
+     "e06bb9e9-7569-4e2b-8985-d1d5b776c4d7",
+     "e18ee089-cc0d-4b2a-a34b-2fbf524b74cc",
+     "e1a32da6-bbd3-4629-b573-5c7a34990046",
+     "e1b5ccd6-11f8-452c-8e89-768bd7e24ec9",
+     "e337ed4b-4a4c-4b1a-a864-51785a0cfdb3",
+     "e3e88569-affc-4e42-997a-1b7db3ea457e",
+     "e4a51f19-7472-4e89-8b08-470e1a318594",
+     "e53498fd-7b42-4c49-92aa-ac9fb273be43",
+     "e5d0ff24-17e1-41d7-bfc7-f32de9f3a35d",
+     "e67baa8d-099a-4e38-b4e3-83675da445ed",
+     "e74a1d95-aebc-4ae6-b168-9977254da7f5",
+     "e86b50a2-14e5-4fe5-b29a-aefe3e7e1dd8",
+     "e98d8917-7d99-4cef-9452-aa3cd1a6f8ed",
+     "ea705a97-49f5-4c8b-b6fb-9b7465f88c09",
+     "ebc0a0ef-f29a-4391-9aec-ea9744740cac",
+     "ed89ed17-4444-4fc0-85ef-734fbcee3d47",
+     "ed90247b-80b8-4af7-8935-922dc7cb3862",
+     "ee4b983c-9bcd-4b6d-a16c-a87366a7cd55",
+     "ee94f5d4-fc84-4af2-a314-2f7cce87491d",
+     "ef622dcc-a4ee-46fb-830b-fa4c6e44bdf8",
+     "f35105d9-e373-4f38-bde0-521e0d3642c5",
+     "f378b16a-90e4-4c3a-816d-8ec0b6e161e7",
+     "f59fdc09-2af6-4119-a1df-e8397a56ddfa",
+     "f5e4564a-17e7-45e4-8cf1-b7575e0731d7",
+     "f7a92f87-6b67-4fbd-a4ff-6f6d34e40fe6",
+     "f80fc0be-05f8-46d4-9974-04748e847699",
+     "f8f71d8b-3c6b-4c29-bd66-8b8333b3f785",
+     "fbeabf66-93e3-42b6-9797-9dde57df3fe3",
+     "fc349202-bb9b-4d9c-b4c5-be3bd1cf60ec",
+     "ff205ec8-145a-421f-856c-8a43d8064d43",
+     "ff9241e3-fc3c-4b83-b304-62a0f3db5b3e",
+     "ffdb9c45-a234-48f0-99cf-558658118ccf"
+    ],
+    "unit_code_excluded": [],
+    "old_any_share": 0.11885245901639344
+   }
+  },
+  "pooled_total": 1725,
+  "pooled_old_any_n": 239,
+  "pooled_both_n": 8,
+  "pooled_old_any_share": 0.13855072463768117,
+  "cu_gallery": [
+   {
+    "id": "005116f1-eb06-4492-bab2-eb91dc120dcf",
+    "name": "Silent TattooandPiercing",
+    "address": "1/4 Điện Biên Phủ,Gia định “1/4, Điện Biên Phủ/P15 Bình thạnh cũ",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "12410b6d-39f2-45e9-9878-fd68380de73a",
+    "name": "Phục Hồi Băng Đĩa Cũ-Mimosa",
+    "address": "25/15 Nguyễn công trứ, Phường Thạnh Mỹ Tây (P19, Q.Bình Thạnh Cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "22d06804-d6ae-43de-bed3-7ffa1ab0a37c",
+    "name": "Giày Anh Anh VNXK",
+    "address": "29B/6, Nguyễn Văn Thương đường cũ D1",
+    "about": "old_street_name"
+   },
+   {
+    "id": "2abb1d3b-3d57-4b76-a396-e51f49f72724",
+    "name": "Việt Hiphop Studio",
+    "address": "435/284 Phạm Văn Đồng, P. Bình Lợi Trung (Q. Bình Thạnh cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "513dae87-902f-44a0-8f06-f8fbb085ab65",
+    "name": "Cơm Niêu Việt",
+    "address": "36 Nguyễn Gia Trí ( D2 cũ ), P.25, Quận Bình Thạnh",
+    "about": "old_street_name"
+   },
+   {
+    "id": "62d6e31f-b3bb-485d-bd26-5eec1466a323",
+    "name": "Rèm đẹp tự động - VinLux",
+    "address": "31/15 đường Quốc lộ 13 cũ, Phường Hiệp Bình Phước, Thủ Đức",
+    "about": "old_street_name"
+   },
+   {
+    "id": "63380929-7b14-48d6-bd0b-4d0bd0fcd2a8",
+    "name": "Cửa Hàng Sửa Laptop Quận Bình Thạnh - Máy Tính Thiên Long",
+    "address": "744, số cũ/604 Xô Viết Nghệ Tĩnh",
+    "about": "old_number"
+   },
+   {
+    "id": "6642a0db-53cb-4a44-a805-bcb61b388985",
+    "name": "O2 SKIN Bình Thạnh - Khoa Học Điều Trị Mụn",
+    "address": "31/3 đường Điện Biên Phủ, Phường Gia Định, (Quận Bình Thạnh cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "7cbd82dd-9430-47a6-8014-0dee9f9d9e3e",
+    "name": "Giặt sấy Mr Khoai - Bình Thạnh",
+    "address": "63 Đường số 4, Cư Xá Chu Văn An, Đ. Số 4/46 địa chỉ cũ",
+    "about": "old_number"
+   },
+   {
+    "id": "8196681d-0ed1-468a-81e4-af302b38ae42",
+    "name": "Bún Riêu Bà Dú - chi nhánh Bình Thạnh",
+    "address": "116 Nguyễn Gia Trí (D2 cũ), F25, Bình Thạnh",
+    "about": "old_street_name"
+   },
+   {
+    "id": "870f9565-bd18-49f4-b6c3-71bee6fcd8be",
+    "name": "Niềm Vui Vị Ngọt - Bao Bì Ngành Bánh",
+    "address": "3/4 Bình Thới, Phường Phú Thọ, (Q11 cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "a0305a31-0b63-4ca8-9850-ca67f722a24c",
+    "name": "Automation Solutions",
+    "address": "157/14 Nguyễn Gia Trí (D2 cũ), Phường 25, Quận Bình Thạnh",
+    "about": "old_street_name"
+   },
+   {
+    "id": "a17b449a-bea0-404c-88f2-6d9dfb0db716",
+    "name": "Bột Bơ Bánh - Đồ Làm Bánh Pha Chế",
+    "address": "214 Phan Văn Trị Phường Bình Thạnh (P12 cũ, Đ. Phan Văn Trị",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "a564e79e-6c39-42de-937d-1af11680f2d9",
+    "name": "Nhà Hàng Bình An",
+    "address": "1163 (xô Viết Nghệ Tĩnh Cũ), Bình Quới",
+    "about": "old_street_name"
+   },
+   {
+    "id": "aa65c398-5226-4db8-a77f-bf9d92296496",
+    "name": "Showroom HIỆP AN MOTOR",
+    "address": "233/2E Đường Quốc Lộ 13 Cũ",
+    "about": "old_street_name"
+   },
+   {
+    "id": "aced9464-2075-41a5-b156-a6d979e79e07",
+    "name": "Việt Hiphop Studio",
+    "address": "435/284 Phạm Văn Đồng, P. Bình Lợi Trung (Q. Bình Thạnh cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "b2574c8d-6b57-429d-983f-e5253c1ef095",
+    "name": "Nội Thất An Bình - anbinhnew.com",
+    "address": "19 Đường Quốc Lộ 13 Cũ",
+    "about": "old_street_name"
+   },
+   {
+    "id": "c9f9e0e3-7a35-45fb-a140-ba4411399d1a",
+    "name": "CADY Labels",
+    "address": "Chung cư Hoàng Anh Thanh Bình, đường D4, phường Tân Hưng (Quận 7 cũ), TP.HCM.",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "d860d5e6-ac1b-4d1b-a468-aa47a3a7387b",
+    "name": "Soho Premier Apartment",
+    "address": "778 Xô Viết Nghệ Tĩnh (số cũ, 636A Xô Viết Nghệ Tĩnh",
+    "about": "old_number"
+   },
+   {
+    "id": "d8693e76-8b4c-4e20-8cfb-2d3ae2695c0e",
+    "name": "Trung Tâm Tin Học VnPro",
+    "address": "276-278 Ung Văn Khiêm Phường 25, Quận Bình Thạnh Số cũ:, 149/1D Đ. Ung Văn Khiêm",
+    "about": "old_number"
+   },
+   {
+    "id": "dec45a4d-8a64-41f9-9979-6eeed092a0f0",
+    "name": "Bao tay dự tiệc- Tất vớ nữ biểu diễn",
+    "address": "248/35/4 Nguyễn Văn Khối, Phường Thông Tây Hội ( Phường 9, Gò Vấp cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "e07e3bd3-0ae4-47db-8e91-57e623224a4c",
+    "name": "Công Ty TNHH ĐT XD & TM Tiến Phát Số Tám",
+    "address": "50A Trương Đăng Quế, Phường Hạnh Thông, TP.HCM ( Địa chỉ cũ: Phường 1, Quận Gò Vấp )",
+    "about": "old_number"
+   },
+   {
+    "id": "e49d55ab-ac6f-498e-a5d0-895865f33f88",
+    "name": "Trang Phan Flower & Fruit Gift",
+    "address": "132/1 Nguyễn Văn Thương (phường 25, quận Bình Thạnh cũ) TP.HCM",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "eccd7d6a-0c5f-44f3-9f83-97fe00dd792d",
+    "name": "Vệ Sinh Công Nghiệp TPHCM Nam Tín",
+    "address": "250/5 Điện Biên Phủ, Phường Thạnh Mỹ Tây (Bình Thạnh Cũ)",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "f4340300-9d8c-48ae-b873-915260bc6340",
+    "name": "ANNE SPA - Nails - Gội đầu - Foot Massage",
+    "address": "Ngô Tất Tố/223A Bình Thạnh cũ",
+    "about": "old_ward_or_district"
+   },
+   {
+    "id": "f67d7a5c-a9cd-424d-82e7-4e1c455de0df",
+    "name": "Mai Yên đây nè",
+    "address": "Bắc Giang cũ",
+    "about": "other"
+   }
+  ]
+ },
+ "wards": {
+  "baseline_old_n": 981,
+  "switched_to_new_n": 10,
+  "switched_both_n": 0,
+  "still_old_n": 557,
+  "dropped_n": 152,
+  "absent_in_main_n": 262,
+  "other_district_n": 0,
+  "baseline_other_district_n": 139,
+  "per_old_ward": {
+   "Phường 1": {
+    "baseline_old_n": 22,
+    "still_old_n": 16,
+    "absent_in_main_n": 3,
+    "dropped_n": 2,
+    "switched_to_new_n": 1,
+    "oct_ward_named_n": 35,
+    "oct_old_only_n": 29,
+    "oct_new_n": 6,
+    "oct_other_district_n": 5,
+    "oct_new_share": 0.17142857142857143
+   },
+   "Phường 11": {
+    "baseline_old_n": 40,
+    "still_old_n": 25,
+    "absent_in_main_n": 6,
+    "dropped_n": 9,
+    "oct_ward_named_n": 69,
+    "oct_new_n": 17,
+    "oct_other_district_n": 9,
+    "oct_old_only_n": 52,
+    "oct_new_share": 0.2463768115942029
+   },
+   "Phường 12": {
+    "baseline_old_n": 45,
+    "still_old_n": 24,
+    "absent_in_main_n": 15,
+    "dropped_n": 6,
+    "oct_ward_named_n": 67,
+    "oct_old_only_n": 56,
+    "oct_new_n": 11,
+    "oct_other_district_n": 9,
+    "oct_new_share": 0.16417910447761194
+   },
+   "Phường 13": {
+    "baseline_old_n": 121,
+    "absent_in_main_n": 39,
+    "dropped_n": 12,
+    "still_old_n": 69,
+    "switched_to_new_n": 1,
+    "oct_ward_named_n": 183,
+    "oct_new_n": 41,
+    "oct_old_only_n": 142,
+    "oct_other_district_n": 8,
+    "oct_new_share": 0.22404371584699453
+   },
+   "Phường 14": {
+    "baseline_old_n": 27,
+    "absent_in_main_n": 7,
+    "still_old_n": 15,
+    "dropped_n": 5,
+    "oct_other_district_n": 9,
+    "oct_ward_named_n": 40,
+    "oct_new_n": 6,
+    "oct_old_only_n": 34,
+    "oct_new_share": 0.15
+   },
+   "Phường 15": {
+    "baseline_old_n": 47,
+    "still_old_n": 28,
+    "absent_in_main_n": 10,
+    "dropped_n": 8,
+    "switched_to_new_n": 1,
+    "oct_ward_named_n": 72,
+    "oct_old_only_n": 55,
+    "oct_new_n": 17,
+    "oct_other_district_n": 6,
+    "oct_new_share": 0.2361111111111111
+   },
+   "Phường 17": {
+    "baseline_old_n": 44,
+    "still_old_n": 26,
+    "dropped_n": 9,
+    "absent_in_main_n": 9,
+    "oct_ward_named_n": 82,
+    "oct_old_only_n": 65,
+    "oct_new_n": 17,
+    "oct_other_district_n": 8,
+    "oct_new_share": 0.2073170731707317
+   },
+   "Phường 19": {
+    "baseline_old_n": 35,
+    "absent_in_main_n": 7,
+    "still_old_n": 22,
+    "dropped_n": 6,
+    "oct_ward_named_n": 54,
+    "oct_old_only_n": 46,
+    "oct_new_n": 8,
+    "oct_other_district_n": 1,
+    "oct_new_share": 0.14814814814814814
+   },
+   "Phường 2": {
+    "baseline_old_n": 8,
+    "still_old_n": 3,
+    "absent_in_main_n": 5,
+    "oct_ward_named_n": 20,
+    "oct_new_n": 5,
+    "oct_old_only_n": 15,
+    "oct_other_district_n": 5,
+    "oct_new_share": 0.25
+   },
+   "Phường 21": {
+    "baseline_old_n": 15,
+    "still_old_n": 8,
+    "dropped_n": 2,
+    "absent_in_main_n": 5,
+    "oct_ward_named_n": 34,
+    "oct_new_n": 7,
+    "oct_old_only_n": 27,
+    "oct_new_share": 0.20588235294117646
+   },
+   "Phường 22": {
+    "baseline_old_n": 149,
+    "absent_in_main_n": 40,
+    "dropped_n": 35,
+    "still_old_n": 72,
+    "switched_to_new_n": 2,
+    "oct_ward_named_n": 209,
+    "oct_old_only_n": 173,
+    "oct_other_district_n": 6,
+    "oct_new_n": 36,
+    "oct_new_share": 0.1722488038277512
+   },
+   "Phường 24": {
+    "baseline_old_n": 41,
+    "absent_in_main_n": 12,
+    "dropped_n": 9,
+    "still_old_n": 20,
+    "oct_ward_named_n": 61,
+    "oct_new_n": 14,
+    "oct_old_only_n": 47,
+    "oct_other_district_n": 8,
+    "oct_new_share": 0.22950819672131148
+   },
+   "Phường 25": {
+    "baseline_old_n": 166,
+    "absent_in_main_n": 52,
+    "still_old_n": 94,
+    "switched_to_new_n": 5,
+    "dropped_n": 15,
+    "oct_ward_named_n": 294,
+    "oct_new_n": 74,
+    "oct_old_only_n": 220,
+    "oct_other_district_n": 18,
+    "oct_new_share": 0.25170068027210885
+   },
+   "Phường 26": {
+    "baseline_old_n": 82,
+    "dropped_n": 13,
+    "absent_in_main_n": 23,
+    "still_old_n": 46,
+    "oct_ward_named_n": 110,
+    "oct_old_only_n": 95,
+    "oct_new_n": 15,
+    "oct_other_district_n": 13,
+    "oct_new_share": 0.13636363636363635
+   },
+   "Phường 27": {
+    "baseline_old_n": 20,
+    "absent_in_main_n": 2,
+    "still_old_n": 15,
+    "dropped_n": 3,
+    "oct_ward_named_n": 45,
+    "oct_old_only_n": 36,
+    "oct_new_n": 9,
+    "oct_other_district_n": 2,
+    "oct_new_share": 0.2
+   },
+   "Phường 28": {
+    "baseline_old_n": 24,
+    "absent_in_main_n": 7,
+    "still_old_n": 16,
+    "dropped_n": 1,
+    "oct_ward_named_n": 36,
+    "oct_new_n": 7,
+    "oct_old_only_n": 29,
+    "oct_other_district_n": 2,
+    "oct_new_share": 0.19444444444444445
+   },
+   "Phường 3": {
+    "baseline_old_n": 34,
+    "absent_in_main_n": 7,
+    "still_old_n": 20,
+    "dropped_n": 7,
+    "oct_other_district_n": 12,
+    "oct_ward_named_n": 49,
+    "oct_old_only_n": 37,
+    "oct_new_n": 12,
+    "oct_new_share": 0.24489795918367346
+   },
+   "Phường 5": {
+    "baseline_old_n": 21,
+    "dropped_n": 4,
+    "absent_in_main_n": 4,
+    "still_old_n": 13,
+    "oct_ward_named_n": 55,
+    "oct_old_only_n": 24,
+    "oct_new_n": 31,
+    "oct_other_district_n": 8,
+    "oct_new_share": 0.5636363636363636
+   },
+   "Phường 6": {
+    "baseline_old_n": 17,
+    "still_old_n": 12,
+    "absent_in_main_n": 4,
+    "dropped_n": 1,
+    "oct_ward_named_n": 44,
+    "oct_old_only_n": 30,
+    "oct_new_n": 14,
+    "oct_other_district_n": 11,
+    "oct_new_share": 0.3181818181818182
+   },
+   "Phường 7": {
+    "baseline_old_n": 23,
+    "dropped_n": 5,
+    "still_old_n": 13,
+    "absent_in_main_n": 5,
+    "oct_other_district_n": 8,
+    "oct_ward_named_n": 35,
+    "oct_old_only_n": 28,
+    "oct_new_n": 7,
+    "oct_new_share": 0.2
+   }
+  },
+  "ward5_detail": {
+   "named_n": 55,
+   "new_n": 31,
+   "new_share": 0.5636363636363636,
+   "distinct_new_addresses": 9,
+   "top_new_address": "365 lê quang định, phường bình lợi trung",
+   "top_new_address_n": 23,
+   "top_new_address_names": [
+    "In Bạt Hiflex Khổ Lớn Lấy Ngay - In Kỹ Thuật Số Since 2006",
+    "In Folder, Bìa Hồ Sơ Giá Rẻ TPHCM - In Kỹ Thuật Số Since 2006",
+    "In Kỹ Thuật Số - 365 Lê Quang Định, Phường Bình Lợi Trung, HCM",
+    "In Kỹ Thuật Số VINA Design",
+    "In Lịch Tết Giá Rẻ TPHCM - In Kỹ Thuật Số Since 2006",
+    "In Menu Thực Đơn - In Kỹ Thuật Số Since 2006",
+    "In Móc Khóa - In Kỹ Thuật Số Since 2006",
+    "In Name Card, Danh Thiếp, Card Visit - In Kỹ Thuật Số Since 2006"
+   ],
+   "new_share_without_top": 0.25,
+   "other_wards_range": [
+    0.13636363636363635,
+    0.3181818181818182
+   ]
+  },
+  "ward5_note": "Phường 5's October new-name share (31/55) is carried by one address: 23 of its 31 new-name listings give '365 lê quang định, phường bình lợi trung' (distinct listings at one door, e.g. 'In Bạt Hiflex Khổ Lớn Lấy Ngay - In Kỹ Thuật Số Since 2006'). Without that address the share is 8/32 = 25%, inside the other wards' range (14%–32%, wards with n >= 30). Small n, one repeated door: not a ward-wide switch and not a regex error; kept in per_old_ward with this note.",
+  "by_door": {
+   "old_n": 1159,
+   "new_n": 296,
+   "total_n": 1455
+  },
+  "per_street_door": {
+   "02 pearl plaza": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "1143 bình quới": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "12 nguyễn xí": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "173 đường xô viết nghệ tĩnh": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "182 đường nguyễn gia trí": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "27 3/27 phan xích long": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "304": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "429 nơ trang long": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "44 xô viết nghệ tĩnh": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "606 điện biên phủ": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "7k checkin 🌏 số 296 xô viết nghệ tĩnh": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "97 nơ trang long": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "_ 4 _ 6 hoa lan": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "a bùi đình túy": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "bình lợi": {
+    "old_n": 40,
+    "new_n": 10,
+    "total_n": 50
+   },
+   "bình quới": {
+    "old_n": 29,
+    "new_n": 9,
+    "total_n": 38
+   },
+   "bình quới đường bình quới": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "bùi hữu nghĩa": {
+    "old_n": 11,
+    "new_n": 1,
+    "total_n": 12
+   },
+   "bùi đình túy": {
+    "old_n": 27,
+    "new_n": 5,
+    "total_n": 32
+   },
+   "bạch đằng": {
+    "old_n": 38,
+    "new_n": 6,
+    "total_n": 44
+   },
+   "chu văn an": {
+    "old_n": 15,
+    "new_n": 1,
+    "total_n": 16
+   },
+   "chu văn an đường số 5": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "chung cư 143b": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "chung cư 208": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "công trường tự do": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "cư xá 304": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "cư xá phan đăng lưu": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "cư xá thanh đa": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "d2": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "d2 khu dân cư phức hợp sông sài gòn": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "d2 nối dài": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "d5": {
+    "old_n": 7,
+    "new_n": 4,
+    "total_n": 11
+   },
+   "d8": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "d8 kdc saigon pearl": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "hoàng hoa thám": {
+    "old_n": 18,
+    "new_n": 7,
+    "total_n": 25
+   },
+   "hoàng hoa thám –": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "huỳnh mẫn đạt": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "huỳnh tịnh của": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "huỳnh đình hai": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "hải nam": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "hồ xuân hương": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "khu biệt thự sài gòn pearl": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lam sơn": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "landmark 4": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lê quang định": {
+    "old_n": 18,
+    "new_n": 9,
+    "total_n": 27
+   },
+   "lê quang định p gia định hcm": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "lê trực": {
+    "old_n": 3,
+    "new_n": 2,
+    "total_n": 5
+   },
+   "lê văn duyệt": {
+    "old_n": 13,
+    "new_n": 5,
+    "total_n": 18
+   },
+   "lô a": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "lô b cư xá thanh đa": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lô b2": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lô l": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lô l cư xá thanh đa": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lô u cư xá thanh đa": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "lý tự trọng": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "lương ngọc quyến": {
+    "old_n": 3,
+    "new_n": 1,
+    "total_n": 4
+   },
+   "lầu 7": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "mai xuân thưởng": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "miếu nổi": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "mê linh": {
+    "old_n": 2,
+    "new_n": 1,
+    "total_n": 3
+   },
+   "nam hồ": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "nguyên hồng": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "nguyễn an ninh": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "nguyễn công trứ": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "nguyễn cửu vân": {
+    "old_n": 4,
+    "new_n": 0,
+    "total_n": 4
+   },
+   "nguyễn duy": {
+    "old_n": 4,
+    "new_n": 0,
+    "total_n": 4
+   },
+   "nguyễn gia trí": {
+    "old_n": 49,
+    "new_n": 8,
+    "total_n": 57
+   },
+   "nguyễn huy tưởng": {
+    "old_n": 3,
+    "new_n": 1,
+    "total_n": 4
+   },
+   "nguyễn hữu cảnh": {
+    "old_n": 21,
+    "new_n": 9,
+    "total_n": 30
+   },
+   "nguyễn khuyến": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "nguyễn lâm": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "nguyễn ngọc phương": {
+    "old_n": 5,
+    "new_n": 0,
+    "total_n": 5
+   },
+   "nguyễn thiện thuật": {
+    "old_n": 3,
+    "new_n": 1,
+    "total_n": 4
+   },
+   "nguyễn thượng hiền": {
+    "old_n": 11,
+    "new_n": 3,
+    "total_n": 14
+   },
+   "nguyễn trung trực": {
+    "old_n": 4,
+    "new_n": 0,
+    "total_n": 4
+   },
+   "nguyễn văn lạc": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "nguyễn văn thương": {
+    "old_n": 17,
+    "new_n": 9,
+    "total_n": 26
+   },
+   "nguyễn văn ðậu": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "nguyễn văn đậu": {
+    "old_n": 12,
+    "new_n": 9,
+    "total_n": 21
+   },
+   "nguyễn xí": {
+    "old_n": 28,
+    "new_n": 7,
+    "total_n": 35
+   },
+   "ngô tất tố": {
+    "old_n": 13,
+    "new_n": 3,
+    "total_n": 16
+   },
+   "ngô đức kế": {
+    "old_n": 7,
+    "new_n": 0,
+    "total_n": 7
+   },
+   "nhc": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "nơ tran long": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "nơ trang long": {
+    "old_n": 35,
+    "new_n": 8,
+    "total_n": 43
+   },
+   "nơ trang long p bình lợi trung tphcm": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "phan bội châu": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "phan chu trinh": {
+    "old_n": 7,
+    "new_n": 1,
+    "total_n": 8
+   },
+   "phan chu trinh nối dài": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "phan van tri street": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "phan văn hân": {
+    "old_n": 4,
+    "new_n": 1,
+    "total_n": 5
+   },
+   "phan văn trị": {
+    "old_n": 19,
+    "new_n": 6,
+    "total_n": 25
+   },
+   "phan xích long": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "phan đăng lưu": {
+    "old_n": 4,
+    "new_n": 1,
+    "total_n": 5
+   },
+   "phó đức chính": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "phú mỹ": {
+    "old_n": 2,
+    "new_n": 2,
+    "total_n": 4
+   },
+   "phạm viết chánh": {
+    "old_n": 6,
+    "new_n": 0,
+    "total_n": 6
+   },
+   "phạm văn đồng": {
+    "old_n": 11,
+    "new_n": 2,
+    "total_n": 13
+   },
+   "quốc lộ 13": {
+    "old_n": 5,
+    "new_n": 1,
+    "total_n": 6
+   },
+   "sô viết nghệ tĩnh": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "số 1": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "số 12": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "số 14 khu biệt thự chu văn an": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "số 304": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "số 4": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "số 5": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "thanh đa": {
+    "old_n": 8,
+    "new_n": 2,
+    "total_n": 10
+   },
+   "trường sa": {
+    "old_n": 6,
+    "new_n": 1,
+    "total_n": 7
+   },
+   "trần bình trọng": {
+    "old_n": 5,
+    "new_n": 1,
+    "total_n": 6
+   },
+   "trần kế xương": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "trần nguyên đán": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "trần quang long": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "trần quý cáp": {
+    "old_n": 1,
+    "new_n": 1,
+    "total_n": 2
+   },
+   "trần văn khê": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "trần văn kỷ": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "trục": {
+    "old_n": 16,
+    "new_n": 1,
+    "total_n": 17
+   },
+   "tân cảng": {
+    "old_n": 8,
+    "new_n": 2,
+    "total_n": 10
+   },
+   "tân cảng p thạnh mỹ tây": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "tăng bạt hổ": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "ung văn khiêm": {
+    "old_n": 21,
+    "new_n": 7,
+    "total_n": 28
+   },
+   "vinhomes central park 3": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "võ duy ninh": {
+    "old_n": 7,
+    "new_n": 1,
+    "total_n": 8
+   },
+   "võ oanh": {
+    "old_n": 16,
+    "new_n": 4,
+    "total_n": 20
+   },
+   "văn thánh bắc": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "vũ huy tấn": {
+    "old_n": 2,
+    "new_n": 0,
+    "total_n": 2
+   },
+   "vũ ngọc phan": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "vạn kiếp": {
+    "old_n": 4,
+    "new_n": 3,
+    "total_n": 7
+   },
+   "x": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   },
+   "xvnt": {
+    "old_n": 4,
+    "new_n": 0,
+    "total_n": 4
+   },
+   "xô viết nghệ tĩnh": {
+    "old_n": 72,
+    "new_n": 17,
+    "total_n": 89
+   },
+   "yên đỗ": {
+    "old_n": 3,
+    "new_n": 0,
+    "total_n": 3
+   },
+   "đ5 khu biệt thự sài gòn pearl": {
+    "old_n": 0,
+    "new_n": 1,
+    "total_n": 1
+   },
+   "đinh bộ lĩnh": {
+    "old_n": 19,
+    "new_n": 2,
+    "total_n": 21
+   },
+   "đinh tiên hoàng": {
+    "old_n": 8,
+    "new_n": 0,
+    "total_n": 8
+   },
+   "điện biên phủ": {
+    "old_n": 83,
+    "new_n": 18,
+    "total_n": 101
+   },
+   "đặng thùy trâm": {
+    "old_n": 39,
+    "new_n": 13,
+    "total_n": 52
+   },
+   "đống đa": {
+    "old_n": 1,
+    "new_n": 0,
+    "total_n": 1
+   }
+  },
+  "unread_ward_spelling_n": 50
+ },
+ "mismatch": {
+  "alleys": [
+   {
+    "hem_label": "47/52",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "055e5d36-9830-4823-8955-5fcc694d3f84",
+     "0ebed218-5a27-49e0-b8d0-5575fefcedfc",
+     "4bdebf14-2fef-4a74-acc6-516d168c6550",
+     "4dd9197f-2675-463d-be88-b39d7ac89af4",
+     "5e70aa94-724f-45bd-be0d-35be635b288d",
+     "603f51c7-de2b-414e-a74e-165ee7e3b526",
+     "a81514cf-0ccf-4e8c-92bd-992f4fa5cf33",
+     "b9a77e43-3dbf-4ebb-8ef2-26342c3d6750",
+     "bb83ae3b-2385-4693-9d34-99bee6d23f91",
+     "c15a94a1-53e7-4743-986d-ce16bf826a1c",
+     "c236210d-78d2-4dd5-8b40-1216411f4885",
+     "e1831201-16fc-4639-8b28-fdc464dafe64",
+     "ea6d3dc9-468c-4ace-bd62-165fcd3ea7b9"
+    ],
+    "door_parents": [
+     "122",
+     "125",
+     "183",
+     "214",
+     "217",
+     "229",
+     "24",
+     "304",
+     "47/24"
+    ],
+    "listings": [
+     {
+      "id": "055e5d36-9830-4823-8955-5fcc694d3f84",
+      "name": "Makan",
+      "address": "214/12 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "0ebed218-5a27-49e0-b8d0-5575fefcedfc",
+      "name": "Tâm An heath care",
+      "address": "183/4 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "4bdebf14-2fef-4a74-acc6-516d168c6550",
+      "name": "24fit Your Body",
+      "address": "24/31 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "4dd9197f-2675-463d-be88-b39d7ac89af4",
+      "name": "789 Team",
+      "address": "214/12 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "5e70aa94-724f-45bd-be0d-35be635b288d",
+      "name": "Lão Hùng Design",
+      "address": "47/24/7 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "603f51c7-de2b-414e-a74e-165ee7e3b526",
+      "name": "Viking Menswear",
+      "address": "125/57E, Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "a81514cf-0ccf-4e8c-92bd-992f4fa5cf33",
+      "name": "Cẩm cafe",
+      "address": "47/24/2A Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "b9a77e43-3dbf-4ebb-8ef2-26342c3d6750",
+      "name": "Vựa dừa tươi Bến Tre",
+      "address": "304/55B Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "bb83ae3b-2385-4693-9d34-99bee6d23f91",
+      "name": "Hany Food",
+      "address": "304/48 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "c15a94a1-53e7-4743-986d-ce16bf826a1c",
+      "name": "MyMy Nails",
+      "address": "47/24/38AB Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "c236210d-78d2-4dd5-8b40-1216411f4885",
+      "name": "Quinie Ink",
+      "address": "217/20 Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "e1831201-16fc-4639-8b28-fdc464dafe64",
+      "name": "Dylan Motor",
+      "address": "122/56a Hẻm 47/52 Bùi Đình Túy"
+     },
+     {
+      "id": "ea6d3dc9-468c-4ace-bd62-165fcd3ea7b9",
+      "name": "CÁ Cam NƯỚNg",
+      "address": "229/3 Hẻm 47/52 Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 13,
+    "doors_n": 12,
+    "doors": [
+     "122/56a",
+     "125/57E",
+     "183/4",
+     "214/12",
+     "217/20",
+     "229/3",
+     "24/31",
+     "304/48",
+     "304/55B",
+     "47/24/2A",
+     "47/24/38AB",
+     "47/24/7"
+    ],
+    "listings_naming_n": 35,
+    "doors_naming_n": 32
+   },
+   {
+    "hem_label": "24",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "05b94228-6c13-46ca-a342-18db5f82399d",
+     "24370338-9165-4550-93c5-8abe5f240b28",
+     "49498b82-9978-4233-9d71-97a47f371b8c",
+     "a750b39b-efb6-4eef-9dbe-e6eab2f43686",
+     "a786041a-59e7-4faf-909a-2d3373db9faa",
+     "b2c11319-aee8-4d8c-876b-36985560f8ef",
+     "b49b35d5-2e76-4eb1-9d45-a2f9db3b0ffc",
+     "c5b2f73a-4abe-4697-b8e2-ecc14db5319d",
+     "cd473ca6-99a8-45d5-b7e0-a9463aba4b68",
+     "ec4df2df-769c-4b67-9e94-3df8d00b0e2c",
+     "ed830082-b2f9-4101-803f-dd8689963090"
+    ],
+    "door_parents": [
+     "33"
+    ],
+    "listings": [
+     {
+      "id": "05b94228-6c13-46ca-a342-18db5f82399d",
+      "name": "Xe điện chở hàng",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "24370338-9165-4550-93c5-8abe5f240b28",
+      "name": "Máy may bao, máy khâu bao bì HÀNG SẴN KHO",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "49498b82-9978-4233-9d71-97a47f371b8c",
+      "name": "Nồi nấu phở Hải Minh",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "a750b39b-efb6-4eef-9dbe-e6eab2f43686",
+      "name": "Máy hút chân không Yamafuji",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "a786041a-59e7-4faf-909a-2d3373db9faa",
+      "name": "Máy cắt gạch Hải Minh",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "b2c11319-aee8-4d8c-876b-36985560f8ef",
+      "name": "Máy ép dầu lạc gia đình",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "b49b35d5-2e76-4eb1-9d45-a2f9db3b0ffc",
+      "name": "Máy rửa xe gia đình cho xe máy - ô tô - tưới cây",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "c5b2f73a-4abe-4697-b8e2-ecc14db5319d",
+      "name": "Tổng kho sỉ lẻ máy hút chân không",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "cd473ca6-99a8-45d5-b7e0-a9463aba4b68",
+      "name": "Máy đo độ ẩm giá rẻ",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "ec4df2df-769c-4b67-9e94-3df8d00b0e2c",
+      "name": "MÁY HÀN ĐIỆN",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     },
+     {
+      "id": "ed830082-b2f9-4101-803f-dd8689963090",
+      "name": "Máy bơm nước",
+      "address": "33/4 Hẻm 24 Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 11,
+    "doors_n": 1,
+    "doors": [
+     "33/4"
+    ],
+    "listings_naming_n": 14,
+    "doors_naming_n": 4
+   },
+   {
+    "hem_label": "527",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "0adf32af-6d55-4199-b26c-2569b1772f53",
+     "34cd4baa-44f9-4042-85b2-1cddc711e4e4",
+     "711de914-bfa1-46b0-a6a3-44057837bb87",
+     "bf89cb3e-363c-4b83-a34a-920ca7bdf631",
+     "c1580f63-775d-47bc-9597-c3e4302d3831"
+    ],
+    "door_parents": [
+     "36"
+    ],
+    "listings": [
+     {
+      "id": "0adf32af-6d55-4199-b26c-2569b1772f53",
+      "name": "PropertyX Hàng Xanh",
+      "address": "36/24 Hẻm 527 Điện Biên Phủ"
+     },
+     {
+      "id": "34cd4baa-44f9-4042-85b2-1cddc711e4e4",
+      "name": "ĐẤT PHƯỚC BÌNH LONG THÀNH - Giá rẻ",
+      "address": "36/24 Hẻm 527 Điện Biên Phủ"
+     },
+     {
+      "id": "711de914-bfa1-46b0-a6a3-44057837bb87",
+      "name": "Biệt Thự Vườn Quận 9-Sài gòn Garden Riverside",
+      "address": "36/24 Hẻm 527 Điện Biên Phủ"
+     },
+     {
+      "id": "bf89cb3e-363c-4b83-a34a-920ca7bdf631",
+      "name": "Biệt Thự Mystery Villa - Bán Đảo Kim Cương Quận 2",
+      "address": "36/24 Hẻm 527 Điện Biên Phủ"
+     },
+     {
+      "id": "c1580f63-775d-47bc-9597-c3e4302d3831",
+      "name": "Căn hộ Dĩ An, Bình Dương giá tốt",
+      "address": "36/24 Hẻm 527 Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 5,
+    "doors_n": 1,
+    "doors": [
+     "36/24"
+    ],
+    "listings_naming_n": 6,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "702",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "a9b5471d-6871-4e06-8b7e-d7d12cc4e390",
+     "bd572af0-8a8b-45bd-b8be-7fa2ef8938d9",
+     "c13e6096-305e-402b-aa98-c80f37b7ca93"
+    ],
+    "door_parents": [
+     "102",
+     "618",
+     "860"
+    ],
+    "listings": [
+     {
+      "id": "a9b5471d-6871-4e06-8b7e-d7d12cc4e390",
+      "name": "Xô Viét Nghệ Tỉnh",
+      "address": "860/125 Hẻm 702 Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "bd572af0-8a8b-45bd-b8be-7fa2ef8938d9",
+      "name": "Bãi giữ xe",
+      "address": "618/20 Hẻm 702 Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "c13e6096-305e-402b-aa98-c80f37b7ca93",
+      "name": "Spa An Sương",
+      "address": "102/20A Hẻm 702 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 3,
+    "doors_n": 3,
+    "doors": [
+     "102/20A",
+     "618/20",
+     "860/125"
+    ],
+    "listings_naming_n": 6,
+    "doors_naming_n": 6
+   },
+   {
+    "hem_label": "704",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "0e39d6ab-81ba-4731-a988-ad1d81d71543",
+     "63e24fe4-bbd1-44de-b58e-a42a02a0314b",
+     "b135dd5f-7a36-4078-aba2-ff4500a1d7b4"
+    ],
+    "door_parents": [
+     "618",
+     "758/28"
+    ],
+    "listings": [
+     {
+      "id": "0e39d6ab-81ba-4731-a988-ad1d81d71543",
+      "name": "Chùa Bảo Minh",
+      "address": "618/A3 Hẻm 704 Đường Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "63e24fe4-bbd1-44de-b58e-a42a02a0314b",
+      "name": "Chuyên giấy gói tổ ong chống sốc, giấy chêm chèn",
+      "address": "758/28/9 Hẻm 704 Đường Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "b135dd5f-7a36-4078-aba2-ff4500a1d7b4",
+      "name": "Trường tiểu học Phù Đổng",
+      "address": "618/A3 Hẻm 704 Đường Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 3,
+    "doors_n": 2,
+    "doors": [
+     "618/A3",
+     "758/28/9"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "469",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "0837dd43-351c-42e9-ba5a-dab14866bbe9",
+     "09ee956a-3e06-4bc2-8584-93e458f1f41e",
+     "29685f87-f2fb-43a8-8330-8b88b35a52ad"
+    ],
+    "door_parents": [
+     "649"
+    ],
+    "listings": [
+     {
+      "id": "0837dd43-351c-42e9-ba5a-dab14866bbe9",
+      "name": "Đất Xanh Thành Phố",
+      "address": "649/66 Hẻm 469 Điện Biên Phủ"
+     },
+     {
+      "id": "09ee956a-3e06-4bc2-8584-93e458f1f41e",
+      "name": "Ceravita Dental Lab",
+      "address": "649/66 Hẻm 469 Điện Biên Phủ"
+     },
+     {
+      "id": "29685f87-f2fb-43a8-8330-8b88b35a52ad",
+      "name": "SHB - Việc làm - Định cư CHLB Đức",
+      "address": "649/115C Hẻm 469 Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 3,
+    "doors_n": 2,
+    "doors": [
+     "649/115C",
+     "649/66"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "20",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "31229533-7294-43a9-8576-dc282d9b690f",
+     "76936a25-972f-4b54-a10d-3e14dc0f6fec",
+     "c26f8572-343a-4c7c-9058-959b30e5051b"
+    ],
+    "door_parents": [
+     "69/4"
+    ],
+    "listings": [
+     {
+      "id": "31229533-7294-43a9-8576-dc282d9b690f",
+      "name": "Công Ty Germani Led - Tổng kho bán buôn",
+      "address": "69/4/20 Hẻm 20 Đường Đặng Thùy Trâm"
+     },
+     {
+      "id": "76936a25-972f-4b54-a10d-3e14dc0f6fec",
+      "name": "Quạt Trần Sài Gòn - Germani Led",
+      "address": "69/4/20 Hẻm 20 Đường Đặng Thùy Trâm"
+     },
+     {
+      "id": "c26f8572-343a-4c7c-9058-959b30e5051b",
+      "name": "Quạt trần đèn - Thương hiệu",
+      "address": "69/4/20 Hẻm 20 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 3,
+    "doors_n": 1,
+    "doors": [
+     "69/4/20"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "4",
+    "street_key": "bùi hữu nghĩa",
+    "street_name": "Bùi Hữu Nghĩa",
+    "ids": [
+     "a2d88054-773b-4bf0-9ecb-86d5911fabf7",
+     "ca379a9e-18f4-466c-bc84-4320abbb792d"
+    ],
+    "door_parents": [
+     "282/8"
+    ],
+    "listings": [
+     {
+      "id": "a2d88054-773b-4bf0-9ecb-86d5911fabf7",
+      "name": "Bình Thạnh Khai Tâm",
+      "address": "282/8/2A Hẻm 4 Bùi Hữu Nghĩa"
+     },
+     {
+      "id": "ca379a9e-18f4-466c-bc84-4320abbb792d",
+      "name": "Niệm Phật, Khuyên Người Niệm Phật",
+      "address": "282/8/2A Hẻm 4 Bùi Hữu Nghĩa"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "282/8/2A"
+    ],
+    "listings_naming_n": 5,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "114",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "af3e695e-d3d7-484d-8bde-b05b384a913d",
+     "b4f97da3-84a5-4517-8954-5d286709d04f"
+    ],
+    "door_parents": [
+     "122"
+    ],
+    "listings": [
+     {
+      "id": "af3e695e-d3d7-484d-8bde-b05b384a913d",
+      "name": "Steppie 2hand",
+      "address": "122/36 Hẻm 114 Đường Bùi Đình Túy"
+     },
+     {
+      "id": "b4f97da3-84a5-4517-8954-5d286709d04f",
+      "name": "Obvi Vietnam",
+      "address": "122/36 Hẻm 114 Đường Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "122/36"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "194/4",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "1339ff6e-493a-4827-a7d4-3c96b973164c",
+     "50f5ebf6-8ab8-48b3-9964-f565f35d95eb"
+    ],
+    "door_parents": [
+     "170/4"
+    ],
+    "listings": [
+     {
+      "id": "1339ff6e-493a-4827-a7d4-3c96b973164c",
+      "name": "Minh Khoa Mobile",
+      "address": "170/4/2 Hẻm 194/4 Đường Bùi Đình Túy"
+     },
+     {
+      "id": "50f5ebf6-8ab8-48b3-9964-f565f35d95eb",
+      "name": "ipadgiasi.us",
+      "address": "170/4/2 Hẻm 194/4 Đường Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "170/4/2"
+    ],
+    "listings_naming_n": 4,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "238",
+    "street_key": "bạch đằng",
+    "street_name": "Bạch Đằng",
+    "ids": [
+     "25232c0c-eedf-43b4-b514-d2ce46e42c61",
+     "fe236f0a-5ea6-4a2d-ad96-71239d66e2cf"
+    ],
+    "door_parents": [
+     "182"
+    ],
+    "listings": [
+     {
+      "id": "25232c0c-eedf-43b4-b514-d2ce46e42c61",
+      "name": "Hoa Sen Gỗ , Lụa - Wooden,Silk Lotus Flower Shop",
+      "address": "182/24 Hẻm 238 Đường Bạch Đằng"
+     },
+     {
+      "id": "fe236f0a-5ea6-4a2d-ad96-71239d66e2cf",
+      "name": "Germany Beauty Shop",
+      "address": "182/24 Hẻm 238 Đường Bạch Đằng"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "182/24"
+    ],
+    "listings_naming_n": 7,
+    "doors_naming_n": 5
+   },
+   {
+    "hem_label": "255/41",
+    "street_key": "ngô tất tố",
+    "street_name": "Ngô Tất Tố",
+    "ids": [
+     "23e94ebf-2671-414b-80c1-4146774c19ec",
+     "2dc86cd7-1fdf-4578-8a93-6646db6560d8"
+    ],
+    "door_parents": [
+     "113/47"
+    ],
+    "listings": [
+     {
+      "id": "23e94ebf-2671-414b-80c1-4146774c19ec",
+      "name": "Võ Duy Ninh city",
+      "address": "113/47/1A Hẻm 255/41 Ngô Tất Tố"
+     },
+     {
+      "id": "2dc86cd7-1fdf-4578-8a93-6646db6560d8",
+      "name": "Bách Hóa Ngọc Kiều",
+      "address": "113/47/1A Hẻm 255/41 Ngô Tất Tố"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "113/47/1A"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "18",
+    "street_key": "tăng bạt hổ",
+    "street_name": "Tăng Bạt Hổ",
+    "ids": [
+     "b3bdfbf7-ae1e-4a5a-9c77-11878194f225",
+     "f5a1bf49-dc67-4e87-9ab3-66d5316d71c1"
+    ],
+    "door_parents": [
+     "234/5",
+     "40"
+    ],
+    "listings": [
+     {
+      "id": "b3bdfbf7-ae1e-4a5a-9c77-11878194f225",
+      "name": "Ki-Ốt Hà Nội",
+      "address": "40/8 Hẻm 18 Đường Tăng Bạt Hổ"
+     },
+     {
+      "id": "f5a1bf49-dc67-4e87-9ab3-66d5316d71c1",
+      "name": "Xóm Ăn Vặt Sang Chảnh - Tăng Bạt Hổ",
+      "address": "234/5/2 Hẻm 18 Tăng Bạt Hổ"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 2,
+    "doors": [
+     "234/5/2",
+     "40/8"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "293",
+    "street_key": "ung văn khiêm",
+    "street_name": "Ung Văn Khiêm",
+    "ids": [
+     "065a5bdd-dbce-4c12-8f95-d85d3b7b6201",
+     "ea8ac0b7-2642-4972-9566-2d02db2eb661"
+    ],
+    "door_parents": [
+     "326"
+    ],
+    "listings": [
+     {
+      "id": "065a5bdd-dbce-4c12-8f95-d85d3b7b6201",
+      "name": "Minh Huy Sài Gòn House",
+      "address": "326/1 Hẻm 293 Ung Văn Khiêm"
+     },
+     {
+      "id": "ea8ac0b7-2642-4972-9566-2d02db2eb661",
+      "name": "The Ky 21",
+      "address": "326/1 Hẻm 293 Ung Văn Khiêm"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "326/1"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "206",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "468c94dc-e1c9-4c15-891f-f9fc38390cf9",
+     "8777325d-2964-4d73-a685-7011c4cdc8ec"
+    ],
+    "door_parents": [
+     "220"
+    ],
+    "listings": [
+     {
+      "id": "468c94dc-e1c9-4c15-891f-f9fc38390cf9",
+      "name": "Trạng Lường Academy",
+      "address": "220/26 Hẻm 206 Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "8777325d-2964-4d73-a685-7011c4cdc8ec",
+      "name": "Laundry Express XVNT",
+      "address": "220/26 Hẻm 206 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "220/26"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "217",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "435a5e43-c8cb-40f1-9ed4-334429baab22",
+     "bdbdd859-b4a5-44a6-a416-79113b187ced"
+    ],
+    "door_parents": [
+     "245"
+    ],
+    "listings": [
+     {
+      "id": "435a5e43-c8cb-40f1-9ed4-334429baab22",
+      "name": "Mùi Trái Cây",
+      "address": "245/45BIS Hẻm 217 Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "bdbdd859-b4a5-44a6-a416-79113b187ced",
+      "name": "ĐỊA ỐC An CƯ",
+      "address": "245/45BIS Hẻm 217 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "245/45"
+    ],
+    "listings_naming_n": 8,
+    "doors_naming_n": 4
+   },
+   {
+    "hem_label": "220",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "9b234a32-e16b-4422-82c4-943bfd052401",
+     "f910f990-64ac-493f-9e7f-5c8c111fa057"
+    ],
+    "door_parents": [
+     "246/1B",
+     "246/9B"
+    ],
+    "listings": [
+     {
+      "id": "9b234a32-e16b-4422-82c4-943bfd052401",
+      "name": "Trà Sữa Chằn",
+      "address": "246/1B/23 Hẻm 220 Xô Viết Nghệ Tĩnh"
+     },
+     {
+      "id": "f910f990-64ac-493f-9e7f-5c8c111fa057",
+      "name": "Mồi Câu Sạch",
+      "address": "246/9B/29 Hẻm 220 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 2,
+    "doors": [
+     "246/1B/23",
+     "246/9B/29"
+    ],
+    "listings_naming_n": 26,
+    "doors_naming_n": 15
+   },
+   {
+    "hem_label": "602/33",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "08397c9a-87f4-439f-a2f2-2f0e7c612371",
+     "86acad73-56f7-4b65-989a-3071ccbae096"
+    ],
+    "door_parents": [
+     "602/37"
+    ],
+    "listings": [
+     {
+      "id": "08397c9a-87f4-439f-a2f2-2f0e7c612371",
+      "name": "HT Legal VN - Văn phòng giao dịch",
+      "address": "602/37/11 Hẻm 602/33 Điện Biên Phủ"
+     },
+     {
+      "id": "86acad73-56f7-4b65-989a-3071ccbae096",
+      "name": "Căn hộ QL13 giá từ 2.9 tỷ/2 Pn",
+      "address": "602/37/29 Hẻm 602/33 Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 2,
+    "doors": [
+     "602/37/11",
+     "602/37/29"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "677",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "00ef3140-87f1-4845-8877-40192a239772",
+     "9a021f63-a424-47a4-8676-7610246a4db8"
+    ],
+    "door_parents": [
+     "667"
+    ],
+    "listings": [
+     {
+      "id": "00ef3140-87f1-4845-8877-40192a239772",
+      "name": "Green World Kindergarten - Powered by Vision Education",
+      "address": "667/1 Hẻm 677 Điện Biên Phủ"
+     },
+     {
+      "id": "9a021f63-a424-47a4-8676-7610246a4db8",
+      "name": "Green World Kindergarten - Powered by Vision Education",
+      "address": "667/1 Hẻm 677 Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "667/1"
+    ],
+    "listings_naming_n": 5,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "1",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "7e0476f5-ba03-4a54-89bf-50c06adee1c4",
+     "d22fe8e2-563f-42c2-85f2-3c73565b2b06"
+    ],
+    "door_parents": [
+     "41",
+     "69"
+    ],
+    "listings": [
+     {
+      "id": "7e0476f5-ba03-4a54-89bf-50c06adee1c4",
+      "name": "Sửa xe máy",
+      "address": "41/78 Hẻm 1 Đặng Thùy Trâm"
+     },
+     {
+      "id": "d22fe8e2-563f-42c2-85f2-3c73565b2b06",
+      "name": "Tém nail",
+      "address": "69/4 Hẻm 1 Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 2,
+    "doors": [
+     "41/78",
+     "69/4"
+    ],
+    "listings_naming_n": 8,
+    "doors_naming_n": 7
+   },
+   {
+    "hem_label": "50",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "28cee1ae-e99b-48ea-9d54-375863d17193",
+     "63f24e3e-e086-446d-b7b4-2351f9488407"
+    ],
+    "door_parents": [
+     "235/50/11"
+    ],
+    "listings": [
+     {
+      "id": "28cee1ae-e99b-48ea-9d54-375863d17193",
+      "name": "Cống Bê Tông Ly Tâm - Bê Tông MQB",
+      "address": "235/50/11/32 Hẻm 50 Đường Đặng Thùy Trâm"
+     },
+     {
+      "id": "63f24e3e-e086-446d-b7b4-2351f9488407",
+      "name": "Làng Lẩu Mộc",
+      "address": "235/50/11/32 Hẻm 50 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 2,
+    "doors_n": 1,
+    "doors": [
+     "235/50/11/32"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "18",
+    "street_key": "bis nguyễn thị minh khai",
+    "street_name": "Bis Nguyễn Thị Minh Khai",
+    "ids": [
+     "bb130039-93de-4b42-b4b4-b5ecf62cfe6f"
+    ],
+    "door_parents": [
+     "18A/111"
+    ],
+    "listings": [
+     {
+      "id": "bb130039-93de-4b42-b4b4-b5ecf62cfe6f",
+      "name": "Sketchnote Academy - Học Viện Vẽ Tuốt",
+      "address": "18A/111/4 Hẻm 18 Bis Nguyễn Thị Minh Khai"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "18A/111/4"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "232/1",
+    "street_key": "bình lợi",
+    "street_name": "Bình Lợi",
+    "ids": [
+     "09035ec1-3fe6-455b-80fe-a9732c8d0d67"
+    ],
+    "door_parents": [
+     "232/5"
+    ],
+    "listings": [
+     {
+      "id": "09035ec1-3fe6-455b-80fe-a9732c8d0d67",
+      "name": "Nguyên Khanh Solutions",
+      "address": "232/5/9 Hẻm 232/1 Đường Bình Lợi"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "232/5/9"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "200",
+    "street_key": "bình lợi/cuối bình lợi",
+    "street_name": "Bình Lợi/cuối   Bình Lợi",
+    "ids": [
+     "8864cb9e-9887-4545-9e30-8972aa71572f"
+    ],
+    "door_parents": [
+     "162"
+    ],
+    "listings": [
+     {
+      "id": "8864cb9e-9887-4545-9e30-8972aa71572f",
+      "name": "T-Coffee and English Club",
+      "address": "162/18, Bình Lợi/cuối Hẻm 200 Bình Lợi"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "162/18"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "480/31/2",
+    "street_key": "bình quới",
+    "street_name": "Bình Quới",
+    "ids": [
+     "bbb7f489-02c7-4c58-ad96-32a0df8b6ae1"
+    ],
+    "door_parents": [
+     "31"
+    ],
+    "listings": [
+     {
+      "id": "bbb7f489-02c7-4c58-ad96-32a0df8b6ae1",
+      "name": "The Pipe Shop NXT",
+      "address": "31/1 Hẻm 480/31/2 Bình Quới"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "31/1"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "18",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "d2cdfaee-ad82-40fa-a835-8d64c68e5086"
+    ],
+    "door_parents": [
+     "385"
+    ],
+    "listings": [
+     {
+      "id": "d2cdfaee-ad82-40fa-a835-8d64c68e5086",
+      "name": "Snooker Việt Nam",
+      "address": "385/13 Hẻm 18 Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "385/13"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "2",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "7215b583-ce32-4505-b264-6c10f1179444"
+    ],
+    "door_parents": [
+     "125/77"
+    ],
+    "listings": [
+     {
+      "id": "7215b583-ce32-4505-b264-6c10f1179444",
+      "name": "Mở Khóa, Làm Chìa Khóa Bình Thạnh 24 Giờ   ",
+      "address": "125/77/3A Hẻm 2 Đường Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "125/77/3A"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "47/42",
+    "street_key": "bùi đình túy",
+    "street_name": "Bùi Đình Túy",
+    "ids": [
+     "761ad5c3-efef-4ab6-9c9f-90a3d83512ee"
+    ],
+    "door_parents": [
+     "225/51"
+    ],
+    "listings": [
+     {
+      "id": "761ad5c3-efef-4ab6-9c9f-90a3d83512ee",
+      "name": "Trung tâm  Gia sư Phúc Trí- Gia sư uy tín TPHCM",
+      "address": "225/51/24 Hẻm 47/42 Đường Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "225/51/24"
+    ],
+    "listings_naming_n": 5,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "1",
+    "street_key": "bạch đằng",
+    "street_name": "Bạch Đằng",
+    "ids": [
+     "c2a35c8c-8780-47dc-a097-e56eb5586e04"
+    ],
+    "door_parents": [
+     "2"
+    ],
+    "listings": [
+     {
+      "id": "c2a35c8c-8780-47dc-a097-e56eb5586e04",
+      "name": "Thi Công Cỏ Nhân Tạo DHG",
+      "address": "2/13 Hẻm 1 Bạch Đằng"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "2/13"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "182",
+    "street_key": "bạch đằng",
+    "street_name": "Bạch Đằng",
+    "ids": [
+     "8614f198-8311-4ed1-94a1-4c5b3a03f0f6"
+    ],
+    "door_parents": [
+     "53"
+    ],
+    "listings": [
+     {
+      "id": "8614f198-8311-4ed1-94a1-4c5b3a03f0f6",
+      "name": "hidden.ROOTs",
+      "address": "53/A5 Hẻm 182 Đường Bạch Đằng"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "53/A5"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "2/9",
+    "street_key": "chu văn an",
+    "street_name": "Chu Văn An",
+    "ids": [
+     "e9245f9c-d163-4381-8a80-539ea1ec1521"
+    ],
+    "door_parents": [
+     "243"
+    ],
+    "listings": [
+     {
+      "id": "e9245f9c-d163-4381-8a80-539ea1ec1521",
+      "name": "Congngheviet.com",
+      "address": "243/4 Hẻm 2/9 Đường Chu Văn An"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "243/4"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "234/2",
+    "street_key": "chu văn an",
+    "street_name": "Chu Văn An",
+    "ids": [
+     "aa1e737a-e6c5-4c67-bdcb-cfbdac9c87bc"
+    ],
+    "door_parents": [
+     "243"
+    ],
+    "listings": [
+     {
+      "id": "aa1e737a-e6c5-4c67-bdcb-cfbdac9c87bc",
+      "name": "MSA Education",
+      "address": "243/8 Hẻm 234/2 Đường Chu Văn An"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "243/8"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "211",
+    "street_key": "hoàng hoa thám",
+    "street_name": "Hoàng Hoa Thám",
+    "ids": [
+     "3d0184dd-1802-4342-bc45-0b432f6eb22a"
+    ],
+    "door_parents": [
+     "263"
+    ],
+    "listings": [
+     {
+      "id": "3d0184dd-1802-4342-bc45-0b432f6eb22a",
+      "name": "Thu Mua Máy Tính, Laptop cũ giá cao",
+      "address": "263/2 Hẻm 211 Hoàng Hoa Thám"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "263/2"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "100",
+    "street_key": "lê quang định",
+    "street_name": "Lê Quang Định",
+    "ids": [
+     "3c7466b1-71e7-4e80-88e2-9c561cc03c3c"
+    ],
+    "door_parents": [
+     "385"
+    ],
+    "listings": [
+     {
+      "id": "3c7466b1-71e7-4e80-88e2-9c561cc03c3c",
+      "name": "M - Waffle Store",
+      "address": "385/16 Hẻm 100 Lê Quang Định"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "385/16"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "251",
+    "street_key": "lê quang định",
+    "street_name": "Lê Quang Định",
+    "ids": [
+     "bc87a2b3-c7f5-499f-9827-db84b396a789"
+    ],
+    "door_parents": [
+     "334"
+    ],
+    "listings": [
+     {
+      "id": "bc87a2b3-c7f5-499f-9827-db84b396a789",
+      "name": "Azzurro Sport - Giày Đá Bóng Chính Hãng",
+      "address": "334/4 Hẻm 251 Lê Quang Định"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "334/4"
+    ],
+    "listings_naming_n": 10,
+    "doors_naming_n": 4
+   },
+   {
+    "hem_label": "377",
+    "street_key": "lê quang định",
+    "street_name": "Lê Quang Định",
+    "ids": [
+     "8e03a9dc-fb10-4f85-a3fb-503eaf094d1b"
+    ],
+    "door_parents": [
+     "361"
+    ],
+    "listings": [
+     {
+      "id": "8e03a9dc-fb10-4f85-a3fb-503eaf094d1b",
+      "name": "VINA Design Tower",
+      "address": "361/18 Hẻm 377 Lê Quang Định"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "361/18"
+    ],
+    "listings_naming_n": 3,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "40",
+    "street_key": "mai xuân thưởng",
+    "street_name": "Mai Xuân Thưởng",
+    "ids": [
+     "908e5f6b-e978-459c-aa77-038fe6c4bb32"
+    ],
+    "door_parents": [
+     "42"
+    ],
+    "listings": [
+     {
+      "id": "908e5f6b-e978-459c-aa77-038fe6c4bb32",
+      "name": "Mỡ Trăn Nguyên Chất Yopeco",
+      "address": "42/1 Hẻm 40 Mai Xuân Thưởng"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "42/1"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "32",
+    "street_key": "mê linh",
+    "street_name": "Mê Linh",
+    "ids": [
+     "29399dff-25da-4402-b495-5b083f7803b7"
+    ],
+    "door_parents": [
+     "35"
+    ],
+    "listings": [
+     {
+      "id": "29399dff-25da-4402-b495-5b083f7803b7",
+      "name": "Aliving",
+      "address": "35/2 Hẻm 32 Đường Mê Linh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "35/2"
+    ],
+    "listings_naming_n": 4,
+    "doors_naming_n": 4
+   },
+   {
+    "hem_label": "62",
+    "street_key": "nguyên hồng",
+    "street_name": "Nguyên Hồng",
+    "ids": [
+     "c75709da-03ae-4989-bebe-52af61eb5f41"
+    ],
+    "door_parents": [
+     "62D"
+    ],
+    "listings": [
+     {
+      "id": "c75709da-03ae-4989-bebe-52af61eb5f41",
+      "name": "Hiếu Cá Dứa",
+      "address": "62D/26 Hẻm 62 Đường Nguyên Hồng"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "62D/26"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "30",
+    "street_key": "nguyễn cửu vân",
+    "street_name": "Nguyễn Cửu Vân",
+    "ids": [
+     "d3d2d3db-6855-45c6-8ddb-648acfc5734b"
+    ],
+    "door_parents": [
+     "236/43"
+    ],
+    "listings": [
+     {
+      "id": "d3d2d3db-6855-45c6-8ddb-648acfc5734b",
+      "name": "Edge Communication",
+      "address": "236/43/11, Hẻm 30 Nguyễn Cửu Vân"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "236/43/11"
+    ],
+    "listings_naming_n": 8,
+    "doors_naming_n": 6
+   },
+   {
+    "hem_label": "297",
+    "street_key": "nguyễn gia trí",
+    "street_name": "Nguyễn Gia Trí",
+    "ids": [
+     "b3e763eb-3f41-409e-957d-532bef0b3c7f"
+    ],
+    "door_parents": [
+     "36"
+    ],
+    "listings": [
+     {
+      "id": "b3e763eb-3f41-409e-957d-532bef0b3c7f",
+      "name": "Jybee Nails Beauty & Academy",
+      "address": "36/59 Hẻm 297 Đường Nguyễn Gia Trí"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "36/59"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "70",
+    "street_key": "nguyễn gia trí",
+    "street_name": "Nguyễn Gia Trí",
+    "ids": [
+     "34f1d6fb-b008-4590-bdf2-6614aeeeaedc"
+    ],
+    "door_parents": [
+     "69/2"
+    ],
+    "listings": [
+     {
+      "id": "34f1d6fb-b008-4590-bdf2-6614aeeeaedc",
+      "name": "Café Kitty",
+      "address": "69/2/28 Hẻm 70 Đường D2"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "69/2/28"
+    ],
+    "listings_naming_n": 6,
+    "doors_naming_n": 4
+   },
+   {
+    "hem_label": "3",
+    "street_key": "nguyễn văn thương",
+    "street_name": "Nguyễn Văn Thương",
+    "ids": [
+     "cd5808b9-5f77-4866-b09c-8b11140bbf3a"
+    ],
+    "door_parents": [
+     "16"
+    ],
+    "listings": [
+     {
+      "id": "cd5808b9-5f77-4866-b09c-8b11140bbf3a",
+      "name": "Tổng Đài Việt",
+      "address": "16/16 Hẻm 3 Nguyễn Văn Thương"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "16/16"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "40",
+    "street_key": "nguyễn văn thương",
+    "street_name": "Nguyễn Văn Thương",
+    "ids": [
+     "84fc5c58-416e-4b4c-9545-6e32755c23a2"
+    ],
+    "door_parents": [
+     "4A"
+    ],
+    "listings": [
+     {
+      "id": "84fc5c58-416e-4b4c-9545-6e32755c23a2",
+      "name": "Tiệm Mì Ý Luci",
+      "address": "4A/33, hẻm 40 Nguyễn Văn Thương"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "4A/33"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "1",
+    "street_key": "nguyễn ảnh thủ",
+    "street_name": "Nguyễn Ảnh Thủ",
+    "ids": [
+     "8098cd88-d98d-4f88-b6bc-70863b6c4457"
+    ],
+    "door_parents": [
+     "167M"
+    ],
+    "listings": [
+     {
+      "id": "8098cd88-d98d-4f88-b6bc-70863b6c4457",
+      "name": "Yến Sào Nha Trang",
+      "address": "167M/1A Hẻm 1 Đường Nguyễn Ảnh Thủ"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "167M/1A"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "10",
+    "street_key": "nơ trang long",
+    "street_name": "Nơ Trang Long",
+    "ids": [
+     "b24fffe6-b990-4240-a6b1-590702054091"
+    ],
+    "door_parents": [
+     "482/10/36"
+    ],
+    "listings": [
+     {
+      "id": "b24fffe6-b990-4240-a6b1-590702054091",
+      "name": "Chùa Pháp Quang Tự",
+      "address": "482/10/36/10 Hẻm 10 Đường Nơ Trang Long"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "482/10/36/10"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "5",
+    "street_key": "nơ trang long",
+    "street_name": "Nơ Trang Long",
+    "ids": [
+     "c3e665f8-31fc-4947-8b49-8436ce41cf14"
+    ],
+    "door_parents": [
+     "9B"
+    ],
+    "listings": [
+     {
+      "id": "c3e665f8-31fc-4947-8b49-8436ce41cf14",
+      "name": "Tiến Minh Medical",
+      "address": "9B/2 Hẻm 5 Nơ Trang Long"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "9B/2"
+    ],
+    "listings_naming_n": 14,
+    "doors_naming_n": 9
+   },
+   {
+    "hem_label": "11",
+    "street_key": "số 17",
+    "street_name": "Số 17",
+    "ids": [
+     "d5eb88ba-8204-4e8a-a099-10011ced831f"
+    ],
+    "door_parents": [
+     "9"
+    ],
+    "listings": [
+     {
+      "id": "d5eb88ba-8204-4e8a-a099-10011ced831f",
+      "name": "Xà Đơn Gắn Cửa - Gắn Tường",
+      "address": "9/8 Hẻm 11 Đường Số 17"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "9/8"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "110",
+    "street_key": "trường sa",
+    "street_name": "Trường Sa",
+    "ids": [
+     "15f48f32-5106-42a0-a00f-f9c72c06a02c"
+    ],
+    "door_parents": [
+     "1"
+    ],
+    "listings": [
+     {
+      "id": "15f48f32-5106-42a0-a00f-f9c72c06a02c",
+      "name": "Quán 2 Chị Em",
+      "address": "1/16 Hẻm 110 Trường Sa"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "1/16"
+    ],
+    "listings_naming_n": 5,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "14",
+    "street_key": "trần quang long",
+    "street_name": "Trần Quang Long",
+    "ids": [
+     "5dcba1d4-742a-4993-9700-e973d87568a0"
+    ],
+    "door_parents": [
+     "79"
+    ],
+    "listings": [
+     {
+      "id": "5dcba1d4-742a-4993-9700-e973d87568a0",
+      "name": "RUST Cafe",
+      "address": "79/4 Hẻm 14 Đường Trần Quang Long"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "79/4"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "46",
+    "street_key": "tân cảng",
+    "street_name": "Tân Cảng",
+    "ids": [
+     "772d5386-2491-48f3-8a73-398b0eb1e212"
+    ],
+    "door_parents": [
+     "36"
+    ],
+    "listings": [
+     {
+      "id": "772d5386-2491-48f3-8a73-398b0eb1e212",
+      "name": "Takasi Ocean - Cuộc Sống Thăng Hoa của cư dân",
+      "address": "36/30 Hẻm 46 Tân Cảng"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "36/30"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "30",
+    "street_key": "võ duy ninh",
+    "street_name": "Võ Duy Ninh",
+    "ids": [
+     "bf8d7d22-a114-463a-a18a-368182fe81aa"
+    ],
+    "door_parents": [
+     "108/27"
+    ],
+    "listings": [
+     {
+      "id": "bf8d7d22-a114-463a-a18a-368182fe81aa",
+      "name": "Phòng Trọ Bình Thạnh",
+      "address": "108/27/28 Hẻm 30 Võ Duy Ninh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "108/27/28"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "81",
+    "street_key": "võ duy ninh",
+    "street_name": "Võ Duy Ninh",
+    "ids": [
+     "f5cfc66a-30e4-439d-bf48-83f5f790367f"
+    ],
+    "door_parents": [
+     "83"
+    ],
+    "listings": [
+     {
+      "id": "f5cfc66a-30e4-439d-bf48-83f5f790367f",
+      "name": "Khúc Thừa Sơn Watch",
+      "address": "83/20 Hẻm 81 Võ Duy Ninh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "83/20"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "26",
+    "street_key": "võ oanh",
+    "street_name": "Võ Oanh",
+    "ids": [
+     "e06bb9e9-7569-4e2b-8985-d1d5b776c4d7"
+    ],
+    "door_parents": [
+     "24"
+    ],
+    "listings": [
+     {
+      "id": "e06bb9e9-7569-4e2b-8985-d1d5b776c4d7",
+      "name": "CTY TNHH sơn Thế Hệ Mới",
+      "address": "24/30 Hẻm 26 Đường Võ Oanh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "24/30"
+    ],
+    "listings_naming_n": 5,
+    "doors_naming_n": 5
+   },
+   {
+    "hem_label": "480",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "70ba6079-fefb-42fe-8c4e-130bbd9fe53b"
+    ],
+    "door_parents": [
+     "26"
+    ],
+    "listings": [
+     {
+      "id": "70ba6079-fefb-42fe-8c4e-130bbd9fe53b",
+      "name": "Bảy Đực",
+      "address": "26/4 Xô Viết Nghệ Tĩnh (hẻm 480 Bình Quới)"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "26/4"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "685/36",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "0e5b894c-43f2-4770-a1ae-a6fbb5bbdd1c"
+    ],
+    "door_parents": [
+     "860"
+    ],
+    "listings": [
+     {
+      "id": "0e5b894c-43f2-4770-a1ae-a6fbb5bbdd1c",
+      "name": "Bắc Bling",
+      "address": "860/80 Hẻm 685/36 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "860/80"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "75",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "7047d9c0-4e95-4782-8f26-9cbf6e53790e"
+    ],
+    "door_parents": [
+     "860"
+    ],
+    "listings": [
+     {
+      "id": "7047d9c0-4e95-4782-8f26-9cbf6e53790e",
+      "name": "CÔNg Ty Tnhh Nam BẮC",
+      "address": "860/75A Hẻm 75 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "860/75A"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "818",
+    "street_key": "xô viết nghệ tĩnh",
+    "street_name": "Xô Viết Nghệ Tĩnh",
+    "ids": [
+     "63c35a4a-071b-40c5-b92e-63326e2b49b4"
+    ],
+    "door_parents": [
+     "860/58"
+    ],
+    "listings": [
+     {
+      "id": "63c35a4a-071b-40c5-b92e-63326e2b49b4",
+      "name": "Lồng Đèn Hội An - Xưởng đèn lồng",
+      "address": "860/58/9 Hẻm 818 Xô Viết Nghệ Tĩnh"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "860/58/9"
+    ],
+    "listings_naming_n": 10,
+    "doors_naming_n": 8
+   },
+   {
+    "hem_label": "200",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "c7ee9ecc-833c-4f42-86db-9f54a29e2bc1"
+    ],
+    "door_parents": [
+     "198"
+    ],
+    "listings": [
+     {
+      "id": "c7ee9ecc-833c-4f42-86db-9f54a29e2bc1",
+      "name": "Dương Nguyễn Beauty",
+      "address": "198/26 Hẻm 200 Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "198/26"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "27/87",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "0561207d-893d-4ca5-831d-c32726a8e45b"
+    ],
+    "door_parents": [
+     "153"
+    ],
+    "listings": [
+     {
+      "id": "0561207d-893d-4ca5-831d-c32726a8e45b",
+      "name": "Đông Trùng Minh Long",
+      "address": "153/88 Hẻm 27/87 Đường Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "153/88"
+    ],
+    "listings_naming_n": 8,
+    "doors_naming_n": 4
+   },
+   {
+    "hem_label": "29",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "f32768bd-e49f-49d2-81a8-bda85f055213"
+    ],
+    "door_parents": [
+     "152"
+    ],
+    "listings": [
+     {
+      "id": "f32768bd-e49f-49d2-81a8-bda85f055213",
+      "name": "152 Điện Biên Phủ - Cho Thuê & Chuyển Nhượng 152 Điện Biên Phủ",
+      "address": "152/43I Hẻm 29 Đường Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "152/43I"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "602/39",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "e4ee6873-92df-4f70-a2cc-996b984bfa5a"
+    ],
+    "door_parents": [
+     "70"
+    ],
+    "listings": [
+     {
+      "id": "e4ee6873-92df-4f70-a2cc-996b984bfa5a",
+      "name": "Vị Mộc Coffee & Drink",
+      "address": "70/12 Hẻm 602/39 Đường Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "70/12"
+    ],
+    "listings_naming_n": 4,
+    "doors_naming_n": 3
+   },
+   {
+    "hem_label": "71",
+    "street_key": "điện biên phủ",
+    "street_name": "Điện Biên Phủ",
+    "ids": [
+     "b3674df0-f92b-4ea9-80ed-c828a94be45c"
+    ],
+    "door_parents": [
+     "57/6"
+    ],
+    "listings": [
+     {
+      "id": "b3674df0-f92b-4ea9-80ed-c828a94be45c",
+      "name": "Thời Trang Nam Rẻ Đẹp",
+      "address": "57/6/4 Hẻm 71 Đường Điện Biên Phủ"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "57/6/4"
+    ],
+    "listings_naming_n": 5,
+    "doors_naming_n": 5
+   },
+   {
+    "hem_label": "47/52",
+    "street_key": "điện biên phủ bùi đình túy",
+    "street_name": "Điện Biên Phủ   Bùi Đình Túy",
+    "ids": [
+     "ba8294e9-0954-4131-a1e0-0f609fb42a41"
+    ],
+    "door_parents": [
+     "236"
+    ],
+    "listings": [
+     {
+      "id": "ba8294e9-0954-4131-a1e0-0f609fb42a41",
+      "name": "Cong Ty TNHH RISO",
+      "address": "236/15B, Điện Biên Phủ Hẻm 47/52 Bùi Đình Túy"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "236/15B"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "1/46",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "d1c18a38-9799-4826-adcf-43206a27788c"
+    ],
+    "door_parents": [
+     "39"
+    ],
+    "listings": [
+     {
+      "id": "d1c18a38-9799-4826-adcf-43206a27788c",
+      "name": "MSOLA Studio",
+      "address": "39/5 Hẻm 1/46 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "39/5"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "197",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "d9806edf-3d37-40e0-88b4-d6264945c85a"
+    ],
+    "door_parents": [
+     "179"
+    ],
+    "listings": [
+     {
+      "id": "d9806edf-3d37-40e0-88b4-d6264945c85a",
+      "name": "Esmart - Dang Thuy Tram",
+      "address": "179/26 Hẻm 197 Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "179/26"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "2",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "d9dc2b24-ed06-4131-87bf-485e3078830d"
+    ],
+    "door_parents": [
+     "20"
+    ],
+    "listings": [
+     {
+      "id": "d9dc2b24-ed06-4131-87bf-485e3078830d",
+      "name": "Quần Áo XK Nữ và Trẻ Em - Trọng Kiên shop - zalo: 0933357842",
+      "address": "20/1 Hẻm 2 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "20/1"
+    ],
+    "listings_naming_n": 2,
+    "doors_naming_n": 2
+   },
+   {
+    "hem_label": "23",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "4ad4aa14-9b0b-4d9b-a49a-cceaf13a5818"
+    ],
+    "door_parents": [
+     "306"
+    ],
+    "listings": [
+     {
+      "id": "4ad4aa14-9b0b-4d9b-a49a-cceaf13a5818",
+      "name": "Clb Bình Lợi Kỳ Đạo",
+      "address": "306/28 Hẻm 23 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "306/28"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "39",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "8a5363eb-a707-48f0-bb8e-79dbc69f6e16"
+    ],
+    "door_parents": [
+     "203/2"
+    ],
+    "listings": [
+     {
+      "id": "8a5363eb-a707-48f0-bb8e-79dbc69f6e16",
+      "name": "HKD Phòng Trọ - Cho Thuê Xe Ô Tô",
+      "address": "203/2/25 Hẻm 39 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "203/2/25"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   },
+   {
+    "hem_label": "64/9",
+    "street_key": "đặng thùy trâm",
+    "street_name": "Đặng Thuỳ Trâm",
+    "ids": [
+     "46004dfa-55ff-4b65-824e-2c72674cfbdc"
+    ],
+    "door_parents": [
+     "69/4"
+    ],
+    "listings": [
+     {
+      "id": "46004dfa-55ff-4b65-824e-2c72674cfbdc",
+      "name": "Minh Nguyệt Fish Ball-Cá Viên Thả Lẩu-Xiên Que Nhập Khẩu",
+      "address": "69/4/11 Hẻm 64/9 Đường Đặng Thùy Trâm"
+     }
+    ],
+    "listings_n": 1,
+    "doors_n": 1,
+    "doors": [
+     "69/4/11"
+    ],
+    "listings_naming_n": 1,
+    "doors_naming_n": 1
+   }
+  ],
+  "n_alleys": 70,
+  "n_alleys_ge2": 21,
+  "n_listings_ge2": 69,
+  "n_listings": 118,
+  "no_street_n": 0
+ },
+ "junk": {
+  "parsed": 24143,
+  "no_address": 1296,
+  "no_leading_number": 3420,
+  "no_street": 206,
+  "total": 29065,
+  "multi_line_info": 0,
+  "range_info": 381,
+  "duplicate_id_rows": {
+   "main": 0,
+   "baseline": 0
+  }
+ },
+ "d_code_aliased_n": 175,
+ "street_variants_folded": {
+  "an duong vuong": "an dương vương",
+  "binh loi": "bình lợi",
+  "binh quoi": "bình quới",
+  "bui dinh tuy": "bùi đình túy",
+  "bui huu nghia": "bùi hữu nghĩa",
+  "bình qưới": "bình quới",
+  "chu van an": "chu văn an",
+  "cộng hoà": "cộng hòa",
+  "dien bien phu": "điện biên phủ",
+  "dinh bo linh": "đinh bộ lĩnh",
+  "do xuan hop": "đỗ xuân hợp",
+  "hoang hoa tham": "hoàng hoa thám",
+  "huynh dinh hai": "huỳnh đình hai",
+  "huynh man dat": "huỳnh mẫn đạt",
+  "hồ hảo hớn": "ho hao hon",
+  "le quang dinh": "lê quang định",
+  "le van duyet": "lê văn duyệt",
+  "lê trong tân": "lê trọng tấn",
+  "me linh": "mê linh",
+  "ngo tat to": "ngô tất tố",
+  "nguyen co thach": "nguyễn cơ thạch",
+  "nguyen gia tri": "nguyễn gia trí",
+  "nguyen hue": "nguyễn huệ",
+  "nguyen huu canh": "nguyễn hữu cảnh",
+  "nguyen thi minh khai": "nguyễn thị minh khai",
+  "nguyen trung truc": "nguyễn trung trực",
+  "nguyen van dau": "nguyễn văn đậu",
+  "nguyen van huong": "nguyễn văn hưởng",
+  "nguyen xi": "nguyễn xí",
+  "nguyễn hưu cảnh": "nguyễn hữu cảnh",
+  "nguyễn hữu cảnh street": "nguyen huu canh street",
+  "nguyễn thái bình": "nguyen thai binh",
+  "nguyễn thường hiền": "nguyễn thượng hiền",
+  "nguyễn văn luông": "nguyễn văn lượng",
+  "nguyễn xi": "nguyễn xí",
+  "nguyễn xì": "nguyễn xí",
+  "no trang long": "nơ trang long",
+  "pham viet chanh": "phạm viết chánh",
+  "phan huy on": "phan huy ôn",
+  "phan van han": "phan văn hân",
+  "phan van hon": "phan văn hớn",
+  "phan van tri": "phan văn trị",
+  "phan xich long": "phan xích long",
+  "phạm ngọc thạch": "pham ngoc thach",
+  "quoc lo 13": "quốc lộ 13",
+  "so 12": "số 12",
+  "tran phu": "trần phú",
+  "tran van ky": "trần văn kỷ",
+  "truờng sa": "trường sa",
+  "ung van khiem": "ung văn khiêm",
+  "vo thi sau": "võ thị sáu",
+  "xo viet nghe tinh": "xô viết nghệ tĩnh",
+  "xô viết nghệ tỉnh": "xô viết nghệ tĩnh",
+  "đ2": "d2",
+  "điên biên phủ": "điện biên phủ",
+  "điện biên phủ st": "dien bien phu st",
+  "đặng thùy trậm": "đặng thùy trâm"
+ },
+ "gates": {
+  "four_turns_in": {
+   "pass": true,
+   "value": 0.4959349593495935,
+   "review_complete": true,
+   "rule": "worship hem_share within ±0.05 of 0.49 and worship_review.json complete"
+  },
+  "split_houses": {
+   "pass": false,
+   "value": 1.902026176054897,
+   "rule": "pooled split share, other main streets / planned grid >= 2.0, n >= 30 per street shown"
+  },
+  "names_that_wont_leave": {
+   "pass": true,
+   "value": 0.13855072463768117,
+   "rule": "pooled_old_any_share >= 0.10 across the three renamed streets (old Phường 25 only)"
+  },
+  "the_sign_and_the_door": {
+   "pass": false,
+   "value": 16,
+   "pre_crosscheck_value": 21,
+   "rule": "n_alleys_ge2 >= 30 distinct named alleys matched to an OSM way by folded name ('Hẻm <label> <street>'), Task 4 cross-check on the pinned PBF"
+  }
+ }
+}

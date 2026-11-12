@@ -40,6 +40,9 @@
   /* v2.4: every other food listing's stretch on a pocket close-up. On land 2.26:1, between the base
      streets (1.45) and the data (--c1 4.14): it reads against land and never passes for data (chroma 0.027) */
   --context-tone: #aba190;
+  /* v2.5-S5: the rest of a page-2 street past its split share (approved mock "warm grey #9c927f"): one step darker than
+     the main roads under it, so a painted street reads whole against the network; never a data hue */
+  --context-rest: #9c927f;
   /* the six street colours, in validated slot order (src/atlas/colours.py is the source) */
   --c1: #ce4522; --c1-name: "phượng";
   --c2: #009399; --c2-name: "rêu";
@@ -528,4 +531,310 @@ body[data-hero="pair"] .hero .density-key { margin: 0.45rem 0 0; font-family: va
   body[data-hero="pair"] .body-lead { grid-row: 6; }
   body[data-hero="pair"] .body-rest { grid-row: 7; }
   body[data-hero="pair"] .source-line { grid-row: 8; }
+}
+
+/* ---------------- Chapter 3 (v2.5): The Alleys ---------------- */
+/* the grey OSM network, knocked back under the data: alleys in the base-street tone, main roads one step darker
+   (--context-tone); both thinner than any route */
+.hero .alley-network { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.hero .alley-network.minor { stroke: var(--base-line); stroke-width: 0.5; }
+.hero .alley-network.main { stroke: var(--context-tone); stroke-width: 1; }
+/* a route ends at the door with its own round end: no marker, no dot */
+.hero .alley-route { fill: none; stroke-linecap: round; stroke-linejoin: round; marker: none; }
+
+/* ---- the stage (v2.5-S4, approved mock 3): one full-bleed map; the words in the outline's pockets (>= 900 px,
+   placed by stage.js from the projected outline) or in six native scroll steps under a pinned map (< 900 px).
+   Type: five sizes a layout (desktop 72 / title / 16 / 14 / 11; phone 40 / 32 / 17 / 14 / 11) ---- */
+.stage { position: relative; --num-size: 16px; }
+/* the camera group scales; strokes keep their screen width (non-scaling) */
+.stage .alley-network, .stage .alley-route, .stage .route-hit, .stage .base-edge { vector-effect: non-scaling-stroke; }
+.stage .zoomed .alley-network.minor { stroke-width: 1.1; }
+.stage .zoomed .alley-network.main { stroke-width: 2; }
+/* the subject hue for every worship route; the pointer hue, heavier, for the three the notes name */
+.stage .alley-route { stroke: var(--c1); stroke-width: var(--route-w, 3px);
+  transition: stroke-opacity 250ms ease-out, stroke-width 250ms ease-out; }
+.stage .alley-route.named { stroke: var(--c5); stroke-width: var(--named-w, 4.5px); }
+/* phone steps 1-2: the named routes are not pointed at yet (one of the worship routes, nothing more) */
+.stage .routes-layer.plain .alley-route.named { stroke: var(--c1); stroke-width: var(--route-w, 3px); }
+/* a camera on a named route fades the rest of the worship routes; a hovered route lights alone and thickens */
+.stage .routes-layer.dim .alley-route:not(.named) { stroke-opacity: 0.35; }
+.stage .routes-layer.has-active .alley-route:not(.active) { stroke-opacity: 0.22; }
+.stage .routes-layer .alley-route.active { stroke-width: 6px; }
+.stage .route-hit { fill: none; stroke: transparent; stroke-width: 14px; pointer-events: stroke; cursor: pointer; outline: none; }
+.stage .route-hit:focus-visible { stroke: var(--ink); stroke-opacity: 0.18; }
+.stage .camera { transform-box: view-box; transform-origin: 0 0; transition: transform 900ms ease-in-out; }
+/* the numerals: text in the pointer hue with a land-coloured halo; no circle, no dot */
+.stage .numerals { transition: opacity 300ms ease-out; }
+.stage .numerals.out { opacity: 0; transition-duration: 200ms; }
+.hero .numeral { font-family: var(--font-display); font-weight: 700; font-size: var(--num-size); fill: var(--c5);
+  paint-order: stroke; stroke: var(--base-fill); stroke-width: 4px; stroke-linejoin: round; }
+
+.stage .hero { position: sticky; top: var(--head-h); width: 100%; margin: 0; overflow: hidden; z-index: 1; }
+.stage .hero svg.hero-map { display: block; }
+.stage .fact { font-variant-numeric: lining-nums; white-space: nowrap; }
+.stage .title { margin: 0; letter-spacing: -0.01em; }
+.stage .big-number { display: block; margin: 0; padding: 0; border: 0; }
+.stage .big-number .value { display: block; line-height: 1; letter-spacing: -0.02em; }
+.stage .big-number .gloss { display: block; color: var(--ink); }
+.stage .deck { margin: 0 0 1rem; }
+.stage .body p:last-child { margin-bottom: 0; }
+.stage .source-line { margin: 0; padding: 0; border: 0; font-size: 11px; letter-spacing: 0.08em; line-height: 1.5; }
+.stage .how-we-know { font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink); text-decoration: underline; text-decoration-color: var(--c1);
+  text-underline-offset: 3px; }
+.stage button.read-toggle, .stage button.read-close {
+  font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink); background: none; border: 0; padding: 0.35rem 0; cursor: pointer;
+  text-decoration: underline; text-decoration-color: var(--c1); text-underline-offset: 3px; }
+.stage button:hover { color: var(--c1); }
+.stage button:focus-visible { outline: 2px solid var(--c1); outline-offset: 2px; }
+/* the bars: share with an alley address, by kind of listing (the page's one secondary) */
+.stage .bars-caption { margin: 0 0 0.55rem; font-family: var(--font-display); font-weight: 600; font-size: 11px;
+  line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.stage .bars { list-style: none; margin: 0; padding: 0; }
+.stage .bar-row { display: flex; align-items: center; font-size: 14px; line-height: 20px; }
+.stage .pocket.tight .bar-row { line-height: 17px; }
+.stage .bar-label { flex: none; width: 9.6em; white-space: nowrap; }
+/* critique MUST 2: a label never runs under its bar; a row too wide for its pocket fails the fit (stage.js) */
+.stage .bar-label { min-width: max-content; padding-right: 6px; box-sizing: border-box; }
+.stage .bar-track { flex: none; display: block; }
+.stage .bar { display: block; height: 9px; width: calc(var(--bar-max) * var(--share)); background: var(--context-mid); }
+.stage .bars { --bar-max: 7.5rem; }
+/* the value label sits just past its bar's end */
+.stage .bar-value { margin-left: 0.45rem; font-family: var(--font-display); font-weight: 600; font-size: 11px; color: var(--ink-soft);
+  font-variant-numeric: tabular-nums lining-nums; }
+.stage .bar-row.lead .bar-label { font-family: var(--font-display); font-weight: 700; color: var(--c1); }
+.stage .bar-row.lead .bar { background: var(--c1); }
+.stage .bar-row.lead .bar-value { color: var(--c1); }
+.stage .bars-ref { margin: 0.55rem 0 0; font-size: 14px; line-height: 1.35; }
+/* the named notes: numeral + name in the pointer hue; a numeral or name is a button that runs the camera */
+.stage .named-lead { margin: 0; font-size: 16px; line-height: 1.38; }
+.stage .named-item { margin: 0.7rem 0 0; }
+.stage button.named-link { font: inherit; color: var(--c5); background: none; border: 0; padding: 0; margin: 0;
+  cursor: pointer; text-align: left; }
+.stage button.named-link .named-words, .stage .named-name { font-family: var(--font-display); font-weight: 700; color: var(--c5); }
+.stage .numeral { font-family: var(--font-display); font-weight: 700; color: var(--c5); }
+.stage .named-item .named-link { font-size: 16px; line-height: 1.3; }
+.stage .named-off, .stage .named-address { display: block; font-size: 14px; line-height: 1.3; color: var(--ink-soft); margin-top: 0.1rem; }
+/* the key: three lines, then the scale bar and north */
+.stage .key-row { margin: 0; font-size: 14px; line-height: 1.6; }
+.stage .key-row .swatch { display: inline-block; width: 22px; height: 3px; margin-right: 8px; vertical-align: middle; background: var(--c1); }
+.stage .key-row.key-named .swatch { height: 4.5px; background: var(--c5); }
+.stage .key-row.key-streets .swatch { height: 1px; background: var(--context-tone); }
+.stage .scale-row, .stage .map-scale { font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }
+.stage .scale-row { margin-top: 0.45rem; }
+.stage .scale-bar { display: inline-block; height: 6px; border: 1px solid var(--ink-soft); border-top: 0; vertical-align: middle; margin-right: 8px; }
+.stage .north-mark { margin-left: 0.6rem; }
+/* the note (hover / focus / tap) */
+.stage-note { font-size: 14px; line-height: 1.35; transition: opacity 250ms ease-out; background: var(--ground); }
+.stage-note .note-name { display: inline; font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.stage-note .numeral { font-size: 16px; }
+.stage-note .note-address { display: block; color: var(--ink-soft); margin-top: 0.1rem; }
+.stage-note .note-lead { display: block; margin-bottom: 0.2rem; }
+/* a place note's compact form (R18): numeral + name only, no "off X" line; the longest note swaps to its own line */
+.stage .named-compact { display: none; margin: 0; font-size: 14px; line-height: 1.3; }
+.stage .pocket.compact .named-off { display: none; }
+.stage .pocket-longest.compact .named-lead { display: none; }
+.stage .pocket-longest.compact .named-compact { display: block; }
+.stage .named-compact .named-link { font-size: 16px; line-height: 1.3; }
+/* the key's compact line in the desktop footer strip (R18), shown only when no pocket holds the key */
+.stage .foot-key { display: none; }
+.stage .reading { background: var(--ground); }
+.stage .reading:not(.open) { display: none; }
+.stage .reading .read-close { float: right; margin: 0 0 0.5rem 0.75rem; }
+.stage .reading .deck { font-size: 16px; }
+.stage .reading .body p { font-size: 16px; line-height: 1.45; }
+.stage .map-number, .stage .map-scale, .stage .step-count { display: none; }
+
+/* ---- v2.5-S5 pages 2-4: item layers (streets and alleys painted part to whole), the ward outline, ink numerals ---- */
+.stage .alley-mark { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: var(--w); vector-effect: non-scaling-stroke;
+  transition: stroke-opacity 250ms ease-out, stroke-width 250ms ease-out; }
+/* desktop widths (the approved 1440 mocks); the phone's below */
+.stage .alley-mark.w-split.on { --w: 3px; }
+.stage .alley-mark.w-split.off { --w: 2.2px; }
+.stage .alley-mark.w-split.off.named { --w: 2.6px; }
+.stage .alley-mark.w-bold { --w: 5px; stroke-linecap: butt; }
+.stage .alley-mark.w-faint { --w: 3px; stroke-linecap: butt; stroke-opacity: 0.42; }
+.stage .alley-mark.w-thin { --w: 1.8px; }
+.stage .alley-mark.w-thick { --w: 3.5px; }
+.stage .alley-mark.w-thick.named { --w: 4.5px; }
+.stage .routes-layer.dim .alley-mark:not(.named) { stroke-opacity: 0.35; }
+.stage .routes-layer.has-active .alley-mark:not(.active) { stroke-opacity: 0.2; }
+.stage .routes-layer .alley-mark.active { stroke-opacity: 1; stroke-width: calc(var(--w) + 2.5px); }
+.stage .ward-outline { fill: none; stroke: var(--ink); stroke-width: 1.5px; stroke-dasharray: 6 4; vector-effect: non-scaling-stroke; }
+.hero .numerals.ink .numeral { fill: var(--ink); }
+.stage .hue { font-family: var(--font-display); font-weight: 700; }
+.stage .hue-c1 { color: var(--c1); } .stage .hue-c2 { color: var(--c2); } .stage .hue-c5 { color: var(--c5); }
+.stage .note-text { margin: 0 0 0.35rem; font-size: 14px; line-height: 1.35; }
+.stage .note-text:last-child { margin-bottom: 0; }
+.stage .named-head { display: block; font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 1.3; }
+.stage .named-head .named-link { font-size: 16px; }
+.stage .pocket-switch .note-text { color: var(--ink-soft); }
+/* page 3's notes name their places in ink (the marks keep their own paint) */
+.stage[data-ink] .named-link, .stage[data-ink] .named-link .named-words, .stage[data-ink] .numeral { color: var(--ink); }
+/* page 4: the lead alley's doors, in the pointer hue */
+/* four columns as the mock; a narrower pocket (tight, dense) or a phone card flows them into as many as fit */
+.stage .pocket.tight .door-grid, .stage .card .door-grid { grid-template-columns: repeat(auto-fill, minmax(6em, 1fr)); }
+.stage .door-grid { display: grid; grid-template-columns: repeat(4, max-content); gap: 2px 12px; margin-top: 0.45rem; justify-content: start;
+  font-family: var(--font-display); font-weight: 600; font-size: 14px; line-height: 1.35; color: var(--c5);
+  font-variant-numeric: lining-nums; }
+/* page 2's bars sit on a grey track of the whole; every bar in phượng */
+.stage .bars-track .bar-track { width: var(--bar-max); height: 9px; background: var(--context-soft); }
+.stage .bars-track .bar { background: var(--c1); width: calc(var(--bar-max) * var(--share)); }
+.stage .bars-track .bar-label .numeral { margin-right: 0.15rem; }
+/* a block a hover note stepped over (S5, no free room at rest) */
+.js .stage .pocket.placed.under-note { visibility: hidden; }
+/* a place-note block's compact form: its numerals and names only */
+.stage .pocket.has-compact .named-compact { display: none; }
+.stage .pocket.has-compact.compact > :not(.named-compact) { display: none; }
+.stage .pocket.has-compact.compact > .named-compact, .stage .pocket.has-compact.compact > .keep-compact { display: block; }
+.stage .named-compact .named-link { margin-right: 0; }
+.stage .named-compact .sep { color: var(--ink-soft); }
+.stage .pocket.has-compact.compact.nonames > .named-compact { display: none; }
+/* R31: a Vietnamese place name never breaks inside itself ("Đền Giê-ra-|đô" broke at its hyphen) */
+.stage .nb { white-space: nowrap; }
+/* R30: page 4's door block shrinks before it hides: compact keeps the grid under the 1 link; `inline` sets the numbers
+   as one wrapping run in the smallest type; only `nogrid`, the last form, drops them (the 1 link's note lists them) */
+.stage .pocket.has-compact.compact > .door-grid.keep-compact { display: grid; }
+.stage .pocket.has-compact.compact > .named-compact + .door-grid { margin-top: 0.2rem; }
+.stage .pocket.has-compact.compact.inline > .door-grid.keep-compact { display: block; margin-top: 1px; font-size: 11px; line-height: 1.2; }
+.stage .pocket.has-compact.compact.inline > .named-compact, .stage .pocket.inline .named-compact .named-link { line-height: 1.2; }
+.stage .pocket.inline .door-grid .door { display: inline; margin-right: 0.4em; white-space: nowrap; }
+.stage .pocket.has-compact.compact.nogrid > .door-grid { display: none; }
+/* a pointer inside running prose (pages 2-4): an inline link, so the sentence wraps on round it */
+.stage a.named-link { color: var(--c5); text-decoration: none; cursor: pointer; }
+.stage a.named-link .named-words { font-family: var(--font-display); font-weight: 700; color: var(--c5); }
+.stage a.named-link:hover .named-words { text-decoration: underline; text-decoration-color: currentColor; }
+.stage a.named-link:focus-visible { outline: 2px solid var(--c1); outline-offset: 2px; }
+/* `dense`: tighter leading for a block of several short lines (S5) */
+.stage .pocket.dense .note-text, .stage .pocket.dense .key-row { line-height: 1.25; margin-bottom: 0.15rem; }
+.stage .pocket.dense .bars-caption { margin-bottom: 0.3rem; }
+.stage .pocket.dense .named-item { margin-top: 0.2rem; }
+.stage .pocket.dense .named-head, .stage .pocket.dense .named-off { line-height: 1.2; }
+.stage .pocket.dense .door-grid { line-height: 1.2; row-gap: 1px; margin-top: 0.3rem; }
+.stage .pocket.dense .scale-row { margin-top: 0.15rem; }
+.stage .pocket.tight .named-head, .stage .pocket.tight .named-head .named-link { font-size: 14px; }
+.stage .pocket.tight .named-item { margin-top: 0.4rem; }
+/* the key's swatches, pages 2-4 */
+.stage .key-split .swatch { background: linear-gradient(90deg, var(--c1) 0 35%, var(--context-rest) 35%) !important; }
+.stage .key-w25 .swatch { height: 5px !important; background: linear-gradient(90deg, var(--c1) 0 60%, var(--c2) 60%) !important; }
+.stage .key-faint .swatch { opacity: 0.45; background: linear-gradient(90deg, var(--c1) 0 60%, var(--c2) 60%) !important; }
+.stage .key-ward .swatch { height: 0 !important; border-top: 1.5px dashed var(--ink); background: none !important; }
+.stage .key-multi .swatch { height: 4px !important; background: var(--c1) !important; }
+.stage .key-single .swatch { height: 2px !important; background: var(--c1) !important; }
+
+/* desktop: one screen, no scroll; the pockets placed by stage.js (until then hidden, never stacked) */
+@media (min-width: 900px) {
+  .js .stage { height: calc(100svh - var(--head-h)); overflow: hidden; }
+  .js .stage .hero { position: absolute; inset: 0; height: auto; }
+  .stage .steps { display: none; }
+  .stage .pocket { padding: 0 4px 0 8px; background: var(--ground); }
+  /* R31: the pockets' own size is the note size (16 px), not the body's 18 px: five sizes, not six */
+  .stage .pockets { font-size: 16px; }
+  .js .stage .pockets { position: absolute; inset: 0; pointer-events: none; }
+  .js .stage .pocket { position: absolute; z-index: 3; visibility: hidden; overflow: hidden; pointer-events: auto; }
+  .js .stage .pocket.placed { visibility: visible; }
+  .stage .pocket-claim .title { font-size: clamp(2rem, 3.2vw, 2.875rem); line-height: 1.02; margin-bottom: 0.3em; }
+  .stage .pocket-claim .big-number .value { font-size: clamp(3.25rem, 5vw, 4.5rem); color: var(--c1); }
+  .stage .pocket-claim .big-number .gloss { font-size: 16px; line-height: 1.4; margin-top: 0.4rem; }
+  .stage .pocket-claim .read-toggle { margin-top: 0.3rem; }
+  /* a block's tight variant (stage.js tries it when its own type does not fit a pocket): one step down the scale */
+  .stage .pocket.tight .named-lead, .stage .pocket.tight .named-item .named-link, .stage .pocket.tight .named-compact .named-link { font-size: 14px; }
+  .stage .pocket.tight .named-off { font-size: 11px; }
+  .stage .pocket-claim.tight .title { font-size: 2rem; }
+  .stage .pocket-claim.tight .big-number .value { font-size: 3.25rem; }
+  .stage .pocket-claim.tight .big-number .gloss { font-size: 14px; }
+  /* R21: the compact claim, for a desktop too short for the claim's own forms: headline at the note size, the number a
+     step down (32 px, the phone headline's size), the gloss at 14; "Read the page" stays */
+  .stage .pocket-claim.compact .title { font-size: 16px; line-height: 1.25; margin-bottom: 0.15em; }
+  .stage .pocket-claim.compact .big-number .value { font-size: 2rem; }
+  .stage .pocket-claim.compact .big-number .gloss { font-size: 14px; line-height: 1.3; margin-top: 0.2rem; }
+  .stage .pocket-claim.compact .read-toggle { margin-top: 0; padding: 0.2rem 0; }
+  .stage .pocket-bars.dense .bar-row { line-height: 15px; }
+  .stage .pocket-bars.tight.dense .bar-label { width: 8.2em; }
+  .stage .pocket-bars.tight.dense .bars { --bar-max: 2.5rem; }
+  .stage .pocket-bars.dense .bars-ref { margin-top: 0.2rem; }
+  .stage .pocket-bars.tight .bars { --bar-max: 5rem; }
+  .stage .pocket-bars.tight .bars-caption { margin-bottom: 0.3rem; }
+  .stage .pocket-bars.tight .bars-ref { margin-top: 0.3rem; }
+  .stage .pocket-key.tight .key-row { line-height: 1.35; }
+  .stage .pocket-key.tight .scale-row { margin-top: 0.2rem; }
+  .stage .pocket-bars.tight .bar-label { width: 9.2em; }
+  /* the pair's wide variant: its two named places side by side, for a short wide pocket */
+  .stage .pocket-pair.wide { display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px; align-content: start; }
+  .stage .pocket-pair.wide .named-lead { grid-column: 1 / -1; }
+  .stage .pocket-pair.wide .named-item { margin-top: 0.35rem; }
+  .stage-note { position: absolute; z-index: 4; padding: 0 4px 0 8px; overflow: hidden; }
+  .stage .reading.open { position: absolute; z-index: 5; overflow: auto; padding: 1rem 1.2rem; border: 1px solid var(--rule); }
+  .js .stage .stage-foot { position: absolute; left: 0; right: 0; bottom: 0; }
+  .stage .stage-foot { z-index: 3; display: flex; align-items: baseline;
+    justify-content: space-between; gap: 0.25rem 2rem; padding: 0.45rem var(--gutter); border-top: 1px solid var(--rule);
+    background: var(--ground); }
+  .stage .stage-foot .how-we-know { flex: none; white-space: nowrap; }
+  .stage .stage-foot .source-line { text-align: right; }
+  .stage.key-in-foot .stage-foot { flex-wrap: wrap; row-gap: 0.15rem; column-gap: 1rem; }
+  .stage.key-in-foot .foot-key .north-mark { margin-left: 0.35rem; }
+  .stage.key-in-foot .foot-key { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 0.8rem; margin: 0;
+    font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-soft); line-height: 1.5; }
+  .stage.key-in-foot .foot-key .swatch { display: inline-block; width: 14px; height: 3px; margin-right: 6px; vertical-align: middle; background: var(--c1); }
+  .stage.key-in-foot .foot-key .key-named .swatch { height: 4.5px; background: var(--c5); }
+  .stage.key-in-foot .foot-key .key-streets .swatch { height: 1px; background: var(--context-tone); }
+  .stage.key-in-foot .foot-key .scale-row { margin: 0; }
+  .stage.key-in-foot .stage-foot .source-line { flex: 1 1 100%; letter-spacing: 0.04em; }
+  .stage.key-in-foot .foot-key { letter-spacing: 0.04em; flex: 1 1 0; min-width: 0; justify-content: flex-end; }
+}
+/* phone: native scroll; the map is pinned (sticky, 59% of the viewport) and one card per step rests under it */
+@media (max-width: 899.98px) {
+  .stage { --num-size: 17px; }
+  .stage .hero { height: 59svh; border-bottom: 1px solid var(--rule); background: var(--ground); }
+  .stage .pockets, .stage .stage-foot { display: none; }
+  .stage .map-number { display: block; position: absolute; z-index: 2; font-family: var(--font-display); font-weight: 700;
+    font-size: 40px; line-height: 1; letter-spacing: -0.02em; color: var(--c1); padding: 0 4px 2px 0;
+    transition: opacity 250ms ease-out; opacity: 0; }
+  .stage.show-number .map-number { opacity: 1; }
+  .stage .map-scale { display: block; position: absolute; z-index: 2; left: 12px; bottom: 4px; padding: 2px 6px 2px 4px; background: var(--ground); }
+  .stage .steps { position: relative; z-index: 0; }
+  .stage .step { min-height: 100svh; }
+  .stage .card { position: sticky; top: calc(var(--head-h) + var(--map-bottom, 59svh)); padding: 14px 16px 12px;
+    background: var(--ground); transition: opacity 250ms ease-out; }
+  .js .stage .step:not(.current) .card { opacity: 0; pointer-events: none; }
+  .stage .card-title { margin: 0 0 12px; font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1.05;
+    letter-spacing: -0.01em; }
+  .stage .phone-gloss, .stage .card .named-lead { margin: 0; font-size: 17px; line-height: 1.45; }
+  .stage .phone-gloss .run-in { font-family: var(--font-display); font-weight: 700; color: var(--c1); }
+  .stage .card .named-item .named-link { font-size: 17px; }
+  .stage .card .bar-row { line-height: 22px; }
+  .stage .card .bars { --bar-max: 9rem; }
+  .stage .card .key-row { line-height: 1.7; }
+  .stage .card-how { margin: 12px 0 0; }
+  /* critique MUST 3 (WCAG 2.5.8): the phone's How we know is a tap target >= 24 px tall, as on chapters 1-2 */
+  .stage .card-how a.how-we-know { display: inline-block; padding-block: 6px; line-height: 16px; }
+  .stage .step:last-child .card { padding-bottom: 34px; }
+  .stage .card .source-line { margin-top: 8px; color: var(--ink-soft); }
+  .stage .card .read-toggle { margin-top: 4px; }
+  .stage .step-count { display: block; position: fixed; left: 16px; bottom: 10px; z-index: 3; margin: 0;
+    font-family: var(--font-display); font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-soft); background: var(--ground); padding: 2px 4px 2px 0; }
+  .stage-note .note-name, .stage-note .numeral { font-size: 17px; }
+  .stage .alley-mark.w-split.on { --w: 2.2px; }
+  .stage .alley-mark.w-split.off { --w: 1.6px; }
+  .stage .alley-mark.w-split.off.named { --w: 2px; }
+  .stage .alley-mark.w-bold { --w: 3.5px; }
+  .stage .alley-mark.w-faint { --w: 2px; }
+  .stage .alley-mark.w-thin { --w: 1.3px; }
+  .stage .alley-mark.w-thick { --w: 2.5px; }
+  .stage .alley-mark.w-thick.named { --w: 3px; }
+  .stage .card .note-text, .stage .card .named-head, .stage .card .named-head .named-link { font-size: 17px; line-height: 1.45; }
+  .stage .card .named-item .named-off { font-size: 14px; }
+  .stage .card .bars-track { --bar-max: 7.5rem; }
+  .stage .reading .deck, .stage .reading .body p { font-size: 17px; }
+  .stage-note { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 6; padding: 0.8rem 1rem;
+    border: 1px solid var(--ink-soft); }
+  .stage .reading.open { position: fixed; inset: 12px; z-index: 12; overflow: auto; padding: 1rem 1.1rem; border: 1px solid var(--ink-soft); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage .camera, .stage .numerals, .stage .alley-route, .stage .alley-mark, .stage .card, .stage-note, .stage .map-number {
+    transition: none !important; }
 }
