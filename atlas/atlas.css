@@ -739,6 +739,9 @@ body[data-hero="pair"] .hero .density-key { margin: 0.45rem 0 0; font-family: va
   .stage .pocket-claim .big-number .value { font-size: clamp(3.25rem, 5vw, 4.5rem); color: var(--c1); }
   .stage .pocket-claim .big-number .gloss { font-size: 16px; line-height: 1.4; margin-top: 0.4rem; }
   .stage .pocket-claim .read-toggle { margin-top: 0.3rem; }
+  /* v2.5.1: a claim's second half, stated as text at the gloss's own size (a faint layer cannot carry a claim) */
+  .stage .pocket-claim .claim-also { font-size: 16px; line-height: 1.4; margin: 0.4rem 0 0; }
+  .stage .pocket-claim.tight .claim-also, .stage .pocket-claim.compact .claim-also { font-size: 14px; line-height: 1.3; margin-top: 0.2rem; }
   /* a block's tight variant (stage.js tries it when its own type does not fit a pocket): one step down the scale */
   .stage .pocket.tight .named-lead, .stage .pocket.tight .named-item .named-link, .stage .pocket.tight .named-compact .named-link { font-size: 14px; }
   .stage .pocket.tight .named-off { font-size: 11px; }
@@ -747,7 +750,8 @@ body[data-hero="pair"] .hero .density-key { margin: 0.45rem 0 0; font-family: va
   .stage .pocket-claim.tight .big-number .gloss { font-size: 14px; }
   /* R21: the compact claim, for a desktop too short for the claim's own forms: headline at the note size, the number a
      step down (32 px, the phone headline's size), the gloss at 14; "Read the page" stays */
-  .stage .pocket-claim.compact .title { font-size: 16px; line-height: 1.25; margin-bottom: 0.15em; }
+  /* v2.5.1 (user): 18 px, not 16, so the headline sits above the 16 px serif place names it shares a view with */
+  .stage .pocket-claim.compact .title { font-size: 18px; line-height: 1.25; margin-bottom: 0.15em; }
   .stage .pocket-claim.compact .big-number .value { font-size: 2rem; }
   .stage .pocket-claim.compact .big-number .gloss { font-size: 14px; line-height: 1.3; margin-top: 0.2rem; }
   .stage .pocket-claim.compact .read-toggle { margin-top: 0; padding: 0.2rem 0; }
